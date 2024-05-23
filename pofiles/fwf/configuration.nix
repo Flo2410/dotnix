@@ -30,61 +30,90 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
+
     # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
   };
 
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
-        # Enable flakes and new 'nix' command
-        experimental-features = "nix-command flakes";
-        # Opinionated: disable global registry
-        flake-registry = "";
-        # Workaround for https://github.com/NixOS/nix/issues/9574
-        nix-path = config.nix.nixPath;
-      };
-      # Opinionated: disable channels
-      channel.enable = false;
+  # Ensure nix flakes are enabled
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
 
-      # Opinionated: make flake registry and nix path match flake inputs
-      registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
-      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-    };
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+  };
 
-  # FIXME: Add the rest of your current configuration
+  # Bootloader.
+  boot.loader = {
+    systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 10;
+    efi.canTouchEfiVariables = true;
+    timeout = 1;
+  };
 
-  #  Set your hostname
-  networking.hostName = "fwf";
+  # Enable networking
+  networking.hostName = "fwf"; # Define your hostname.
+  networking.networkmanager.enable = true;
+  networking.extraHosts =
+    ''
+      10.94.31.11 terminal.fhwn.ac.at
+    '';
 
-  #  Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    #  Replace with your username
-    florian = {
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" ];
-    };
+  # Set your time zone.
+  time.timeZone = "Europe/Vienna";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "de_AT.UTF-8";
+    LC_IDENTIFICATION = "de_AT.UTF-8";
+    LC_MEASUREMENT = "de_AT.UTF-8";
+    LC_MONETARY = "de_AT.UTF-8";
+    LC_NAME = "de_AT.UTF-8";
+    LC_NUMERIC = "de_AT.UTF-8";
+    LC_PAPER = "de_AT.UTF-8";
+    LC_TELEPHONE = "de_AT.UTF-8";
+    LC_TIME = "de_AT.UTF-8";
+  };
+  console.useXkbConfig = true;
+
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.florian = {
+    isNormalUser = true;
+    description = "Florian";
+    extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" ];
+    uid = 1000;
+    packages = [ ];
+  };
+
+  # List packages installed in system profile.
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    zsh
+    home-manager
+  ];
+
+  programs.partition-manager.enable = true;
+
+  # I use zsh btw
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

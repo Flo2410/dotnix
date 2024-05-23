@@ -20,46 +20,84 @@
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
+
+    config.allowUnfree = true;
   };
 
-  # TODO: Set your username
+  # Home Manager needs a bit of information about you and the paths it should  manage.
   home = {
     username = "florian";
     homeDirectory = "/home/florian";
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  news.display = "silent"; # disable home-manager news
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+
+  services = {
+    syncthing.enable = true;
+    kdeconnect.enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  home.packages = with pkgs; [
+    # programms
+    firefox
+    thunderbird
+    discord
+    spotify
+    signal-desktop
+    parsec-bin
+    barrier
+    matlab # from nix-matlab
+    prusa-slicer
+    onedrivegui
+    saleae-logic-2
+    libreoffice-qt
+
+    # kde utils
+    yakuake
+    kate
+    kcalc
+    skanpage
+
+    # Media
+    gimp
+    inkscape
+    darktable
+    vlc
+    ffmpeg
+
+    # utils
+    syncthingtray
+    syncthing
+    gh
+    ookla-speedtest
+    xorg.xhost
+    nixpkgs-fmt
+    pre-commit
+    file
+    ansible
+    sshpass
+    nixd
+
+    # unstable packages
+    pkgs.unstable.kicad
+    pkgs.unstable.obsidian
+    pkgs.unstable.stm32cubemx
+    pkgs.unstable.naps2
+
+    # Remmina v1.4.30 
+    # pkgs-remmina.remmina
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
