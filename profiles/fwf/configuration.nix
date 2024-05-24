@@ -1,16 +1,12 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }:
+
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules.system
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -114,6 +110,22 @@
       pkgs.xdg-desktop-portal
       pkgs.xdg-desktop-portal-gtk
     ];
+  };
+
+  system = {
+
+    # WM
+    wm.x11-plasma.enable = true;
+
+    # Config
+    config.dbus.enable = true;
+    config.fonts.enable = true;
+    config.pipewire.enable = true;
+    config.plymouth.enable = true;
+
+    # Security
+    security.firewall.enable = true;
+
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
