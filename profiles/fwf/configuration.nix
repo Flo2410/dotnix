@@ -128,6 +128,23 @@
     # Security
     security.firewall.enable = true;
 
+    # Apps
+    app = {
+      logiops.enable = true;
+      steam.enable = true;
+      virtualization.enable = true;
+      docker = {
+        enable = true;
+        storageDriver = "overlay2";
+      };
+      flatpak = {
+        enable = true;
+        packages = [
+          "com.ultimaker.cura"
+        ];
+      };
+    };
+
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
