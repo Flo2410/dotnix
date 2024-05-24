@@ -118,10 +118,12 @@
     wm.x11-plasma.enable = true;
 
     # Config
-    config.dbus.enable = true;
-    config.fonts.enable = true;
-    config.pipewire.enable = true;
-    config.plymouth.enable = true;
+    config = {
+      dbus.enable = true;
+      fonts.enable = true;
+      pipewire.enable = true;
+      plymouth.enable = true;
+    };
 
     # Security
     security.firewall.enable = true;
