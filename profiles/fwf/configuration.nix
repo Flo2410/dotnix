@@ -114,6 +114,9 @@
   };
 
   services = {
+    hardware.bolt.enable = true;
+    timesyncd.enable = true;
+
     udev = {
       enable = true;
       packages = with pkgs; [
@@ -121,6 +124,12 @@
         udev-saleae-logic #(callPackage ./saleae-logic.nix { })
         openocd #(callPackage ./openocd.nix { })
       ];
+    };
+
+    journald = {
+      extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
+      rateLimitBurst = 500;
+      rateLimitInterval = "30s";
     };
   };
 
@@ -145,10 +154,12 @@
       logiops.enable = true;
       steam.enable = true;
       virtualization.enable = true;
+
       docker = {
         enable = true;
         storageDriver = "overlay2";
       };
+
       flatpak = {
         enable = true;
         packages = [
@@ -157,6 +168,23 @@
       };
     };
 
+    hardware = {
+      bluetooth.enable = true;
+      fingerprint.enable = true;
+      kernelOptions.enable = true;
+      opengl.enable = true;
+      printing.enable = true;
+
+      filesystem = {
+        enable = true;
+        autoMounts = [ "/mnt/florian" ];
+      };
+
+      powerManagement = {
+        enable = true;
+        enableSuspendThenHibernate = true;
+      };
+    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
