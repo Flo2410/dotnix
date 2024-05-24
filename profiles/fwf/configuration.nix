@@ -113,6 +113,17 @@
     ];
   };
 
+  services = {
+    udev = {
+      enable = true;
+      packages = with pkgs; [
+        udev-stm32-named-tty #(callPackage ./stm32-named-tty.nix { })
+        udev-saleae-logic #(callPackage ./saleae-logic.nix { })
+        openocd #(callPackage ./openocd.nix { })
+      ];
+    };
+  };
+
   system = {
 
     # WM
