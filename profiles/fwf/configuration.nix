@@ -11,6 +11,7 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+    inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
