@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "My NixOS configuaration";
 
   inputs = {
     # Nixpkgs
@@ -17,12 +17,7 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , ...
-    } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -49,11 +44,9 @@
       overlays = import ./overlays { inherit inputs; };
 
       # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
 
       # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
 
       # NixOS configuration entrypoint
