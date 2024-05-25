@@ -62,6 +62,7 @@
       browser.vivaldi.enable = true;
       fusuma.enable = true;
       virtualization.enable = true;
+      latte.enable = true;
 
       terminal = {
         kitty.enable = true;
