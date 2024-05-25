@@ -92,7 +92,7 @@
     unstable.naps2
 
     # Remmina v1.4.30 
-    # pkgs-remmina.remmina
+    remmina
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

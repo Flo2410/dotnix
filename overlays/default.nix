@@ -1,5 +1,5 @@
 # This file defines overlays
-{inputs, ...}: {
+{ inputs, ... }: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -10,6 +10,8 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+
+    remmina = (import inputs.nixpkgs-remmina { system = final.system; }).remmina;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
