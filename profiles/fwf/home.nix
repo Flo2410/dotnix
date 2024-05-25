@@ -39,7 +39,7 @@
 
   user = {
     home-manager = rec {
-      enabel = true;
+      enable = true;
       username = "florian";
       homeDirectory = "/home/${username}";
       dotfilesDirectory = "${homeDirectory}/dotnix";
@@ -55,6 +55,17 @@
       autostart = {
         enable = true;
         autostartItems = [ "OneDriveGUI" "yakuake" ];
+      };
+    };
+
+    app = {
+      browser.vivaldi.enable = true;
+      fusuma.enable = true;
+      virtualization.enable = true;
+
+      terminal = {
+        kitty.enable = true;
+        konsole.enable = true;
       };
     };
   };
