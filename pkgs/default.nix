@@ -8,8 +8,8 @@ pkgs: with pkgs; {
 
   git-fuzzy = callPackage ./git-fuzzy.nix { };
 
-  # # Custom Packages
-  # (callPackage ../../user/pkgs/home-assistant-desktop.nix { })
+  # Custom Packages
+  home-assistant-desktop = callPackage ./home-assistant-desktop.nix { };
   # (callPackage ../../user/pkgs/elamx2.nix { })
   # # (callPackage ../../user/pkgs/mqtt-explorer.nix { })
 }

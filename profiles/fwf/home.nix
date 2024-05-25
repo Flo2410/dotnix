@@ -98,6 +98,9 @@
 
     # Remmina v1.4.30 
     remmina
+
+    # Custom Packages
+    home-assistant-desktop
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
