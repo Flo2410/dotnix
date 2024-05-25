@@ -27,15 +27,7 @@
     config.allowUnfree = true;
   };
 
-  # Home Manager needs a bit of information about you and the paths it should  manage.
-  home = {
-    username = "florian";
-    homeDirectory = "/home/florian";
-  };
-
   news.display = "silent"; # disable home-manager news
-
-  programs.home-manager.enable = true;
 
   services = {
     syncthing.enable = true;
@@ -46,6 +38,13 @@
   systemd.user.startServices = "sd-switch";
 
   user = {
+    home-manager = rec {
+      enabel = true;
+      username = "florian";
+      homeDirectory = "/home/${username}";
+      dotfilesDirectory = "${homeDirectory}/dotnix";
+    };
+
     shell.enable = true;
 
     config = {
