@@ -86,10 +86,10 @@
     nixd
 
     # unstable packages
-    pkgs.unstable.kicad
-    pkgs.unstable.obsidian
-    pkgs.unstable.stm32cubemx
-    pkgs.unstable.naps2
+    unstable.kicad
+    unstable.obsidian
+    unstable.stm32cubemx
+    unstable.naps2
 
     # Remmina v1.4.30 
     # pkgs-remmina.remmina
