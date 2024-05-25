@@ -14,6 +14,18 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      mkSystem = modules: nixpkgs.lib.nixosSystem {
+        inherit modules;
+        specialArgs = { inherit inputs outputs; };
+      };
+
+      mkHome = system: modules: home-manager.lib.homeManagerConfiguration {
+        inherit modules;
+        pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+
     in
     {
       # Your custom packages
@@ -36,26 +48,13 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        fwf = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main nixos configuration file <
-            ./profiles/fwf/configuration.nix
-          ];
-        };
+        fwf = mkSystem [ ./profiles/fwf/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "florian" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            # > Our main home-manager configuration file <
-            ./profiles/fwf/home.nix
-          ];
-        };
+        "florian@fwf" = mkHome "x86_64-linux" [ ./profiles/fwf/home.nix ];
       };
     };
 
