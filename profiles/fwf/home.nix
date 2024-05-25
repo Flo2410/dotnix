@@ -47,6 +47,17 @@
 
   user = {
     shell.enable = true;
+
+    config = {
+      xdg.enable = true;
+      ssh.enable = true;
+      git.enable = true;
+
+      autostart = {
+        enable = true;
+        autostartItems = [ "OneDriveGUI" "yakuake" ];
+      };
+    };
   };
 
   home.packages = with pkgs; [
