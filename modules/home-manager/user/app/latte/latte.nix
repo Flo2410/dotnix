@@ -3,6 +3,9 @@
 with lib;
 let
   cfg = config.user.app.latte;
+  dotfilesDirectory = config.user.home.dotfilesDirectory;
+
+  mkMutableSymlink = config.lib.meta.mkMutableSymlink;
 in
 {
   options.user.app.latte = {
@@ -15,8 +18,8 @@ in
     ];
 
     home.file = {
-      ".config/lattedockrc".source = mkOutOfStoreSymlink ./lattedockrc;
-      ".config/latte/Default.layout.latte".source = mkOutOfStoreSymlink ./My-Layout.layout.latte;
+      ".config/lattedockrc".source = mkMutableSymlink ./lattedockrc;
+      ".config/latte/Default.layout.latte".source = mkMutableSymlink ./My-Layout.layout.latte;
     };
   };
 }

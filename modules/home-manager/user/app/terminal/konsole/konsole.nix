@@ -3,7 +3,9 @@
 with lib;
 let
   cfg = config.user.app.terminal.konsole;
-  mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
+  dotfilesDirectory = config.user.home-manager.dotfilesDirectory;
+
+  mkMutableSymlink = config.lib.meta.mkMutableSymlink;
 in
 {
   options.user.app.terminal.konsole = {
@@ -14,11 +16,11 @@ in
     home.file = {
       "share" = {
         target = ".local/share/konsole";
-        source = mkOutOfStoreSymlink ./share;
+        source = mkMutableSymlink ./share;
       };
 
-      ".config/konsolerc".source = mkOutOfStoreSymlink ./konsolerc;
-      ".config/yakuakerc".source = mkOutOfStoreSymlink ./yakuakerc;
+      ".config/konsolerc".source = mkMutableSymlink ./konsolerc;
+      ".config/yakuakerc".source = mkMutableSymlink ./yakuakerc;
     };
   };
 }
