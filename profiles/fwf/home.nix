@@ -64,6 +64,7 @@
       fusuma.enable = true;
       virtualization.enable = true;
       latte.enable = true;
+      barrier.enable = true;
 
       terminal = {
         kitty.enable = true;
@@ -80,7 +81,6 @@
     spotify
     signal-desktop
     parsec-bin
-    barrier
     matlab # from nix-matlab
     prusa-slicer
     onedrivegui
