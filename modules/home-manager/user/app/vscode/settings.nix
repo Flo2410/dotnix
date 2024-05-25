@@ -79,6 +79,7 @@ in
   "git.confirmSync" = false;
   "git.enableCommitSigning" = true;
   "git.enableSmartCommit" = false;
+  "git.suggestSmartCommit" = false;
 
   # Gitlense
   "gitlens.graph.layout" = "editor";
