@@ -23,6 +23,7 @@
       outputs.overlays.unstable-packages
 
       inputs.nix-matlab.overlay
+      inputs.nix-vscode-extensions.overlays.default
     ];
 
     config.allowUnfree = true;
@@ -65,6 +66,7 @@
       virtualization.enable = true;
       latte.enable = true;
       barrier.enable = true;
+      vscode.enable = true;
 
       terminal = {
         kitty.enable = true;

@@ -1,0 +1,105 @@
+{}:
+
+[
+  {
+    key = "shift+cmd+[Backslash]";
+    command = "workbench.action.terminal.toggleTerminal";
+  }
+  {
+    key = "ctrl+shift+[Equal]";
+    command = "-workbench.action.terminal.toggleTerminal";
+  }
+  {
+    key = "shift+alt+h";
+    command = "psi-header.insertFileHeader";
+  }
+  {
+    key = "ctrl+alt+h ctrl+alt+h";
+    command = "-psi-header.insertFileHeader";
+  }
+  {
+    key = "cmd+n";
+    command = "-workbench.action.files.newUntitledFile";
+  }
+  {
+    key = "cmd+n";
+    command = "explorer.newFile";
+  }
+  {
+    key = "alt+cmd+n";
+    command = "explorer.newFolder";
+  }
+  {
+    key = "ctrl+shift+p";
+    command = "workbench.action.showCommands";
+  }
+  {
+    key = "ctrl+shift+p";
+    command = "-workbench.action.showCommands";
+  }
+  {
+    key = "ctrl+p";
+    command = "workbench.action.quickOpen";
+  }
+  {
+    key = "ctrl+p";
+    command = "-workbench.action.quickOpen";
+  }
+  {
+    key = "shift+alt+up";
+    command = "editor.action.copyLinesUpAction";
+    "when" = "editorTextFocus && !editorReadonly";
+  }
+  {
+    key = "ctrl+shift+alt+up";
+    command = "-editor.action.copyLinesUpAction";
+    "when" = "editorTextFocus && !editorReadonly";
+  }
+  {
+    key = "shift+alt+down";
+    command = "editor.action.copyLinesDownAction";
+    "when" = "editorTextFocus && !editorReadonly";
+  }
+  {
+    key = "ctrl+shift+alt+down";
+    command = "-editor.action.copyLinesDownAction";
+    "when" = "editorTextFocus && !editorReadonly";
+  }
+  {
+    key = "ctrl+shift+[BracketRight]";
+    command = "workbench.action.zoomIn";
+  }
+  {
+    key = "ctrl+[BracketRight]";
+    command = "-workbench.action.zoomIn";
+  }
+  {
+    key = "ctrl+shift+-";
+    command = "workbench.action.zoomOut";
+  }
+  {
+    key = "ctrl+-";
+    command = "-workbench.action.zoomOut";
+  }
+  {
+    key = "ctrl+[Backslash]";
+    command = "terminal.focus";
+  }
+  {
+    key = "ctrl+shift+7";
+    command = "-coverage-gutters.displayCoverage";
+  }
+  {
+    key = "alt+o";
+    command = "-C_Cpp.SwitchHeaderSource";
+    "when" = "editorTextFocus && editorLangId =~ /^(c|(cuda-)?cpp)$/ && !(config.C_Cpp.intelliSenseEngine =~ /^[dD]isabled$/)";
+  }
+  {
+    key = "alt+o";
+    command = "workbench.action.splitEditor";
+  }
+  {
+    key = "alt+p";
+    command = "workbench.action.splitEditorDown";
+  }
+]

@@ -7,5 +7,6 @@
     ./virtualization/virtualization.nix
     ./latte/latte.nix
     ./barrier/barrier.nix
+    ./vscode/vscode.nix
   ];
 }
