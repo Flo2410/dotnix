@@ -101,6 +101,7 @@
 
     # Custom Packages
     home-assistant-desktop
+    elamx2
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

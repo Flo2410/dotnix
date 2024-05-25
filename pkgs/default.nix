@@ -10,6 +10,6 @@ pkgs: with pkgs; {
 
   # Custom Packages
   home-assistant-desktop = callPackage ./home-assistant-desktop.nix { };
-  # (callPackage ../../user/pkgs/elamx2.nix { })
+  elamx2 = callPackage ./elamx2.nix { };
   # # (callPackage ../../user/pkgs/mqtt-explorer.nix { })
 }
