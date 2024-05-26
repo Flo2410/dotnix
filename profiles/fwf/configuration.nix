@@ -15,37 +15,25 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
+    ../../nix/nixpkgs.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
 
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+  nix = {
+    # Ensure nix flakes are enabled
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
 
-      inputs.rust-overlay.overlays.default
-    ];
-
-    # Configure your nixpkgs instance
-    config.allowUnfree = true;
-  };
-
-  # Ensure nix flakes are enabled
-  nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
-  # Garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+    # Garbage collection
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Bootloader.
@@ -57,12 +45,13 @@
   };
 
   # Enable networking
-  networking.hostName = "fwf"; # Define your hostname.
-  networking.networkmanager.enable = true;
-  networking.extraHosts =
-    ''
+  networking = {
+    hostName = "fwf"; # Define your hostname.
+    networkmanager.enable = true;
+    extraHosts = ''
       10.94.31.11 terminal.fhwn.ac.at
     '';
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";

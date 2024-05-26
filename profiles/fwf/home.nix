@@ -12,22 +12,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ../../nix/nixpkgs.nix
     ../../nix/lib/functions.nix
   ];
-
-  nixpkgs = {
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-
-      inputs.nix-matlab.overlay
-      inputs.nix-vscode-extensions.overlays.default
-    ];
-
-    config.allowUnfree = true;
-  };
 
   news.display = "silent"; # disable home-manager news
 
