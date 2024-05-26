@@ -45,6 +45,7 @@ with pkgs.vscode-marketplace; [
   pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
   pkgs.vscode-extensions.ms-vscode.hexeditor
 
+  james-yu.latex-workshop
   ltex-vsxi
 
   # TODO: The following should be moved into the coresponding dev shells.
@@ -66,7 +67,6 @@ with pkgs.vscode-marketplace; [
   # felipe.nasc-touchbar
   # github.vscode-github-actions
   # ijs.reactnextjssnippets
-  # james-yu.latex-workshop
   # lokalise.i18n-ally
   # marus25.cortex-debug
   # mcu-debug.debug-tracker-vscode
@@ -106,7 +106,6 @@ with pkgs.vscode-marketplace; [
   # twxs.cmake
   unifiedjs.vscode-mdx
   # vaisakh96.pythonic-snippets
-  # valentjn.vscode-ltex
   # # vscodevim.vim
   # # xabikos.javascriptsnippets
 
