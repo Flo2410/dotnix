@@ -2,11 +2,11 @@
 
 with lib;
 let
-  cfg = config.user.home-manager;
+  cfg = config.user.home;
 in
 {
-  options.user.home-manager = {
-    enable = mkEnableOption "Enable Home-Manager";
+  options.user.home = {
+    enable = mkEnableOption "Enable Home";
     username = mkOption {
       type = types.str;
       default = "florian";
@@ -22,8 +22,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.home-manager.enable = true;
-
     # Home Manager needs a bit of information about you and the paths it should  manage.
     home = {
       username = cfg.username;

@@ -27,7 +27,7 @@
   systemd.user.startServices = "sd-switch";
 
   user = {
-    home-manager = rec {
+    home = rec {
       enable = true;
       username = "florian";
       homeDirectory = "/home/${username}";
