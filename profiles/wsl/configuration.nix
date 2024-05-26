@@ -36,7 +36,7 @@ rec {
 
   # Enable networking
   networking = {
-    hostName = "wsl"; # Define your hostname.
+    hostName = "nixos"; # Define your hostname.
   };
 
   # Set your time zone.
