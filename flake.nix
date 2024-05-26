@@ -49,6 +49,7 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         fwf = mkSystem [ ./profiles/fwf/configuration.nix ];
+        wsl = mkSystem [ ./profiles/wsl/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
