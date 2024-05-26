@@ -56,7 +56,29 @@
       homeConfigurations = {
         "florian@fwf" = mkHome "x86_64-linux" [ ./profiles/fwf/home.nix ];
       };
+
+      devShells = forAllSystems (system:
+        let
+          callPackage = nixpkgs.legacyPackages.${system}.callPackage;
+        in
+        {
+          nodejs = callPackage ./nix/shells/nodejs.nix { };
+          rust = callPackage ./nix/shells/rust.nix { };
+          python = callPackage ./nix/shells/python.nix { };
+          latex = callPackage ./nix/shells/latex.nix { };
+          cpp = callPackage ./nix/shells/cpp.nix { };
+          ros2 = callPackage ./nix/shells/ros2.nix { };
+        });
     };
+
+  nixConfig = {
+    extra-trusted-substituters = [
+      "https://ros.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "ros.cachix.org-1:dSyZxI8geDCJrwgvCOHDoAfOm5sV1wCPjBkKL+38Rvo="
+    ];
+  };
 
 
   inputs = {
@@ -100,6 +122,12 @@
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

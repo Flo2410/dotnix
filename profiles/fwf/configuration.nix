@@ -27,6 +27,8 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+
+      inputs.rust-overlay.overlays.default
     ];
 
     # Configure your nixpkgs instance
