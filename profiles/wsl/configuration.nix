@@ -18,6 +18,7 @@ rec {
     ../../nix/nixpkgs.nix
   ];
 
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   nix = {
     # Ensure nix flakes are enabled
