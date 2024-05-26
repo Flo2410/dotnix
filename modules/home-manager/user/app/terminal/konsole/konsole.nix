@@ -3,7 +3,6 @@
 with lib;
 let
   cfg = config.user.app.terminal.konsole;
-  dotfilesDirectory = config.user.home-manager.dotfilesDirectory;
 
   mkMutableSymlink = config.lib.meta.mkMutableSymlink;
 in
