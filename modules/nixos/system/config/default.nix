@@ -5,5 +5,6 @@
     ./pipewire.nix
     ./plymouth.nix
     ./locale.nix
+    ./user.nix
   ];
 }

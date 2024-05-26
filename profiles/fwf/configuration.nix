@@ -58,15 +58,6 @@
 
   console.useXkbConfig = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.florian = {
-    isNormalUser = true;
-    description = "Florian";
-    extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" ];
-    uid = 1000;
-    packages = [ ];
-  };
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     wget
@@ -126,6 +117,14 @@
         enable = true;
         defaultLocale = "en_US.UTF-8";
         extraLocale = "de_AT.UTF-8";
+      };
+
+      user = {
+        user = "florian";
+        home-manager = {
+          enable = true;
+          home = ./home.nix;
+        };
       };
     };
 
