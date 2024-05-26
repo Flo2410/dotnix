@@ -61,14 +61,25 @@
       devShells = forAllSystems (system:
         let
           callPackage = nixpkgs.legacyPackages.${system}.callPackage;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              outputs.overlays.additions
+              outputs.overlays.modifications
+              outputs.overlays.unstable-packages
+
+              inputs.nix-vscode-extensions.overlays.default
+              inputs.rust-overlay.overlays.default
+            ];
+          };
         in
         {
-          nodejs = callPackage ./nix/shells/nodejs.nix { };
-          rust = callPackage ./nix/shells/rust.nix { };
-          python = callPackage ./nix/shells/python.nix { };
-          latex = callPackage ./nix/shells/latex.nix { };
-          cpp = callPackage ./nix/shells/cpp.nix { };
-          ros2 = callPackage ./nix/shells/ros2.nix { };
+          nodejs = callPackage ./nix/shells/nodejs.nix { inherit pkgs; };
+          rust = callPackage ./nix/shells/rust.nix { inherit pkgs; };
+          python = callPackage ./nix/shells/python.nix { inherit pkgs; };
+          latex = callPackage ./nix/shells/latex.nix { inherit pkgs; };
+          cpp = callPackage ./nix/shells/cpp.nix { inherit pkgs; };
+          ros2 = callPackage ./nix/shells/ros2.nix { inherit pkgs; };
         });
     };
 

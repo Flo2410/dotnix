@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
-pkgs.unstable.mkShell {
-  nativeBuildInputs = with pkgs.unstable; [
+
+pkgs.mkShell rec {
+  nativeBuildInputs = with pkgs; [
     pkg-config
     openssl
     cargo
@@ -12,5 +13,16 @@ pkgs.unstable.mkShell {
     rustPlatform.rustLibSrc
   ];
 
-  RUST_SRC_PATH = "${pkgs.unstable.rustPlatform.rustLibSrc}";
+  RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+
+  shellHook = with pkgs.vscode-marketplace; ''
+    function add-extension {
+      ln -sf $1/share/vscode/extensions/* ./.vscode/extensions/
+    }
+
+    rm -f ./.vscode/extensions/*
+
+    add-extension ${tauri-apps.tauri-vscode}
+    add-extension ${rust-lang.rust-analyzer}
+  '';
 }

@@ -50,17 +50,17 @@ with pkgs.vscode-marketplace; [
 
   # TODO: The following should be moved into the coresponding dev shells.
 
-  astro-build.astro-vscode
+  # astro-build.astro-vscode
   # bbenoist.qml
-  bmd.stm32-for-vscode
-  bourhaouta.tailwindshades
-  bradlc.vscode-tailwindcss
-  christian-kohler.npm-intellisense
-  csstools.postcss
+  # bmd.stm32-for-vscode
+  # bourhaouta.tailwindshades
+  # bradlc.vscode-tailwindcss
+  # christian-kohler.npm-intellisense
+  # csstools.postcss
   # cweijan.dbclient-jdbc
   # cweijan.vscode-mysql-client2
   # dan-c-underwood.arm
-  dbaeumer.vscode-eslint
+  # dbaeumer.vscode-eslint
   # dotjoshjohnson.xml
   # dsznajder.es7-react-js-snippets
   # espressif.esp-idf-extension
@@ -90,21 +90,21 @@ with pkgs.vscode-marketplace; [
   # ms-toolsai.vscode-jupyter-cell-tags
   # ms-toolsai.vscode-jupyter-slideshow
   # ms-vscode-remote.remote-wsl
-  ms-vscode.cmake-tools
-  ms-vscode.cpptools
-  ms-vscode.makefile-tools
+  # ms-vscode.cmake-tools
+  # ms-vscode.cpptools
+  # ms-vscode.makefile-tools
   # ms-vscode.vscode-embedded-tools
   # nonanonno.vscode-ros2
   # pflannery.vscode-versionlens
   # platformio.platformio-ide
   # pulkitgangwar.nextjs-snippets
   # quicktype.quicktype
-  rust-lang.rust-analyzer
+  # rust-lang.rust-analyzer
   # smilerobotics.urdf
   # tauri-apps.tauri-vscode
   # trond-snekvik.gnu-mapfiles
   # twxs.cmake
-  unifiedjs.vscode-mdx
+  # unifiedjs.vscode-mdx
   # vaisakh96.pythonic-snippets
   # # vscodevim.vim
   # # xabikos.javascriptsnippets
