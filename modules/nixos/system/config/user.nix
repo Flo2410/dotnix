@@ -21,7 +21,7 @@ in
   config = {
     home-manager = lib.mkIf cfg.home-manager.enable {
       useGlobalPkgs = lib.mkDefault true;
-      useUserPackages = lib.mkDefault true;
+      useUserPackages = lib.mkDefault false;
       extraSpecialArgs = { inherit inputs outputs; };
       # sharedModules = builtins.attrValues outputs.homeManagerModules;
       users."${cfg.user}" = import cfg.home-manager.home;
