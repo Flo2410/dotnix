@@ -68,11 +68,11 @@ with pkgs.vscode-marketplace; [
   # github.vscode-github-actions
   # ijs.reactnextjssnippets
   # lokalise.i18n-ally
-  # marus25.cortex-debug
-  # mcu-debug.debug-tracker-vscode
-  # mcu-debug.memory-view
-  # mcu-debug.peripheral-viewer
-  # mcu-debug.rtos-views
+  marus25.cortex-debug # Required by stm32-for-vscode
+  mcu-debug.debug-tracker-vscode # Required by cortex-debug
+  mcu-debug.memory-view # Required by cortex-debug
+  mcu-debug.peripheral-viewer # Required by cortex-debug
+  mcu-debug.rtos-views # Required by cortex-debug
   # mechatroner.rainbow-csv
   # mikestead.dotenv
   # mongodb.mongodb-vscode
