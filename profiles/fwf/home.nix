@@ -98,7 +98,6 @@
     nixpkgs-fmt
     pre-commit
     file
-    ansible
     sshpass
     nixd
 
