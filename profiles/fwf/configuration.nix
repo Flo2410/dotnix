@@ -37,11 +37,16 @@
   };
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 10;
-    efi.canTouchEfiVariables = true;
-    timeout = 1;
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ]; # This is needed to build Raspberry Pi imgs
+
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 10;
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+
+    };
   };
 
   # Enable networking
