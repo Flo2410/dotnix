@@ -1,27 +1,32 @@
 { inputs, outputs, config, lib, pkgs, ... }:
 
+with lib;
 let
   cfg = config.system.config.user;
 in
 {
   options.system.config.user = {
-    user = lib.mkOption {
+    user = mkOption {
       default = "florian";
-      type = lib.types.str;
+      type = types.str;
+    };
+    authorizedKeys = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
     };
     home-manager = {
-      enable = lib.mkEnableOption "home-manager";
-      home = lib.mkOption {
+      enable = mkEnableOption "home-manager";
+      home = mkOption {
         default = ../../../home-manager;
-        type = lib.types.path;
+        type = types.path;
       };
     };
   };
 
   config = {
-    home-manager = lib.mkIf cfg.home-manager.enable {
-      useGlobalPkgs = lib.mkDefault true;
-      useUserPackages = lib.mkDefault false;
+    home-manager = mkIf cfg.home-manager.enable {
+      useGlobalPkgs = mkDefault true;
+      useUserPackages = mkDefault false;
       extraSpecialArgs = { inherit inputs outputs; };
       # sharedModules = builtins.attrValues outputs.homeManagerModules;
       users."${cfg.user}" = import cfg.home-manager.home;
@@ -33,6 +38,7 @@ in
         isNormalUser = true;
         uid = 1000;
         extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" ];
+        openssh.authorizedKeys.keys = cfg.authorizedKeys;
       };
     };
   };
