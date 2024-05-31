@@ -37,12 +37,17 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (final: super: {
-      makeModulesClosure = x:
-        super.makeModulesClosure (x // { allowMissing = true; });
-    })
-  ];
+  nixpkgs = {
+    hostPlatform = "aarch64-linux";
+
+    overlays = [
+      (final: super: {
+        makeModulesClosure = x:
+          super.makeModulesClosure (x // { allowMissing = true; });
+      })
+    ];
+  };
+
 
 
   # Enable networking

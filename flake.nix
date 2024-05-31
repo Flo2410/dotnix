@@ -31,7 +31,6 @@
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
           {
             disabledModules = [ "profiles/base.nix" ];
-            nixpkgs.hostPlatform = "aarch64-linux";
           }
         ];
       }).config.system.build.sdImage;
