@@ -124,6 +124,7 @@
       user = {
         user = "florian";
         authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6VPoeosGDVKtBBCxo+IxqEA4p19hMDvhg45/glNUQU florian@fwf" ];
+        hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
         home-manager = {
           enable = true;
           home = ./home.nix;

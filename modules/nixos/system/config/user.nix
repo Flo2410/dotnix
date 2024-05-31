@@ -10,10 +10,17 @@ in
       default = "florian";
       type = types.str;
     };
+
     authorizedKeys = mkOption {
       type = types.listOf types.str;
       default = [ ];
     };
+
+    hashedPassword = mkOption {
+      type = types.str;
+      default = "";
+    };
+
     home-manager = {
       enable = mkEnableOption "home-manager";
       home = mkOption {
@@ -39,6 +46,7 @@ in
         uid = 1000;
         extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" ];
         openssh.authorizedKeys.keys = cfg.authorizedKeys;
+        hashedPassword = cfg.hashedPassword;
       };
     };
   };
