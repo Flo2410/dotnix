@@ -6,3 +6,4 @@ This repository contains my NixOS config.
 
 - **fwf**: My Framework 13
 - **wsl**: Config to use NixOS in WSL
+- **curiosity**: My carry-on Raspberry Pi 4.

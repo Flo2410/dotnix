@@ -26,8 +26,18 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
+      mkPiImg = nixosConfig: (self.nixosConfigurations."${nixosConfig}".extendModules {
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          {
+            disabledModules = [ "profiles/base.nix" ];
+            nixpkgs.hostPlatform = "aarch64-linux";
+          }
+        ];
+      }).config.system.build.sdImage;
+
     in
-    {
+    rec {
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -50,6 +60,7 @@
       nixosConfigurations = {
         fwf = mkSystem [ ./profiles/fwf/configuration.nix ];
         wsl = mkSystem [ ./profiles/wsl/configuration.nix ];
+        curiosity = mkSystem [ ./profiles/curiosity/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
@@ -57,6 +68,10 @@
       # homeConfigurations = {
       #   "florian@fwf" = mkHome "x86_64-linux" [ ./profiles/fwf/home.nix ];
       # };
+
+      images = {
+        curiosity = mkPiImg "curiosity";
+      };
 
       devShells = forAllSystems (system:
         let
