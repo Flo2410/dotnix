@@ -58,10 +58,10 @@ in
           identityFile = "~/.ssh/milkyway_vms_ed25519";
         };
 
-        "dawn" = {
-          hostname = "dawn.dsn.hye.network";
+        "curiosity" = {
+          hostname = "curiosity.dsn.hye.network";
           user = "florian";
-          identityFile = "~/.ssh/dawn_ed25519";
+          identityFile = "~/.ssh/curiosity_ed25519";
         };
 
         "kfj-router" = {
