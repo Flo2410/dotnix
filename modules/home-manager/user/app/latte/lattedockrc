@@ -10,8 +10,8 @@ Recent URLs[$e]=file:$HOME/.config/latte/,file:$HOME/.config/,file:$HOME/,file:$
 detailViewIconSize=16
 
 [KPropertiesDialog]
-2 screens: Height=701
-2 screens: Width=877
+2 screens: Height=897
+2 screens: Width=1165
 2256x1504 screen: Height=591
 2256x1504 screen: Width=810
 3 screens: Height=591
@@ -42,15 +42,12 @@ windowSize=980,630
 [PlasmaThemeExtended]
 outlineWidth=1
 
-[PlasmaTransientsConfig]
-PreloadWeight=26
-
 [ScreenConnectors]
 10=eDP-1:::0,0 2256x1504
 11=DP-2:::4816,0 1920x1080
 12=DP-3:::2256,0 2560x1440
 13=DP-4:::4816,0 1920x1080
-14=DP-1:::2256,32 2560x1440
+14=DP-1:::2256,0 2560x1440
 15=DP-4-1:::2256,0 1920x1200
 16=DP-4-2:::4176,0 1920x1200
 
