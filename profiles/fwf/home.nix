@@ -77,10 +77,9 @@
     libreoffice-qt
 
     # kde utils
-    yakuake
-    kate
-    kcalc
-    skanpage
+    kdePackages.yakuake
+    kdePackages.kcalc
+    kdePackages.skanpage
 
     # Media
     gimp

@@ -23,15 +23,18 @@ in
           layout = "at";
           variant = "nodeadkeys";
         };
-
-
-        desktopManager.plasma5.enable = true;
       };
 
+      desktopManager.plasma6.enable = true;
+
       # Enable the KDE Plasma Desktop Environment.
-      displayManager.sddm = {
-        enable = true;
-        theme = "breeze";
+      displayManager = {
+        defaultSession = "plasmax11";
+
+        sddm = {
+          enable = true;
+          theme = "breeze";
+        };
       };
 
       libinput = {
