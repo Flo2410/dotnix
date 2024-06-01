@@ -16,18 +16,23 @@ in
     ];
 
     # Configure X11
-    services.xserver = {
-      enable = true;
-      layout = "at";
-      xkbVariant = "nodeadkeys";
+    services = {
+      xserver = {
+        enable = true;
+        xkb = {
+          layout = "at";
+          variant = "nodeadkeys";
+        };
+
+
+        desktopManager.plasma5.enable = true;
+      };
 
       # Enable the KDE Plasma Desktop Environment.
       displayManager.sddm = {
         enable = true;
         theme = "breeze";
       };
-
-      desktopManager.plasma5.enable = true;
 
       libinput = {
         touchpad.disableWhileTyping = true;
