@@ -9,6 +9,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
+    inputs.plasma-manager.homeManagerModules.plasma-manager
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -33,6 +34,9 @@
       homeDirectory = "/home/${username}";
       dotfilesDirectory = "${homeDirectory}/dotnix";
     };
+
+    # WM
+    wm.x11-plasma.enable = true;
 
     shell.enable = true;
 

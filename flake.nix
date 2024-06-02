@@ -125,6 +125,12 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     # https://gitlab.com/doronbehar/nix-matlab
     nix-matlab = {
       url = "gitlab:doronbehar/nix-matlab";

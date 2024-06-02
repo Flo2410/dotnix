@@ -5,5 +5,7 @@
     ./app
 
     ./home-manager.nix
+
+    ./wm/x11-plasma.nix
   ];
 }
