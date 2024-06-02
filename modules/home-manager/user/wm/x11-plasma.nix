@@ -20,7 +20,24 @@ in
         iconTheme = "breeze-dark";
         wallpaper = ../../../../wallpapers/framework/Abstract_1-hue_logo.jpg;
       };
-    };
+      shortcuts = {
+        kwin = {
+          "Expose" = "Meta+,";
+          "Switch One Desktop to the Left" = "Meta+Ctrl+Left";
+          "Switch One Desktop to the Right" = "Meta+Ctrl+Right";
+          "Overview" = "Meta+W";
+          "Window On All Desktops" = "Meta+Ctrl+A";
+        };
+      };
 
+      configFile = {
+        kwinrc = {
+          "Windows".RollOverDesktops = true;
+          "TabBox".LayoutName = "compact";
+          "TabBoxAlternative".LayoutName = "compact";
+          "ModifierOnlyShortcuts".Meta = "";
+        };
+      };
+    };
   };
 }
