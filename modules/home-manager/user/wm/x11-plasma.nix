@@ -37,6 +37,12 @@ in
           "TabBoxAlternative".LayoutName = "compact";
           "ModifierOnlyShortcuts".Meta = "";
         };
+
+        baloofilerc = {
+          "Basic Settings"."Indexing-Enabled" = true;
+          "General"."folders[$e]" = "$HOME/syncthing/";
+          "General"."only basic indexing" = false;
+        };
       };
     };
   };
