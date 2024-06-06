@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      plasma5Packages.plasma-thunderbolt
+      kdePackages.plasma-thunderbolt
     ];
 
     # Configure X11
