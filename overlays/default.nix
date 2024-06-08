@@ -11,6 +11,12 @@
     # ...
     # });
 
+    vivaldi_qt6 = final.pkgs.unstable.vivaldi.overrideAttrs (oldAttrs: {
+      dontWrapQtApps = false;
+      dontPatchELF = true;
+      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.pkgs.kdePackages.wrapQtAppsHook ];
+    });
+
     remmina = (import inputs.nixpkgs-remmina { system = final.system; }).remmina;
   };
 

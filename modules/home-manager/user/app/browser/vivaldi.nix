@@ -11,14 +11,14 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      plasma-browser-integration
+      kdePackages.plasma-browser-integration
     ];
 
     home.file.".config/vivaldi/NativeMessagingHosts/org.kde.plasma.browser_integration.json".text = ''
       {
         "name": "org.kde.plasma.browser_integration",
         "description": "Native connector for KDE Plasma",
-        "path": "${pkgs.plasma-browser-integration}/bin/plasma-browser-integration-host",
+        "path": "${pkgs.kdePackages.plasma-browser-integration}/bin/plasma-browser-integration-host",
         "type": "stdio",
         "allowed_origins": [
           "chrome-extension://cimiefiiaegbelhefglklhhakcgmhkai/",
@@ -29,7 +29,7 @@ in
 
     programs.chromium = {
       enable = true;
-      package = pkgs.unstable.vivaldi;
+      package = pkgs.vivaldi_qt6;
       commandLineArgs = [
         "--enable-gpu-rasterization"
         "--enable-quic"
@@ -51,7 +51,7 @@ in
     };
 
     home.sessionVariables = {
-      DEFAULT_BROWSER = "${pkgs.unstable.vivaldi}/bin/vivaldi";
+      DEFAULT_BROWSER = "${pkgs.vivaldi_qt6}/bin/vivaldi";
     };
   };
 }
