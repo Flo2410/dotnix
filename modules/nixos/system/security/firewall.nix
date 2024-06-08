@@ -9,10 +9,10 @@ in
     enable = mkEnableOption "Enable firewall";
   };
 
-  config = mkIf cfg.enable {
+  config = {
     # Firewall
     networking.firewall = {
-      enable = true;
+      enable = cfg.enable;
 
       # Open ports in the firewall.
       allowedTCPPortRanges = [
