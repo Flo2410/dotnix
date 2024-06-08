@@ -42,18 +42,34 @@
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
-      timeout = 1;
-
+      timeout = 5;
     };
+
+    initrd.kernelModules = [
+      "nvidia"
+      "nvidia_modeset"
+      # "nvidia_uvm"
+      # "nvidia_drm"
+    ];
+  };
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+    open = true;
   };
 
   # Enable networking
   networking = {
     hostName = "PC-Florian"; # Define your hostname.
     networkmanager.enable = true;
-    extraHosts = ''
-      10.94.31.11 terminal.fhwn.ac.at
-    '';
   };
 
   # Set your time zone.
@@ -85,7 +101,6 @@
   };
 
   services = {
-    hardware.bolt.enable = true;
     timesyncd.enable = true;
 
     udev = {
@@ -96,6 +111,11 @@
       extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
       rateLimitBurst = 500;
       rateLimitInterval = "30s";
+    };
+
+    displayManager.autoLogin = {
+      enable = true;
+      user = "florian";
     };
   };
 
@@ -143,9 +163,6 @@
     };
 
     hardware = {
-      bluetooth.enable = true;
-      kernelOptions.enable = true;
-      opengl.enable = true;
       printing.enable = true;
 
       filesystem = {
@@ -153,9 +170,9 @@
         autoMounts = [ "/mnt/florian" ];
       };
 
-      powerManagement = {
-        enable = true;
-      };
+      #     powerManagement = {
+      #       enable = true;
+      #     };
     };
   };
 

@@ -53,8 +53,7 @@
     app = {
       browser.vivaldi.enable = true;
       virtualization.enable = true;
-      latte.enable = true;
-      barrier.enable = true;
+      barrier.enable = false;
       vscode.enable = true;
 
       terminal = {
@@ -98,7 +97,7 @@
     nixd
 
     # unstable packages
-    unstable.kicad
+    #    unstable.kicad
     unstable.obsidian
     unstable.naps2
 
