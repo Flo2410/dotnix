@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    sound.enable = true;
+    sound.enable = mkForce false;
     hardware.pulseaudio.enable = false;
 
     # Pipewire
