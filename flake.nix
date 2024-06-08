@@ -60,6 +60,7 @@
         fwf = mkSystem [ ./profiles/fwf/configuration.nix ];
         wsl = mkSystem [ ./profiles/wsl/configuration.nix ];
         curiosity = mkSystem [ ./profiles/curiosity/configuration.nix ];
+        pc = mkSystem [ ./profiles/pc/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
