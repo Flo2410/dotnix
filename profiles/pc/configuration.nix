@@ -10,7 +10,7 @@
 
     # Or modules from other flakes (such as nixos-hardware):
     inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     # You can also split up your configuration and import pieces of it here:
@@ -19,6 +19,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ../../config/nixos/hardware/nvidia/nvidia-stable-opengl
   ];
 
   nix = {
@@ -51,19 +52,13 @@
       # "nvidia_uvm"
       # "nvidia_drm"
     ];
-  };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+    kernelModules = [ "nvidia" ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
-    open = true;
+    kernelParams = [
+      "nvidia_drm.fbdev=1" # Enables the use of a framebuffer device for NVIDIA graphics. This can be useful for certain configurations.
+      "nvidia_drm.modeset=1" # Enables kernel modesetting for NVIDIA graphics. This is essential for proper graphics support on NVIDIA GPUs.
+    ];
   };
 
   # Enable networking
