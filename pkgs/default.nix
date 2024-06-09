@@ -12,4 +12,5 @@ pkgs: with pkgs; {
   home-assistant-desktop = callPackage ./home-assistant-desktop.nix { };
   elamx2 = callPackage ./elamx2.nix { };
   mqtt-explorer = callPackage ./mqtt-explorer.nix { };
+  olauncher = callPackage ./olauncher.nix { };
 }

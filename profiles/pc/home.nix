@@ -74,6 +74,9 @@
     prusa-slicer
     libreoffice-qt
 
+    # games
+    olauncher
+
     # kde utils
     kdePackages.yakuake
     kdePackages.kcalc
