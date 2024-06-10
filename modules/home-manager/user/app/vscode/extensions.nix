@@ -2,7 +2,7 @@
 
 let
   ltex-vsxi = pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
-    version = "${pkgs.vscode-marketplace.neo-ltex.ltex.version}";
+    version = "13.1.1";
     mktplcRef = {
       inherit version;
       name = "ltex";
