@@ -68,6 +68,7 @@ with pkgs.vscode-marketplace; [
   # github.vscode-github-actions
   # ijs.reactnextjssnippets
   # lokalise.i18n-ally
+  marp-team.marp-vscode
   marus25.cortex-debug # Required by stm32-for-vscode
   mcu-debug.debug-tracker-vscode # Required by cortex-debug
   mcu-debug.memory-view # Required by cortex-debug
