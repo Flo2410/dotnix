@@ -79,6 +79,7 @@
     onedrivegui
     saleae-logic-2
     libreoffice-qt
+    obsidian
 
     # kde utils
     kdePackages.yakuake
@@ -107,7 +108,6 @@
 
     # unstable packages
     unstable.kicad
-    unstable.obsidian
     unstable.stm32cubemx
     unstable.naps2
 

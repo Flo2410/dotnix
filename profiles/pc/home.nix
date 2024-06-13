@@ -73,6 +73,7 @@
     parsec-bin
     prusa-slicer
     libreoffice-qt
+    obsidian
 
     # games
     olauncher
@@ -102,7 +103,6 @@
 
     # unstable packages
     #    unstable.kicad
-    unstable.obsidian
     unstable.naps2
 
     # Remmina v1.4.30 
