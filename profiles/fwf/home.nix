@@ -91,6 +91,7 @@
     darktable
     vlc
     ffmpeg
+    nomacs
 
     # utils
     syncthingtray
