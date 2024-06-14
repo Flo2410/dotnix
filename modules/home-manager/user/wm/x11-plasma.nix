@@ -16,7 +16,7 @@ in
 
       workspace = {
         lookAndFeel = "org.kde.breezedark.desktop";
-        cursorTheme = "Breeze";
+        cursor.theme = "Breeze";
         iconTheme = "breeze-dark";
         wallpaper = ../../../../wallpapers/framework/Abstract_1-hue_logo.jpg;
       };
