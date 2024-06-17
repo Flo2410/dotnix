@@ -80,6 +80,7 @@
     saleae-logic-2
     libreoffice-qt
     obsidian
+    kicad
 
     # kde utils
     kdePackages.yakuake
@@ -107,7 +108,6 @@
     nixd
 
     # unstable packages
-    unstable.kicad
     unstable.stm32cubemx
     unstable.naps2
 
