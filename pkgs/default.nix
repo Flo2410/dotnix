@@ -13,4 +13,5 @@ pkgs: with pkgs; {
   elamx2 = callPackage ./elamx2.nix { };
   mqtt-explorer = callPackage ./mqtt-explorer.nix { };
   olauncher = callPackage ./olauncher.nix { };
+  stm32cubeprog = callPackage ./stm32cubeprog.nix { };
 }
