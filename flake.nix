@@ -61,6 +61,7 @@
         wsl = mkSystem [ ./profiles/wsl/configuration.nix ];
         curiosity = mkSystem [ ./profiles/curiosity/configuration.nix ];
         pc = mkSystem [ ./profiles/pc/configuration.nix ];
+        surface = mkSystem [ ./profiles/surface/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
