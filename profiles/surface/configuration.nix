@@ -192,13 +192,16 @@
     pkgs.iptsd
   ];
 
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+
   system = {
 
     # Config
     config = {
       #dbus.enable = true;
       fonts.enable = true;
-      pipewire.enable = true;
+      pipewire.enable = false;
       plymouth.enable = true;
 
       locale = {
