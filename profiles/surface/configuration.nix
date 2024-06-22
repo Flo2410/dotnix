@@ -33,6 +33,8 @@
       dates = "daily";
       options = "--delete-older-than 7d";
     };
+
+    settings.trusted-users = [ "florian" ];
   };
 
   # Bootloader.
@@ -58,6 +60,8 @@
 
   console.useXkbConfig = true;
 
+  documentation.nixos.enable = false;
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     wget
@@ -66,26 +70,68 @@
     home-manager
 
     surface-control
+    gnome.gnome-tweaks
+
+    unstable.gnomeExtensions.gjs-osk
   ];
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome-connections
+    baobab
+  ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gnome-music
+    epiphany # web browser
+    geary # email reader
+    gnome-characters
+    yelp # Help view
+    totem # Videos
+    evince # document viewer
+    gnome-contacts
+    gnome-initial-setup
+    gnome-maps
+    gnome-weather
+    gnome-calendar
+    simple-scan
+    gnome-font-viewer
+    gnome-disk-utility
+    gnome-logs
+    gnome-calculator
+  ]);
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
     extraSpecialArgs = { inherit inputs outputs; };
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
-    users."florian" = import ./home.nix;
+    users = {
+      "florian" = import ./home.nix;
+      "user" = import ./home-user.nix;
+    };
   };
 
   users = {
     defaultUserShell = pkgs.zsh;
-    users."florian" = {
-      isNormalUser = true;
-      uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhpcNpe6K0Elbaf29mo1SLRUY+EQHKDv2xT9fslW6so florian@fwf"
-      ];
+    users = {
+      "florian" = {
+        isNormalUser = true;
+        uid = 1000;
+        extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhpcNpe6K0Elbaf29mo1SLRUY+EQHKDv2xT9fslW6so florian@fwf"
+        ];
+      };
+
+      "user" = {
+        isNormalUser = true;
+        uid = 1001;
+        extraGroups = [ "input" "video" ];
+        hashedPassword = ""; # Allow uset to login without a password.
+        shell = pkgs.bash;
+      };
     };
   };
 
@@ -93,13 +139,6 @@
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
-#  xdg.portal = {
-#    enable = true;
-#    extraPortals = [
-#      pkgs.xdg-desktop-portal
-#      pkgs.xdg-desktop-portal-gtk
-#    ];
-#  };
   security = {
     sudo.enable = true;
     pam = {
@@ -131,20 +170,24 @@
       settings.PermitRootLogin = "no";
     };
 
-    # Enable the X11 windowing system.
-    xserver.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    xserver.displayManager.gdm.enable = true;
-    xserver.desktopManager.gnome.enable = true;
 
     # Configure keymap in X11
     xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
+      excludePackages = [ pkgs.xterm ];
+
+      # Enable the GNOME Desktop Environment.
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+
       xkb.layout = "at";
       xkb.variant = "nodeadkeys";
     };
+
+    gnome.games.enable = false;
   };
-  
+
   systemd.packages = [
     pkgs.iptsd
   ];
@@ -154,7 +197,7 @@
     # Config
     config = {
       #dbus.enable = true;
-      #fonts.enable = true;
+      fonts.enable = true;
       pipewire.enable = true;
       plymouth.enable = true;
 
@@ -171,14 +214,9 @@
     hardware = {
       printing.enable = true;
 
-      #filesystem = {
-      #  enable = true;
-       # autoMounts = [ "/mnt/florian" ];
-      #};
-
-      #     powerManagement = {
-      #       enable = true;
-      #     };
+      powerManagement = {
+        enable = true;
+      };
     };
   };
 
