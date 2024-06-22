@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    hardware.opengl.driSupport32Bit = true;
+    hardware.opengl.driSupport32Bit = mkForce true;
     programs.steam.enable = true;
     # environment.systemPackages = [ pkgs.steam ];
   };
