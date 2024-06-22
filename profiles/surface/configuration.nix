@@ -199,7 +199,7 @@
 
     # Config
     config = {
-      #dbus.enable = true;
+      dbus.enable = true;
       fonts.enable = true;
       pipewire.enable = false;
       plymouth.enable = true;
