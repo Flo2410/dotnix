@@ -80,11 +80,27 @@
     home-manager
   ];
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = false;
+    extraSpecialArgs = { inherit inputs outputs; };
+    # sharedModules = builtins.attrValues outputs.homeManagerModules;
+    users."florian" = import ./home.nix;
+  };
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users."florian" = {
+      isNormalUser = true;
+      uid = 1000;
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+    };
+  };
+
   programs.partition-manager.enable = true;
 
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   xdg.portal = {
@@ -130,14 +146,6 @@
         enable = true;
         defaultLocale = "en_US.UTF-8";
         extraLocale = "de_AT.UTF-8";
-      };
-
-      user = {
-        user = "florian";
-        home-manager = {
-          enable = true;
-          home = ./home.nix;
-        };
       };
     };
 

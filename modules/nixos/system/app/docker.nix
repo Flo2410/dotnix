@@ -27,6 +27,5 @@ in
       storageDriver = cfg.storageDriver;
       autoPrune.enable = true;
     };
-    users.users.florian.extraGroups = [ "docker" ]; # FIXME: get usermane from a module 
   };
 }

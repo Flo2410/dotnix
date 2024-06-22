@@ -68,9 +68,29 @@
     surface-control
   ];
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = false;
+    extraSpecialArgs = { inherit inputs outputs; };
+    # sharedModules = builtins.attrValues outputs.homeManagerModules;
+    users."florian" = import ./home.nix;
+  };
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users."florian" = {
+      isNormalUser = true;
+      uid = 1000;
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhpcNpe6K0Elbaf29mo1SLRUY+EQHKDv2xT9fslW6so florian@fwf"
+      ];
+    };
+  };
+
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
 #  xdg.portal = {
@@ -142,15 +162,6 @@
         enable = true;
         defaultLocale = "en_US.UTF-8";
         extraLocale = "de_AT.UTF-8";
-      };
-
-      user = {
-        user = "florian";
-        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos" ];
-        home-manager = {
-          enable = true;
-          home = ./home.nix;
-        };
       };
     };
 

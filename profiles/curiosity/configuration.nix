@@ -92,9 +92,27 @@
     raspberrypi-eeprom
   ];
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = false;
+    extraSpecialArgs = { inherit inputs outputs; };
+    # sharedModules = builtins.attrValues outputs.homeManagerModules;
+    users."florian" = import ./home.nix;
+  };
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users."florian" = {
+      isNormalUser = true;
+      uid = 1000;
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6VPoeosGDVKtBBCxo+IxqEA4p19hMDvhg45/glNUQU florian@fwf" ];
+      hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
+    };
+  };
+
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   services = {
@@ -124,16 +142,6 @@
         enable = true;
         defaultLocale = "en_US.UTF-8";
         extraLocale = "de_AT.UTF-8";
-      };
-
-      user = {
-        user = "florian";
-        authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6VPoeosGDVKtBBCxo+IxqEA4p19hMDvhg45/glNUQU florian@fwf" ];
-        hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
-        home-manager = {
-          enable = true;
-          home = ./home.nix;
-        };
       };
     };
 
