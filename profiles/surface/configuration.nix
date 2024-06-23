@@ -55,6 +55,10 @@
     networkmanager.enable = true;
   };
 
+  hardware.opengl = {
+    enable = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
@@ -68,6 +72,9 @@
     git
     zsh
     home-manager
+
+    glxinfo
+    intel-gpu-tools
 
     surface-control
     gnome.gnome-tweaks
