@@ -79,7 +79,13 @@
     surface-control
     gnome.gnome-tweaks
 
-    unstable.gnomeExtensions.gjs-osk
+    (gnomeExtensions.gjs-osk.overrideAttrs  (finalAttrs: previousAttrs: {
+      src =  fetchzip {
+        url = "https://github.com/Vishram1123/gjs-osk/releases/download/bf3d64f/gjsosk@vishram1123_main.zip";
+        hash = "sha256-Cd8OiPhXyWRAukrdu9pte2VvTDEdqrVabk/1axitht4=";
+        stripRoot = false;
+      };
+    }))
   ];
 
   environment.gnome.excludePackages = (with pkgs; [

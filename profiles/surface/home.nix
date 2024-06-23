@@ -22,6 +22,18 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      # `gnome-extensions list` for a list
+      enabled-extensions = [
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "gjsosk@vishram1123.com"
+      ];
+    };
+  };
+
   user = {
     home = rec {
       enable = true;

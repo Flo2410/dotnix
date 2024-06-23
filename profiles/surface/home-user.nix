@@ -58,13 +58,13 @@ in
   };
 
   dconf.settings = {
-    # ...
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
       # `gnome-extensions list` for a list
       enabled-extensions = [
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "gjsosk@vishram1123.com"
       ];
 
       favorite-apps = [
