@@ -37,11 +37,14 @@ in
       homeDirectory = "/home/${username}";
       dotfilesDirectory = "${homeDirectory}/dotnix";
     };
+
+    app = {
+      browser.vivaldi.enable = true;
+    };
   };
 
   home.packages = with pkgs; [
     # programms
-    firefox
     spotify
 
     # programs
@@ -65,7 +68,7 @@ in
       ];
 
       favorite-apps = [
-        "firefox.desktop"
+        "vivaldi-stable.desktop"
         "spotify.desktop"
       ];
     };
