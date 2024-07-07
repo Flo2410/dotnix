@@ -44,6 +44,8 @@ in
       dnsutils
       minicom
       usbutils
+      pciutils
+      vulkan-tools
       nmap
       jq
       ncdu
