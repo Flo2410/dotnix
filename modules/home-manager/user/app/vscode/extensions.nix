@@ -92,7 +92,7 @@ with pkgs.vscode-marketplace; [
   # ms-toolsai.vscode-jupyter-slideshow
   # ms-vscode-remote.remote-wsl
   ms-vscode.cmake-tools
-  ms-vscode.cpptools
+  pkgs.vscode-extensions.ms-vscode.cpptools
   ms-vscode.makefile-tools
   # ms-vscode.vscode-embedded-tools
   # nonanonno.vscode-ros2
