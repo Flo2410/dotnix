@@ -84,6 +84,9 @@ in
   # Gitlense
   "gitlens.graph.layout" = "editor";
 
+  # CMake
+  "cmake.showOptionsMovedNotification" = false;
+
   # ltex
   # "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
   "ltex.java.path" = "${pkgs.temurin-bin-20}";
