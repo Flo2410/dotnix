@@ -273,4 +273,8 @@ in
     "editor.tabSize" = 4;
     "editor.formatOnType" = true;
   };
+
+  "[tex]" = {
+    "editor.defaultFormatter" = "James-Yu.latex-workshop";
+  };
 }
