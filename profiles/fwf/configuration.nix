@@ -84,7 +84,7 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev" ];
     };
   };
 
@@ -111,6 +111,7 @@
       packages = with pkgs; [
         udev-stm32-named-tty #(callPackage ./stm32-named-tty.nix { })
         udev-saleae-logic #(callPackage ./saleae-logic.nix { })
+        udev-ft232h
         openocd #(callPackage ./openocd.nix { })
       ];
     };

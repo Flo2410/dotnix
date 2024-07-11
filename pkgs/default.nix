@@ -5,6 +5,7 @@ pkgs: with pkgs; {
   # Udev
   udev-stm32-named-tty = callPackage ./udev/stm32-named-tty.nix { };
   udev-saleae-logic = callPackage ./udev/saleae-logic.nix { };
+  udev-ft232h = callPackage ./udev/ft232h.nix { };
 
   git-fuzzy = callPackage ./git-fuzzy.nix { };
 
