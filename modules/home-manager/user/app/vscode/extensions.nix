@@ -80,10 +80,10 @@ with pkgs.vscode-marketplace; [
   # ms-azuretools.vscode-docker
   # ms-ceintl.vscode-language-pack-de
   # ms-iot.vscode-ros
-  # ms-python.black-formatter
+  ms-python.autopep8
   # ms-python.debugpy
   # ms-python.isort
-  # ms-python.python
+  ms-python.python
   # ms-python.vscode-pylance
   # ms-toolsai.jupyter
   # ms-toolsai.jupyter-keymap

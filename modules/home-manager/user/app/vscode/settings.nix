@@ -70,6 +70,12 @@ in
     "**/.git" = false;
   };
 
+  # autopep8
+  "autopep8.args" = [
+    "--indent-size=2"
+    "--ignore=E121"
+  ];
+
   # --------------------------------------------------
   # Extenstion specific
   # --------------------------------------------------
@@ -271,10 +277,10 @@ in
   };
 
   "[python]" = {
-    "editor.defaultFormatter" = "ms-python.black-formatter";
+    "editor.defaultFormatter" = "ms-python.autopep8";
     "editor.insertSpaces" = true;
-    "editor.tabSize" = 4;
-    "editor.formatOnType" = true;
+    "editor.tabSize" = 2;
+    "editor.formatOnSave" = true;
   };
 
   "[tex]" = {
