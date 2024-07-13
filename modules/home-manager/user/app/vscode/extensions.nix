@@ -52,6 +52,7 @@ with pkgs.vscode-marketplace; [
 
   astro-build.astro-vscode
   # bbenoist.qml
+  andreoneti.qml-formatter
   bmd.stm32-for-vscode
   bourhaouta.tailwindshades
   bradlc.vscode-tailwindcss

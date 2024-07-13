@@ -220,7 +220,6 @@ in
 
   "[latex]" = {
     "editor.defaultFormatter" = "James-Yu.latex-workshop";
-    "editor.formatOnSave" = true;
   };
 
   "[bibtex]" = {
@@ -261,7 +260,6 @@ in
 
   "[typescriptreact]" = {
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "editor.formatOnSave" = true;
   };
 
   "[typescript]" = {
@@ -280,10 +278,13 @@ in
     "editor.defaultFormatter" = "ms-python.autopep8";
     "editor.insertSpaces" = true;
     "editor.tabSize" = 2;
-    "editor.formatOnSave" = true;
   };
 
   "[tex]" = {
     "editor.defaultFormatter" = "James-Yu.latex-workshop";
+  };
+
+  "[qml]" = {
+    "editor.defaultFormatter" = "AndreOneti.qml-formatter";
   };
 }
