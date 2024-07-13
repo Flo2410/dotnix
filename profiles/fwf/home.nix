@@ -110,6 +110,7 @@
     # unstable packages
     unstable.stm32cubemx
     unstable.naps2
+    unstable.floorp
 
     # Remmina v1.4.30 
     remmina
