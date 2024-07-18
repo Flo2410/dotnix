@@ -12,7 +12,7 @@ let
     ]);
 
 in
-pkgs.mkShell {
+pkgs.mkShellNoCC {
   nativeBuildInputs = [
     python
   ];

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-pkgs.mkShell {
+pkgs.mkShellNoCC {
   nativeBuildInputs = with pkgs;
     [
       ltex-ls
