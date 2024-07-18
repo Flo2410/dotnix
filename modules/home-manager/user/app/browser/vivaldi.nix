@@ -7,6 +7,7 @@ in
 {
   options.user.app.browser.vivaldi = {
     enable = mkEnableOption "Enable vivaldi";
+    defaultBrowser = mkEnableOption "Is default browser";
   };
 
   config = mkIf cfg.enable {
@@ -42,7 +43,7 @@ in
       ];
     };
 
-    xdg.mimeApps.defaultApplications = {
+    xdg.mimeApps.defaultApplications = mkIf cfg.defaultBrowser {
       "text/html" = "vivaldi-stable.desktop";
       "x-scheme-handler/http" = "vivaldi-stable.desktop";
       "x-scheme-handler/https" = "vivaldi-stable.desktop";
@@ -50,7 +51,7 @@ in
       "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
     };
 
-    home.sessionVariables = {
+    home.sessionVariables = mkIf cfg.defaultBrowser {
       DEFAULT_BROWSER = "${pkgs.vivaldi_qt6}/bin/vivaldi";
     };
   };

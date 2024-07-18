@@ -53,6 +53,10 @@
 
     app = {
       browser.vivaldi.enable = true;
+      browser.floorp = {
+        enable = true;
+        defaultBrowser = true;
+      };
       fusuma.enable = true;
       virtualization.enable = true;
       latte.enable = true;
@@ -108,9 +112,28 @@
     nixd
 
     # unstable packages
-    unstable.stm32cubemx
+    (unstable.stm32cubemx.overrideAttrs (old: rec{
+      desktopItem = makeDesktopItem {
+        name = "STM32CubeMX";
+        exec = "stm32cubemx";
+        desktopName = "STM32CubeMX";
+        categories = [ "Development" ];
+        icon = "stm32cubemx";
+        comment = old.meta.description;
+        terminal = false;
+        startupNotify = false;
+        mimeTypes = [
+          "x-scheme-handler/sgnl"
+          "x-scheme-handler/signalcaptcha"
+        ];
+      };
+
+      buildCommand = old.buildCommand + ''
+        mkdir -p $out/share/applications
+        cp ${desktopItem}/share/applications/*.desktop $out/share/applications
+      '';
+    }))
     unstable.naps2
-    unstable.floorp
 
     # Remmina v1.4.30 
     remmina
