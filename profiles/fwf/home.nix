@@ -141,6 +141,22 @@
     # Custom Packages
     home-assistant-desktop
     elamx2
+
+    # PWA
+    (makeDesktopItem {
+      name = "whatsapp";
+      desktopName = "WhatsApp";
+      exec = "floorp --start-ssb \"{4ef7ae7c-0c38-4934-ba0c-8be452ec6afd}\" --profile \"/home/florian/.floorp/r7mv3i61.default\"";
+      terminal = false;
+      type = "Application";
+    })
+    (makeDesktopItem {
+      name = "ms-teams";
+      desktopName = "Microsoft Teams";
+      exec = "floorp --start-ssb \"{1c8fe6dd-2d08-4f43-8162-9f3da327ebe3}\" --profile \"/home/florian/.floorp/r7mv3i61.default\"";
+      terminal = false;
+      type = "Application";
+    })
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
