@@ -81,7 +81,6 @@
     matlab # from nix-matlab
     prusa-slicer
     onedrivegui
-    saleae-logic-2
     libreoffice-qt
     obsidian
     kicad
@@ -134,6 +133,7 @@
       '';
     }))
     unstable.naps2
+    unstable.saleae-logic-2
 
     # Remmina v1.4.30 
     remmina
