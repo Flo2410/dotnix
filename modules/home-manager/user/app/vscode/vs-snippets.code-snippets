@@ -46,5 +46,11 @@
     "prefix": ["tit", "\\tit"],
     "body": ["\\textit{$0}"],
     "description": "Text italic"
+  },
+  "volt": {
+    "scope": "latex, tex",
+    "prefix": ["\\volt"],
+    "body": ["\\SI{$1}{\\volt}$0"],
+    "description": "SI Volt"
   }
 }
