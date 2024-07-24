@@ -84,6 +84,7 @@
     libreoffice-qt
     obsidian
     kicad
+    pulseview
 
     # kde utils
     kdePackages.yakuake
