@@ -77,7 +77,6 @@
     discord
     spotify
     signal-desktop
-    parsec-bin
     matlab # from nix-matlab
     prusa-slicer
     onedrivegui
@@ -135,6 +134,7 @@
     }))
     unstable.naps2
     unstable.saleae-logic-2
+    unstable.parsec-bin
 
     # Remmina v1.4.30 
     remmina
