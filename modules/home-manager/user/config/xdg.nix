@@ -16,6 +16,7 @@ in
 
     xdg = {
       enable = true;
+      configFile."mimeapps.list".force = true;
 
       userDirs = {
         enable = true;
