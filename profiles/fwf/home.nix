@@ -47,7 +47,7 @@
 
       autostart = {
         enable = true;
-        autostartItems = [ "OneDriveGUI" "yakuake" ];
+        autostartItems = [ "yakuake" ];
       };
     };
 
