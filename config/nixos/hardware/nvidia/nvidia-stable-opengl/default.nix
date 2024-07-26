@@ -1,7 +1,18 @@
 { config, pkgs, lib, ... }:
 
 # NVIDIA-GPU related
+let
+  nvidia_555 = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    version = "555.58";
 
+    sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
+    sha256_aarch64 = lib.fakeSha256;
+    openSha256 = lib.fakeSha256;
+    settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+    persistencedSha256 = "sha256-lyYxDuGDTMdGxX3CaiWUh1IQuQlkI2hPEs5LI20vEVw=";
+  };
+
+in
 {
   imports = [
     ../../opengl/opengl.nix
@@ -25,8 +36,10 @@
       powerManagement.enable = true; # Fix Suspend issue
 
       # Select the appropriate driver version for your GPU
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      # package = config.boot.kernelPackages.nvidiaPackages.production;
       # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = nvidia_555;
 
       # Uncomment the following lines if you need to use a specific driver version
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
@@ -35,20 +48,6 @@
       vaapi = {
         enable = true;
       };
-
-      #---------------------------------------------------------------------
-      # Fix screen flipping to black randomly (545x)      
-      # (WORKS WELL: 535.86.05 (STABLE) https://download.nvidia.com/XFree86/Linux-x86_64/535.86.05/NVIDIA-Linux-x86_64-535.86.05.run
-      # cat /proc/driver/nvidia/version
-      #---------------------------------------------------------------------
-      # package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs {
-      #  src = pkgs.fetchurl {
-      #    url = "https://download.nvidia.com/XFree86/Linux-x86_64/535.146.02/NVIDIA-Linux-x86_64-535.146.02.run";
-      #   sha256 = sha256_64bit;
-      #   sha256 = "49fd1cc9e445c98b293f7c66f36becfe12ccc1de960dfff3f1dc96ba3a9cbf70";
-      #   # sha256 = "sha256-QTnTKAGfcvKvKHik0BgAemV3PrRqRlM3B9jjZeupCC8=";
-      #  };
-      # };
     };
   };
 
@@ -75,12 +74,12 @@
   # land as a wayland thing. I've seen this work reasonably with VRR
   # before, but emacs continued to stutter, so for now this is
   # staying.
-  nixpkgs.overlays = [
-    (_: final: {
-      wlroots_0_16 = final.wlroots_0_16.overrideAttrs
-        (_: { patches = [ ./wlroots-nvidia.patch ]; });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #  (_: final: {
+  #    wlroots_0_16 = final.wlroots_0_16.overrideAttrs
+  #      (_: { patches = [ ./wlroots-nvidia.patch ]; });
+  #  })
+  #];
 
   # Set environment variables related to NVIDIA graphics
   environment.variables = {
