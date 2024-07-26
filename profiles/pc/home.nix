@@ -51,7 +51,7 @@
     };
 
     app = {
-      browser.vivaldi.enable = true;
+      browser.floorp.enable = true;
       virtualization.enable = true;
       barrier.enable = false;
       vscode.enable = true;
@@ -65,7 +65,6 @@
 
   home.packages = with pkgs; [
     # programms
-    firefox
     thunderbird
     discord
     spotify
