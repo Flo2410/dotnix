@@ -75,7 +75,8 @@
     obsidian
 
     # games
-    olauncher
+    modrinth-app
+
 
     # kde utils
     kdePackages.yakuake
