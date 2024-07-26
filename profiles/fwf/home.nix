@@ -72,7 +72,6 @@
 
   home.packages = with pkgs; [
     # programms
-    firefox
     thunderbird
     discord
     spotify
