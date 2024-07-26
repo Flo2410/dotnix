@@ -21,9 +21,10 @@ in
       nativeMessagingHosts = with pkgs; [
         kdePackages.plasma-browser-integration
       ];
-      profiles."default".settings = {
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-      };
+      # profiles."default".settings = {
+      #   "widget.use-xdg-desktop-portal.file-picker" = 1;
+      #   "layout.css.has-selector.enabled" = false;
+      # };
     };
 
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultBrowser {
