@@ -114,7 +114,7 @@
     (makeDesktopItem {
       name = "boot-windows-11";
       desktopName = "Boot Windows 11";
-      exec = "systemctl reboot --boot-loader-entry=auto-windows";
+      exec = "systemctl reboot --boot-loader-entry=auto-windows --boot-loader-menu=1";
       terminal = false;
       type = "Application";
       icon = ../../modules/home-manager/user/app/virtualization/win11.png;
