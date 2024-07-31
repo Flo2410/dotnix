@@ -11,6 +11,7 @@ in
       type = types.listOf (types.enum [
         "OneDriveGUI"
         "yakuake"
+        "latte-dock"
       ]);
       default = [ ];
     };
@@ -26,6 +27,12 @@ in
       (mkIf (builtins.elem "yakuake" cfg.autostartItems) (makeAutostartItem {
         name = "yakuake";
         package = yakuake;
+        srcPrefix = "org.kde.";
+      }))
+
+      (mkIf (builtins.elem "latte-dock" cfg.autostartItems) (makeAutostartItem {
+        name = "latte-dock";
+        package = latte-dock;
         srcPrefix = "org.kde.";
       }))
     ];
