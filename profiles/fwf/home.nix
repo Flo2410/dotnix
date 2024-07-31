@@ -57,7 +57,6 @@
         enable = true;
         defaultBrowser = true;
       };
-      fusuma.enable = true;
       virtualization.enable = true;
       latte.enable = true;
       barrier.enable = true;
