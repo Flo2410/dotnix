@@ -47,6 +47,9 @@ in
   "terminal.integrated.fontFamily" = "Fira Code";
   "terminal.integrated.defaultProfile.linux" = "zsh";
   "terminal.integrated.inheritEnv" = false;
+  "terminal.integrated.cursorStyle" = "line";
+  "terminal.integrated.cursorBlinking" = true;
+  "terminal.integrated.cursorWidth" = 2;
 
   # Explorer
   "explorer.confirmDelete" = false;
