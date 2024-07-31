@@ -47,7 +47,7 @@
 
       autostart = {
         enable = true;
-        autostartItems = [ "yakuake" ];
+        autostartItems = [ ];
       };
     };
 
