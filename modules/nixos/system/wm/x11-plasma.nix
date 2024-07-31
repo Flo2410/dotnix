@@ -22,6 +22,7 @@ in
         xkb = {
           layout = "at";
           variant = "nodeadkeys";
+          options = "caps:escape";
         };
       };
 
