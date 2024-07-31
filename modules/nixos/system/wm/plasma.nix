@@ -2,12 +2,12 @@
 
 with lib;
 let
-  cfg = config.system.wm.x11-plasma;
+  cfg = config.system.wm.plasma;
 in
 {
 
-  options.system.wm.x11-plasma = {
-    enable = mkEnableOption "X11 Plasma Desktop";
+  options.system.wm.plasma = {
+    enable = mkEnableOption "Plasma Desktop";
   };
 
   config = mkIf cfg.enable {
@@ -15,7 +15,7 @@ in
       kdePackages.plasma-thunderbolt
     ];
 
-    # Configure X11
+    # Configure plasma
     services = {
       xserver = {
         enable = true;
@@ -30,11 +30,12 @@ in
 
       # Enable the KDE Plasma Desktop Environment.
       displayManager = {
-        defaultSession = "plasmax11";
+        defaultSession = "plasma";
 
         sddm = {
           enable = true;
           theme = "breeze";
+          wayland.enable = true;
         };
       };
 

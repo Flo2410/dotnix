@@ -36,7 +36,7 @@
     };
 
     # WM
-    wm.x11-plasma.enable = true;
+    wm.plasma.enable = true;
 
     shell.enable = true;
 

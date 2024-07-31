@@ -1,6 +1,6 @@
 {
   imports = [
-    ./wm/x11-plasma.nix
+    ./wm/plasma.nix
 
     ./config
 

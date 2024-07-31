@@ -2,12 +2,12 @@
 
 with lib;
 let
-  cfg = config.user.wm.x11-plasma;
+  cfg = config.user.wm.plasma;
 in
 {
 
-  options.user.wm.x11-plasma = {
-    enable = mkEnableOption "X11 Plasma Desktop";
+  options.user.wm.plasma = {
+    enable = mkEnableOption "Plasma Desktop";
   };
 
   config = mkIf cfg.enable {

@@ -6,6 +6,6 @@
 
     ./home-manager.nix
 
-    ./wm/x11-plasma.nix
+    ./wm/plasma.nix
   ];
 }
