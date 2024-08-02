@@ -13,7 +13,10 @@ in
     environment.systemPackages = [ pkgs.cups-filters ];
 
     # Enable printing
-    services.printing.enable = true;
+    services.printing = {
+      enable = true;
+      drivers = with pkgs; [ ptouch-driver ];
+    };
 
     services.avahi = {
       enable = true;
