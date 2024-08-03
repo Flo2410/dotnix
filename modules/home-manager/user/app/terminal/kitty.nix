@@ -20,6 +20,8 @@ in
         background_blur = "1";
         cursor = "#9BC1C2";
         cursor_beam_thickness = "1.5";
+        scrollback_lines = 10000;
+        touch_scroll_multiplier = 8;
       };
       shellIntegration = {
         enableZshIntegration = true;
