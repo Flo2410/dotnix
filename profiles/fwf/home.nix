@@ -82,6 +82,7 @@
     obsidian
     kicad
     pulseview
+    ungoogled-chromium
 
     # kde utils
     kdePackages.yakuake
