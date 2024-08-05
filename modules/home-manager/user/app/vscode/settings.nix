@@ -22,6 +22,9 @@ in
     };
   };
 
+  # Window Settings
+  "window.titleBarStyle" = "custom";
+
   # Editor Settings
   "editor.fontFamily" = "Fira Code";
   "editor.inlayHints.fontFamily" = "Fira Code";
