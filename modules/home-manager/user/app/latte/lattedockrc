@@ -43,16 +43,17 @@ windowSize=980,630
 outlineWidth=1
 
 [PlasmaTransientsConfig]
-PreloadWeight=0
+PreloadWeight=2
 
 [ScreenConnectors]
-10=eDP-1:::0,0 2256x1504
-11=DP-2:::2256,32 2560x1440
+10=eDP-1:::0,118 1805x1203
+11=DP-2:::1805,0 2560x1440
 12=DP-3:::2256,0 2560x1440
-13=DP-4:::4816,0 1920x1080
-14=DP-1:::2256,0 2560x1440
+13=DP-4:::0,0 2560x1440
+14=DP-1:::1805,0 2560x1440
 15=DP-4-1:::2256,0 1920x1200
 16=DP-4-2:::4176,0 1920x1200
+17=:::0,0 0x0
 
 [UniversalSettings]
 badges3DStyle=false
