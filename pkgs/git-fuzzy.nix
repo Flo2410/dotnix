@@ -6,13 +6,13 @@ let
 in
 stdenv.mkDerivation {
   pname = name;
-  version = "41b7691";
+  version = "c3e5a63";
 
   src = fetchFromGitHub {
     owner = "bigH";
     repo = name;
-    rev = "41b7691a837e23e36cec44e8ea2c071161727dfa";
-    sha256 = "sha256-fexv5aesUakrgaz4HE9Nt954OoBEF06qZb6VSMvuZhw=";
+    rev = "c3e5a63d6d44d7e38e78dba88b712bfdae0036c2";
+    sha256 = "sha256-tkNxEvCBnkg5OISb+ZrmbTBgy/zEsCUfHD3U35EzI+Q=";
   };
 
   installPhase = ''
