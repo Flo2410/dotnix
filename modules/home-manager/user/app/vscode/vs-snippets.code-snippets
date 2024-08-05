@@ -52,5 +52,18 @@
     "prefix": ["\\volt"],
     "body": ["\\SI{$1}{\\volt}$0"],
     "description": "SI Volt"
+  },
+  "fig": {
+    "scope": "latex, tex",
+    "prefix": ["\\fig"],
+    "description": "Create a Figure with label and caption",
+    "body": [
+      "\\begin{figure}[H]",
+      "  \\centering",
+      "  \\includegraphics[width=\\linewidth]{${1:sections}}",
+      "  \\caption{$2}",
+      "  \\label{fig:$3}",
+      "\\end{figure}$0"
+    ]
   }
 }
