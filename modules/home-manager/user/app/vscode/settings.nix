@@ -59,12 +59,14 @@ in
   "explorer.compactFolders" = false;
   "explorer.confirmDragAndDrop" = false;
   "explorer.confirmPasteNative" = false;
+  "explorer.autoOpenDroppedFile" = false;
 
   # telemetry
   "telemetry.telemetryLevel" = "off";
 
   # debug
   "debug.toolBarLocation" = "docked";
+  "debug.showVariableTypes" = true;
 
   # do not check for updates.
   "update.mode" = "none";
