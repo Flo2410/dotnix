@@ -52,7 +52,7 @@
     };
 
     app = {
-      browser.vivaldi.enable = true;
+      browser.ungoogled-chromium.enable = true;
       browser.floorp = {
         enable = true;
         defaultBrowser = true;
@@ -82,7 +82,7 @@
     obsidian
     kicad
     pulseview
-    ungoogled-chromium
+    vivaldi_qt6
 
     # kde utils
     kdePackages.yakuake
