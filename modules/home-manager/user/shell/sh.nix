@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # NOTE: These are here because they are used in shell aliases.
-      xclip
+      wl-clipboard
       tldr
       ripgrep
       bat

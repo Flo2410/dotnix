@@ -34,7 +34,7 @@
   # custom stuff
   "mjölnir" = "~/syncthing/Development/reverse-engineering/Mjölnir/mjölnir.sh";
   ros2-docker = "~/syncthing/Development/ros/ros2-docker/ros2-docker.sh";
-  clip = "xclip -sel clip";
+  clip = "wl-copy";
 
   #docker 
   "docker.rm-dangling" = "docker rmi \$(docker images --filter 'dangling=true' -q --no-trunc)";
