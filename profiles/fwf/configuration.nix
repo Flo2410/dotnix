@@ -82,6 +82,7 @@
   };
 
   users = {
+    groups.plugdev = { };
     defaultUserShell = pkgs.zsh;
     users."florian" = {
       isNormalUser = true;
