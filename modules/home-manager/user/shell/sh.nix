@@ -60,6 +60,9 @@ in
         syntaxHighlighting.enable = true;
         enableCompletion = true;
         shellAliases = (import ./aliases.nix);
+        initExtra = ''
+          [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh" # alias ssh to when using kitty terminal
+        '';
 
         oh-my-zsh = {
           enable = true;
