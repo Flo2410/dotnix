@@ -49,6 +49,7 @@ in
       nmap
       jq
       ncdu
+      traceroute
 
       git-fuzzy # (callPackage ../pkgs/git-fuzzy.nix { })
     ];
