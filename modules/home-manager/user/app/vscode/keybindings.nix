@@ -102,4 +102,13 @@
     key = "alt+p";
     command = "workbench.action.splitEditorDown";
   }
+  {
+    "key" = "ctrl+alt+j";
+    "command" = "-latex-workshop.synctex";
+    "when" = "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/";
+  }
+  {
+    "key" = "ctrl+alt+j";
+    "command" = "workbench.action.toggleMaximizedPanel";
+  }
 ]
