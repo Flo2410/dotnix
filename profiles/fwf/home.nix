@@ -36,7 +36,7 @@
     };
 
     # WM
-    wm.plasma.enable = true;
+    wm.plasma.enable = lib.mkDefault true;
 
     shell.enable = true;
 
@@ -142,6 +142,13 @@
     home-assistant-desktop
     elamx2
   ];
+
+  specialisation = {
+    hypr.configuration = {
+      user.wm.hyprland.enable = true;
+      user.wm.plasma.enable = lib.mkForce false;
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";

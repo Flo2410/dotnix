@@ -15,4 +15,7 @@ pkgs: with pkgs; {
   mqtt-explorer = callPackage ./mqtt-explorer.nix { };
   olauncher = callPackage ./olauncher.nix { };
   stm32cubeprog = callPackage ./stm32cubeprog.nix { };
+
+
+  sddm-astronaut = callPackage ./sddm-themes/astronaut.nix { };
 }

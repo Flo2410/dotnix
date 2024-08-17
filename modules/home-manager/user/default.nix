@@ -7,5 +7,6 @@
     ./home-manager.nix
 
     ./wm/plasma.nix
+    ./wm/hyprland.nix
   ];
 }

@@ -129,7 +129,7 @@
   system = {
 
     # WM
-    wm.plasma.enable = true;
+    wm.plasma.enable = lib.mkDefault true;
 
     # Config
     config = {
@@ -183,6 +183,13 @@
         enable = true;
         enableSuspendThenHibernate = true;
       };
+    };
+  };
+
+  specialisation = {
+    hypr.configuration = {
+      system.wm.hyprland.enable = true;
+      system.wm.plasma.enable = lib.mkForce false;
     };
   };
 

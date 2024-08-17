@@ -1,6 +1,7 @@
 {
   imports = [
     ./wm/plasma.nix
+    ./wm/hyprland.nix
 
     ./config
 
