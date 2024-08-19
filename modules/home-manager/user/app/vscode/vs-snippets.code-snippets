@@ -47,6 +47,12 @@
     "body": ["\\textit{$0}"],
     "description": "Text italic"
   },
+  "ttt": {
+    "scope": "latex, tex",
+    "prefix": ["\\ttt"],
+    "body": ["\\texttt{$0}"],
+    "description": "Text Typewriter"
+  },
   "volt": {
     "scope": "latex, tex",
     "prefix": ["\\volt"],
