@@ -20,13 +20,13 @@ in
       wayland-protocols
 
       sddm-astronaut
-      (catppuccin-sddm.override {
-        flavor = "frappe";
-        font = "Noto Sans";
-        fontSize = "9";
-        background = "${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}";
-        loginBackground = true;
-      })
+      # (catppuccin-sddm.override {
+      #   flavor = "frappe";
+      #   font = "Noto Sans";
+      #   fontSize = "9";
+      #   background = "${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}";
+      #   loginBackground = true;
+      # })
     ];
 
     programs.hyprland = {
@@ -48,9 +48,15 @@ in
 
         sddm = {
           enable = true;
-          theme = "catppuccin-frappe";
+          theme = "astronaut";
           wayland.enable = true;
           package = pkgs.kdePackages.sddm;
+          extraPackages = with pkgs; [
+            # Fix for astronaut theme
+            qt6.qtsvg
+            qt6.qt5compat
+            qt6.qtdeclarative
+          ];
         };
       };
     };
