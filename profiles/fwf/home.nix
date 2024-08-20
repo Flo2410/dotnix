@@ -88,6 +88,8 @@
     kdePackages.yakuake
     kdePackages.kcalc
     kdePackages.skanpage
+    kdePackages.kwallet
+    kwalletmanager
 
     # Media
     gimp
@@ -141,6 +143,10 @@
     # Custom Packages
     home-assistant-desktop
     elamx2
+
+    (writeShellScriptBin "hm-load-latest" ''
+      $(home-manager generations | head -1 | rg -o '/[^ ]*')/specialisation/hypr/activate
+    '')
   ];
 
   specialisation = {

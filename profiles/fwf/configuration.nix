@@ -190,7 +190,10 @@
     hypr.configuration = {
       system.wm.hyprland.enable = true;
       system.wm.plasma.enable = lib.mkForce false;
+
+      security.pam.services.login.kwallet.enable = true;
     };
+
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
