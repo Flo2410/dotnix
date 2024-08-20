@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-pkgs.unstable.mkShellNoCC {
+pkgs.unstable.mkShell {
   nativeBuildInputs = with pkgs.unstable; [
     pkg-config
     openssl
