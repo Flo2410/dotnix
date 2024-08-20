@@ -24,4 +24,9 @@ stdenvNoCC.mkDerivation rec {
     mkdir -p $out/share/sddm/themes
     cp -aR $src $out/share/sddm/themes/astronaut
   '';
+
+  fixupPhase = ''
+    substituteInPlace $out/share/sddm/themes/astronaut/theme.conf \
+    	--replace 'Background="background.png"' 'Background="${../../wallpapers/framework/Abstract_1-hue_logo.jpg}"'
+  '';
 }
