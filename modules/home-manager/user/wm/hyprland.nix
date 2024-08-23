@@ -54,6 +54,7 @@ in
 
           # unlock kwallet
           "${pkgs.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id"
+          "kwalletd6 &"
 
           # networking
           "nm-applet --indicator &"

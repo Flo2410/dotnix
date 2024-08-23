@@ -115,6 +115,7 @@
 
 
   security.pam.services.sddm.kwallet.enable = true;
+  security.pam.services.login.kwallet.enable = true;
 
   services = {
     hardware.bolt.enable = true;
