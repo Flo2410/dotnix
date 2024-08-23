@@ -10,6 +10,8 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    # inputs.stylix.homeManagerModules.stylix # Not needed here as it is bundeled into the nixos module
+    inputs.catppuccin.homeManagerModules.catppuccin
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -22,6 +24,7 @@
   services = {
     syncthing.enable = true;
     kdeconnect.enable = true;
+    blueman-applet.enable = true;
   };
 
   # Nicely reload system units when changing configs
@@ -36,7 +39,7 @@
     };
 
     # WM
-    wm.plasma.enable = lib.mkDefault true;
+    wm.hyprland.enable = lib.mkDefault true;
 
     shell.enable = true;
 
@@ -58,13 +61,11 @@
         defaultBrowser = true;
       };
       virtualization.enable = true;
-      latte.enable = true;
       barrier.enable = true;
       vscode.enable = true;
 
       terminal = {
         kitty.enable = true;
-        konsole.enable = true;
       };
     };
   };
@@ -85,11 +86,12 @@
     vivaldi_qt6
 
     # kde utils
-    kdePackages.yakuake
     kdePackages.kcalc
     kdePackages.skanpage
     kdePackages.kwallet
     kwalletmanager
+    kdePackages.dolphin
+    kdePackages.systemsettings
 
     # Media
     gimp
@@ -143,18 +145,16 @@
     # Custom Packages
     home-assistant-desktop
     elamx2
-
-    (writeShellScriptBin "hm-load-latest" ''
-      $(home-manager generations | head -1 | rg -o '/[^ ]*')/specialisation/hypr/activate
-    '')
+    # ente-auth
   ];
 
-  specialisation = {
-    hypr.configuration = {
-      user.wm.hyprland.enable = true;
-      user.wm.plasma.enable = lib.mkForce false;
-    };
-  };
+  # specialisation = {
+  #   plasma.configuration = {
+  #     stylix.enable = lib.mkForce false;
+  #     user.wm.hyprland.enable = lib.mkForce false;
+  #     user.wm.plasma.enable = lib.mkForce true;
+  #   };
+  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";

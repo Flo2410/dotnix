@@ -12,10 +12,13 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+    inputs.stylix.nixosModules.stylix
+    inputs.catppuccin.nixosModules.catppuccin
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
     ../../nix/nixpkgs.nix
+    ../../nix/lib/functions.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -69,6 +72,8 @@
     git
     zsh
     home-manager
+    kdePackages.plasma-thunderbolt
+    kdePackages.kwallet-pam
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Fix for vscode on wayland
@@ -91,19 +96,25 @@
     };
   };
 
-  programs.partition-manager.enable = true;
+  programs = {
+    zsh.enable = true;
+    partition-manager.enable = true;
+    thunar.enable = true;
+  };
 
   # I use zsh btw
   environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-gtk
+    extraPortals = with pkgs;[
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
     ];
   };
+
+
+  security.pam.services.sddm.kwallet.enable = true;
 
   services = {
     hardware.bolt.enable = true;
@@ -129,7 +140,7 @@
   system = {
 
     # WM
-    wm.plasma.enable = lib.mkDefault true;
+    wm.hyprland.enable = lib.mkDefault true;
 
     # Config
     config = {
@@ -186,15 +197,14 @@
     };
   };
 
-  specialisation = {
-    hypr.configuration = {
-      system.wm.hyprland.enable = true;
-      system.wm.plasma.enable = lib.mkForce false;
-
-      security.pam.services.login.kwallet.enable = true;
-    };
-
-  };
+  # specialisation = {
+  #   plasma.configuration = {
+  #     stylix.enable = lib.mkForce false;
+  #     stylix.image = ../../wallpapers/framework/Abstract_1-hue_logo.jpg;
+  #     system.wm.hyprland.enable = lib.mkForce false;
+  #     system.wm.plasma.enable = lib.mkForce true;
+  #   };
+  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
