@@ -164,6 +164,18 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin-vsc = {
+      url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
 }
