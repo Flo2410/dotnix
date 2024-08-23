@@ -90,6 +90,19 @@ in
 
           general = {
             layout = "master";
+            gaps_in = 3;
+            gaps_out = 6;
+          };
+
+          decoration = {
+            rounding = 8;
+            drop_shadow = true;
+          };
+
+          misc = {
+            disable_hyprland_logo = true;
+            disable_splash_rendering = true;
+            middle_click_paste = false;
           };
 
           env = [
