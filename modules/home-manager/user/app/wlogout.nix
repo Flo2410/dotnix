@@ -31,7 +31,7 @@ in
           label = "suspend";
           text = "Suspend";
           keybind = "s";
-          action = "$(${runOnce "hyprlock"} &) & systemctl suspend-then-hibernate";
+          action = "systemctl suspend-then-hibernate";
         }
         {
           label = "hibernate";
