@@ -20,7 +20,7 @@ in
 
       app = {
         hyprlock = {
-          # wallpaper = ../../../../wallpapers/framework/Abstract_1-hue_logo.jpg;
+          # wallpaper = ../../../../assets/framework/Abstract_1-hue_logo.jpg;
           wallpaper = config.stylix.image;
           enable = mkDefault true;
         };

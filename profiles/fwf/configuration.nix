@@ -200,7 +200,7 @@
   # specialisation = {
   #   plasma.configuration = {
   #     stylix.enable = lib.mkForce false;
-  #     stylix.image = ../../wallpapers/framework/Abstract_1-hue_logo.jpg;
+  #     stylix.image = ../../assets/framework/Abstract_1-hue_logo.jpg;
   #     system.wm.hyprland.enable = lib.mkForce false;
   #     system.wm.plasma.enable = lib.mkForce true;
   #   };

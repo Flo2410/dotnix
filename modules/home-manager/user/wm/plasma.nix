@@ -18,7 +18,7 @@ in
         lookAndFeel = "org.kde.breezedark.desktop";
         cursor.theme = "Breeze";
         iconTheme = "breeze-dark";
-        wallpaper = ../../../../wallpapers/framework/Abstract_1-hue_logo.jpg;
+        wallpaper = ../../../../assets/framework/Abstract_1-hue_logo.jpg;
       };
       shortcuts = {
         kwin = {

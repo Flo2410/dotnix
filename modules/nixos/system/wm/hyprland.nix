@@ -29,7 +29,7 @@ in
       #   flavor = "frappe";
       #   font = "Noto Sans";
       #   fontSize = "9";
-      #   background = "${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}";
+      #   background = "${../../../../assets/framework/Abstract_1-hue_logo.jpg}";
       #   loginBackground = true;
       # })
     ];
