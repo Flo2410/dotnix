@@ -37,9 +37,23 @@ with pkgs.vscode-marketplace; [
   naumovs.color-highlight
   pkief.material-icon-theme
   psioniq.psi-header
-  sdras.night-owl
   takumii.markdowntable
   taniarascia.new-moon-vscode
+
+  # Themes
+  sdras.night-owl
+  catppuccin.catppuccin-vsc-icons
+  (pkgs.catppuccin-vsc.override {
+    accent = "sapphire";
+    boldKeywords = true;
+    italicComments = true;
+    italicKeywords = true;
+    extraBordersEnabled = false;
+    workbenchMode = "default";
+    bracketMode = "rainbow";
+    colorOverrides = { };
+    customUIColors = { };
+  })
 
   pkgs.vscode-extensions.ms-vscode-remote.remote-containers
   pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
