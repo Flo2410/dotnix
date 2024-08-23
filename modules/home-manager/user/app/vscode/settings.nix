@@ -11,8 +11,8 @@ in
 
   # Workbench Settings
   "workbench.iconTheme" = "material-icon-theme";
-  "workbench.colorTheme" = "Night Owl";
-  "workbench.preferredDarkColorTheme" = "Night Owl";
+  "workbench.colorTheme" = "Catppuccin Mocha";
+  "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
   "workbench.preferredLightColorTheme" = "Night Owl Light";
   "workbench.startupEditor" = "none";
   "workbench.colorCustomizations" = {
@@ -26,8 +26,8 @@ in
   "window.titleBarStyle" = "custom";
 
   # Editor Settings
-  "editor.fontFamily" = "Fira Code";
-  "editor.inlayHints.fontFamily" = "Fira Code";
+  "editor.fontFamily" = "${config.stylix.fonts.monospace.name}";
+  "editor.inlayHints.fontFamily" = "${config.stylix.fonts.monospace.name}";
   "editor.fontSize" = 13;
   "editor.fontLigatures" = true;
   "editor.bracketPairColorization.enabled" = true;
@@ -47,7 +47,7 @@ in
   "editor.wordWrap" = "off";
 
   # Terminal
-  "terminal.integrated.fontFamily" = "Fira Code";
+  "terminal.integrated.fontFamily" = "${config.stylix.fonts.monospace.name}";
   "terminal.integrated.defaultProfile.linux" = "zsh";
   "terminal.integrated.inheritEnv" = false;
   "terminal.integrated.cursorStyle" = "line";
