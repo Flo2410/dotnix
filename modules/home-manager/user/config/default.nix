@@ -4,5 +4,6 @@
     ./ssh.nix
     ./git.nix
     ./autostart.nix
+    ./stylix.nix
   ];
 }
