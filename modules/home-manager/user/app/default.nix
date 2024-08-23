@@ -9,6 +9,7 @@
     ./barrier/barrier.nix
     ./vscode/vscode.nix
     ./wlogout.nix
+    ./waybar.nix
 
     ./hypr/hyprlock.nix
   ];
