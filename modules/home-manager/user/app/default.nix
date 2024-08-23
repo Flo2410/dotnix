@@ -11,6 +11,7 @@
     ./wlogout.nix
     ./waybar.nix
     ./rofi.nix
+    ./dunst.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

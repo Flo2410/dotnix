@@ -29,6 +29,7 @@ in
         waybar.enable = mkDefault true;
         rofi.enable = mkDefault true;
         hypridle.enable = mkDefault true;
+        dunst.enable = mkDefault true;
       };
     };
 
@@ -40,7 +41,6 @@ in
       wayland-utils
       wl-clipboard
       wlroots
-      dunst
       networkmanagerapplet # GUI for networkmanager
       playerctl
       gnome.gnome-control-center
