@@ -44,6 +44,8 @@ in
       networkmanagerapplet # GUI for networkmanager
       playerctl
       gnome.gnome-control-center
+      libsForQt5.qt5.qtwayland # qt5-wayland
+      kdePackages.qtwayland # qt6-wayland
     ];
 
     wayland.windowManager.hyprland = {
