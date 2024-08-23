@@ -38,7 +38,6 @@ in
       rsync
       unzip
       fastfetch
-      btop
       htop
       dig
       dnsutils
@@ -107,6 +106,7 @@ in
         ];
       };
 
+      btop.enable = true;
     };
   };
 }
