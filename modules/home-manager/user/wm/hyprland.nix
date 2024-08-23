@@ -15,12 +15,12 @@ in
         stylix = {
           enable = mkDefault true;
           theme = "catppuccin-mocha";
+          wallpaper = ../../../../assets/framework/Abstract_1-hue_logo.jpg;
         };
       };
 
       app = {
         hyprlock = {
-          # wallpaper = ../../../../assets/framework/Abstract_1-hue_logo.jpg;
           wallpaper = config.stylix.image;
           enable = mkDefault true;
         };

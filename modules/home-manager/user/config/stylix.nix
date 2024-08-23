@@ -17,7 +17,7 @@ in
       ];
       default = "nord";
     };
-    background = mkOption {
+    wallpaper = mkOption {
       type = types.nullOr types.path;
       default = null;
     };
@@ -60,7 +60,7 @@ in
         stylix.autoEnable = false;
         stylix.polarity = themePolarity;
 
-        stylix.image = mkIfElse (cfg.background != null) cfg.background (
+        stylix.image = mkIfElse (cfg.wallpaper != null) cfg.wallpaper (
           pkgs.fetchurl {
             url = backgroundUrl;
             sha256 = backgroundSha256;
@@ -110,7 +110,7 @@ in
         stylix.targets.hyprpaper.enable = mkForce true;
         stylix.targets.hyprland.enable = true; # from catppuccin
         # stylix.targets.waybar.enable = true; # from catppuccin
-        stylix.targets.vscode.enable = false;
+        # stylix.targets.vscode.enable = false;
         # stylix.targets.btop.enable = true; # from catppuccin
         stylix.targets.gnome.enable = true;
 
