@@ -23,8 +23,8 @@ in
         listener = [
           {
             timeout = 150; # 2.5 min
-            on-timeout = "brillo -l -O && brillo -l -S 0"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-            on-resume = "brillo -l -I"; # monitor backlight restore.
+            on-timeout = "brillo -l -O && brillo -l -S 0 -u 1000000"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+            on-resume = "brillo -l -I -u 1000000"; # monitor backlight restore.
           }
           # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
           {
