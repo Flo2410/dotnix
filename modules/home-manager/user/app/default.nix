@@ -13,5 +13,6 @@
     ./rofi.nix
 
     ./hypr/hyprlock.nix
+    ./hypr/hypridle.nix
   ];
 }
