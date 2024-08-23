@@ -55,7 +55,7 @@ in
         "exec-once" = [
 
           # unlock kwallet
-          "${pkgs.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id"
+          "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id"
           "kwalletd6 &"
 
           # networking
