@@ -10,6 +10,7 @@
     ./vscode/vscode.nix
     ./wlogout.nix
     ./waybar.nix
+    ./rofi.nix
 
     ./hypr/hyprlock.nix
   ];
