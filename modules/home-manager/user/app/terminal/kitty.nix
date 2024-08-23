@@ -16,7 +16,7 @@ in
     programs.kitty = {
       enable = true;
       settings = {
-        background_opacity = "0.75";
+        background_opacity = lib.strings.floatToString config.stylix.opacity.terminal;
         background_blur = "1";
         cursor = "#9BC1C2";
         cursor_beam_thickness = "1.5";
@@ -27,7 +27,7 @@ in
         enableZshIntegration = true;
         enableBashIntegration = true;
       };
-      theme = "Solarized Dark Higher Contrast";
+      # theme = "Solarized Dark Higher Contrast";
     };
   };
 }
