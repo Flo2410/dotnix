@@ -122,13 +122,7 @@ in
 
             "$mod SHIFT, E, exec, pkill Hyprland"
             "$mod, Q, killactive,"
-            # "$mod, F, fullscreen,"
-            "$mod, G, togglegroup,"
-            "$mod SHIFT, N, changegroupactive, f"
-            "$mod SHIFT, P, changegroupactive, b"
-            "$mod, R, togglesplit,"
             "$mod, F, togglefloating,"
-            "$mod, P, pseudo,"
             "$mod ALT, ,resizeactive,"
 
             # --------------------------------
@@ -139,6 +133,11 @@ in
             "$mod, right, movefocus, r"
             "$mod, up, movefocus, u"
             "$mod, down, movefocus, d"
+
+            "$mod SHIFT, left, layoutmsg, addmaster"
+            "$mod SHIFT, right, layoutmsg, removemaster"
+            "$mod SHIFT, up, layoutmsg, swapprev"
+            "$mod SHIFT, down, layoutmsg, swapnext"
 
             # --------------------------------
             # utility
@@ -158,6 +157,8 @@ in
             # --------------------------------
 
             "$mod, RETURN, exec, kitty"
+            "$mod, C, exec, code --new-window" # open a new vscode window
+
           ] ++ workspaces;
 
 
