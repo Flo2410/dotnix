@@ -12,6 +12,11 @@ in
 
   config = mkIf cfg.enable {
 
+    system.config.stylix = {
+      enable = true;
+      theme = "catppuccin-mocha";
+    };
+
     environment.systemPackages = with pkgs; [
       hyprland
       xdg-desktop-portal-gtk
@@ -29,9 +34,20 @@ in
       # })
     ];
 
-    programs.hyprland = {
+
+    xdg.portal = {
       enable = true;
-      xwayland.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
+    };
+
+    hardware.brillo.enable = mkDefault true;
+
+    programs.hyprland = {
+      enable = mkForce true;
+      xwayland.enable = mkForce true;
     };
 
     services = {

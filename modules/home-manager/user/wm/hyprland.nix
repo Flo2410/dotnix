@@ -1,16 +1,38 @@
-{ lib, pkgs, config, inputs, ... }:
+{ lib, pkgs, config, ... }:
 
 with lib;
 let
   cfg = config.user.wm.hyprland;
 in
 {
-
   options.user.wm.hyprland = {
     enable = mkEnableOption "Hyprland Desktop";
   };
 
   config = mkIf cfg.enable {
+    user = {
+      config = {
+        stylix = {
+          enable = mkDefault true;
+          theme = "catppuccin-mocha";
+        };
+      };
+
+      app = {
+        hyprlock = {
+          # wallpaper = ../../../../wallpapers/framework/Abstract_1-hue_logo.jpg;
+          wallpaper = config.stylix.image;
+          enable = mkDefault true;
+        };
+
+        wlogout.enable = mkDefault true;
+        waybar.enable = mkDefault true;
+        rofi.enable = mkDefault true;
+      };
+    };
+
+
+    services.hyprpaper.enable = mkDefault true;
 
     home.packages = with pkgs; [
       # meson
@@ -19,38 +41,25 @@ in
       wlroots
       dunst
       networkmanagerapplet # GUI for networkmanager
-      waybar
-      rofi-wayland
-      hyprlock
+      playerctl
+      gnome.gnome-control-center
     ];
 
     wayland.windowManager.hyprland = {
-      enable = true;
-      systemd.enable = true;
+      enable = mkForce true;
+
       settings = {
-        # "exec-once" = [
-        #   # initialize wallpaper daemon
-        #   "swww init &"
-        #   # set wallpaper
-        #   "swww img ${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg} &"
+        "exec-once" = [
 
-        #   # networking
-        #   "nm-applet --indicator &"
-
-        #   "waybar &"
-        #   "dunst"
-        # ];
-
-        "exec-once" = "${pkgs.writeShellScript "init-hyprland" ''
-          kwalletd6 &
+          # unlock kwallet
+          "${pkgs.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id"
 
           # networking
-          nm-applet --indicator &
+          "nm-applet --indicator &"
 
-          waybar &
-          dunst & # notifications
-          
-        ''}";
+          "waybar &"
+          "dunst" # notifications
+        ];
 
         monitor = "eDP-1, preferred, 0x0, 1.175";
 
@@ -72,9 +81,6 @@ in
           layout = "master";
         };
 
-
-
-
         "$mod" = "SUPER";
         bind =
           let
@@ -83,30 +89,24 @@ in
 
             # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
             workspaces = builtins.concatLists (builtins.genList
-              (
-                x:
+              (x:
                 let
-                  ws =
-                    let
-                      c = (x + 1) / 10;
-                    in
+                  ws = let c = (x + 1) / 10; in
                     builtins.toString (x + 1 - (c * 10));
                 in
                 [
                   "$mod, ${ws}, workspace, ${toString (x + 1)}"
                   "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
                 ]
-              )
-              10);
+              ) 10);
 
-            toggle = program: service:
+            toggle = program:
               let
                 prog = builtins.substring 0 14 program;
-                runserv = lib.optionalString service "run-as-service";
               in
-              "pkill ${prog} || ${runserv} ${program}";
+              "pkill ${prog} || ${program}";
 
-            runOnce = program: "pgrep ${program} || ${program}";
+            runOnce = config.lib.meta.runOnce;
           in
           [
             # --------------------------------
@@ -115,12 +115,12 @@ in
 
             "$mod SHIFT, E, exec, pkill Hyprland"
             "$mod, Q, killactive,"
-            "$mod, F, fullscreen,"
+            # "$mod, F, fullscreen,"
             "$mod, G, togglegroup,"
             "$mod SHIFT, N, changegroupactive, f"
             "$mod SHIFT, P, changegroupactive, b"
             "$mod, R, togglesplit,"
-            "$mod, T, togglefloating,"
+            "$mod, F, togglefloating,"
             "$mod, P, pseudo,"
             "$mod ALT, ,resizeactive,"
 
@@ -138,13 +138,13 @@ in
             # --------------------------------
 
             # logout menu
-            "$mod, Escape, exec, ${toggle "wlogout" true} -p layer-shell"
+            "$mod, Escape, exec, ${toggle "wlogout"} -p layer-shell"
             # lock screen
             "$mod, L, exec, ${runOnce "hyprlock"}"
             # open settings
             "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
             # open app launcher
-            "ALT, SPACE, exec, pkill rofi || rofi -show drun"
+            "ALT, SPACE, exec, ${toggle "rofi"} -show drun"
 
             # --------------------------------
             # programs
@@ -152,38 +152,55 @@ in
 
             "$mod, RETURN, exec, kitty"
           ] ++ workspaces;
-      };
-    };
 
-    services = {
-      hyprpaper = {
-        enable = true;
-        settings = {
-          preload = [ "${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}" ];
-          wallpaper = [ ",${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}" ];
-        };
-      };
-    };
 
-    programs.hyprlock = {
-      enable = true;
+        bindl = [
+          # media controls
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
 
-      settings = {
-        general = {
-          disable_loading_bar = true;
-          hide_cursor = false;
-          no_fade_in = true;
-        };
-
-        background = [
-          {
-            monitor = "";
-            path = "${../../../../wallpapers/framework/Abstract_1-hue_logo.jpg}";
-          }
+          # volume
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
 
+        bindle = [
+          # volume
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+
+          # backlight
+          ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
+          ", XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5"
+        ];
+
+        # mouse movements
+        bindm = [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+          "$mod ALT, mouse:272, resizewindow"
+        ];
+
+
+        env = [
+          # QT
+          "QT_QPA_PLATFORM,wayland;xcb"
+          "QT_QPA_PLATFORMTHEME,qt6ct"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "QT_STYLE_OVERRIDE,kvantum"
+
+          # Toolkit Backend Variables
+          "GDK_BACKEND,wayland,x11,*"
+          "SDL_VIDEODRIVER,wayland"
+          "CLUTTER_BACKEND,wayland"
+
+          # XDG Specifications
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+        ];
       };
     };
-
   };
 }
