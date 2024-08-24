@@ -99,7 +99,13 @@
   programs = {
     zsh.enable = true;
     partition-manager.enable = true;
-    thunar.enable = true;
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
   };
 
   # I use zsh btw
@@ -120,6 +126,7 @@
   services = {
     hardware.bolt.enable = true;
     timesyncd.enable = true;
+    gvfs.enable = true; # Thunar: Mount, trash, and other functionalities
 
     udev = {
       enable = true;
