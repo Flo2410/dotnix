@@ -89,7 +89,7 @@
     kdePackages.kcalc
     kdePackages.skanpage
     kdePackages.kwallet
-    kwalletmanager
+    kdePackages.kwalletmanager
     kdePackages.dolphin
     kdePackages.systemsettings
 
