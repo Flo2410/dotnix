@@ -12,14 +12,14 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      kdePackages.plasma-browser-integration
+      (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
     ];
 
     programs.firefox = {
       enable = true;
       package = pkgs.unstable.floorp;
       nativeMessagingHosts = with pkgs; [
-        kdePackages.plasma-browser-integration
+        (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
       ];
       # profiles."default".settings = {
       #   "widget.use-xdg-desktop-portal.file-picker" = 1;

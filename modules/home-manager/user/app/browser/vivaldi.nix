@@ -12,21 +12,23 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      kdePackages.plasma-browser-integration
+      (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
     ];
 
-    home.file.".config/vivaldi/NativeMessagingHosts/org.kde.plasma.browser_integration.json".text = ''
-      {
-        "name": "org.kde.plasma.browser_integration",
-        "description": "Native connector for KDE Plasma",
-        "path": "${pkgs.kdePackages.plasma-browser-integration}/bin/plasma-browser-integration-host",
-        "type": "stdio",
-        "allowed_origins": [
-          "chrome-extension://cimiefiiaegbelhefglklhhakcgmhkai/",
-          "chrome-extension://dnnckbejblnejeabhcmhklcaljjpdjeh/"
-        ]
-      }
-    '';
+    home.file.".config/vivaldi/NativeMessagingHosts/org.kde.plasma.browser_integration.json" = mkIf config.user.wm.plasma.enable {
+      text = ''
+        {
+          "name": "org.kde.plasma.browser_integration",
+          "description": "Native connector for KDE Plasma",
+          "path": "${pkgs.kdePackages.plasma-browser-integration}/bin/plasma-browser-integration-host",
+          "type": "stdio",
+          "allowed_origins": [
+            "chrome-extension://cimiefiiaegbelhefglklhhakcgmhkai/",
+            "chrome-extension://dnnckbejblnejeabhcmhklcaljjpdjeh/"
+          ]
+        }
+      '';
+    };
 
     programs.chromium = {
       enable = true;
