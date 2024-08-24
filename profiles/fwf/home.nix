@@ -75,7 +75,6 @@
     thunderbird
     discord
     spotify
-    signal-desktop
     matlab # from nix-matlab
     prusa-slicer
     onedrivegui
@@ -84,6 +83,14 @@
     kicad
     pulseview
     vivaldi_qt6
+    (signal-desktop.overrideAttrs (old: {
+      postFixup = ''
+        # add kwallt6 to launch args
+        substituteInPlace $out/share/applications/signal-desktop.desktop \
+          --replace "%U" "--password-store=\"kdewallet6\" %U"
+      '';
+    }))
+    flare-signal # alterative signal client
 
     # kde utils
     kdePackages.kcalc
