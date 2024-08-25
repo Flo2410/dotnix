@@ -55,6 +55,7 @@ in
       settings =
         let
           hypr_binds = import ./binds.nix { inherit pkgs config; };
+          hypr_window_rules = import ./window-rules.nix { };
 
         in
         {
@@ -146,7 +147,7 @@ in
             "XDG_SESSION_TYPE,wayland"
             "XDG_SESSION_DESKTOP,Hyprland"
           ];
-        } // hypr_binds;
+        } // hypr_binds // hypr_window_rules;
     };
   };
 }
