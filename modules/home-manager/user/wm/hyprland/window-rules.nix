@@ -5,6 +5,8 @@
     "float, title:^(Picture-in-Picture)$"
     "pin, title:^(Picture-in-Picture)$"
     "keepaspectratio, title:^(Picture-in-Picture)$"
+    "suppressevent fullscreen, title:^(Picture-in-Picture)$"
+    "suppressevent maximize, title:^(Picture-in-Picture)$"
 
     # Syncthing tray
     "float, title:^(Syncthing Tray)$"
