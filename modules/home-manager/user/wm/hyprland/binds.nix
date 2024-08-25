@@ -61,8 +61,6 @@
       "$mod, Q, killactive,"
       "$mod, F, togglefloating,"
       "$mod ALT, ,resizeactive,"
-      "$mod CTRL, left, workspace, r-1"
-      "$mod CTRL, right, workspace, r+1"
 
       # --------------------------------
       # move focus
@@ -73,10 +71,23 @@
       "$mod, up, movefocus, u"
       "$mod, down, movefocus, d"
 
+      # --------------------------------
+      # workspaces
+      # --------------------------------
+
+      # swap window positions
       "$mod SHIFT, left, layoutmsg, addmaster"
       "$mod SHIFT, right, layoutmsg, removemaster"
       "$mod SHIFT, up, layoutmsg, swapprev"
       "$mod SHIFT, down, layoutmsg, swapnext"
+
+      # switch workspace on current monitor
+      "$mod CTRL, left, workspace, r-1"
+      "$mod CTRL, right, workspace, r+1"
+
+      # move window to next/prev workspace
+      "$mod CTRL SHIFT, left, movetoworkspace, r-1"
+      "$mod CTRL SHIFT, right, movetoworkspace, r+1"
 
       # --------------------------------
       # utility
