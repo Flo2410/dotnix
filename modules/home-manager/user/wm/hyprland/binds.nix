@@ -61,6 +61,8 @@
       "$mod, Q, killactive,"
       "$mod, F, togglefloating,"
       "$mod ALT, ,resizeactive,"
+      "$mod CTRL, left, workspace, r-1"
+      "$mod CTRL, right, workspace, r+1"
 
       # --------------------------------
       # move focus
