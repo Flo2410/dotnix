@@ -47,6 +47,7 @@ in
       libsForQt5.qt5.qtwayland # qt5-wayland
       kdePackages.qtwayland # qt6-wayland
       cliphist # clipboard history
+      nwg-displays # display management
     ];
 
     wayland.windowManager.hyprland = {
@@ -59,6 +60,11 @@ in
 
         in
         {
+          source = [
+            "~/.config/hypr/monitors.conf"
+            "~/.config/hypr/workspaces.conf"
+          ];
+
           "exec-once" = [
 
             # unlock kwallet
