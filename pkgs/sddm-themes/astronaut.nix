@@ -27,6 +27,6 @@ stdenvNoCC.mkDerivation rec {
 
   fixupPhase = ''
     substituteInPlace $out/share/sddm/themes/astronaut/theme.conf \
-    	--replace 'Background="background.png"' 'Background="${../../assets/framework/Abstract_1-hue_logo.jpg}"'
+    	--replace 'Background="background.png"' 'Background="${../../assets/wallpapers/Abstract_1-hue_logo.jpg}"'
   '';
 }

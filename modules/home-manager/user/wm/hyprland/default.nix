@@ -15,7 +15,7 @@ in
         stylix = {
           enable = mkDefault true;
           theme = "catppuccin-mocha";
-          wallpaper = ../../../../../assets/framework/Abstract_1-hue_logo.jpg;
+          wallpaper = ../../../../../assets/wallpapers/moon.jpg;
         };
       };
 
