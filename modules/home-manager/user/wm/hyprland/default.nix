@@ -82,6 +82,9 @@ in
             kb_layout = "at";
             kb_variant = "nodeadkeys";
             kb_options = "caps:escape";
+            accel_profile = "flat";
+            follow_mouse = 2; # Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
+            sensitivity = 0;
 
             touchpad = {
               natural_scroll = true;
@@ -111,6 +114,19 @@ in
             disable_splash_rendering = true;
             middle_click_paste = false;
           };
+
+          device = [
+            {
+              # Framework Laptop internal touchpad
+              name = "pixa3854:00-093a:0274-touchpad";
+              sensitivity = 0.3;
+            }
+            {
+              # G Pro Wireless
+              name = "logitech-g-pro-1";
+              sensitivity = -0.2;
+            }
+          ];
 
           env = [
             # QT
