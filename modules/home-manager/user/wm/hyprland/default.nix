@@ -46,6 +46,7 @@ in
       gnome.gnome-control-center
       libsForQt5.qt5.qtwayland # qt5-wayland
       kdePackages.qtwayland # qt6-wayland
+      cliphist # clipboard history
     ];
 
     wayland.windowManager.hyprland = {
@@ -53,7 +54,8 @@ in
 
       settings =
         let
-          hypr_binds = import ./binds.nix { inherit config; };
+          hypr_binds = import ./binds.nix { inherit pkgs config; };
+
         in
         {
           "exec-once" = [
@@ -68,7 +70,10 @@ in
             "nm-applet --indicator &"
 
             "waybar &"
-            "dunst" # notifications
+            # notifications
+            "dunst"
+            # clipboard history
+            "wl-paste --watch cliphist store"
           ];
 
           monitor = "eDP-1, preferred, 0x0, 1.175";

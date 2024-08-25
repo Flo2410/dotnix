@@ -20,12 +20,12 @@ in
         })
       ];
       extraConfig = {
-        "modes" = "drun,calc,window";
+        # "modes" = "drun,calc,window,clipboard:${cliphist-rofi-img}";
         "show-icons" = true;
       };
 
       theme = {
-          # Appearance customization for list
+        # Appearance customization for list
         listview = {
           columns = 1; # Display items in a single column (list format)
           cycle = true; # Cycle through the list
