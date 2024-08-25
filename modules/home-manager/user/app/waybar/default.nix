@@ -13,7 +13,13 @@ in
   config = mkIf cfg.enable {
     programs.waybar = {
       enable = cfg.enable;
-      settings = { };
+      settings.mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+
+        modules-center = [ "clock" ];
+      };
     };
   };
 }

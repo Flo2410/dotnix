@@ -9,7 +9,7 @@
     ./barrier/barrier.nix
     ./vscode/vscode.nix
     ./wlogout.nix
-    ./waybar.nix
+    ./waybar
     ./rofi.nix
     ./dunst.nix
 
