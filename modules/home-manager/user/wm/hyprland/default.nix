@@ -85,6 +85,9 @@ in
 
             touchpad = {
               natural_scroll = true;
+              tap-to-click = true;
+              tap-and-drag = true;
+              drag_lock = true;
             };
           };
 
