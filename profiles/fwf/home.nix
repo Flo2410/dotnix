@@ -28,6 +28,7 @@
       tray = {
         enable = true;
         package = pkgs.syncthingtray-minimal;
+        command = "syncthingtray --wait";
       };
     };
     kdeconnect.enable = true;
