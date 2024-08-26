@@ -126,7 +126,7 @@ in
             {
               # Framework Laptop internal touchpad
               name = "pixa3854:00-093a:0274-touchpad";
-              sensitivity = 0.3;
+              sensitivity = 0;
             }
             {
               # G Pro Wireless
