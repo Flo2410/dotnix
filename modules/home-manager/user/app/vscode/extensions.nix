@@ -39,6 +39,7 @@ with pkgs.vscode-marketplace; [
   psioniq.psi-header
   takumii.markdowntable
   taniarascia.new-moon-vscode
+  neptunedesign.vs-sequential-number
 
   # Themes
   sdras.night-owl
