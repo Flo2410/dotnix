@@ -16,5 +16,9 @@
     # elamx2
     "float, class:^(java-lang-Thread), title:^(Starting eLamX)(.*)$"
     "tile, class:^(java-lang-Thread), title:^(eLamX)(.*)$"
+
+    # kwallet dialog
+    "move onscreen cursor -50% -50%, floating: 1, class:^(org.kde.kwalletd6)$" # move window to cursor positon -> hack to get the window to the current display
+    "center, floating: 1, class:^(org.kde.kwalletd6)$" # move the window to the center of the screen
   ];
 }
