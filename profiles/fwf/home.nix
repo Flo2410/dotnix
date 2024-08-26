@@ -30,7 +30,6 @@
       };
     };
     kdeconnect.enable = true;
-    blueman-applet.enable = true;
   };
 
   # Nicely reload system units when changing configs
