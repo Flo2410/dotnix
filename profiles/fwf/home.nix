@@ -22,7 +22,13 @@
   news.display = "silent"; # disable home-manager news
 
   services = {
-    syncthing.enable = true;
+    syncthing = {
+      enable = true;
+      tray = {
+        enable = true;
+        package = pkgs.syncthingtray-minimal;
+      };
+    };
     kdeconnect.enable = true;
     blueman-applet.enable = true;
   };
@@ -109,7 +115,6 @@
     nomacs
 
     # utils
-    syncthingtray
     syncthing
     gh
     ookla-speedtest
