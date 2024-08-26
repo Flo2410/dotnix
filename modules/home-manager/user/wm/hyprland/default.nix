@@ -33,7 +33,6 @@ in
       };
     };
 
-
     services.hyprpaper.enable = mkDefault true;
 
     home.packages = with pkgs; [
@@ -44,6 +43,7 @@ in
       networkmanagerapplet # GUI for networkmanager
       playerctl
       gnome.gnome-control-center
+      gnome.gnome-bluetooth
       libsForQt5.qt5.qtwayland # qt5-wayland
       kdePackages.qtwayland # qt6-wayland
       cliphist # clipboard history
