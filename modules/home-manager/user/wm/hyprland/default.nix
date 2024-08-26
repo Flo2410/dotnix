@@ -68,7 +68,7 @@ in
           "exec-once" = [
 
             # unlock kwallet
-            "sleep 1 && ${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id && kwalletd6 &"
+            "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id && kwalletd6 &"
 
             # pollkit
             "sleep 2; ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
