@@ -12,6 +12,7 @@
     ./waybar
     ./rofi.nix
     ./dunst.nix
+    ./ags.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

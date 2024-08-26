@@ -12,6 +12,7 @@
     inputs.plasma-manager.homeManagerModules.plasma-manager
     # inputs.stylix.homeManagerModules.stylix # Not needed here as it is bundeled into the nixos module
     inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.ags.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix

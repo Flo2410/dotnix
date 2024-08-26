@@ -176,6 +176,11 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 }
