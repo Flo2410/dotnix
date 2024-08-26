@@ -104,6 +104,8 @@
     kdePackages.kwalletmanager
     kdePackages.dolphin
     kdePackages.systemsettings
+    kdePackages.ark
+    kdePackages.okular
 
     # Media
     gimp
