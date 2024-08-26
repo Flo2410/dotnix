@@ -11,15 +11,28 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.waybar = {
-      enable = cfg.enable;
-      settings.mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
+    programs.waybar =
+      let
+        waybar_modules = import ./modules.nix { };
+      in
+      {
+        enable = cfg.enable;
 
-        modules-center = [ "clock" ];
+        style = builtins.readFile ./style.css;
+
+        settings.mainBar = {
+          layer = "bottom";
+          position = "top";
+          height = 30;
+          margin-top = 8;
+          margin-left = 8;
+          margin-right = 8;
+
+
+          modules-left = [ "hyprland/workspaces" ];
+          modules-center = [ "clock" ];
+          modules-right = [ "backlight" "battery" "tray" ];
+        } // waybar_modules;
       };
-    };
   };
 }
