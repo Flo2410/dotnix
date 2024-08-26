@@ -47,6 +47,11 @@ in
       gnome.gnome-bluetooth
       libsForQt5.qt5.qtwayland # qt5-wayland
       kdePackages.qtwayland # qt6-wayland
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.qtsvg # dolphin needs this to show icons
+      kdePackages.breeze-icons # qt/kde icon theme
+      dracula-icon-theme # qt/kde icon theme
+      qt6ct
       cliphist # clipboard history
       nwg-displays # display management
     ];
