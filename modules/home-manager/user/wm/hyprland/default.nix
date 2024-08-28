@@ -54,6 +54,7 @@ in
       qt6ct
       cliphist # clipboard history
       nwg-displays # display management
+      hyprshot
     ];
 
     wayland.windowManager.hyprland = {
@@ -158,6 +159,9 @@ in
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_TYPE,wayland"
             "XDG_SESSION_DESKTOP,Hyprland"
+
+            # Hyprshot
+            "HYPRSHOT_DIR,${config.xdg.userDirs.pictures}/hyprshot"
           ];
         } // hypr_binds // hypr_window_rules;
     };

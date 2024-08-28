@@ -103,6 +103,10 @@
       "ALT, SPACE, exec, rofi -show drun -modes drun,calc,window -replace"
       # clipboard history
       "$mod, V, exec, rofi -show clipboard -modes clipboard:${cliphist-rofi-img} -show-icons -replace"
+      # screenshot
+      ", PRINT, exec, hyprshot -m output"
+      "$mod, PRINT, exec, hyprshot -m region"
+      "$mod SHIFT, PRINT, exec, hyprshot -m window"
 
       # --------------------------------
       # programs
