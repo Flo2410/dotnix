@@ -100,9 +100,9 @@
       # open settings
       "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
       # open app launcher
-      "ALT, SPACE, exec, ${toggle "rofi"} -show drun -modes drun,calc,window"
+      "ALT, SPACE, exec, rofi -show drun -modes drun,calc,window -replace"
       # clipboard history
-      "$mod, V, exec, ${toggle "rofi"} -show clipboard -modes clipboard:${cliphist-rofi-img} -show-icons"
+      "$mod, V, exec, rofi -show clipboard -modes clipboard:${cliphist-rofi-img} -show-icons -replace"
 
       # --------------------------------
       # programs
