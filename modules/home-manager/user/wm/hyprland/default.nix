@@ -92,6 +92,10 @@ in
 
           monitor = "eDP-1, preferred, 0x0, 1.175";
 
+          xwayland = {
+            force_zero_scaling = true;
+          };
+
           input = {
             kb_layout = "at";
             kb_variant = "nodeadkeys";
