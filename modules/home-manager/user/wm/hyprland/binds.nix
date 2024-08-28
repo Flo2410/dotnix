@@ -110,6 +110,7 @@
 
       "$mod, RETURN, exec, kitty"
       "$mod, C, exec, code --new-window" # open a new vscode window
+      "$mod, E, exec, thunar"
 
     ] ++ workspaces;
 
