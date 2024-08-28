@@ -20,5 +20,16 @@
     # kwallet dialog
     "move onscreen cursor -50% -50%, floating: 1, class:^(org.kde.kwalletd6)$" # move window to cursor positon -> hack to get the window to the current display
     "center, floating: 1, class:^(org.kde.kwalletd6)$" # move the window to the center of the screen
+
+    # MATLAB
+    "tile, class:^(MATLAB)(.*), title:^(MATLAB)(.*)$"
+    "float, class:^(MATLAB)(.*), title:^()$"
+    "center, class:^(MATLAB)(.*), title:^()$"
+
+    # Matlab Figures 
+    # FIXME: These dont work for some reason.
+    # "move onscreen cursor -50% -50%, class:^(MATLAB)(.*), title:^(Figure)(.*)$" # move window to cursor positon -> hack to get the window to the current display
+    # "float, class:^(MATLAB)(.*), title:^(Figure)(.*)$"
+    # "center, class:^(MATLAB)(.*), title:^(Figure)(.*)$"
   ];
 }
