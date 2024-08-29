@@ -15,14 +15,18 @@ in
       virtiofsd
     ];
 
-    virtualisation.libvirtd = {
-      allowedBridges = [
-        "nm-bridge"
-        "virbr0"
-      ];
-      enable = true;
-      qemu.runAsRoot = true;
-      qemu.ovmf.enable = true;
+    virtualisation = {
+      libvirtd = {
+        allowedBridges = [
+          "nm-bridge"
+          "virbr0"
+        ];
+        enable = true;
+        qemu.runAsRoot = true;
+        qemu.ovmf.enable = true;
+      };
+
+      spiceUSBRedirection.enable = mkDefault true;
     };
   };
 }
