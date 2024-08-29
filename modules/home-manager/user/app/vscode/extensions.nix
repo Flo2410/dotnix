@@ -73,6 +73,7 @@ with pkgs.vscode-marketplace; [
   bradlc.vscode-tailwindcss
   christian-kohler.npm-intellisense
   csstools.postcss
+  mrmlnc.vscode-scss
   # cweijan.dbclient-jdbc
   # cweijan.vscode-mysql-client2
   # dan-c-underwood.arm
