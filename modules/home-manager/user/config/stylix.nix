@@ -105,7 +105,13 @@ in
 
         stylix.targets.kde.enable = true;
         # stylix.targets.kitty.enable = true; # from catppuccin
-        stylix.targets.gtk.enable = true;
+        stylix.targets.gtk = {
+          enable = true;
+          extraCss = ''
+            @define-color accent_color #74c7ec;
+            @define-color accent_bg_color #74c7ec;
+          '';
+        };
         # stylix.targets.rofi.enable = true; # from catppuccin
         stylix.targets.hyprpaper.enable = mkForce true;
         # stylix.targets.hyprland.enable = true; # from catppuccin
