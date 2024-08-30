@@ -127,6 +127,7 @@
     file
     sshpass
     nixd
+    font-manager
 
     # unstable packages
     (unstable.stm32cubemx.overrideAttrs (old: rec{
