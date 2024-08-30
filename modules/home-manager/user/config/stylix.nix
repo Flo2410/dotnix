@@ -108,7 +108,7 @@ in
         stylix.targets.gtk.enable = true;
         # stylix.targets.rofi.enable = true; # from catppuccin
         stylix.targets.hyprpaper.enable = mkForce true;
-        stylix.targets.hyprland.enable = true; # from catppuccin
+        # stylix.targets.hyprland.enable = true; # from catppuccin
         # stylix.targets.waybar.enable = true; # from catppuccin
         # stylix.targets.vscode.enable = false;
         # stylix.targets.btop.enable = true; # from catppuccin
