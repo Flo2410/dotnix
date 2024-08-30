@@ -19,6 +19,8 @@ in
       fira-code-symbols
       corefonts # Microsoft TrueType fonts
       roboto
+      material-icons # https://fonts.google.com/icons
+      material-design-icons # https://pictogrammers.com/library/mdi/
     ];
   };
 }
