@@ -35,8 +35,8 @@
 
   backlight = {
     device = "intel_backlight";
-    format = "{percent}% {icon}";
-    format-icons = [ "" "" "" "" "" "" "" ];
+    format = "{percent}% 󰃟";
+    # format-icons = [ "" "" "" "" "" "" "" ];
     min-length = 7;
   };
 
@@ -47,9 +47,11 @@
       critical = 15;
     };
     format = "{capacity}% {icon}";
-    format-charging = "{capacity}% ";
-    format-plugged = "{capacity}% ";
-    format-alt = "{time} {icon}";
-    format-icons = [ "" "" "" "" "" "" "" "" "" "" ];
+    format-charging = "{capacity}% 󱐋";
+    format-plugged = "{capacity}% 󱐋";
+    # format-alt = "{time} {icon}";
+    format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+    # format-icons = [ "" "" "" "" "" ]; # Font Awesome
+    on-click = "ags -b hypr -t powerctrl";
   };
 }
