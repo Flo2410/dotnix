@@ -88,6 +88,9 @@ in
             "dunst"
             # clipboard history
             "wl-paste --watch cliphist store"
+
+            # ags
+            "PATH='$PATH:${pkgs.bun}/bin:${pkgs.dart-sass}/bin' ags -b hypr"
           ];
 
           monitor = "eDP-1, preferred, 0x0, 1.175";
