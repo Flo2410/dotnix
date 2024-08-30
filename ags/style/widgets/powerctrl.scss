@@ -1,0 +1,38 @@
+window#powerctrl .powerctrl {
+  margin: 6px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid $sapphire;
+  background-color: $base;
+  min-width: 350px;
+  box-shadow: 0 0 8px 0 $crust;
+
+  .power-profiles {
+    margin-bottom: 4px;
+  }
+
+  button {
+    margin-left: 2px;
+    margin-right: 2px;
+
+    &:hover {
+      background-color: $surface1;
+    }
+
+    &.active {
+      border-color: $sapphire;
+    }
+  }
+
+  levelbar {
+    min-height: 10px;
+
+    trough .filled {
+      background-color: $sapphire;
+    }
+  }
+
+  .battery label {
+    margin-bottom: 2px;
+  }
+}

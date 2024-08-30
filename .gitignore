@@ -1,3 +1,5 @@
 result
 *.img
 *.zst
+
+ags/types
