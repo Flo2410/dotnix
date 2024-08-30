@@ -130,6 +130,7 @@
     hardware.bolt.enable = true;
     timesyncd.enable = true;
     gvfs.enable = true; # Thunar: Mount, trash, and other functionalities
+    upower.enable = true;
 
     udev = {
       enable = true;

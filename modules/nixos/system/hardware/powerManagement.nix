@@ -19,6 +19,8 @@ in
         enable = true;
         powertop.enable = true;
       };
+
+      services.power-profiles-daemon.enable = true;
     })
 
     (mkIf (cfg.enable && cfg.enableSuspendThenHibernate) {
