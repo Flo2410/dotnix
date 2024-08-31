@@ -27,7 +27,7 @@ $border-opacity: 96;
 $border-color: transparentize($accent, $border-opacity / 100);
 $border: $border-width solid $border-color;
 
-$active-gradient: linear-gradient(to right, $bg, darken($bg, 4%));
+$inactive-gradient: linear-gradient(to right, $bg, darken($bg, 4%));
 $shadow-color: rgba(0, 0, 0, 0.6);
 
 $popover-border-color: $accent;

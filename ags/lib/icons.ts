@@ -46,4 +46,9 @@ export const icons = {
     enabled: "bluetooth-active-symbolic",
     disabled: "bluetooth-disabled-symbolic",
   },
+  brightness: {
+    indicator: "display-brightness-symbolic",
+    keyboard: "keyboard-brightness-symbolic",
+    screen: "display-brightness-symbolic",
+  },
 };

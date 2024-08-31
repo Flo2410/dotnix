@@ -3,7 +3,7 @@
 @mixin slider(
   $width: 0.7em,
   $slider-width: 0.5em,
-  $gradient: $active-gradient,
+  $gradient: $inactive-gradient,
   $slider: true,
   $focusable: true,
   $radius: $radius
@@ -21,7 +21,8 @@
     highlight,
     progress {
       border-radius: max($radius - $border-width, 0);
-      background-image: $gradient;
+      background-image: none;
+      background-color: $fg;
       min-height: $width;
       min-width: $width;
     }
@@ -58,8 +59,8 @@
   &:disabled {
     highlight,
     progress {
-      background-color: transparentize($fg, 0.4);
-      background-image: none;
+      background-image: $gradient;
+      background-color: transparent;
     }
   }
 

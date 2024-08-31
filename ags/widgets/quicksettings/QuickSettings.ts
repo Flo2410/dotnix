@@ -10,6 +10,7 @@ import {
   Microphone,
 } from "./sub-widgets/Volume";
 import { VpnSelection, VpnToggle } from "./sub-widgets/Vpn";
+import { KeyboardBrightness, ScreenBrightness } from "./sub-widgets/Brightness";
 
 const media = (await Service.import("mpris")).bind("players");
 
@@ -42,7 +43,8 @@ const Settings = () =>
         children: [
           Row([Volume], [SinkSelector, AppMixer]),
           Microphone(),
-          // Brightness(),
+          ScreenBrightness(),
+          KeyboardBrightness(),
         ],
       }),
       Row([WifiToggle, VpnToggle], [WifiSelection, VpnSelection]),

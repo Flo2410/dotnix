@@ -1,6 +1,5 @@
 {}:
 
-
 {
   # --------------------------------
   # left
@@ -38,6 +37,7 @@
     format = "{percent}% 󰃟";
     # format-icons = [ "" "" "" "" "" "" "" ];
     min-length = 7;
+    on-click = "ags -b hypr -t quicksettings";
   };
 
   battery = {
