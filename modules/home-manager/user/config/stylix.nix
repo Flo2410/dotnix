@@ -49,6 +49,10 @@ in
 
           noto-fonts-monochrome-emoji
           papirus-folders # catppuccin folder icons
+          kdePackages.qtstyleplugin-kvantum
+          kdePackages.qtsvg # dolphin needs this to show icons
+          kdePackages.breeze-icons # qt/kde icon theme
+          qt6ct
 
           (catppuccin-kvantum.override {
             accent = "Sapphire";
