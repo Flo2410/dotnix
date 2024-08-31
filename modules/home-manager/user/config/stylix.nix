@@ -58,6 +58,8 @@ in
             accent = "Sapphire";
             variant = "Mocha";
           })
+
+          breezex-cursor
         ];
 
         catppuccin = {
@@ -106,8 +108,8 @@ in
         };
 
         stylix.cursor = {
-          name = "breeze_cursors";
-          package = pkgs.kdePackages.breeze;
+          name = "BreezeX-Dark";
+          package = pkgs.breezex-cursor;
           size = 28;
         };
 
