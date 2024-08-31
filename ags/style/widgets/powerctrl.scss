@@ -2,8 +2,8 @@ window#powerctrl .powerctrl {
   margin: 6px;
   padding: 6px;
   border-radius: 8px;
-  border: 1px solid $sapphire;
-  background-color: $base;
+  border: 1px solid $accent;
+  background-color: $bg;
   min-width: 350px;
   box-shadow: 0 0 8px 0 $crust;
 
@@ -20,7 +20,7 @@ window#powerctrl .powerctrl {
     }
 
     &.active {
-      border-color: $sapphire;
+      border-color: $accent;
     }
   }
 
@@ -28,7 +28,7 @@ window#powerctrl .powerctrl {
     min-height: 10px;
 
     trough .filled {
-      background-color: $sapphire;
+      background-color: $accent;
     }
   }
 

@@ -1,6 +1,53 @@
+// Import theme
 @import "catppuccin-mocha.scss";
-@import "widgets/powerctrl.scss";
 
+// Variables
+$bg: $base;
+$accent: $sapphire;
+$fg: $accent;
+
+$primary-bg: $surface0;
+$primary-fg: $sky;
+
+$padding: 7pt;
+$spacing: 12pt;
+$radius: 8px;
+$transition: 200ms;
+
+$shadows: true;
+
+$widget-opacity: 94;
+$widget-bg: transparentize($bg, $widget-opacity / 100);
+
+$hover-bg: transparentize($bg, ($widget-opacity * 0.9) / 100);
+$hover-fg: lighten($fg, 8%);
+
+$border-width: 1px;
+$border-opacity: 96;
+$border-color: transparentize($accent, $border-opacity / 100);
+$border: $border-width solid $border-color;
+
+$active-gradient: linear-gradient(to right, $bg, darken($bg, 4%));
+$shadow-color: rgba(0, 0, 0, 0.6);
+
+$popover-border-color: $accent;
+$popover-padding: $padding * 1;
+$popover-radius: $radius;
+
+// global css
 * {
   font-family: "Noto Sans";
 }
+
+// import mixins
+@import "mixins/button.scss";
+@import "mixins/floating-widget.scss";
+@import "mixins/media.scss";
+@import "mixins/slider.scss";
+@import "mixins/spacing.scss";
+@import "mixins/switch.scss";
+@import "mixins/unset.scss";
+@import "mixins/widget.scss";
+
+// Impoert widgets
+@import "widgets/powerctrl.scss";
