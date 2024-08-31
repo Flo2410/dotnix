@@ -50,7 +50,6 @@ in
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qtsvg # dolphin needs this to show icons
       kdePackages.breeze-icons # qt/kde icon theme
-      dracula-icon-theme # qt/kde icon theme
       qt6ct
       cliphist # clipboard history
       nwg-displays # display management

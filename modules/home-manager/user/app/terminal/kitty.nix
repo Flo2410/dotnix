@@ -18,7 +18,7 @@ in
       settings = {
         background_opacity = lib.strings.floatToString config.stylix.opacity.terminal;
         background_blur = "1";
-        cursor = "#9BC1C2";
+        cursor = "#74c7ec";
         cursor_beam_thickness = "1.5";
         scrollback_lines = 10000;
         touch_scroll_multiplier = 8;

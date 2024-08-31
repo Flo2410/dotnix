@@ -48,6 +48,12 @@ in
           kdePackages.breeze-icons
 
           noto-fonts-monochrome-emoji
+          papirus-folders # catppuccin folder icons
+
+          (catppuccin-kvantum.override {
+            accent = "Sapphire";
+            variant = "Mocha";
+          })
         ];
 
         catppuccin = {
@@ -124,6 +130,21 @@ in
           enable = true;
           style.name = "kvantum";
           platformTheme.name = "kvantum";
+        };
+
+        gtk = {
+          enable = true;
+          iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.catppuccin-papirus-folders.override {
+              flavor = "mocha";
+              accent = "sapphire";
+            };
+          };
+
+          gtk3 = {
+            extraConfig.gtk-application-prefer-dark-theme = true;
+          };
         };
 
         fonts.fontconfig.defaultFonts = {
