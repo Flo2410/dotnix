@@ -31,5 +31,8 @@
     # "move onscreen cursor -50% -50%, class:^(MATLAB)(.*), title:^(Figure)(.*)$" # move window to cursor positon -> hack to get the window to the current display
     # "float, class:^(MATLAB)(.*), title:^(Figure)(.*)$"
     # "center, class:^(MATLAB)(.*), title:^(Figure)(.*)$"
+
+    # pavucontrol
+    "float, class:^(pavucontrol), title:^(Volume Control)$"
   ];
 }

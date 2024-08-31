@@ -128,6 +128,7 @@
     sshpass
     nixd
     font-manager
+    pavucontrol
 
     # unstable packages
     (unstable.stm32cubemx.overrideAttrs (old: rec{
