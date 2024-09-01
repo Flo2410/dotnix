@@ -39,7 +39,7 @@ const Battery = Widget.Box({
           children: [
             Widget.Box({ child: Widget.Label("Internal"), hexpand: true }),
             Widget.Icon({
-              icon: "bolt-symbolic",
+              icon: "lightning-bolt-symbolic",
               visible: battery.bind("charging"),
             }),
           ],
