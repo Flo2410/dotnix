@@ -1,11 +1,6 @@
 window#powerctrl .powerctrl {
-  margin: 6px;
-  padding: 6px;
-  border-radius: 8px;
-  border: 1px solid $accent;
-  background-color: $bg;
-  min-width: 350px;
-  box-shadow: 0 0 8px 0 $crust;
+  @include floating-widget;
+  @include spacing;
 
   .power-profiles {
     margin-bottom: 4px;
