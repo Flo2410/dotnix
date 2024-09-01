@@ -1,4 +1,4 @@
-{ lib, config, inputs, ... }:
+{ lib, config, inputs, pkgs, ... }:
 
 with lib;
 let
@@ -23,6 +23,19 @@ in
     services.flatpak = {
       enable = true;
       packages = cfg.packages;
+      update = {
+        onActivation = false;
+        auto = {
+          enable = true;
+          onCalendar = "weekly";
+        };
+      };
+    };
+
+    systemd.services."flatpak-managed-install" = {
+      serviceConfig = {
+        ExecStartPre = "${pkgs.coreutils}/bin/sleep 10";
+      };
     };
   };
 }
