@@ -106,6 +106,7 @@
     kdePackages.kwalletmanager
     kdePackages.dolphin
     kdePackages.systemsettings
+    kdePackages.print-manager
     kdePackages.ark
     kdePackages.okular
 
