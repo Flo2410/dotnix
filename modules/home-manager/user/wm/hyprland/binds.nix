@@ -117,6 +117,7 @@
 
       "$mod, RETURN, exec, kitty"
       "$mod, C, exec, code --new-window" # open a new vscode window
+      "$mod, D, exec, code ~/dotnix" # open dotnix in vscode
       "$mod, E, exec, thunar"
 
     ] ++ workspaces;
