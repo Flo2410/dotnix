@@ -89,6 +89,9 @@
       "$mod CTRL SHIFT, left, movetoworkspace, r-1"
       "$mod CTRL SHIFT, right, movetoworkspace, r+1"
 
+      # Change workspace orientation 
+      "$mod, PLUS, layoutmsg, orientationcycle left top"
+
       # --------------------------------
       # utility
       # --------------------------------
