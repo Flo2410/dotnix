@@ -32,5 +32,11 @@
     "float, class:^(pavucontrol), title:^(Volume Control)$"
     "move onscreen cursor -50% -50%, class:^(pavucontrol), title:^(Volume Control)$"
     "center, class:^(pavucontrol), title:^(Volume Control)$"
+
+    # HomeAssistent desktop
+    "float, class:^(Electron), title:^(.*)(Home Assistant)$"
+    "move 100%-w-20 60, class:^(Electron), title:^(.*)(Home Assistant)$"
+    "size 500 740, class:^(Electron), title:^(.*)(Home Assistant)$"
+    "pin, class:^(Electron), title:^(.*)(Home Assistant)$"
   ];
 }
