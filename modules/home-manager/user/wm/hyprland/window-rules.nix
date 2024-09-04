@@ -30,5 +30,7 @@
 
     # pavucontrol
     "float, class:^(pavucontrol), title:^(Volume Control)$"
+    "move onscreen cursor -50% -50%, class:^(pavucontrol), title:^(Volume Control)$"
+    "center, class:^(pavucontrol), title:^(Volume Control)$"
   ];
 }
