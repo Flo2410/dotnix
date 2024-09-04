@@ -11,7 +11,8 @@
     # Syncthing tray
     "float, title:^(Syncthing Tray)$"
     "size 640 320, title:^(Syncthing Tray)$"
-    "move 100%-w-10 35, title:^(Syncthing Tray)$"
+    "move 100%-w-20 60, title:^(Syncthing Tray)$"
+    "pin, title:^(Syncthing Tray)$"
 
     # elamx2
     "float, class:^(java-lang-Thread), title:^(Starting eLamX)(.*)$"
