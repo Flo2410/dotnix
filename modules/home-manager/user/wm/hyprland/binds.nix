@@ -97,7 +97,7 @@
       # --------------------------------
 
       # logout menu
-      "$mod, Escape, exec, ${toggle "wlogout"} -p layer-shell"
+      "$mod, Escape, exec, ${toggle "wlogout"} -p layer-shell -b 6"
       # lock screen
       "$mod, L, exec, ${runOnce "hyprlock"}"
       # open settings
