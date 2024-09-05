@@ -164,6 +164,24 @@
     home-assistant-desktop
     elamx2
     # ente-auth
+
+    (pkgs.makeDesktopItem {
+      name = "whatsapp-web";
+      desktopName = "WhatsApp";
+      exec = "chromium --app=https://web.whatsapp.com";
+      terminal = false;
+      type = "Application";
+      icon = "whatsapp";
+    })
+
+    (pkgs.makeDesktopItem {
+      name = "microsoft-teams";
+      desktopName = "Microsoft Teams";
+      exec = "chromium --app=https://teams.microsoft.com/go";
+      terminal = false;
+      type = "Application";
+      icon = "teams";
+    })
   ];
 
   # specialisation = {
