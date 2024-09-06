@@ -81,6 +81,9 @@
       "$mod SHIFT, up, layoutmsg, swapprev"
       "$mod SHIFT, down, layoutmsg, swapnext"
 
+      # Swap current window with main window
+      "$mod, M, layoutmsg, swapwithmaster"
+
       # switch workspace on current monitor
       "$mod CTRL, left, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"
