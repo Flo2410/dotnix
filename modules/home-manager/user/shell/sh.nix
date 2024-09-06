@@ -53,6 +53,10 @@ in
       git-fuzzy # (callPackage ../pkgs/git-fuzzy.nix { })
     ];
 
+    home.sessionVariables = {
+      _ZO_ECHO = 1;
+    };
+
     programs = {
       zsh = {
         enable = true;
