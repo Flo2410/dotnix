@@ -165,6 +165,8 @@
     elamx2
     # ente-auth
 
+    inputs.zen-browser.packages."${system}".specific
+
     (pkgs.makeDesktopItem {
       name = "whatsapp-web";
       desktopName = "WhatsApp";
