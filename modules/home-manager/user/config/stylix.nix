@@ -5,6 +5,11 @@ let
   cfg = config.user.config.stylix;
   mkIfElse = config.lib.meta.mkIfElse;
 
+
+  catppuccin-papirus-folders-custom = pkgs.catppuccin-papirus-folders.override {
+    flavor = "mocha";
+    accent = "sapphire";
+  };
 in
 {
   options.user.config.stylix = {
@@ -44,14 +49,9 @@ in
       {
 
         home.packages = with pkgs; [
-          kdePackages.breeze
-          kdePackages.breeze-icons
-
           noto-fonts-monochrome-emoji
-          papirus-folders # catppuccin folder icons
           kdePackages.qtstyleplugin-kvantum
           kdePackages.qtsvg # dolphin needs this to show icons
-          kdePackages.breeze-icons # qt/kde icon theme
           qt6ct
 
           (catppuccin-kvantum.override {
@@ -59,6 +59,7 @@ in
             variant = "Mocha";
           })
 
+          catppuccin-papirus-folders-custom
           breezex-cursor
         ];
 
@@ -142,10 +143,7 @@ in
           enable = true;
           iconTheme = {
             name = "Papirus-Dark";
-            package = pkgs.catppuccin-papirus-folders.override {
-              flavor = "mocha";
-              accent = "sapphire";
-            };
+            package = catppuccin-papirus-folders-custom;
           };
 
           gtk3 = {
