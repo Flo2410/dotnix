@@ -38,5 +38,9 @@
     "move 100%-w-20 60, class:^(Electron), title:^(.*)(Home Assistant)$"
     "size 500 740, class:^(Electron), title:^(.*)(Home Assistant)$"
     "pin, class:^(Electron), title:^(.*)(Home Assistant)$"
+
+    # Catia via bottles
+    "float, class:^(cnext.exe)$"
+    "tile, class:^(cnext.exe), title:^(CNEXT)$"
   ];
 }
