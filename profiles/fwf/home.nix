@@ -167,6 +167,7 @@
 
     inputs.zen-browser.packages."${system}".specific
 
+    # PWAs
     (pkgs.makeDesktopItem {
       name = "whatsapp-web";
       desktopName = "WhatsApp";
@@ -183,6 +184,18 @@
       terminal = false;
       type = "Application";
       icon = "teams";
+    })
+
+    # Bottles
+    (pkgs.makeDesktopItem {
+      name = "catia-v5";
+      desktopName = "CATIA V5";
+      exec = ''bottles-cli run -p "CATIA V5" -b "CATIA" -- %u'';
+      terminal = false;
+      type = "Application";
+      icon = ../../assets/icons/catia_icon.png;
+      comment = "Launch CATIA V5 using Bottles.";
+      startupWMClass = "CATIA V5";
     })
   ];
 
