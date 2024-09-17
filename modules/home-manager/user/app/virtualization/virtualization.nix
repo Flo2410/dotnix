@@ -31,7 +31,7 @@ in
         exec = "windows-11";
         terminal = false;
         type = "Application";
-        icon = ./win11.png;
+        icon = ../../../../../assets/icons/win11.png;
       })
     ];
 
