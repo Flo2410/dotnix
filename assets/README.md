@@ -17,3 +17,4 @@ This folder contains icons I use in other places.
 
 - **catia_icon.png** is extracted from the `CNEXT.exe` in the Catia v5 install.
 - **win11.png** is the Windows 11 logo.
+- **STM32CubeMX.png** is the STM32CubeMX icon extracted from its Linux installer.

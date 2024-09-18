@@ -138,7 +138,7 @@
         exec = "stm32cubemx";
         desktopName = "STM32CubeMX";
         categories = [ "Development" ];
-        icon = "stm32cubemx";
+        icon = ../../assets/icons/STM32CubeMX.png;
         comment = old.meta.description;
         terminal = false;
         startupNotify = false;
