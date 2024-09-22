@@ -98,6 +98,7 @@
       '';
     }))
     flare-signal # alterative signal client
+    remmina
 
     # kde utils
     kdePackages.kcalc
@@ -156,9 +157,6 @@
     unstable.naps2
     unstable.saleae-logic-2
     unstable.parsec-bin
-
-    # Remmina v1.4.30 
-    remmina
 
     # Custom Packages
     home-assistant-desktop

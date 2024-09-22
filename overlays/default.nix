@@ -16,8 +16,6 @@
       dontPatchELF = true;
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.pkgs.kdePackages.wrapQtAppsHook ];
     });
-
-    remmina = (import inputs.nixpkgs-remmina { system = final.system; }).remmina;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

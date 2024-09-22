@@ -115,9 +115,6 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
-    # Fix Remmina to v1.4.30 -> Needed because starting with v1.4.31 the FHWN RDP does not work 
-    nixpkgs-remmina.url = "nixpkgs/3c7a68613bc524f028fa1f5396194eb5fdcbf4ac";
-
     flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {

@@ -463,21 +463,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-remmina": {
-      "locked": {
-        "lastModified": 1685483734,
-        "narHash": "sha256-UxAnsHeqSf1DfhfvhMEKOj85SXVA6WRSFO8UT2b5vmc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3c7a68613bc524f028fa1f5396194eb5fdcbf4ac",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "3c7a68613bc524f028fa1f5396194eb5fdcbf4ac",
-        "type": "indirect"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1726463316,
@@ -529,7 +514,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-remmina": "nixpkgs-remmina",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
         "rust-overlay": "rust-overlay",
