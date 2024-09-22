@@ -46,6 +46,8 @@ in
 
         defaultApplications = {
           "text/plain" = [ "org.kde.kwrite.desktop" ];
+          "inode/directory" = [ "thunar.desktop" ];
+          "image/*" = [ "nomacs.desktop" ];
         };
       };
 
