@@ -162,7 +162,7 @@
     # Custom Packages
     home-assistant-desktop
     elamx2
-    # ente-auth
+    ente-auth
 
     inputs.zen-browser.packages."${system}".specific
 

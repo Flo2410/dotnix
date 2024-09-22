@@ -10,8 +10,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.xdg-utils
+    home.packages = with pkgs; [
+      xdg-utils
+      xdg-user-dirs
     ];
 
     xdg = {
