@@ -19,7 +19,7 @@ in
       enable = cfg.enable;
 
       settings = {
-        source = "${config.catppuccin.sources.hyprland}/themes/${config.catppuccin.flavor}.conf";
+        source = mkForce "${config.catppuccin.sources.hyprland}/themes/${config.catppuccin.flavor}.conf";
 
         "$alpha" = "$sapphireAlpha";
         "$accent" = "$sapphire";
