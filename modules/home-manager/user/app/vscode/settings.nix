@@ -103,7 +103,7 @@ in
 
   # ltex
   # "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
-  "ltex.java.path" = "${pkgs.temurin-bin-20}";
+  "ltex.java.path" = "${pkgs.temurin-bin-21}";
   # "ltex.ltex-ls.logLevel" = "finest";
   # "ltex.trace.server" = "verbose";
   "ltex.language" = "de-AT";

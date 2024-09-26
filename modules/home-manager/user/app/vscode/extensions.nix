@@ -1,22 +1,26 @@
 { pkgs }:
 
 let
-  ltex-vsxi = pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
-    version = "13.1.1";
-    mktplcRef = {
-      inherit version;
-      name = "ltex";
-      publisher = "neo-ltex";
-    };
-    vsix = builtins.fetchurl {
-      url = "https://github.com/neo-ltex/vscode-ltex/releases/download/${version}/ltex-${version}-offline-linux-x64.vsix";
-      sha256 = "sha256:0wlcndwax4d68b29k2kmagv3vm01ill4dix9d8cljdnwfvzaapr8";
-    };
+  ltex-vsxi =
+    let
+      name = "vscode-ltex-plus";
+    in
+    pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
+      version = "14.0.2";
 
-    unpackPhase = ''
-      unzip ${vsix}
-    '';
-  };
+      mktplcRef = {
+        inherit version name;
+        publisher = "ltex-plus";
+      };
+      vsix = builtins.fetchurl {
+        url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/${version}/${name}-${version}-offline-linux-x64.vsix";
+        sha256 = "sha256:1ix3na20xhm9s5fjcbj6mlmnyxwcxhv11gds99aq8kabmrmy97rk";
+      };
+
+      unpackPhase = ''
+        unzip ${vsix}
+      '';
+    };
 
 in
 with pkgs.vscode-marketplace; [

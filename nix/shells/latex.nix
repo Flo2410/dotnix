@@ -4,7 +4,7 @@ pkgs.mkShellNoCC {
   nativeBuildInputs = with pkgs;
     [
       ltex-ls
-      temurin-bin-20
+      temurin-bin-21
 
       (pkgs.texliveFull.withPackages (p: with p; [
         wrapfig
