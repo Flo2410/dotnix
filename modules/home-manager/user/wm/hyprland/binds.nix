@@ -86,7 +86,9 @@
 
       # switch workspace on current monitor
       "$mod CTRL, left, workspace, r-1"
+      "$mod CTRL, mouse:275, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"
+      "$mod CTRL, mouse:276, workspace, r+1"
 
       # move window to next/prev workspace
       "$mod CTRL SHIFT, left, movetoworkspace, r-1"
