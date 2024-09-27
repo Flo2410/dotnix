@@ -119,6 +119,9 @@ in
     "de-AT" = [ "WHITESPACE_RULE" ];
   };
 
+  # latex workshop
+  "latex-workshop.formatting.latex" = "latexindent";
+
   # stm32 for vscode
   "stm32-for-vscode.openOCDPath" = "${pkgs.openocd}/bin/openocd";
   "stm32-for-vscode.makePath" = "${pkgs.gnumake}/bin/make";
