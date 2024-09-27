@@ -45,7 +45,7 @@ in
         enable = true;
 
         defaultApplications = {
-          "text/plain" = [ "org.kde.kwrite.desktop" ];
+          "text/plain" = [ "code.desktop" ];
           "inode/directory" = [ "thunar.desktop" ];
           "image/*" = [ "nomacs.desktop" ];
 
