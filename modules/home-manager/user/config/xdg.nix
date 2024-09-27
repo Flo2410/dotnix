@@ -48,6 +48,12 @@ in
           "text/plain" = [ "org.kde.kwrite.desktop" ];
           "inode/directory" = [ "thunar.desktop" ];
           "image/*" = [ "nomacs.desktop" ];
+
+          "text/html" = "zen.desktop";
+          "x-scheme-handler/http" = "zen.desktop";
+          "x-scheme-handler/https" = "zen.desktop";
+          "x-scheme-handler/about" = "zen.desktop";
+          "x-scheme-handler/unknown" = "zen.desktop";
         };
       };
 
