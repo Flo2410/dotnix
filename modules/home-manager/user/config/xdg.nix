@@ -48,6 +48,7 @@ in
           "text/plain" = [ "code.desktop" ];
           "inode/directory" = [ "thunar.desktop" ];
           "image/*" = [ "nomacs.desktop" ];
+          "application/pdf" = [ "okular.desktop" ];
 
           "text/html" = "zen.desktop";
           "x-scheme-handler/http" = "zen.desktop";
