@@ -24,6 +24,7 @@ in
 
   # Window Settings
   "window.titleBarStyle" = "custom";
+  "window.experimentalControlOverlay" = true;
 
   # Editor Settings
   "editor.fontFamily" = "${config.stylix.fonts.monospace.name}";
