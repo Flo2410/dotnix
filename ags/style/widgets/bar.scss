@@ -210,15 +210,15 @@ window {
 
     @for $i from 1 through $bar-battery-blocks {
       block:nth-child(#{$i}).filled {
-        background-color: transparentize($primary-fg, 0.2);
+        background-color: transparentize($primary-fg, 0.3);
       }
 
       &.low block:nth-child(#{$i}).filled {
-        background-color: transparentize($error-bg, 0.2);
+        background-color: transparentize($error-bg, 0.3);
       }
 
       &.charging block:nth-child(#{$i}).filled {
-        background-color: transparentize($charging-bg, 0.2);
+        background-color: transparentize($charging-bg, 0.3);
       }
 
       &:active .regular block:nth-child(#{$i}).filled {

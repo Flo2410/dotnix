@@ -1,4 +1,3 @@
-import { icons } from "lib/icons";
 import { PanelButton } from "../PanelButton";
 
 const battery = await Service.import("battery");
@@ -71,6 +70,7 @@ export const BatteryBar = () =>
     class_name: "battery-bar",
     hexpand: false,
     visible: battery.bind("available"),
+    on_clicked: () => App.openWindow("powerctrl"),
     child: Widget.Box({
       expand: true,
       visible: battery.bind("available"),
