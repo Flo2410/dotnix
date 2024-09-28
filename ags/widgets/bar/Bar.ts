@@ -1,5 +1,6 @@
 import Gtk from "gi://Gtk?version=3.0";
 import { Date } from "./buttons/Date";
+import { Workspaces } from "./buttons/Workspaces";
 
 export const Bar = (monitor = 0) =>
   Widget.Window<Gtk.Widget>({
@@ -12,7 +13,7 @@ export const Bar = (monitor = 0) =>
       css: "min-width: 2px; min-height: 2px;",
       startWidget: Widget.Box({
         hexpand: true,
-        children: [],
+        children: [Workspaces(monitor)],
       }),
       centerWidget: Widget.Box({
         hpack: "center",
