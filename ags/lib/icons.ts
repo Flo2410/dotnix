@@ -42,6 +42,11 @@ export const icons = {
     },
     mixer: "mixer-symbolic",
   },
+  powerprofile: {
+    balanced: "power-profile-balanced-symbolic",
+    "power-saver": "power-profile-power-saver-symbolic",
+    performance: "power-profile-performance-symbolic",
+  },
   bluetooth: {
     enabled: "bluetooth-active-symbolic",
     disabled: "bluetooth-disabled-symbolic",

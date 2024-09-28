@@ -1,6 +1,7 @@
 import Gtk from "gi://Gtk?version=3.0";
 import { Date } from "./buttons/Date";
 import { Workspaces } from "./buttons/Workspaces";
+import { SystemIndicator } from "./buttons/SystemIndicators";
 
 export const Bar = (monitor = 0) =>
   Widget.Window<Gtk.Widget>({
@@ -21,7 +22,7 @@ export const Bar = (monitor = 0) =>
       }),
       endWidget: Widget.Box({
         hexpand: true,
-        children: [],
+        children: [Widget.Box({ expand: true }), SystemIndicator()],
       }),
     }),
   });
