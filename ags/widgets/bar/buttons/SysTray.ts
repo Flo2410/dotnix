@@ -25,13 +25,19 @@ const SysTrayItem = (item: TrayItem) =>
       self.connect("destroy", () => menu.disconnect(id));
     },
 
-    on_primary_click: (btn) =>
-      item.menu?.popup_at_widget(
-        btn,
-        Gdk.Gravity.SOUTH,
-        Gdk.Gravity.NORTH,
-        null
-      ),
+    on_primary_click: (btn, event) => {
+      if (item.is_menu === false) {
+        // only activate if is_menu is false
+        item.activate(event);
+      } else {
+        item.menu?.popup_at_widget(
+          btn,
+          Gdk.Gravity.SOUTH,
+          Gdk.Gravity.NORTH,
+          null
+        );
+      }
+    },
 
     on_secondary_click: (btn) =>
       item.menu?.popup_at_widget(
