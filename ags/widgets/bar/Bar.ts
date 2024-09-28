@@ -32,4 +32,12 @@ export const Bar = (monitor = 0) =>
         ],
       }),
     }),
+    setup: (self) => {
+      print("Starting: ", self.name);
+
+      self.on("destroy", (window) => {
+        print("Distroyed: ", window.name);
+        App.removeWindow(window);
+      });
+    },
   });
