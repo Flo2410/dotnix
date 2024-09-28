@@ -17,13 +17,20 @@ $button-radius: $radius;
   }
 
   > * {
-    padding: $padding * 0.4 $padding * 0.8;
+    padding: $padding * 0.1 $padding * 0.8;
   }
+}
+
+window {
+  background: transparent;
 }
 
 .bar {
   transition: $transition;
   background-color: $bg;
+  border-radius: $radius;
+  margin: $padding;
+  margin-bottom: 0;
 
   .panel-button {
     @include panel-button;

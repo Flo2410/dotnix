@@ -5,11 +5,11 @@ import { Workspaces } from "./buttons/Workspaces";
 export const Bar = (monitor = 0) =>
   Widget.Window<Gtk.Widget>({
     monitor,
-    class_name: "bar",
     name: `bar-${monitor}`,
     exclusivity: "exclusive",
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
+      class_name: "bar",
       css: "min-width: 2px; min-height: 2px;",
       startWidget: Widget.Box({
         hexpand: true,
