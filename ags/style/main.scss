@@ -9,6 +9,9 @@ $fg: $accent;
 $primary-bg: $surface0;
 $primary-fg: $sky;
 
+$error-bg: $red;
+$error-fg: $crust;
+
 $padding: 7pt;
 $spacing: 12pt;
 $radius: 8px;
@@ -28,11 +31,18 @@ $border-color: transparentize($accent, $border-opacity / 100);
 $border: $border-width solid $border-color;
 
 $inactive-gradient: linear-gradient(to right, $bg, darken($bg, 4%));
+$active-gradient: linear-gradient(to right, $bg, darken($bg, 4%));
 $shadow-color: rgba(0, 0, 0, 0.6);
+$text-shadow: 2pt 2pt 2pt $shadow-color;
 
 $popover-border-color: $accent;
 $popover-padding: $padding * 1;
 $popover-radius: $radius;
+
+$font-size: 13pt;
+
+$charging-bg: $green;
+$bar-battery-blocks: 7;
 
 // global css
 * {
@@ -40,9 +50,11 @@ $popover-radius: $radius;
 }
 
 // import mixins
+@import "mixins/a11y-button.scss";
 @import "mixins/button.scss";
 @import "mixins/floating-widget.scss";
 @import "mixins/media.scss";
+@import "mixins/scrollable.scss";
 @import "mixins/slider.scss";
 @import "mixins/spacing.scss";
 @import "mixins/switch.scss";
@@ -52,3 +64,5 @@ $popover-radius: $radius;
 // Impoert widgets
 @import "widgets/powerctrl.scss";
 @import "widgets/quicksettings.scss";
+@import "widgets/bar.scss";
+@import "widgets/datemenu.scss";
