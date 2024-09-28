@@ -31,6 +31,8 @@ const VolumeSlider = (type: Type = "speaker") =>
       }
     },
     value: audio[type].bind("volume"),
+    max: 1.5,
+    marks: [[1, "", "bottom"]],
     class_name: audio[type].bind("is_muted").as((m) => (m ? "muted" : "")),
   });
 
