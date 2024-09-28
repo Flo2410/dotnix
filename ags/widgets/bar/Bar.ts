@@ -3,6 +3,7 @@ import { Date } from "./buttons/Date";
 import { Workspaces } from "./buttons/Workspaces";
 import { SystemIndicator } from "./buttons/SystemIndicators";
 import { BatteryBar } from "./buttons/BatteryBar";
+import { SysTray } from "./buttons/SysTray";
 
 export const Bar = (monitor = 0) =>
   Widget.Window<Gtk.Widget>({
@@ -25,6 +26,7 @@ export const Bar = (monitor = 0) =>
         hexpand: true,
         children: [
           Widget.Box({ expand: true }),
+          SysTray(),
           SystemIndicator(),
           BatteryBar(),
         ],

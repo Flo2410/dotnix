@@ -78,7 +78,7 @@ in
             # networking
             "nm-applet --indicator &"
 
-            "waybar &"
+            # "waybar &"
             # notifications
             "dunst"
             # clipboard history
