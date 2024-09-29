@@ -3,6 +3,7 @@ export const substitutes = {
   "audio-card-analog-usb": "audio-speakers-symbolic",
   "audio-card-analog-pci": "audio-speakers-symbolic",
   "preferences-system": "emblem-system-symbolic",
+  "zen-alpha": "internet-web-browser",
 };
 
 export const icons = {
