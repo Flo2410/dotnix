@@ -76,4 +76,9 @@ export const BatteryBar = () =>
       visible: battery.bind("available"),
       child: WholeButton(),
     }),
+    setup: (self) =>
+      self.hook(battery, (w) => {
+        w.toggleClassName("charging", battery.charging || battery.charged);
+        w.toggleClassName("low", battery.percent < 10);
+      }),
   });
