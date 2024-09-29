@@ -1,12 +1,20 @@
 import { Menu, ArrowToggleButton } from "../ToggleButton";
 import { icons } from "lib/icons";
-import { dependencies, sh } from "lib/utils";
+import { icon, sh } from "lib/utils";
 const { vpn } = await Service.import("network");
 
 export const VpnToggle = () =>
   ArrowToggleButton({
     name: "vpn",
-    icon: "vpn-connection-symbolic",
+    icon: vpn
+      .bind("activated_connections")
+      .as((connections) =>
+        icon(
+          connections.length > 0
+            ? connections[0].icon_name
+            : "network-vpn-disconnected-symbolic"
+        )
+      ),
     label: vpn
       .bind("activated_connections")
       .as((v) => (v.length > 0 ? "Connected" : "Disconnected")),
@@ -39,7 +47,7 @@ export const VpnSelection = () =>
                   },
                   child: Widget.Box({
                     children: [
-                      Widget.Icon(conn.icon_name),
+                      Widget.Icon(icon(conn.icon_name, "network-vpn-symbolic")),
                       Widget.Label(conn.id || ""),
                       Widget.Icon({
                         icon: icons.ui.tick,

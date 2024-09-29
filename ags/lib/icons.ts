@@ -4,6 +4,7 @@ export const substitutes = {
   "audio-card-analog-pci": "audio-speakers-symbolic",
   "preferences-system": "emblem-system-symbolic",
   "zen-alpha": "internet-web-browser",
+  "network-vpn-disabled-symbolic": "network-vpn-disconnected-symbolic",
 };
 
 export const icons = {
