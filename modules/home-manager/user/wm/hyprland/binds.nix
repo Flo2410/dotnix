@@ -147,8 +147,8 @@
     ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
 
     # backlight
-    ", XF86MonBrightnessUp, exec, brillo -p -u 1000000 -A 5"
-    ", XF86MonBrightnessDown, exec, brillo -p -u 1000000 -U 5"
+    ", XF86MonBrightnessUp, exec, brillo -p -u 100000 -A 10"
+    ", XF86MonBrightnessDown, exec, brillo -p -u 100000 -U 10"
   ];
 
   # mouse movements
