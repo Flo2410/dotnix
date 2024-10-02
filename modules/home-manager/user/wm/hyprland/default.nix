@@ -26,7 +26,6 @@ in
         };
 
         wlogout.enable = mkDefault true;
-        waybar.enable = mkDefault true;
         rofi.enable = mkDefault true;
         hypridle.enable = mkDefault true;
         dunst.enable = mkDefault true;
@@ -78,7 +77,6 @@ in
             # networking
             "nm-applet --indicator &"
 
-            # "waybar &"
             # notifications
             "dunst"
             # clipboard history
