@@ -67,6 +67,7 @@
       virtualization.enable = true;
       barrier.enable = true;
       vscode.enable = true;
+      matlab.enable = true;
 
       terminal = {
         kitty.enable = true;
@@ -79,7 +80,6 @@
     thunderbird
     discord
     spotify
-    matlab # from nix-matlab
     prusa-slicer
     onedrivegui
     libreoffice-qt

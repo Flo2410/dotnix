@@ -13,6 +13,7 @@
     ./rofi.nix
     ./dunst.nix
     ./ags.nix
+    ./matlab.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
