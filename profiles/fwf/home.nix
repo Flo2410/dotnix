@@ -102,7 +102,6 @@
     kdePackages.skanpage
     kdePackages.kwallet
     kdePackages.kwalletmanager
-    kdePackages.dolphin
     kdePackages.systemsettings
     kdePackages.print-manager
     kdePackages.ark
