@@ -4,6 +4,7 @@ import { QuickSettings } from "widgets/quicksettings/QuickSettings";
 import { Bar } from "widgets/bar/Bar";
 import { forMonitors } from "lib/utils";
 import { DateMenu } from "widgets/datemenu/DateMenu";
+import { OSD } from "widgets/osd/OSD";
 
 const monitors_changed = () => {
   print("Monitors Changed!");
@@ -20,5 +21,11 @@ hyprland.connect("monitor-removed", monitors_changed);
 
 App.config({
   icons: `${App.configDir}/assets`,
-  windows: [...forMonitors(Bar), PowerCtrl(), QuickSettings(), DateMenu()],
+  windows: [
+    ...forMonitors(Bar),
+    ...forMonitors(OSD),
+    PowerCtrl(),
+    QuickSettings(),
+    DateMenu(),
+  ],
 });

@@ -1,0 +1,18 @@
+window.indicator {
+  .progress {
+    @include floating-widget;
+    padding: $padding * 0.5;
+    border-radius: if($radius >0, calc($radius + $padding * 0.5), 0);
+    @debug $radius;
+
+    .fill {
+      border-radius: $radius;
+      background-color: $primary-bg;
+      color: $primary-fg;
+
+      image {
+        -gtk-icon-transform: scale(0.7);
+      }
+    }
+  }
+}
