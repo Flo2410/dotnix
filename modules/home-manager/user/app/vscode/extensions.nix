@@ -44,6 +44,7 @@ with pkgs.vscode-marketplace; [
   takumii.markdowntable
   taniarascia.new-moon-vscode
   neptunedesign.vs-sequential-number
+  github.copilot
 
   # Themes
   sdras.night-owl
