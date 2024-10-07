@@ -12,8 +12,8 @@ in
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.vscode;
-      globalSnippets = builtins.fromJSON (builtins.readFile ./vs-snippets.code-snippets);
+      package = pkgs.unstable.vscode;
+      globalSnippets = importJSON ./vs-snippets.code-snippets;
       extensions = (import ./extensions.nix { inherit pkgs; });
       userSettings = (import ./settings.nix { inherit pkgs config; });
       keybindings = (import ./keybindings.nix { });
