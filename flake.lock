@@ -416,22 +416,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-ente-auth": {
-      "locked": {
-        "lastModified": 1727796037,
-        "narHash": "sha256-K3bEcADz4fFpXPn+Nfog0NSQ7PCsz7Gjc/7eYciwpaw=",
-        "owner": "niklaskorz",
-        "repo": "nixpkgs",
-        "rev": "fcea60c49c236fb5e186645198b8dab197bfcdce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "niklaskorz",
-        "ref": "ente-auth",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1727802920,
@@ -483,7 +467,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-ente-auth": "nixpkgs-ente-auth",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plasma-manager": "plasma-manager",
         "rust-overlay": "rust-overlay",

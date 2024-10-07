@@ -16,8 +16,6 @@
       dontPatchELF = true;
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.pkgs.kdePackages.wrapQtAppsHook ];
     });
-
-    ente-auth = (import inputs.nixpkgs-ente-auth { system = final.system; }).ente-auth;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

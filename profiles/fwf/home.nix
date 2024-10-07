@@ -154,11 +154,11 @@
     unstable.naps2
     unstable.saleae-logic-2
     unstable.parsec-bin
+    unstable.ente-auth
 
     # Custom Packages
     home-assistant-desktop
     elamx2
-    ente-auth
 
     inputs.zen-browser.packages."${system}".specific
 

@@ -115,8 +115,6 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
-    nixpkgs-ente-auth.url = "github:niklaskorz/nixpkgs/ente-auth";
-
     flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
