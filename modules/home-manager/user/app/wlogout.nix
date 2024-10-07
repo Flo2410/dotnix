@@ -18,13 +18,11 @@ in
         {
           label = "lock";
           text = "Lock";
-          keybind = "";
           action = "${runOnce "hyprlock"}";
         }
         {
           label = "logout";
           text = "Logout";
-          keybind = "";
           action = "hyprctl dispatch exit 1";
         }
         {
@@ -42,7 +40,6 @@ in
         {
           label = "shutdown";
           text = "Shutdown";
-          keybind = "";
           action = "systemctl poweroff";
         }
         {
@@ -52,6 +49,60 @@ in
           action = "systemctl reboot";
         }
       ];
+
+      style = ''
+        * {
+          background-image: none;
+          box-shadow: none;
+        }
+
+        window {
+          background-color: #11111b;
+        }
+
+        button {
+          margin: 15rem 8px;
+          border-radius: 10px;
+          border-color: black;
+          text-decoration-color: #FFFFFF;
+          color: #FFFFFF;
+          background-color: #181825;
+          border-style: solid;
+          border-width: 1px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 25%;
+        }
+
+        button:focus, button:active, button:hover {
+          background-color: #74c7ec;
+          outline-style: none;
+        }
+
+        #lock {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/lock.png");
+        }
+
+        #logout {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/logout.png");
+        }
+
+        #suspend {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/suspend.png");
+        }
+
+        #hibernate {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png");
+        }
+
+        #shutdown {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png");
+        }
+
+        #reboot {
+          background-image: url("${pkgs.wlogout}/share/wlogout/icons/reboot.png");
+        }
+      '';
     };
   };
 }
