@@ -73,7 +73,6 @@
     zsh
     home-manager
     kdePackages.plasma-thunderbolt
-    kdePackages.kwallet-pam
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Fix for vscode on wayland
@@ -121,8 +120,8 @@
 
 
   security.pam.services = {
-    sddm.kwallet.enable = true;
-    login.kwallet.enable = true;
+    sddm.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
     hyprlock = { };
   };
 
@@ -131,6 +130,7 @@
     timesyncd.enable = true;
     gvfs.enable = true; # Thunar: Mount, trash, and other functionalities
     upower.enable = true;
+    gnome.gnome-keyring.enable = true;
 
     udev = {
       enable = true;

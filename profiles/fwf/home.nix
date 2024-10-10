@@ -31,6 +31,10 @@
         command = "syncthingtray --wait";
       };
     };
+    gnome-keyring = {
+      enable = true;
+      components = [ "secrets" ];
+    };
     kdeconnect.enable = true;
   };
 
@@ -89,19 +93,19 @@
     vivaldi_qt6
     (signal-desktop.overrideAttrs (old: {
       postFixup = ''
-        # add kwallt6 to launch args
+        # add gnome-keyring to launch args
         substituteInPlace $out/share/applications/signal-desktop.desktop \
-          --replace "%U" "--password-store=\"kdewallet6\" %U"
+          --replace "%U" "--password-store=\"gnome-libsecret\" %U"
       '';
     }))
     flare-signal # alterative signal client
     remmina
 
+    gnome.seahorse # manage gnome keyring
+
     # kde utils
     kdePackages.kcalc
     kdePackages.skanpage
-    kdePackages.kwallet
-    kdePackages.kwalletmanager
     kdePackages.systemsettings
     kdePackages.print-manager
     kdePackages.ark

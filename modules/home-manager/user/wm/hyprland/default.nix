@@ -68,8 +68,8 @@ in
 
           "exec-once" = [
 
-            # unlock kwallet
-            "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init --no-startup-id && kwalletd6 &"
+            # start gnome-key-daemon (not needed here, it's started by systemd (nixos configuration))
+            #"${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon --start --components=secrets"
 
             # pollkit
             "sleep 2; ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
