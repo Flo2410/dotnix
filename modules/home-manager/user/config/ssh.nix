@@ -12,6 +12,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    services.ssh-agent.enable = mkDefault true;
+
     programs.ssh = {
       enable = true;
       hashKnownHosts = false;
@@ -129,7 +131,5 @@ in
 
       };
     };
-
-    services.ssh-agent.enable = true;
   };
 }
