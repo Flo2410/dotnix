@@ -98,7 +98,6 @@
           --replace "%U" "--password-store=\"gnome-libsecret\" %U"
       '';
     }))
-    flare-signal # alterative signal client
     remmina
 
     gnome.seahorse # manage gnome keyring
