@@ -22,6 +22,10 @@
 
   news.display = "silent"; # disable home-manager news
 
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+  };
+
   services = {
     syncthing = {
       enable = true;
@@ -33,9 +37,11 @@
     };
     gnome-keyring = {
       enable = true;
-      components = [ "secrets" ];
+      components = [ "secrets" "ssh" ];
     };
     kdeconnect.enable = true;
+
+    ssh-agent.enable = lib.mkForce false; # Disable ssh-agent, I use the one from gnome-keyring
   };
 
   # Nicely reload system units when changing configs
