@@ -30,7 +30,7 @@ in
         "credentials=/home/florian/.smb-creds"
         "iocharset=utf8"
         "uid=1000"
-        "gid=1000"
+        "gid=100"
         "noauto"
         "x-systemd.automount"
         "x-systemd.idle-timeout=30"
