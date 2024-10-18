@@ -30,13 +30,6 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
-    # Garbage collection
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
   };
 
   # Bootloader.
@@ -104,6 +97,12 @@
         thunar-archive-plugin
         thunar-volman
       ];
+    };
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/florian/dotnix"; #FIXME: Get path from home.nix or someother global way.
     };
   };
 
