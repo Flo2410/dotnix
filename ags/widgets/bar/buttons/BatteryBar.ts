@@ -47,7 +47,7 @@ const WholeButton = () =>
       hpack: "center",
       children: [
         Widget.Icon({
-          icon: battery.icon_name,
+          icon: battery.bind("icon_name"),
           visible: true,
         }),
         Widget.Box({
