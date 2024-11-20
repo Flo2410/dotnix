@@ -61,6 +61,7 @@
       "$mod, Q, killactive,"
       "$mod, F, togglefloating,"
       "$mod ALT, ,resizeactive,"
+      "$mod, N, fullscreen, 1"
 
       # --------------------------------
       # move focus
