@@ -66,7 +66,7 @@ in
   "telemetry.telemetryLevel" = "off";
 
   # debug
-  "debug.toolBarLocation" = "docked";
+  "debug.toolBarLocation" = "commandCenter";
   "debug.showVariableTypes" = true;
 
   # do not check for updates.
