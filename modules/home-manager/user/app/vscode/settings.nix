@@ -126,7 +126,7 @@ in
   # stm32 for vscode
   "stm32-for-vscode.openOCDPath" = "${pkgs.openocd}/bin/openocd";
   "stm32-for-vscode.makePath" = "${pkgs.gnumake}/bin/make";
-  "stm32-for-vscode.armToolchainPath" = "${pkgs.gcc-arm-embedded-12}/bin";
+  "stm32-for-vscode.armToolchainPath" = "${pkgs.gcc-arm-embedded-13}/bin";
 
   # platformio
   "platformio-ide.useBuiltinPython" = false;
