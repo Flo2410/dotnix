@@ -14,10 +14,13 @@ in
       enable = true;
       settings = {
         general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
           lock_cmd = "${config.lib.meta.runOnce "hyprlock"}";
           before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = [
+            "(kill $(pidof hypridle) || true) && (pidof hypridle || hypridle)"
+            "hyprctl dispatch dpms on"
+          ];
         };
 
         listener = [
