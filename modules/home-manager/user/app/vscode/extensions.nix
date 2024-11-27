@@ -96,7 +96,7 @@ with pkgs.vscode-marketplace; [
   mcu-debug.memory-view # Required by cortex-debug
   mcu-debug.peripheral-viewer # Required by cortex-debug
   mcu-debug.rtos-views # Required by cortex-debug
-  # mechatroner.rainbow-csv
+  mechatroner.rainbow-csv
   # mikestead.dotenv
   # mongodb.mongodb-vscode
   # ms-azuretools.vscode-docker
