@@ -132,6 +132,11 @@ in
           hostname = "10.94.160.59";
         };
 
+        "logberry2" = {
+          hostname = "10.94.24.177";
+          user = "pi";
+          identityFile = "~/.ssh/logberry_ed25519";
+        };
       };
     };
   };
