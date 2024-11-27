@@ -19,6 +19,9 @@ in
       hashKnownHosts = false;
       forwardAgent = true;
       addKeysToAgent = "yes";
+      extraConfig = ''
+        IdentitiesOnly yes
+      '';
       matchBlocks = {
         "github.com" = {
           identityFile = "~/.ssh/GitHub";
