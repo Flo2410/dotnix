@@ -185,6 +185,7 @@
         enable = true;
         packages = [
           "com.ultimaker.cura"
+          "org.kicad.KiCad"
         ];
       };
     };

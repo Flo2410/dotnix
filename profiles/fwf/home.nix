@@ -94,7 +94,6 @@
     onedrivegui
     libreoffice-qt
     obsidian
-    kicad
     pulseview
     vivaldi_qt6
     (signal-desktop.overrideAttrs (old: {
