@@ -186,6 +186,7 @@
         packages = [
           "com.ultimaker.cura"
           "org.kicad.KiCad"
+          "com.github.tchx84.Flatseal"
         ];
       };
     };
