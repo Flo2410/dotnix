@@ -42,5 +42,9 @@
     # Catia via bottles
     "float, class:^(cnext.exe)$"
     "tile, class:^(cnext.exe), title:^(CNEXT)$"
+
+    # Thunderbird Identity Chooser
+    "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
+    "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
   ];
 }
