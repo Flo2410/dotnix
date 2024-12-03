@@ -72,6 +72,11 @@
       "$mod, up, movefocus, u"
       "$mod, down, movefocus, d"
 
+      "$mod, H, movefocus, l"
+      "$mod, J, movefocus, r"
+      "$mod, K, movefocus, u"
+      "$mod, L, movefocus, d"
+
       # --------------------------------
       # workspaces
       # --------------------------------
@@ -82,18 +87,28 @@
       "$mod SHIFT, up, layoutmsg, swapprev"
       "$mod SHIFT, down, layoutmsg, swapnext"
 
+      "$mod SHIFT, H, layoutmsg, addmaster"
+      "$mod SHIFT, L, layoutmsg, removemaster"
+      "$mod SHIFT, K, layoutmsg, swapprev"
+      "$mod SHIFT, J, layoutmsg, swapnext"
+
       # Swap current window with main window
       "$mod, M, layoutmsg, swapwithmaster"
 
       # switch workspace on current monitor
       "$mod CTRL, left, workspace, r-1"
+      "$mod CTRL, H, workspace, r-1"
       "$mod CTRL, mouse:275, workspace, r-1"
       "$mod CTRL, right, workspace, r+1"
+      "$mod CTRL, L, workspace, r+1"
       "$mod CTRL, mouse:276, workspace, r+1"
 
       # move window to next/prev workspace
       "$mod CTRL SHIFT, left, movetoworkspace, r-1"
       "$mod CTRL SHIFT, right, movetoworkspace, r+1"
+
+      "$mod CTRL SHIFT, H, movetoworkspace, r-1"
+      "$mod CTRL SHIFT, L, movetoworkspace, r+1"
 
       # Change workspace orientation 
       "$mod, PLUS, layoutmsg, orientationcycle left top"
