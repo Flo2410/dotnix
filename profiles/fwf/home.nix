@@ -136,7 +136,7 @@
     yubikey-manager
 
     # unstable packages
-    (unstable.stm32cubemx.overrideAttrs (old: rec{
+    (stm32cubemx.overrideAttrs (old: rec{
       desktopItem = makeDesktopItem {
         name = "STM32CubeMX";
         exec = "stm32cubemx";
