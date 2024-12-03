@@ -18,6 +18,7 @@ in
         {
           label = "lock";
           text = "Lock";
+          keybind = "l";
           action = "${runOnce "hyprlock"}";
         }
         {
@@ -40,6 +41,7 @@ in
         {
           label = "shutdown";
           text = "Shutdown";
+          keybind = "d";
           action = "systemctl poweroff";
         }
         {
