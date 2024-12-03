@@ -91,6 +91,7 @@
   programs = {
     zsh.enable = true;
     partition-manager.enable = true;
+    seahorse.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [

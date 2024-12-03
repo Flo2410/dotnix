@@ -105,8 +105,6 @@
     }))
     remmina
 
-    gnome.seahorse # manage gnome keyring
-
     # kde utils
     kdePackages.kcalc
     kdePackages.skanpage
