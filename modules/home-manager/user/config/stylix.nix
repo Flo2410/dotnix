@@ -55,8 +55,8 @@ in
           qt6ct
 
           (catppuccin-kvantum.override {
-            accent = "Sapphire";
-            variant = "Mocha";
+            accent = "sapphire";
+            variant = "mocha";
           })
 
           catppuccin-papirus-folders-custom
