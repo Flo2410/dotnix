@@ -6,7 +6,6 @@ stdenv.mkDerivation rec {
 
   src = pkgs.writeTextFile {
     name = "10-stm32-named-tty.rules";
-    destination = /10-stm32-named-tty.rules;
 
     text = ''
       ACTION=="add", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", SUBSYSTEM=="tty", SYMLINK+="stm32usb"
@@ -17,7 +16,10 @@ stdenv.mkDerivation rec {
     '';
   };
 
+  # do not unpack the source
+  dontUnpack = true;
+
   installPhase = ''
-    install -D 10-stm32-named-tty.rules $out/lib/udev/rules.d/10-stm32-named-tty.rules
+    install -D $src $out/lib/udev/rules.d/10-stm32-named-tty.rules
   '';
 }

@@ -6,7 +6,6 @@ stdenv.mkDerivation rec {
 
   src = pkgs.writeTextFile {
     name = "99-SaleaeLogic.rules";
-    destination = /99-SaleaeLogic.rules;
 
     text = ''
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0925", ATTR{idProduct}=="3881", MODE="0666"
@@ -18,7 +17,10 @@ stdenv.mkDerivation rec {
     '';
   };
 
+  # do not unpack the source
+  dontUnpack = true;
+
   installPhase = ''
-    install -D 99-SaleaeLogic.rules $out/lib/udev/rules.d/99-SaleaeLogic.rules
+    install -D $src $out/lib/udev/rules.d/99-SaleaeLogic.rules
   '';
 }

@@ -6,7 +6,6 @@ stdenv.mkDerivation rec {
 
   src = pkgs.writeTextFile {
     name = "11-ft232h.rules";
-    destination = /11-ft232h.rules;
 
     text = ''
       SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6001", GROUP="plugdev", MODE="0666"
@@ -17,7 +16,10 @@ stdenv.mkDerivation rec {
     '';
   };
 
+  # do not unpack the source
+  dontUnpack = true;
+
   installPhase = ''
-    install -D 11-ft232h.rules $out/lib/udev/rules.d/11-ft232h.rules
+    install -D $src $out/lib/udev/rules.d/11-ft232h.rules
   '';
 }
