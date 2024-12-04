@@ -22,7 +22,7 @@
 
   nix = {
     # Ensure nix flakes are enabled
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -79,8 +79,8 @@
     surface-control
     gnome.gnome-tweaks
 
-    (gnomeExtensions.gjs-osk.overrideAttrs  (finalAttrs: previousAttrs: {
-      src =  fetchzip {
+    (gnomeExtensions.gjs-osk.overrideAttrs (finalAttrs: previousAttrs: {
+      src = fetchzip {
         url = "https://github.com/Vishram1123/gjs-osk/releases/download/bf3d64f/gjsosk@vishram1123_main.zip";
         hash = "sha256-Cd8OiPhXyWRAukrdu9pte2VvTDEdqrVabk/1axitht4=";
         stripRoot = false;
