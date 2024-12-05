@@ -18,6 +18,10 @@ in {
     services.printing = {
       enable = true;
       drivers = with pkgs; [ptouch-driver];
+      extraFilesConf = ''
+        FileDevice Yes
+      '';
+      logLevel = "debug";
     };
 
     services.avahi = {
