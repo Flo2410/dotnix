@@ -20,7 +20,7 @@ in
       # additional packages to add to gjs's runtime
       extraPackages = with pkgs; [
         gtksourceview
-        webkitgtk
+        webkitgtk_4_1
         accountsservice
         libdbusmenu-gtk3
       ];
