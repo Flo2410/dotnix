@@ -175,7 +175,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     ags = {
-      url = "github:Aylur/ags/fa6b26821d87133018e948c53dcd7387072008f5"; # Fix ags ref as top level gnome-bluetooth is not available in 24.05
+      url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
