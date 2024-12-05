@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.kernelOptions;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.kernelOptions;
+in {
   options.system.hardware.kernelOptions = {
     enable = mkEnableOption "Enable extra kernel options";
   };

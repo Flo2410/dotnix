@@ -1,6 +1,4 @@
-{}:
-
-[
+{}: [
   {
     key = "shift+cmd+[Backslash]";
     command = "workbench.action.terminal.toggleTerminal";

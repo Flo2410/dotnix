@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.security.firewall;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.security.firewall;
+in {
   options.system.security.firewall = {
     enable = mkEnableOption "Enable firewall";
   };
@@ -16,7 +18,10 @@ in
 
       # Open ports in the firewall.
       allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
 
       allowedTCPPorts = [
@@ -24,7 +29,10 @@ in
       ];
 
       allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
       ];
 
       allowedUDPPorts = [

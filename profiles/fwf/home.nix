@@ -1,6 +1,13 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -37,7 +44,7 @@
     };
     gnome-keyring = {
       enable = true;
-      components = [ "secrets" "ssh" ];
+      components = ["secrets" "ssh"];
     };
     kdeconnect.enable = true;
 
@@ -67,7 +74,7 @@
 
       autostart = {
         enable = true;
-        autostartItems = [ ];
+        autostartItems = [];
       };
     };
 
@@ -136,12 +143,12 @@
     yubikey-manager
 
     # unstable packages
-    (stm32cubemx.overrideAttrs (old: rec{
+    (stm32cubemx.overrideAttrs (old: rec {
       desktopItem = makeDesktopItem {
         name = "STM32CubeMX";
         exec = "stm32cubemx";
         desktopName = "STM32CubeMX";
-        categories = [ "Development" ];
+        categories = ["Development"];
         icon = ../../assets/icons/STM32CubeMX.png;
         comment = old.meta.description;
         terminal = false;
@@ -152,10 +159,12 @@
         ];
       };
 
-      buildCommand = old.buildCommand + ''
-        mkdir -p $out/share/applications
-        cp ${desktopItem}/share/applications/*.desktop $out/share/applications
-      '';
+      buildCommand =
+        old.buildCommand
+        + ''
+          mkdir -p $out/share/applications
+          cp ${desktopItem}/share/applications/*.desktop $out/share/applications
+        '';
     }))
     unstable.naps2
     unstable.saleae-logic-2

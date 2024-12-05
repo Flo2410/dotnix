@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.fingerprint;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.fingerprint;
+in {
   options.system.hardware.fingerprint = {
     enable = mkEnableOption "Fingerprint sensor";
   };
@@ -20,6 +22,6 @@ in
     };
 
     # https://github.com/NixOS/nixpkgs/issues/239770#issuecomment-1868402338
-    security.pam.services.login.fprintAuth = false; # This disables the fingerprint login in sddm 
+    security.pam.services.login.fprintAuth = false; # This disables the fingerprint login in sddm
   };
 }

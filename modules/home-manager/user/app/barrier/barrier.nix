@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.barrier;
-
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.barrier;
+in {
   options.user.app.barrier = {
     enable = mkEnableOption "Barrier";
   };

@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.app.docker;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.app.docker;
+in {
   options.system.app.docker = {
     enable = mkEnableOption "Docker";
     storageDriver = mkOption {

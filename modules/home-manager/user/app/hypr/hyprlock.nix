@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.hyprlock;
-
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.hyprlock;
+in {
   options.user.app.hyprlock = {
     enable = mkEnableOption "Hyprlock";
     wallpaper = mkOption {
@@ -31,10 +32,12 @@ in
           no_fade_in = mkDefault false;
         };
 
-        background = [{
-          monitor = " ";
-          path = "${cfg.wallpaper}";
-        }];
+        background = [
+          {
+            monitor = " ";
+            path = "${cfg.wallpaper}";
+          }
+        ];
 
         label = [
           # LAYOUT

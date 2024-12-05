@@ -1,12 +1,14 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.app.latte;
 
   mkMutableSymlink = config.lib.meta.mkMutableSymlink;
-in
-{
+in {
   options.user.app.latte = {
     enable = mkEnableOption "Enable latte dock";
   };

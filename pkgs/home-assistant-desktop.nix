@@ -1,56 +1,61 @@
-{ stdenv, lib, buildNpmPackage, makeDesktopItem, fetchFromGitHub, electron, copyDesktopItems }:
-
-let
+{
+  stdenv,
+  lib,
+  buildNpmPackage,
+  makeDesktopItem,
+  fetchFromGitHub,
+  electron,
+  copyDesktopItems,
+}: let
   description = "Desktop application (Windows / macOS / Linux) for Home Assistant built with Electron";
-
 in
-buildNpmPackage rec  {
-  pname = "homeassistant-desktop";
-  version = "1.5.3";
+  buildNpmPackage rec {
+    pname = "homeassistant-desktop";
+    version = "1.5.3";
 
-  src = fetchFromGitHub {
-    owner = "iprodanovbg";
-    repo = pname;
-    rev = "v${version}";
-    hash = "sha256-Fu54mGYkJn92803QJOOkyL63I1yGi30OFWTEi1Y2IcM=";
-  };
+    src = fetchFromGitHub {
+      owner = "iprodanovbg";
+      repo = pname;
+      rev = "v${version}";
+      hash = "sha256-Fu54mGYkJn92803QJOOkyL63I1yGi30OFWTEi1Y2IcM=";
+    };
 
-  npmDepsHash = "sha256-yrNGWqv13os54k5H7HpOPui/H8qQ1KHEh9oJG23cCW0=";
+    npmDepsHash = "sha256-yrNGWqv13os54k5H7HpOPui/H8qQ1KHEh9oJG23cCW0=";
 
-  nativeBuildInputs = [
-    electron
-    copyDesktopItems
-  ];
+    nativeBuildInputs = [
+      electron
+      copyDesktopItems
+    ];
 
-  dontNpmBuild = true;
+    dontNpmBuild = true;
 
-  env = {
-    ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
-  };
+    env = {
+      ELECTRON_SKIP_BINARY_DOWNLOAD = 1;
+    };
 
-  postInstall = ''
-    makeWrapper ${electron}/bin/electron $out/bin/${pname} \
-      --add-flags $out/lib/node_modules/${pname}/app.js
+    postInstall = ''
+      makeWrapper ${electron}/bin/electron $out/bin/${pname} \
+        --add-flags $out/lib/node_modules/${pname}/app.js
 
-    install -D build/icon.png $out/share/icons/${pname}.png
-  '';
+      install -D build/icon.png $out/share/icons/${pname}.png
+    '';
 
-  desktopItems = [
-    (makeDesktopItem {
-      name = pname;
-      exec = pname;
-      icon = pname;
-      desktopName = "Home Assistant";
-      comment = description;
-    })
-  ];
+    desktopItems = [
+      (makeDesktopItem {
+        name = pname;
+        exec = pname;
+        icon = pname;
+        desktopName = "Home Assistant";
+        comment = description;
+      })
+    ];
 
-  meta = with lib; {
-    homepage = "https://github.com/iprodanovbg/homeassistant-desktop";
-    description = description;
-    platforms = platforms.linux;
-    maintainers = with maintainers; [ flo2410 ];
-    changelog = "https://github.com/iprodanovbg/homeassistant-desktop/releases/tag/v${version}";
-    license = licenses.asl20;
-  };
-}
+    meta = with lib; {
+      homepage = "https://github.com/iprodanovbg/homeassistant-desktop";
+      description = description;
+      platforms = platforms.linux;
+      maintainers = with maintainers; [flo2410];
+      changelog = "https://github.com/iprodanovbg/homeassistant-desktop/releases/tag/v${version}";
+      license = licenses.asl20;
+    };
+  }

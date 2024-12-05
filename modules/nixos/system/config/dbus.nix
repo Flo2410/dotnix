@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.config.dbus;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.config.dbus;
+in {
   options.system.config.dbus = {
     enable = mkEnableOption "dbus";
   };
@@ -12,7 +14,7 @@ in
   config = mkIf cfg.enable {
     services.dbus = {
       enable = true;
-      packages = [ pkgs.dconf ];
+      packages = [pkgs.dconf];
     };
 
     programs.dconf = {

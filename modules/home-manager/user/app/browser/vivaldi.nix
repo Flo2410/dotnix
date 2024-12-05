@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.browser.vivaldi;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.browser.vivaldi;
+in {
   options.user.app.browser.vivaldi = {
     enable = mkEnableOption "Enable vivaldi";
     defaultBrowser = mkEnableOption "Is default browser";
@@ -58,4 +60,3 @@ in
     };
   };
 }
-

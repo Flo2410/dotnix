@@ -1,8 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -34,14 +39,13 @@
 
   # Bootloader.
   boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" ]; # This is needed to build Raspberry Pi imgs
+    binfmt.emulatedSystems = ["aarch64-linux"]; # This is needed to build Raspberry Pi imgs
 
     loader = {
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
       timeout = 1;
-
     };
   };
 
@@ -73,18 +77,18 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
     users."florian" = import ./home.nix;
   };
 
   users = {
-    groups.plugdev = { };
+    groups.plugdev = {};
     defaultUserShell = pkgs.zsh;
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev" ];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev"];
     };
   };
 
@@ -108,21 +112,20 @@
   };
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs;[
+    extraPortals = with pkgs; [
       xdg-desktop-portal
       xdg-desktop-portal-gtk
     ];
   };
 
-
   security.pam.services = {
     sddm.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
-    hyprlock = { };
+    hyprlock = {};
   };
 
   services = {
@@ -150,7 +153,6 @@
   };
 
   system = {
-
     # WM
     wm.hyprland.enable = lib.mkDefault true;
 
@@ -201,7 +203,7 @@
 
       filesystem = {
         enable = true;
-        autoMounts = [ "/mnt/florian" ];
+        autoMounts = ["/mnt/florian"];
       };
 
       powerManagement = {

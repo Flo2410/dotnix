@@ -1,17 +1,21 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.shell;
 
   # add custom theme to oh-my-zsh package
   omz = pkgs.oh-my-zsh.overrideAttrs (old: {
-    postInstall = (old.postInstall or "") + ''
-      install -Dm444 ${./robbyrussell-custom.zsh-theme} $out/share/oh-my-zsh/custom/themes/robbyrussell-custom.zsh-theme
-    '';
+    postInstall =
+      (old.postInstall or "")
+      + ''
+        install -Dm444 ${./robbyrussell-custom.zsh-theme} $out/share/oh-my-zsh/custom/themes/robbyrussell-custom.zsh-theme
+      '';
   });
-in
-{
+in {
   options.user.shell = {
     enable = mkEnableOption "Enable the shell";
   };
@@ -64,7 +68,7 @@ in
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         enableCompletion = true;
-        shellAliases = (import ./aliases.nix);
+        shellAliases = import ./aliases.nix;
         initExtra = ''
           [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh" # alias ssh to when using kitty terminal
         '';
@@ -83,7 +87,7 @@ in
       bash = {
         enable = true;
         enableCompletion = true;
-        shellAliases = (import ./aliases.nix);
+        shellAliases = import ./aliases.nix;
       };
 
       # better "cd"

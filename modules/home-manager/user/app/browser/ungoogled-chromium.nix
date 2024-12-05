@@ -1,12 +1,14 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.app.browser.ungoogled-chromium;
 
   chromiumPkg = pkgs.ungoogled-chromium;
-in
-{
+in {
   options.user.app.browser.ungoogled-chromium = {
     enable = mkEnableOption "Enable Ungoogled Chromium";
     defaultBrowser = mkEnableOption "Is default browser";
@@ -47,40 +49,41 @@ in
       ];
 
       # Installing extensions in ungoogled chromium https://discourse.nixos.org/t/home-manager-ungoogled-chromium-with-extensions/15214
-      extensions =
-        let
-          createChromiumExtensionFor = browserVersion: { id, sha256, version }:
-            {
-              inherit id;
-              crxPath = builtins.fetchurl {
-                url = "https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=${browserVersion}&x=id%3D${id}%26installsource%3Dondemand%26uc";
-                name = "${id}.crx";
-                inherit sha256;
-              };
-              inherit version;
-            };
-          createChromiumExtension = createChromiumExtensionFor (lib.versions.major chromiumPkg.version);
-        in
-        [
-          # (createChromiumExtension {
-          #   # ublock origin
-          #   id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
-          #   sha256 = "sha256:026l3wq4x7rg9f0dz4xiig25x8b7h0syil1d09hbpfzv0yg5bm4m";
-          #   version = "1.37.2";
-          # })
-          (createChromiumExtension {
-            # LanguageTool
-            id = "oldceeleldhonbafppcapldpdifcinji";
-            sha256 = "sha256:083y5mcsk0kvdz8q7f45xnix61irxlnn35lzn9df3jj2l642x05i";
-            version = "8.11.6";
-          })
-          (mkIf config.user.wm.plasma.enable (createChromiumExtension {
-            # plasma integration
-            id = "cimiefiiaegbelhefglklhhakcgmhkai";
-            sha256 = "sha256:19v69mif1v5d2s0w50g3jc94r77lcpqn6rx76nv654zw9vazmqk7";
-            version = "1.9";
-          }))
-        ];
+      extensions = let
+        createChromiumExtensionFor = browserVersion: {
+          id,
+          sha256,
+          version,
+        }: {
+          inherit id;
+          crxPath = builtins.fetchurl {
+            url = "https://clients2.google.com/service/update2/crx?response=redirect&acceptformat=crx2,crx3&prodversion=${browserVersion}&x=id%3D${id}%26installsource%3Dondemand%26uc";
+            name = "${id}.crx";
+            inherit sha256;
+          };
+          inherit version;
+        };
+        createChromiumExtension = createChromiumExtensionFor (lib.versions.major chromiumPkg.version);
+      in [
+        # (createChromiumExtension {
+        #   # ublock origin
+        #   id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";
+        #   sha256 = "sha256:026l3wq4x7rg9f0dz4xiig25x8b7h0syil1d09hbpfzv0yg5bm4m";
+        #   version = "1.37.2";
+        # })
+        (createChromiumExtension {
+          # LanguageTool
+          id = "oldceeleldhonbafppcapldpdifcinji";
+          sha256 = "sha256:083y5mcsk0kvdz8q7f45xnix61irxlnn35lzn9df3jj2l642x05i";
+          version = "8.11.6";
+        })
+        (mkIf config.user.wm.plasma.enable (createChromiumExtension {
+          # plasma integration
+          id = "cimiefiiaegbelhefglklhhakcgmhkai";
+          sha256 = "sha256:19v69mif1v5d2s0w50g3jc94r77lcpqn6rx76nv654zw9vazmqk7";
+          version = "1.9";
+        }))
+      ];
     };
 
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultBrowser {
@@ -96,4 +99,3 @@ in
     };
   };
 }
-

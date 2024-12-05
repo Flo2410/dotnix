@@ -1,5 +1,8 @@
-{ pkgs, stdenv, ... }:
-
+{
+  pkgs,
+  stdenv,
+  ...
+}:
 stdenv.mkDerivation rec {
   name = "FTDI FT232H udev rules";
   version = "1.0";

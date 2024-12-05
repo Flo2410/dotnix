@@ -1,12 +1,13 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.app.wlogout;
   runOnce = config.lib.meta.runOnce;
-
-in
-{
+in {
   options.user.app.wlogout = {
     enable = mkEnableOption "wlogout";
   };

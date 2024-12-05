@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.app.virtualization;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.app.virtualization;
+in {
   options.system.app.virtualization = {
     enable = mkEnableOption "Virtualization";
   };

@@ -1,8 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }:
-
-rec {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: rec {
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
     outputs.nixosModules.system
@@ -57,7 +62,7 @@ rec {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
     users."florian" = import ./home.nix;
   };
@@ -67,12 +72,12 @@ rec {
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
     };
   };
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   services = {
@@ -100,7 +105,6 @@ rec {
   };
 
   system = {
-
     # Config
     config = {
       dbus.enable = true;
@@ -117,12 +121,11 @@ rec {
     hardware = {
       filesystem = {
         enable = true;
-        autoMounts = [ "/mnt/florian" ];
+        autoMounts = ["/mnt/florian"];
       };
     };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
-
 }

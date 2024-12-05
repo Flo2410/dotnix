@@ -1,12 +1,14 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.config.ssh;
   entryBefore = lib.hm.dag.entryBefore;
   entryAfter = lib.hm.dag.entryAfter;
-in
-{
+in {
   options.user.config.ssh = {
     enable = mkEnableOption "Enabel SSH Client";
   };
@@ -27,30 +29,30 @@ in
           identityFile = "~/.ssh/GitHub";
         };
 
-        "lro" = entryBefore [ "*.hye.network" ] {
+        "lro" = entryBefore ["*.hye.network"] {
           host = "lro lro.hye.network";
           hostname = "10.56.20.4";
           user = "florian";
           identityFile = "~/.ssh/lro_ed25519";
         };
 
-        "milkyway.hye.network" = entryBefore [ "*.hye.network" ] {
+        "milkyway.hye.network" = entryBefore ["*.hye.network"] {
           user = "root";
           identityFile = "~/.ssh/milkyway_ed25519";
         };
 
-        "haos.hye.network" = entryBefore [ "*.hye.network" ] {
+        "haos.hye.network" = entryBefore ["*.hye.network"] {
           user = "root";
           port = 22222;
           identityFile = "~/.ssh/haos_22222_ed25519";
         };
 
-        "ups-pi.hye.network" = entryBefore [ "*.hye.network" ] {
+        "ups-pi.hye.network" = entryBefore ["*.hye.network"] {
           user = "florian";
           identityFile = "~/.ssh/ups-pi_ed25519";
         };
 
-        "sagittarius-a.hye.network" = entryBefore [ "*.hye.network" ] {
+        "sagittarius-a.hye.network" = entryBefore ["*.hye.network"] {
           user = "florian";
           identityFile = "~/.ssh/sagittarius-a_ed25519";
         };
@@ -124,11 +126,11 @@ in
           identityFile = "~/.ssh/mobi_ed25519";
         };
 
-        "mobi-lambda" = entryAfter [ "mobi-*" ] {
+        "mobi-lambda" = entryAfter ["mobi-*"] {
           hostname = "10.94.160.55";
         };
 
-        "mobi-delta" = entryAfter [ "mobi-*" ] {
+        "mobi-delta" = entryAfter ["mobi-*"] {
           hostname = "10.94.160.59";
         };
 

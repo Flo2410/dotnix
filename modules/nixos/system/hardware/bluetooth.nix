@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.bluetooth;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.bluetooth;
+in {
   options.system.hardware.bluetooth = {
     enable = mkEnableOption "Bluetooth";
   };

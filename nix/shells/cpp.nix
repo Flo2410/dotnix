@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     cmake

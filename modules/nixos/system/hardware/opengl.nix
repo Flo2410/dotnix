@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.opengl;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.opengl;
+in {
   options.system.hardware.opengl = {
     enable = mkEnableOption "Enable OpenGL";
   };
@@ -17,7 +19,7 @@ in
 
     # OpenGL
     nixpkgs.config.packageOverrides = pkgs: {
-      intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
     };
 
     hardware.graphics = {

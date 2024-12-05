@@ -1,5 +1,8 @@
-{ pkgs, stdenv, ... }:
-
+{
+  pkgs,
+  stdenv,
+  ...
+}:
 stdenv.mkDerivation rec {
   name = "Saleae Logic Analyzer udev rules";
   version = "1.0";

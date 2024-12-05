@@ -1,7 +1,9 @@
-{ stdenvNoCC, lib, fetchzip }:
-
-
-stdenvNoCC.mkDerivation rec  {
+{
+  stdenvNoCC,
+  lib,
+  fetchzip,
+}:
+stdenvNoCC.mkDerivation rec {
   pname = "breezex-cursor";
   version = "2.0.1";
 
@@ -20,9 +22,7 @@ stdenvNoCC.mkDerivation rec  {
     homepage = "https://github.com/ful1e5/BreezeX_Cursor";
     description = "Extended KDE cursor.";
     platforms = platforms.linux;
-    maintainers = with maintainers; [ flo2410 ];
+    maintainers = with maintainers; [flo2410];
     changelog = "https://github.com/ful1e5/BreezeX_Cursor/releases/tag/v${version}";
   };
 }
-
-

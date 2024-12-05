@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.wm.plasma;
-in
 {
-
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.wm.plasma;
+in {
   options.system.wm.plasma = {
     enable = mkEnableOption "Plasma Desktop";
   };

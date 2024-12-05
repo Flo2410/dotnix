@@ -1,10 +1,11 @@
-{ lib, config, ... }:
-
-with lib;
-let
-  cfg = config.system.config.pipewire;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.config.pipewire;
+in {
   options.system.config.pipewire = {
     enable = mkEnableOption "Enable Pipewire audio";
   };

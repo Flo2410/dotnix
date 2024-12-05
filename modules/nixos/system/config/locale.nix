@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.config.locale;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.config.locale;
+in {
   options.system.config.locale = {
     enable = mkEnableOption "Enable Locale";
 

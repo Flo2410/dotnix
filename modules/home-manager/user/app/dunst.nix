@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.dunst;
-
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.dunst;
+in {
   options.user.app.dunst = {
     enable = mkEnableOption "dunst";
   };

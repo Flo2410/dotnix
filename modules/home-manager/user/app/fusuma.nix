@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.fusuma;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.fusuma;
+in {
   options.user.app.fusuma = {
     enable = mkEnableOption "Enabel Fusuma";
   };

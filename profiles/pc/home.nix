@@ -1,6 +1,13 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -46,7 +53,7 @@
 
       autostart = {
         enable = true;
-        autostartItems = [ "yakuake" ];
+        autostartItems = ["yakuake"];
       };
     };
 
@@ -77,7 +84,6 @@
     # games
     modrinth-app
 
-
     # kde utils
     kdePackages.yakuake
     kdePackages.kcalc
@@ -105,7 +111,7 @@
     #    unstable.kicad
     unstable.naps2
 
-    # Remmina v1.4.30 
+    # Remmina v1.4.30
     remmina
 
     # Custom Packages

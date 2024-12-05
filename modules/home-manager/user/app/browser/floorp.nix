@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.browser.floorp;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.browser.floorp;
+in {
   options.user.app.browser.floorp = {
     enable = mkEnableOption "Enable Floorp";
     defaultBrowser = mkEnableOption "Is default browser";
@@ -40,4 +42,3 @@ in
     };
   };
 }
-

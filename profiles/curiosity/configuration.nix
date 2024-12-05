@@ -1,8 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -43,12 +48,10 @@
     overlays = [
       (final: super: {
         makeModulesClosure = x:
-          super.makeModulesClosure (x // { allowMissing = true; });
+          super.makeModulesClosure (x // {allowMissing = true;});
       })
     ];
   };
-
-
 
   # Enable networking
   networking = {
@@ -95,7 +98,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
     users."florian" = import ./home.nix;
   };
@@ -105,14 +108,14 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6VPoeosGDVKtBBCxo+IxqEA4p19hMDvhg45/glNUQU florian@fwf" ];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
+      openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6VPoeosGDVKtBBCxo+IxqEA4p19hMDvhg45/glNUQU florian@fwf"];
       hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
     };
   };
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   services = {
@@ -132,7 +135,6 @@
   };
 
   system = {
-
     # Config
     config = {
       fonts.enable = true;
@@ -168,9 +170,3 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
-
-
-
-
-
-

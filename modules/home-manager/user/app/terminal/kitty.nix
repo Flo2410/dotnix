@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.terminal.kitty;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.terminal.kitty;
+in {
   options.user.app.terminal.kitty = {
     enable = mkEnableOption "Enable kitty";
   };

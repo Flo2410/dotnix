@@ -1,16 +1,17 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.ags;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.ags;
+in {
   options.user.app.ags = {
     enable = mkEnableOption "AGS Widgets";
   };
 
   config = mkIf cfg.enable {
-
     programs.ags = {
       enable = mkForce true;
 
@@ -27,4 +28,3 @@ in
     };
   };
 }
-

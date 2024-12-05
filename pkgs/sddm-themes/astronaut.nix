@@ -1,5 +1,8 @@
-{ pkgs, stdenvNoCC, fetchFromGitHub }:
-
+{
+  pkgs,
+  stdenvNoCC,
+  fetchFromGitHub,
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "sddm-astronaut-theme";
   version = "48ea0a792711ac0c58cc74f7a03e2e7ba3dc2ac0";

@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.config.xdg;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.config.xdg;
+in {
   options.user.config.xdg = {
     enable = mkEnableOption "Enable XDG";
   };
@@ -45,10 +47,10 @@ in
         enable = true;
 
         defaultApplications = {
-          "text/plain" = [ "code.desktop" ];
-          "inode/directory" = [ "thunar.desktop" ];
-          "image/*" = [ "nomacs.desktop" ];
-          "application/pdf" = [ "okular.desktop" ];
+          "text/plain" = ["code.desktop"];
+          "inode/directory" = ["thunar.desktop"];
+          "image/*" = ["nomacs.desktop"];
+          "application/pdf" = ["okular.desktop"];
 
           "text/html" = "zen.desktop";
           "x-scheme-handler/http" = "zen.desktop";
@@ -57,7 +59,6 @@ in
           "x-scheme-handler/unknown" = "zen.desktop";
         };
       };
-
     };
   };
 }

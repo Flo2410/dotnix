@@ -1,6 +1,4 @@
-{}:
-
-{
+{}: {
   # --------------------------------
   # left
   # --------------------------------
@@ -8,7 +6,6 @@
   "hyprland/workspaces" = {
     disable-scroll = true;
   };
-
 
   # --------------------------------
   # center
@@ -50,7 +47,7 @@
     format-charging = "{capacity}% 󱐋";
     format-plugged = "{capacity}% 󱐋";
     # format-alt = "{time} {icon}";
-    format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+    format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
     # format-icons = [ "" "" "" "" "" ]; # Font Awesome
     on-click = "ags -b hypr -t powerctrl";
   };

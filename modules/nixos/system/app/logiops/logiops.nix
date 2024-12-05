@@ -1,18 +1,19 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.app.logiops;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.app.logiops;
+in {
   options.system.app.logiops = {
     enable = mkEnableOption "LogiOps";
   };
 
   config = mkIf cfg.enable {
-
     # Install logiops package
-    environment.systemPackages = [ pkgs.logiops ];
+    environment.systemPackages = [pkgs.logiops];
 
     # Create systemd service
     systemd.services.logiops = {

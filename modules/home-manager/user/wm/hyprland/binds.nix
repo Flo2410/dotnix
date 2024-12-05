@@ -1,57 +1,55 @@
-{ pkgs, config }:
-
 {
+  pkgs,
+  config,
+}: {
   "$mod" = "SUPER";
-  bind =
-    let
-      # Sources:
-      # https://github.com/fufexan/dotfiles/blob/a0bebadeb029ef50f2fa99ad3e7751a98b835610/home/programs/wayland/hyprland/binds.nix
-
-      # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-      workspaces = builtins.concatLists (builtins.genList
-        (x:
-          let
-            ws = let c = (x + 1) / 10; in
-              builtins.toString (x + 1 - (c * 10));
+  bind = let
+    # Sources:
+    # https://github.com/fufexan/dotfiles/blob/a0bebadeb029ef50f2fa99ad3e7751a98b835610/home/programs/wayland/hyprland/binds.nix
+    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+    workspaces = builtins.concatLists (builtins.genList
+      (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
           in
-          [
-            "$mod, ${ws}, workspace, ${toString (x + 1)}"
-            "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-          ]
-        ) 10);
+            builtins.toString (x + 1 - (c * 10));
+        in [
+          "$mod, ${ws}, workspace, ${toString (x + 1)}"
+          "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        ]
+      )
+      10);
 
-      toggle = program:
-        let
-          prog = builtins.substring 0 14 program;
-        in
-        "pkill ${prog} || ${program}";
+    toggle = program: let
+      prog = builtins.substring 0 14 program;
+    in "pkill ${prog} || ${program}";
 
-      runOnce = config.lib.meta.runOnce;
+    runOnce = config.lib.meta.runOnce;
 
+    cliphist-rofi-img = pkgs.writeShellScript "cliphist-rofi-img" ''
+      tmp_dir="/tmp/cliphist"
+      rm -rf "$tmp_dir"
 
-      cliphist-rofi-img = pkgs.writeShellScript "cliphist-rofi-img" ''
-        tmp_dir="/tmp/cliphist"
-        rm -rf "$tmp_dir"
+      if [[ -n "$1" ]]; then
+          cliphist decode <<<"$1" | wl-copy
+          exit
+      fi
 
-        if [[ -n "$1" ]]; then
-            cliphist decode <<<"$1" | wl-copy
-            exit
-        fi
+      mkdir -p "$tmp_dir"
 
-        mkdir -p "$tmp_dir"
-
-        read -r -d \'\' prog <<EOF
-        /^[0-9]+\s<meta http-equiv=/ { next }
-        match(\$0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
-            system("echo " grp[1] "\\\\\t | cliphist decode >$tmp_dir/"grp[1]"."grp[3])
-            print \$0"\0icon\x1f$tmp_dir/"grp[1]"."grp[3]
-            next
-        }
-        1
-        EOF
-        cliphist list | gawk "$prog"
-      '';
-    in
+      read -r -d \'\' prog <<EOF
+      /^[0-9]+\s<meta http-equiv=/ { next }
+      match(\$0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
+          system("echo " grp[1] "\\\\\t | cliphist decode >$tmp_dir/"grp[1]"."grp[3])
+          print \$0"\0icon\x1f$tmp_dir/"grp[1]"."grp[3]
+          next
+      }
+      1
+      EOF
+      cliphist list | gawk "$prog"
+    '';
+  in
     [
       # --------------------------------
       # compositor commands
@@ -110,7 +108,7 @@
       "$mod CTRL SHIFT, H, movetoworkspace, r-1"
       "$mod CTRL SHIFT, L, movetoworkspace, r+1"
 
-      # Change workspace orientation 
+      # Change workspace orientation
       "$mod, PLUS, layoutmsg, orientationcycle left top"
 
       # --------------------------------
@@ -138,9 +136,8 @@
       "$mod, C, exec, code --new-window" # open a new vscode window
       "$mod, D, exec, code ~/dotnix" # open dotnix in vscode
       "$mod, E, exec, thunar"
-
-    ] ++ workspaces;
-
+    ]
+    ++ workspaces;
 
   bindl = [
     # media controls

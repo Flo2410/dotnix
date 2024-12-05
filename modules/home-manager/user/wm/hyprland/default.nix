@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.wm.hyprland;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.wm.hyprland;
+in {
   options.user.wm.hyprland = {
     enable = mkEnableOption "Hyprland Desktop";
   };
@@ -54,12 +56,10 @@ in
     wayland.windowManager.hyprland = {
       enable = mkForce true;
 
-      settings =
-        let
-          hypr_binds = import ./binds.nix { inherit pkgs config; };
-          hypr_window_rules = import ./window-rules.nix { };
-
-        in
+      settings = let
+        hypr_binds = import ./binds.nix {inherit pkgs config;};
+        hypr_window_rules = import ./window-rules.nix {};
+      in
         {
           source = [
             "~/.config/hypr/monitors.conf"
@@ -67,7 +67,6 @@ in
           ];
 
           "exec-once" = [
-
             # start gnome-key-daemon (not needed here, it's started by systemd (nixos configuration))
             #"${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon --start --components=secrets"
 
@@ -163,7 +162,9 @@ in
             # Hyprshot
             "HYPRSHOT_DIR,${config.xdg.userDirs.pictures}/hyprshot"
           ];
-        } // hypr_binds // hypr_window_rules;
+        }
+        // hypr_binds
+        // hypr_window_rules;
     };
   };
 }

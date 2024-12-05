@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.config.fonts;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.config.fonts;
+in {
   options.system.config.fonts = {
     enable = mkEnableOption "Enable Fonts";
   };

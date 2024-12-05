@@ -1,5 +1,5 @@
 # This file defines overlays
-{ inputs, ... }: {
+{inputs, ...}: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -14,10 +14,10 @@
     vivaldi_qt6 = final.pkgs.unstable.vivaldi.overrideAttrs (oldAttrs: {
       dontWrapQtApps = false;
       dontPatchELF = true;
-      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ final.pkgs.kdePackages.wrapQtAppsHook ];
+      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [final.pkgs.kdePackages.wrapQtAppsHook];
     });
 
-    stm32cubemx = final.pkgs.callPackage ../pkgs/stm32cubemx.nix { };
+    stm32cubemx = final.pkgs.callPackage ../pkgs/stm32cubemx.nix {};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

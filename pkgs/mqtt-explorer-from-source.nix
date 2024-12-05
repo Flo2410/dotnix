@@ -1,20 +1,20 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, fetchYarnDeps
-, makeDesktopItem
-, copyDesktopItems
-, desktopToDarwinBundle
-, fixup_yarn_lock
-, makeWrapper
-, nodejs
-, yarn
-, electron
-, python3
-, nodePackages
-, typescript
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  fetchYarnDeps,
+  makeDesktopItem,
+  copyDesktopItems,
+  desktopToDarwinBundle,
+  fixup_yarn_lock,
+  makeWrapper,
+  nodejs,
+  yarn,
+  electron,
+  python3,
+  nodePackages,
+  typescript,
 }:
-
 stdenv.mkDerivation rec {
   pname = "MQTT-Explorer";
   version = "0.3.5";
@@ -68,11 +68,11 @@ stdenv.mkDerivation rec {
     fixup_yarn_lock yarn.lock
     yarn install --offline --frozen-lockfile --ignore-platform --ignore-scripts --no-progress --non-interactive
 
-    cd app 
+    cd app
     yarn config --offline set yarn-offline-mirror "$offlineCacheApp"
     fixup_yarn_lock yarn.lock
     yarn install --offline --frozen-lockfile --ignore-platform --ignore-scripts --no-progress --non-interactive --modules-folder ../node_modules
-    
+
     cd ../backend
     yarn config --offline set yarn-offline-mirror "$offlineCacheBackend"
     fixup_yarn_lock yarn.lock
@@ -88,12 +88,12 @@ stdenv.mkDerivation rec {
   #       This is chages in later version. Therefor this can be replaced on the next update!
   buildPhase = ''
     runHook preBuild
-    
+
     export NODE_OPTIONS=--openssl-legacy-provider # workaround! See: https://github.com/webpack/webpack/issues/14532
-    
+
     tsc
     cd app
-    webpack --mode production 
+    webpack --mode production
     cd ..
 
     runHook postBuild
@@ -107,7 +107,7 @@ stdenv.mkDerivation rec {
 
     makeWrapper ${electron}/bin/electron $out/bin/${pname} \
       --add-flags $out/dist/src/electron.js
-      
+
     runHook postInstall
   '';
 
@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
     homepage = "https://mqtt-explorer.com/";
     # license = licenses.cc-by-nd-40;
     changelog = "https://github.com/thomasnordquist/MQTT-Explorer/releases/tag/v${version}";
-    maintainers = with maintainers; [ flo2410 ];
+    maintainers = with maintainers; [flo2410];
     platforms = platforms.linux;
   };
 }

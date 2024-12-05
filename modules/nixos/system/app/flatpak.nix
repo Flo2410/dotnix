@@ -1,10 +1,13 @@
-{ lib, config, inputs, pkgs, ... }:
-
-with lib;
-let
-  cfg = config.system.app.flatpak;
-in
 {
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.system.app.flatpak;
+in {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
@@ -13,7 +16,7 @@ in
     enable = mkEnableOption "Flatpak";
     packages = mkOption {
       type = types.listOf types.str;
-      default = [ ];
+      default = [];
     };
   };
 

@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 pkgs.mkShellNoCC {
-  nativeBuildInputs = with pkgs;
-    [
-      ltex-ls
-      temurin-bin-21
+  nativeBuildInputs = with pkgs; [
+    ltex-ls
+    temurin-bin-21
 
-      (pkgs.texliveFull.withPackages (p: with p; [
+    (pkgs.texliveFull.withPackages (p:
+      with p; [
         wrapfig
         amsmath
         ulem
@@ -24,8 +23,7 @@ pkgs.mkShellNoCC {
         titlesec
         biber
       ]))
-
-    ];
+  ];
 
   shellHook = ''
     unset SOURCE_DATE_EPOCH

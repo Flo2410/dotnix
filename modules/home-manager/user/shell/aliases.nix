@@ -36,7 +36,7 @@
   ros2-docker = "~/syncthing/Development/ros/ros2-docker/ros2-docker.sh";
   clip = ''if [ "$TERM" = "xterm-kitty" ]; then kitty +kitten clipboard; else wl-copy; fi'';
 
-  #docker 
+  #docker
   "docker.rm-dangling" = "docker rmi \$(docker images --filter 'dangling=true' -q --no-trunc)";
 
   #exit

@@ -1,8 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -34,7 +39,7 @@
       options = "--delete-older-than 7d";
     };
 
-    settings.trusted-users = [ "florian" ];
+    settings.trusted-users = ["florian"];
   };
 
   # Bootloader.
@@ -88,36 +93,38 @@
     }))
   ];
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    gnome-connections
-    baobab
-  ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-    epiphany # web browser
-    geary # email reader
-    gnome-characters
-    yelp # Help view
-    totem # Videos
-    evince # document viewer
-    gnome-contacts
-    gnome-initial-setup
-    gnome-maps
-    gnome-weather
-    gnome-calendar
-    simple-scan
-    gnome-font-viewer
-    gnome-disk-utility
-    gnome-logs
-    gnome-calculator
-  ]);
+  environment.gnome.excludePackages =
+    (with pkgs; [
+      gnome-photos
+      gnome-tour
+      gnome-connections
+      baobab
+    ])
+    ++ (with pkgs.gnome; [
+      cheese # webcam tool
+      gnome-music
+      epiphany # web browser
+      geary # email reader
+      gnome-characters
+      yelp # Help view
+      totem # Videos
+      evince # document viewer
+      gnome-contacts
+      gnome-initial-setup
+      gnome-maps
+      gnome-weather
+      gnome-calendar
+      simple-scan
+      gnome-font-viewer
+      gnome-disk-utility
+      gnome-logs
+      gnome-calculator
+    ]);
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
     users = {
       "florian" = import ./home.nix;
@@ -131,7 +138,7 @@
       "florian" = {
         isNormalUser = true;
         uid = 1000;
-        extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+        extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhpcNpe6K0Elbaf29mo1SLRUY+EQHKDv2xT9fslW6so florian@fwf"
@@ -141,7 +148,7 @@
       "user" = {
         isNormalUser = true;
         uid = 1001;
-        extraGroups = [ "input" "video" ];
+        extraGroups = ["input" "video"];
         hashedPassword = ""; # Allow uset to login without a password.
         shell = pkgs.bash;
       };
@@ -149,7 +156,7 @@
   };
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   security = {
@@ -183,12 +190,11 @@
       settings.PermitRootLogin = "no";
     };
 
-
     # Configure keymap in X11
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
-      excludePackages = [ pkgs.xterm ];
+      excludePackages = [pkgs.xterm];
 
       # Enable the GNOME Desktop Environment.
       displayManager.gdm.enable = true;
@@ -209,7 +215,6 @@
   hardware.pulseaudio.enable = true;
 
   system = {
-
     # Config
     config = {
       dbus.enable = true;

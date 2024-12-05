@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }:
-with lib;
-
 {
-
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; {
   # ---------------------------------------------------------------------
-  # Direct Rendering Infrastructure (DRI) support, both for 32-bit and 64-bit, and 
+  # Direct Rendering Infrastructure (DRI) support, both for 32-bit and 64-bit, and
   # Make sure opengl is enabled
   #---------------------------------------------------------------------
   hardware = {

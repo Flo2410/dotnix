@@ -1,10 +1,10 @@
-{ pkgs, config }:
-
-let
+{
+  pkgs,
+  config,
+}: let
   dotfilesDirectory = config.user.home.dotfilesDirectory;
   username = config.user.home.username;
-in
-{
+in {
   # --------------------------------------------------
   # VS Code
   # --------------------------------------------------
@@ -117,7 +117,7 @@ in
   };
   "ltex.completionEnabled" = true;
   "ltex.disabledRules" = {
-    "de-AT" = [ "WHITESPACE_RULE" ];
+    "de-AT" = ["WHITESPACE_RULE"];
   };
 
   # latex workshop
@@ -177,7 +177,7 @@ in
       ];
       "changeLogCaption" = "HISTORY=";
       "changeLogHeaderLineCount" = 2;
-      "changeLogEntryTemplate" = [ "<<dateformat('YYYY-MM-DD')>>\t<<initials>>\t" ];
+      "changeLogEntryTemplate" = ["<<dateformat('YYYY-MM-DD')>>\t<<initials>>\t"];
     }
   ];
 

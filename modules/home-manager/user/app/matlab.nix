@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.matlab;
-
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.matlab;
+in {
   options.user.app.matlab = {
     enable = mkEnableOption "matlab";
   };

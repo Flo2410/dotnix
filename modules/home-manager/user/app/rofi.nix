@@ -1,11 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.rofi;
-
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.rofi;
+in {
   options.user.app.rofi = {
     enable = mkEnableOption "rofi";
   };

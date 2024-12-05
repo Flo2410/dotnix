@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.app.hypridle;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.app.hypridle;
+in {
   options.user.app.hypridle = {
     enable = mkEnableOption "hypridle";
   };
@@ -53,9 +55,3 @@ in
     };
   };
 }
-
-
-
-
-
-

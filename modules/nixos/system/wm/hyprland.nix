@@ -1,17 +1,17 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.wm.hyprland;
-in
 {
-
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.wm.hyprland;
+in {
   options.system.wm.hyprland = {
     enable = mkEnableOption "Hyprland Desktop";
   };
 
   config = mkIf cfg.enable {
-
     system.config.stylix = {
       enable = true;
       theme = "catppuccin-mocha";
@@ -33,7 +33,6 @@ in
       #   loginBackground = true;
       # })
     ];
-
 
     xdg.portal = {
       enable = true;

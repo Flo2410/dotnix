@@ -1,8 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -53,7 +58,7 @@
       # "nvidia_drm"
     ];
 
-    kernelModules = [ "nvidia" ];
+    kernelModules = ["nvidia"];
 
     kernelParams = [
       "nvidia_drm.fbdev=1" # Enables the use of a framebuffer device for NVIDIA graphics. This can be useful for certain configurations.
@@ -83,7 +88,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     # sharedModules = builtins.attrValues outputs.homeManagerModules;
     users."florian" = import ./home.nix;
   };
@@ -93,14 +98,14 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" ];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
     };
   };
 
   programs.partition-manager.enable = true;
 
   # I use zsh btw
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
   programs.zsh.enable = true;
 
   xdg.portal = {
@@ -131,7 +136,6 @@
   };
 
   system = {
-
     # WM
     wm.x11-plasma.enable = true;
 
@@ -170,7 +174,7 @@
 
       filesystem = {
         enable = true;
-        autoMounts = [ "/mnt/florian" ];
+        autoMounts = ["/mnt/florian"];
       };
 
       #     powerManagement = {

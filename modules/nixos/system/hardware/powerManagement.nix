@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.powerManagement;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.powerManagement;
+in {
   options.system.hardware.powerManagement = {
     enable = mkEnableOption "Power anagement";
     enableSuspendThenHibernate = mkOption {
@@ -41,4 +43,3 @@ in
     })
   ];
 }
-

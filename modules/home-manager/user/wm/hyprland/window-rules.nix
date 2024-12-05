@@ -1,5 +1,4 @@
-{}:
-{
+{}: {
   windowrulev2 = [
     # make PiP window floating and sticky
     "float, title:^(Picture-in-Picture)$"

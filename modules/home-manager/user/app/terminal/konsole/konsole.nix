@@ -1,12 +1,14 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.user.app.terminal.konsole;
 
   mkMutableSymlink = config.lib.meta.mkMutableSymlink;
-in
-{
+in {
   options.user.app.terminal.konsole = {
     enable = mkEnableOption "Enable Konsole";
   };

@@ -1,10 +1,12 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.user.config.autostart;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.user.config.autostart;
+in {
   options.user.config.autostart = {
     enable = mkEnableOption "Enable autostart";
     autostartItems = mkOption {
@@ -13,7 +15,7 @@ in
         "yakuake"
         "latte-dock"
       ]);
-      default = [ ];
+      default = [];
     };
   };
 

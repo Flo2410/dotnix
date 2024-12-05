@@ -1,21 +1,23 @@
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.system.hardware.printing;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.hardware.printing;
+in {
   options.system.hardware.printing = {
     enable = mkEnableOption "Enable printing";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.cups-filters ];
+    environment.systemPackages = [pkgs.cups-filters];
 
     # Enable printing
     services.printing = {
       enable = true;
-      drivers = with pkgs; [ ptouch-driver ];
+      drivers = with pkgs; [ptouch-driver];
     };
 
     services.avahi = {
