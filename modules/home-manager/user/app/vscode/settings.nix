@@ -247,7 +247,7 @@ in
   };
 
   "[nix]" = {
-    "editor.defaultFormatter" = "jnoortheen.nix-ide";
+    "editor.defaultFormatter" = "kamadorueda.alejandra";
   };
 
   "[rust]" = {

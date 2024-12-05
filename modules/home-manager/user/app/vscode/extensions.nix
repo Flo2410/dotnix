@@ -70,6 +70,7 @@ with pkgs.vscode-marketplace; [
 
   # TODO: The following should be moved into the coresponding dev shells.
 
+  kamadorueda.alejandra
   astro-build.astro-vscode
   # bbenoist.qml
   andreoneti.qml-formatter
