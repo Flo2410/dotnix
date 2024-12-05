@@ -121,7 +121,6 @@ in
 
           decoration = {
             rounding = 8;
-            drop_shadow = true;
           };
 
           misc = {
