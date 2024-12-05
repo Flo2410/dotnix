@@ -8,10 +8,10 @@ with lib;
   # Make sure opengl is enabled
   #---------------------------------------------------------------------
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
       driSupport = lib.mkDefault true;
-      driSupport32Bit = lib.mkDefault true;
+      enable32Bit = lib.mkDefault true;
 
       #---------------------------------------------------------------------
       # Install additional packages that improve graphics performance and compatibility.
