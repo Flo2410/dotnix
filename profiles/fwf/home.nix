@@ -141,6 +141,7 @@
     font-manager
     pavucontrol
     yubikey-manager
+    alejandra # nix fmt
 
     # unstable packages
     (stm32cubemx.overrideAttrs (old: rec {
