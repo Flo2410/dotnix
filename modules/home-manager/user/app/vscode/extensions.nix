@@ -80,6 +80,7 @@ in
     # cweijan.vscode-mysql-client2
     # dan-c-underwood.arm
     dbaeumer.vscode-eslint
+    bitwisecook.tcl
     # dotjoshjohnson.xml
     # dsznajder.es7-react-js-snippets
     # espressif.esp-idf-extension
