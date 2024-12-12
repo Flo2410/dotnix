@@ -111,6 +111,7 @@
       '';
     }))
     remmina
+    insomnia
 
     # kde utils
     kdePackages.kcalc
