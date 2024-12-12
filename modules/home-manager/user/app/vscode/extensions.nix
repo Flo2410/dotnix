@@ -41,6 +41,9 @@ in
     taniarascia.new-moon-vscode
     neptunedesign.vs-sequential-number
     github.copilot
+    github.copilot-chat
+    denoland.vscode-deno
+    heybourn.headwind
 
     # Themes
     sdras.night-owl
@@ -82,7 +85,7 @@ in
     dbaeumer.vscode-eslint
     bitwisecook.tcl
     # dotjoshjohnson.xml
-    # dsznajder.es7-react-js-snippets
+    dsznajder.es7-react-js-snippets
     # espressif.esp-idf-extension
     # felipe.nasc-touchbar
     # github.vscode-github-actions
