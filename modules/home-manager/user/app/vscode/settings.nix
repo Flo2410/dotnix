@@ -28,6 +28,7 @@ in {
 
   # Editor Settings
   "editor.fontFamily" = "${config.stylix.fonts.monospace.name}";
+  "editor.inlayHints.enabled" = "on";
   "editor.inlayHints.fontFamily" = "${config.stylix.fonts.monospace.name}";
   "editor.fontSize" = 13;
   "editor.fontLigatures" = true;
