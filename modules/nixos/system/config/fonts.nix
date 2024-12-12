@@ -13,16 +13,20 @@ in {
 
   config = mkIf cfg.enable {
     # Fonts are nice to have
-    fonts.packages = with pkgs; [
-      # Fonts
-      noto-fonts
-      font-awesome
-      fira-code
-      fira-code-symbols
-      corefonts # Microsoft TrueType fonts
-      roboto
-      material-icons # https://fonts.google.com/icons
-      material-design-icons # https://pictogrammers.com/library/mdi/
-    ];
+    fonts = {
+      fontDir.enable = true;
+      packages = with pkgs; [
+        # Fonts
+        noto-fonts
+        font-awesome
+        fira-code
+        fira-code-symbols
+        corefonts # Microsoft TrueType fonts
+        roboto
+        material-icons # https://fonts.google.com/icons
+        material-design-icons # https://pictogrammers.com/library/mdi/
+        bahnschrift-font
+      ];
+    };
   };
 }
