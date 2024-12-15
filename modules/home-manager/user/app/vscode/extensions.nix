@@ -123,9 +123,10 @@ in
     # platformio.platformio-ide
     # pulkitgangwar.nextjs-snippets
     # quicktype.quicktype
-    rust-lang.rust-analyzer
     # smilerobotics.urdf
-    # tauri-apps.tauri-vscode
+    vue.volar
+    rust-lang.rust-analyzer
+    tauri-apps.tauri-vscode
     # trond-snekvik.gnu-mapfiles
     # twxs.cmake
     unifiedjs.vscode-mdx
