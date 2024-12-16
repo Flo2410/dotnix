@@ -67,6 +67,8 @@ in
     james-yu.latex-workshop
     ltex-vsxi
 
+    cardinal90.multi-cursor-case-preserve
+
     # TODO: The following should be moved into the coresponding dev shells.
 
     kamadorueda.alejandra
