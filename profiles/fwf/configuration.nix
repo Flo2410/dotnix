@@ -88,7 +88,7 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev" "wireshark"];
     };
   };
 
@@ -96,6 +96,7 @@
     zsh.enable = true;
     partition-manager.enable = true;
     seahorse.enable = true;
+    wireshark.enable = true;
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [

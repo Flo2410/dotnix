@@ -112,6 +112,7 @@
     }))
     remmina
     insomnia
+    wireshark
 
     # kde utils
     kdePackages.kcalc
