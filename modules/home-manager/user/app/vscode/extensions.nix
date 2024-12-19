@@ -129,6 +129,7 @@ in
     vue.volar
     rust-lang.rust-analyzer
     tauri-apps.tauri-vscode
+    pkgs.vscode-extensions.vadimcn.vscode-lldb
     # trond-snekvik.gnu-mapfiles
     # twxs.cmake
     unifiedjs.vscode-mdx
