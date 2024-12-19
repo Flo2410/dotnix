@@ -70,6 +70,7 @@
     zsh
     home-manager
     kdePackages.plasma-thunderbolt
+    gparted
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Fix for vscode on wayland
