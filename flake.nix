@@ -178,7 +178,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        home-manager-stable.follows = "home-manager";
+      };
+    };
 
     ags = {
       url = "github:Aylur/ags/v1";

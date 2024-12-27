@@ -14,6 +14,7 @@
     ./dunst.nix
     ./ags.nix
     ./matlab.nix
+    ./baloo.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
