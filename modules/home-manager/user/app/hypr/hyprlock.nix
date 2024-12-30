@@ -18,9 +18,10 @@ in {
   config = mkIf cfg.enable {
     programs.hyprlock = {
       enable = cfg.enable;
+      package = pkgs.unstable.hyprlock;
 
       settings = {
-        source = mkForce "${config.catppuccin.sources.hyprland}/themes/${config.catppuccin.flavor}.conf";
+        source = mkForce "${config.catppuccin.sources.hyprland}/${config.catppuccin.flavor}.conf";
 
         "$alpha" = "$sapphireAlpha";
         "$accent" = "$sapphire";
@@ -38,6 +39,15 @@ in {
             path = "${cfg.wallpaper}";
           }
         ];
+
+        auth = {
+          pam.enabled = mkDefault true;
+          fingerprint = {
+            enabled = mkDefault true;
+            ready_message = mkDefault "Place your finger on the sensor";
+            present_message = mkDefault "Scanning fingerprint";
+          };
+        };
 
         label = [
           # LAYOUT
