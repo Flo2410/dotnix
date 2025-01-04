@@ -80,7 +80,6 @@
 
     app = {
       browser.ungoogled-chromium.enable = true;
-      browser.floorp.enable = true;
       virtualization.enable = true;
       barrier.enable = true;
       vscode.enable = true;
