@@ -53,7 +53,7 @@ in {
         }
       ];
 
-      style = ''
+      style = mkDefault ''
         * {
           background-image: none;
           box-shadow: none;
