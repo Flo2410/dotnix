@@ -53,7 +53,7 @@ in {
         }
       ];
 
-      style = mkDefault ''
+      style = mkForce ''
         * {
           background-image: none;
           box-shadow: none;
