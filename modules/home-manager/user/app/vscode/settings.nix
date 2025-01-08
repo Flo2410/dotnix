@@ -80,6 +80,12 @@ in {
     "**/.git" = false;
   };
 
+  # search
+  "search.exclude" = {
+    "**/.git" = true;
+    "**/.direnv" = true;
+  };
+
   # autopep8
   "autopep8.args" = [
     "--indent-size=2"
