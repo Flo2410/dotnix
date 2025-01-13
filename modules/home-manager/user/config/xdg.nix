@@ -46,11 +46,13 @@ in {
       mimeApps = {
         enable = true;
 
+        # Note: the .desktop entries need to match the file name in pkg/share/applications
         defaultApplications = {
-          "text/plain" = ["code.desktop"];
-          "inode/directory" = ["thunar.desktop"];
-          "image/*" = ["nomacs.desktop"];
-          "application/pdf" = ["okular.desktop"];
+          "text/plain" = "code.desktop";
+          "inode/directory" = "thunar.desktop";
+          "image/png" = "org.nomacs.ImageLounge.desktop";
+          "image/jpeg" = "org.nomacs.ImageLounge.desktop";
+          "application/pdf" = "okularApplication_pdf.desktop";
 
           "text/html" = "zen.desktop";
           "x-scheme-handler/http" = "zen.desktop";
