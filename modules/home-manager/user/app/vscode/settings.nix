@@ -229,6 +229,16 @@ in {
     };
   };
 
+  # naumovs.color-highlight
+  "color-highlight.languages" = [
+    "*"
+    "!c"
+    "!cpp"
+    "!rust"
+    "!nix"
+    "!python"
+  ];
+
   # --------------------------------------------------
   # Language specific
   # --------------------------------------------------
