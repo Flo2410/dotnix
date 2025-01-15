@@ -45,5 +45,9 @@
     # Thunderbird Identity Chooser
     "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
+
+    # STM32CubeMX
+    "float, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(win0)$"
+    "tile, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(STM32CubeMX)(.*)$"
   ];
 }
