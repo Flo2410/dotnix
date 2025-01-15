@@ -48,6 +48,9 @@ in {
   "editor.minimap.scale" = 2;
   "editor.wordWrap" = "off";
 
+  # Diff Editor
+  "diffEditor.ignoreTrimWhitespace" = false;
+
   # Terminal
   "terminal.integrated.fontFamily" = "${config.stylix.fonts.monospace.name}";
   "terminal.integrated.defaultProfile.linux" = "zsh";
