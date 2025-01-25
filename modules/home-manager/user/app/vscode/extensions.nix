@@ -3,7 +3,7 @@
     name = "vscode-ltex-plus";
   in
     pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
-      version = "15.3.0";
+      version = "15.4.0";
 
       mktplcRef = {
         inherit version name;
@@ -11,7 +11,7 @@
       };
       vsix = builtins.fetchurl {
         url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/${version}/${name}-${version}-offline-linux-x64.vsix";
-        sha256 = "sha256:1wdlvbjl97sjqr9spqndc4iva2mmbrf7ajbm4hnxcc8mw3wp5jjy";
+        sha256 = "sha256:10xmckq6g0gbhjxgkl8788g2dz3sqybcc95h3gkm058dwmxxy8m8";
       };
 
       unpackPhase = ''
