@@ -181,9 +181,6 @@
       url = "github:catppuccin/nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        home-manager-stable.follows = "home-manager";
       };
     };
 
