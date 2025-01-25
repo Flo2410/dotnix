@@ -128,6 +128,8 @@ in
     # smilerobotics.urdf
     vue.volar
     rust-lang.rust-analyzer
+    tamasfe.even-better-toml
+    fill-labs.dependi
     tauri-apps.tauri-vscode
     pkgs.vscode-extensions.vadimcn.vscode-lldb
     # trond-snekvik.gnu-mapfiles
