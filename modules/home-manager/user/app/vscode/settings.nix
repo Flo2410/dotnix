@@ -144,7 +144,8 @@ in {
 
   # prettier
   "prettier.printWidth" = 100;
-  "prettier.requireConfig" = true;
+  "prettier.tabWidth" = 2;
+  "prettier.requireConfig" = false;
 
   # tailwindCSS
   "tailwindCSS.experimental.classRegex" = [
