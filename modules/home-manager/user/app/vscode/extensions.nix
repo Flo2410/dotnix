@@ -130,6 +130,7 @@ in
     rust-lang.rust-analyzer
     tamasfe.even-better-toml
     fill-labs.dependi
+    probe-rs.probe-rs-debugger
     tauri-apps.tauri-vscode
     pkgs.vscode-extensions.vadimcn.vscode-lldb
     # trond-snekvik.gnu-mapfiles
