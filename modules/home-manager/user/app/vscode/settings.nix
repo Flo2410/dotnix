@@ -253,19 +253,11 @@ in {
     "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
   };
 
-  "[latex]" = {
+  "[latex][tex][bibtex]" = {
     "editor.defaultFormatter" = "James-Yu.latex-workshop";
   };
 
-  "[bibtex]" = {
-    "editor.defaultFormatter" = "James-Yu.latex-workshop";
-  };
-
-  "[c]" = {
-    "editor.defaultFormatter" = "ms-vscode.cpptools";
-  };
-
-  "[cpp]" = {
+  "[c][cpp]" = {
     "editor.defaultFormatter" = "ms-vscode.cpptools";
   };
 
@@ -293,19 +285,11 @@ in {
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  "[typescriptreact]" = {
+  "[typescript][typescriptreact]" = {
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
-  "[typescript]" = {
-    "editor.defaultFormatter" = "esbenp.prettier-vscode";
-  };
-
-  "[javascriptreact]" = {
-    "editor.defaultFormatter" = "esbenp.prettier-vscode";
-  };
-
-  "[javascript]" = {
+  "[javascript][javascriptreact]" = {
     "editor.defaultFormatter" = "esbenp.prettier-vscode";
   };
 
@@ -313,10 +297,6 @@ in {
     "editor.defaultFormatter" = "ms-python.autopep8";
     "editor.insertSpaces" = true;
     "editor.tabSize" = 2;
-  };
-
-  "[tex]" = {
-    "editor.defaultFormatter" = "James-Yu.latex-workshop";
   };
 
   "[qml]" = {
