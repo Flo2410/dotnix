@@ -80,7 +80,7 @@
     command = "-workbench.action.zoomOut";
   }
   {
-    key = "ctrl+[Backslash]";
+    key = "ctrl+/";
     command = "terminal.focus";
   }
   {
@@ -101,17 +101,27 @@
     command = "workbench.action.splitEditorDown";
   }
   {
-    "key" = "ctrl+alt+j";
-    "command" = "-latex-workshop.synctex";
-    "when" = "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/";
+    key = "ctrl+alt+j";
+    command = "-latex-workshop.synctex";
+    when = "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && !virtualWorkspace && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/";
   }
   {
-    "key" = "ctrl+alt+j";
-    "command" = "workbench.action.toggleMaximizedPanel";
+    key = "ctrl+alt+j";
+    command = "workbench.action.toggleMaximizedPanel";
   }
   {
-    "key" = "ctrl+enter";
-    "command" = "-github.copilot.generate";
-    "when" = "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused";
+    key = "ctrl+enter";
+    command = "-github.copilot.generate";
+    when = "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused";
+  }
+  {
+    key = "ctrl+shift+7";
+    command = "editor.action.commentLine";
+    when = "editorTextFocus && !editorReadonly";
+  }
+  {
+    key = "ctrl+/";
+    command = "-editor.action.commentLine";
+    when = "editorTextFocus && !editorReadonly";
   }
 ]
