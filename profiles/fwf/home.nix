@@ -101,7 +101,6 @@
     libreoffice-qt
     obsidian
     pulseview
-    vivaldi_qt6
     (signal-desktop.overrideAttrs (old: {
       postFixup = ''
         # add gnome-keyring to launch args
