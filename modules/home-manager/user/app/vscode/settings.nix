@@ -97,6 +97,9 @@ in {
     "--ignore=E121"
   ];
 
+  # keybard
+  "keyboard.dispatch" = "keyCode"; # This is nedded for the vim extension to recognize the remapped caps lock key as escape.
+
   # --------------------------------------------------
   # Extenstion specific
   # --------------------------------------------------
@@ -264,6 +267,10 @@ in {
   "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
   "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName" = true;
   "typescript.inlayHints.parameterTypes.enabled" = true;
+
+  # vscodevim.vim
+  "vim.useCtrlKeys" = false;
+  "vim.smartRelativeLine" = true;
 
   # --------------------------------------------------
   # Language specific
