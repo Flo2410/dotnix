@@ -245,6 +245,26 @@ in {
     "!python"
   ];
 
+  # Javascript
+  "javascript.inlayHints.enumMemberValues.enabled" = true;
+  "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
+  "javascript.inlayHints.parameterNames.enabled" = "all";
+  "javascript.inlayHints.variableTypes.enabled" = true;
+  "javascript.inlayHints.variableTypes.suppressWhenTypeMatchesName" = true;
+  "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
+  "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName" = true;
+  "javascript.inlayHints.parameterTypes.enabled" = true;
+
+  # Typescript
+  "typescript.inlayHints.enumMemberValues.enabled" = true;
+  "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
+  "typescript.inlayHints.parameterNames.enabled" = "all";
+  "typescript.inlayHints.variableTypes.enabled" = true;
+  "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName" = true;
+  "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName" = true;
+  "typescript.inlayHints.parameterTypes.enabled" = true;
+
   # --------------------------------------------------
   # Language specific
   # --------------------------------------------------
