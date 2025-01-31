@@ -81,12 +81,14 @@ in {
   # files
   "files.exclude" = {
     "**/.git" = false;
+    "~/.cache" = true;
   };
 
   # search
   "search.exclude" = {
     "**/.git" = true;
     "**/.direnv" = true;
+    "~/.cache" = true;
   };
 
   # autopep8
