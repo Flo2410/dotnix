@@ -137,6 +137,6 @@ in
     # twxs.cmake
     unifiedjs.vscode-mdx
     # vaisakh96.pythonic-snippets
-    # # vscodevim.vim
+    vscodevim.vim
     # # xabikos.javascriptsnippets
   ]
