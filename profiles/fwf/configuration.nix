@@ -40,6 +40,7 @@
   # Bootloader.
   boot = {
     binfmt.emulatedSystems = ["aarch64-linux"]; # This is needed to build Raspberry Pi imgs
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       systemd-boot.enable = true;
