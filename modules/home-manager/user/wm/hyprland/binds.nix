@@ -111,6 +111,17 @@
       # Change workspace orientation
       "$mod, PLUS, layoutmsg, orientationcycle left top"
 
+      # Set Master window size
+      # 33% of screen
+      "$mod ALT, H, layoutmsg, focusmaster master"
+      "$mod ALT, H, resizeactive, exact 30% 30%"
+      # 50% of screen
+      "$mod ALT, J, layoutmsg, focusmaster master"
+      "$mod ALT, J, resizeactive, exact 50% 50%"
+      # 66% of screen
+      "$mod ALT, K, layoutmsg, focusmaster master"
+      "$mod ALT, K, resizeactive, exact 70% 70%"
+
       # --------------------------------
       # utility
       # --------------------------------
