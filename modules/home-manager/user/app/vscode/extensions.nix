@@ -68,6 +68,7 @@ in
     ltex-vsxi
 
     cardinal90.multi-cursor-case-preserve
+    usernamehw.errorlens
 
     # TODO: The following should be moved into the coresponding dev shells.
 
