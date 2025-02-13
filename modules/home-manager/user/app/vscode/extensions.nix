@@ -26,7 +26,6 @@ in
     antiantisepticeye.vscode-color-picker
     codezombiech.gitignore
     davidanson.vscode-markdownlint
-    eamodio.gitlens
     esbenp.prettier-vscode
     formulahendry.auto-rename-tag
     gruntfuggly.todo-tree
