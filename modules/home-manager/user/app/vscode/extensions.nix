@@ -19,6 +19,7 @@
       '';
     };
 in
+  # pkgs.vscode-marketplace are the pre-release extensions
   with pkgs.vscode-marketplace; [
     aaron-bond.better-comments
     albert.tabout
@@ -41,7 +42,7 @@ in
     taniarascia.new-moon-vscode
     neptunedesign.vs-sequential-number
     github.copilot
-    github.copilot-chat
+    pkgs.vscode-marketplace-release.github.copilot-chat
     denoland.vscode-deno
     heybourn.headwind
 
