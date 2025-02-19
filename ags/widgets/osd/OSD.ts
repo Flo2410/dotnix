@@ -1,4 +1,4 @@
-import { icon } from "lib/utils";
+import { icon, MonitorIdIdx } from "lib/utils";
 import { icons } from "lib/icons";
 import { Progress } from "./Progress";
 import brightness from "services/brightness";
@@ -66,10 +66,10 @@ function OnScreenProgress(vertical: boolean) {
     });
 }
 
-export const OSD = (monitor: number) =>
+export const OSD = (monitor: MonitorIdIdx) =>
   Widget.Window({
-    monitor,
-    name: `indicator-${monitor}`,
+    monitor: monitor.index,
+    name: `indicator-${monitor.id}`,
     class_name: "indicator",
     layer: "overlay",
     click_through: true,

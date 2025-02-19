@@ -5,11 +5,12 @@ import { SystemIndicator } from "./buttons/SystemIndicators";
 import { BatteryBar } from "./buttons/BatteryBar";
 import { SysTray } from "./buttons/SysTray";
 import { Media } from "./buttons/Media";
+import { MonitorIdIdx } from "lib/utils";
 
-export const Bar = (monitor = 0) =>
+export const Bar = (monitor: MonitorIdIdx) =>
   Widget.Window<Gtk.Widget>({
-    monitor,
-    name: `bar-${monitor}`,
+    monitor: monitor.index,
+    name: `bar-${monitor.id}`,
     exclusivity: "exclusive",
     anchor: ["top", "left", "right"],
     child: Widget.CenterBox({
@@ -17,7 +18,7 @@ export const Bar = (monitor = 0) =>
       css: "min-width: 2px; min-height: 2px;",
       startWidget: Widget.Box({
         hexpand: true,
-        children: [Workspaces(monitor)],
+        children: [Workspaces(monitor.id)],
       }),
       centerWidget: Widget.Box({
         hpack: "center",
