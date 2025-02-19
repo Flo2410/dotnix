@@ -79,7 +79,7 @@ in {
             "wl-paste --watch cliphist store"
 
             # ags
-            "PATH='$PATH:${pkgs.bun}/bin:${pkgs.dart-sass}/bin' ags -b hypr"
+            "start-ags"
           ];
 
           monitor = "eDP-1, preferred, 0x0, 1.175";

@@ -12,6 +12,31 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.packages = let
+      binPath = with pkgs;
+        makeBinPath [
+          bun
+          dart-sass
+        ];
+
+      start-ags = pkgs.writeShellScriptBin "start-ags" ''
+        PATH="$PATH:${binPath}" ags -b hypr
+      '';
+
+      stop-ags = pkgs.writeShellScriptBin "stop-ags" ''
+        pkill .ags-wrapped
+      '';
+
+      restart-ags = pkgs.writeShellScriptBin "restart-ags" ''
+        pkill .ags-wrapped
+        PATH="$PATH:${binPath}" ags -b hypr
+      '';
+    in [
+      start-ags
+      stop-ags
+      restart-ags
+    ];
+
     programs.ags = {
       enable = mkForce true;
 
