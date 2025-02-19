@@ -79,6 +79,14 @@ window {
         min-width: 20pt;
         min-height: 12pt;
       }
+
+      &.fullscreen.active {
+        background-color: $lavender;
+      }
+
+      &.fullscreen.occupied {
+        background-color: transparentize($lavender, 0.2);
+      }
     }
 
     &.active,

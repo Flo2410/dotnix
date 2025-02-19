@@ -28,6 +28,10 @@ const WorkspacesBox = (monitor: number) =>
                   "occupied",
                   (hyprland.getWorkspace(ws.id)?.windows || 0) > 0
                 );
+                self.toggleClassName(
+                  "fullscreen",
+                  hyprland.getWorkspace(ws.id)?.hasfullscreen
+                );
               }),
           })
         )
