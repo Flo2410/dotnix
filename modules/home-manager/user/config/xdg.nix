@@ -19,7 +19,6 @@ in {
 
     xdg = {
       enable = true;
-      configFile."mimeapps.list".force = true;
 
       userDirs = {
         enable = true;
@@ -42,6 +41,8 @@ in {
       };
 
       mime.enable = true;
+      configFile."mimeapps.list".force = true;
+      dataFile."applications/mimeapps.list".force = true;
 
       mimeApps = {
         enable = true;
