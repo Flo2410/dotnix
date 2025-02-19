@@ -16,15 +16,15 @@
     command = "-psi-header.insertFileHeader";
   }
   {
-    key = "cmd+n";
+    key = "ctrl+n";
     command = "-workbench.action.files.newUntitledFile";
   }
   {
-    key = "cmd+n";
+    key = "ctrl+n";
     command = "explorer.newFile";
   }
   {
-    key = "alt+cmd+n";
+    key = "alt+ctrl+n";
     command = "explorer.newFolder";
   }
   {
