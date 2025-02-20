@@ -71,6 +71,9 @@ in {
         shellAliases = import ./aliases.nix;
         initExtra = ''
           [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh" # alias ssh to when using kitty terminal
+
+          zstyle ':completion:*:*:docker:*' option-stacking yes
+          zstyle ':completion:*:*:docker-*:*' option-stacking yes
         '';
 
         oh-my-zsh = {
@@ -80,6 +83,7 @@ in {
           plugins = [
             "git"
             "rsync"
+            "docker"
           ];
         };
       };
