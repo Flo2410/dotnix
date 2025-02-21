@@ -111,6 +111,10 @@ in {
   "git.enableSmartCommit" = false;
   "git.suggestSmartCommit" = false;
 
+  # Git Blame
+  "git.blame.editorDecoration.enabled" = true;
+  "git.blame.editorDecoration.template" = "\${subject} // \${authorName} (\${authorDateAgo})";
+
   # Gitlense
   "gitlens.graph.layout" = "editor";
 
