@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs ? import <nixpkgs> {}, ...}: let
   python =
     pkgs.python3.withPackages
     (p:

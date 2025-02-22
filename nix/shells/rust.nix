@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs ? import <nixpkgs> {}, ...}:
 pkgs.unstable.mkShell {
   nativeBuildInputs = with pkgs.unstable; [
     pkg-config
