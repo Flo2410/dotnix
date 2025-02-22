@@ -111,6 +111,7 @@
     remmina
     insomnia
     wireshark
+    bitwarden-desktop
 
     # kde utils
     kdePackages.kcalc
