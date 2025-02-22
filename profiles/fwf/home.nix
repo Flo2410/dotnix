@@ -84,6 +84,7 @@
       barrier.enable = true;
       vscode.enable = true;
       matlab.enable = true;
+      xilinx-vivado.enable = true;
 
       terminal = {
         kitty.enable = true;

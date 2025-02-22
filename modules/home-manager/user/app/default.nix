@@ -15,6 +15,7 @@
     ./ags.nix
     ./matlab.nix
     ./baloo.nix
+    ./xilinx-vivado.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

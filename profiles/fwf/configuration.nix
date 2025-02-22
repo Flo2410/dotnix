@@ -165,6 +165,8 @@
         udev-saleae-logic #(callPackage ./saleae-logic.nix { })
         udev-ft232h
         openocd #(callPackage ./openocd.nix { })
+        udev-xilinx-digilent-usb
+        udev-xilinx-digilent-pcusb
       ];
     };
 
