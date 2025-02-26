@@ -12,6 +12,7 @@
     ./app/flatpak.nix
     ./app/steam.nix
     ./app/virtualization.nix
+    ./app/thunar.nix
 
     ./hardware
   ];

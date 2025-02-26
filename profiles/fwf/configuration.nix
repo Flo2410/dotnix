@@ -99,13 +99,6 @@
     partition-manager.enable = true;
     seahorse.enable = true;
     wireshark.enable = true;
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
     nh = {
       enable = true;
       clean.enable = true;
@@ -203,6 +196,7 @@
       logiops.enable = true;
       steam.enable = true;
       virtualization.enable = true;
+      thunar.enable = true;
 
       docker = {
         enable = true;

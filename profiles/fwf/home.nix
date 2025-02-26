@@ -85,6 +85,7 @@
       vscode.enable = true;
       matlab.enable = true;
       xilinx-vivado.enable = true;
+      thunar.enable = true;
 
       terminal = {
         kitty.enable = true;

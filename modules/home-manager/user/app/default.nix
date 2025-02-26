@@ -16,6 +16,7 @@
     ./matlab.nix
     ./baloo.nix
     ./xilinx-vivado.nix
+    ./thunar.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
