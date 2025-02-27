@@ -117,28 +117,6 @@ in {
             }
           ];
         };
-
-        "mobi-*" = {
-          host = "mobi-* 10.94.160.*";
-          user = "mobi";
-          compression = true;
-          forwardX11 = true;
-          identityFile = "~/.ssh/mobi_ed25519";
-        };
-
-        "mobi-lambda" = entryAfter ["mobi-*"] {
-          hostname = "10.94.160.55";
-        };
-
-        "mobi-delta" = entryAfter ["mobi-*"] {
-          hostname = "10.94.160.59";
-        };
-
-        "logberry2" = {
-          hostname = "10.94.24.177";
-          user = "pi";
-          identityFile = "~/.ssh/logberry_ed25519";
-        };
       };
     };
   };
