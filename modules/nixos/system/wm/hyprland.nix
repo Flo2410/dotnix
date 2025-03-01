@@ -46,7 +46,7 @@ in {
 
     programs.hyprland = {
       enable = mkForce true;
-      withUWSM = true; # recommended for most users
+      withUWSM = mkDefault false;
       xwayland.enable = mkForce true;
     };
 
@@ -60,7 +60,7 @@ in {
       };
 
       displayManager = {
-        defaultSession = "hyprland-uwsm";
+        defaultSession = "hyprland";
 
         sddm = {
           enable = true;
