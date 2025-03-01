@@ -122,6 +122,9 @@
       "$mod ALT, K, layoutmsg, focusmaster master"
       "$mod ALT, K, resizeactive, exact 70% 70%"
 
+      # Open special workspaces
+      "$mod, S, togglespecialworkspace, social" # Social special workspace (Thunderbird, Discord, Teams, etc.)
+
       # --------------------------------
       # utility
       # --------------------------------

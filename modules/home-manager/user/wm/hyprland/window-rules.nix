@@ -50,5 +50,8 @@
     # STM32CubeMX
     "float, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(win0)$"
     "tile, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(STM32CubeMX)(.*)$"
+
+    # Special workspaces
+    "workspace special:social, class:^(thunderbird|discord|chrome-web.whatsapp.com.*)$"
   ];
 }

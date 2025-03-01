@@ -145,6 +145,10 @@ in {
             }
           ];
 
+          animation = [
+            "specialWorkspace, 1, 4, default, slidevert"
+          ];
+
           env = [
             # QT
             "QT_QPA_PLATFORM,wayland;xcb"
