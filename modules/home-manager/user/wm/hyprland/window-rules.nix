@@ -23,9 +23,10 @@
 
     # MATLAB
     "tile, class:^(MATLAB)(.*), title:^(MATLAB)(.*)$" # Tile main window
-    "float, class:^(MATLAB)(.*), title:^()$" # float everything else
-    "center, class:^(MATLAB)(.*), title:^()$" # center everything else
     "tile, class:^(MATLAB)(.*), title:^(Figure)(.*)$" # tile figures
+    "tile, class:^(MATLAB)(.*), title:^(Scope)(.*)$" # tile Scope
+    "float, class:^(MATLAB)(.*), title:^()$" # float everything else
+    # "center, class:^(MATLAB)(.*), title:^()$" # center everything else
 
     # pavucontrol
     "float, class:^(pavucontrol), title:^(Volume Control)$"
