@@ -56,6 +56,8 @@ in {
     wayland.windowManager.hyprland = {
       enable = mkForce true;
 
+      systemd.variables = ["--all"];
+
       settings = let
         hypr_binds = import ./binds.nix {inherit pkgs config;};
         hypr_window_rules = import ./window-rules.nix {};
@@ -135,6 +137,11 @@ in {
               # G Pro Wireless
               name = "logitech-g-pro-1";
               sensitivity = -0.2;
+            }
+            {
+              # Apple magic trackpad
+              name = "apple-inc.-magic-trackpad-2";
+              sensitivity = 0.3;
             }
           ];
 
