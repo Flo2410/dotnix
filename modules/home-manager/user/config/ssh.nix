@@ -29,6 +29,10 @@ in {
           identityFile = "~/.ssh/GitHub";
         };
 
+        "es.technikum-wien.at" = {
+          identityFile = "~/.ssh/gitlab_embsys_ed25519.pub";
+        };
+
         "lro" = entryBefore ["*.hye.network"] {
           host = "lro lro.hye.network";
           hostname = "10.56.20.4";
