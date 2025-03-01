@@ -11,7 +11,9 @@ const WorkspacesBox = (monitor: number) =>
   Widget.Box({
     children: hyprland.bind("workspaces").as((workspaces) =>
       workspaces
-        .filter((ws) => ws.monitorID === monitor)
+        .filter(
+          (ws) => ws.monitorID === monitor && !ws.name.includes("special")
+        )
         .sort((a, b) => a.id - b.id)
         .map((ws) =>
           Widget.Label({
