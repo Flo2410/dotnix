@@ -119,6 +119,19 @@ in {
         ];
       };
 
+      atuin = {
+        enable = mkDefault true;
+        enableZshIntegration = mkDefault true;
+        enableBashIntegration = mkDefault true;
+        settings = {
+          auto_sync = mkDefault false;
+          update_check = mkDefault false;
+          enter_accept = mkDefault true;
+          filter_mode = mkDefault "global";
+          filter_mode_shell_up_key_binding = mkDefault "host";
+        };
+      };
+
       btop.enable = true;
     };
   };
