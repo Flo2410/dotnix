@@ -4,10 +4,7 @@ pkgs.mkShell {
     cmake
     ninja
     gcc
-    gcc-arm-embedded-12
-    openocd
     clang-tools
-    dfu-util
   ];
 
   shellHook = ''
