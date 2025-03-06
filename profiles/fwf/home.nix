@@ -114,6 +114,7 @@
     insomnia
     wireshark
     bitwarden-desktop
+    freecad-wayland
 
     # kde utils
     kdePackages.kcalc
