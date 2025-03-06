@@ -234,6 +234,8 @@
         cp ${user.home.dotfilesDirectory}/nix/shells/latex.nix shell.nix
       elif [ "$1" = "rust" ]; then
         cp ${user.home.dotfilesDirectory}/nix/shells/rust.nix shell.nix
+      elif [ "$1" = "cpp" ]; then
+        cp ${user.home.dotfilesDirectory}/nix/shells/cpp.nix shell.nix
       else
         printf "\e[31mNo shell available for: $1\n"
         exit 1
@@ -250,6 +252,8 @@
           ${pkgs.curl}/bin/curl https://raw.githubusercontent.com/github/gitignore/refs/heads/main/TeX.gitignore --output .gitignore --silent
         elif [ "$1" = "rust" ]; then
           ${pkgs.curl}/bin/curl https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Rust.gitignore --output .gitignore --silent
+        elif [ "$1" = "cpp" ]; then
+          ${pkgs.curl}/bin/curl https://raw.githubusercontent.com/github/gitignore/refs/heads/main/C%2B%2B.gitignore --output .gitignore --silent
         else
           printf "\e[31mNo .gitignore for: $1\n"
           exit 1
