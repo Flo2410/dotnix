@@ -117,6 +117,7 @@
     wireshark
     bitwarden-desktop
     freecad-wayland
+    blender
 
     # kde utils
     kdePackages.kcalc
