@@ -49,9 +49,11 @@ in {
         web-devicons.enable = true;
         lualine = {
           enable = true;
-          iconsEnabled = false;
-          globalstatus = true;
-          theme = "onedark";
+          settings.options = {
+            icons_enabled = false;
+            globalstatus = true;
+            theme = "onedark";
+          };
         };
       };
     };
