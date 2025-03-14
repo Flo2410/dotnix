@@ -17,6 +17,7 @@
     ./baloo.nix
     ./xilinx-vivado.nix
     ./thunar.nix
+    ./nvim
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

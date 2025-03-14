@@ -20,6 +20,7 @@
     # inputs.stylix.homeManagerModules.stylix # Not needed here as it is bundeled into the nixos module
     inputs.catppuccin.homeManagerModules.catppuccin
     inputs.ags.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -86,6 +87,7 @@
       matlab.enable = true;
       xilinx-vivado.enable = true;
       thunar.enable = true;
+      nvim.enable = true;
 
       terminal = {
         kitty.enable = true;
