@@ -16,6 +16,7 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = mkDefault true;
+      defaultEditor = mkDefault true;
       clipboard.providers.wl-copy.enable = true;
 
       colorschemes.catppuccin = {
