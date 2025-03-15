@@ -82,6 +82,27 @@ in {
             };
           };
         };
+        statuscol = {
+          enable = true;
+          settings = {
+            relculright = true;
+          };
+        };
+        conform-nvim = {
+          enable = true;
+          settings = {
+            formatters_by_ft = {
+              c = ["astyle"];
+              cpp = ["astyle"];
+              nix = ["alejandra"];
+              sh = ["shfmt"];
+            };
+            format_on_save = {
+              lspFallback = true;
+              timeoutMs = 2000;
+            };
+          };
+        };
       };
 
       keymaps = [
@@ -190,6 +211,7 @@ in {
       extraPackages = with pkgs; [
         # Formatters
         rustfmt
+        alejandra
 
         # Linters
         gitlint
