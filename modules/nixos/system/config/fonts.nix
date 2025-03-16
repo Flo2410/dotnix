@@ -15,9 +15,11 @@ in {
     # Fonts are nice to have
     fonts = {
       fontDir.enable = true;
+      fontconfig.useEmbeddedBitmaps = true;
       packages = with pkgs; [
         # Fonts
         noto-fonts
+        noto-fonts-emoji
         font-awesome
         fira-code
         fira-code-symbols
