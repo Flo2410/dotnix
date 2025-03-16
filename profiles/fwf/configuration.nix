@@ -54,6 +54,7 @@
   networking = {
     hostName = "fwf"; # Define your hostname.
     networkmanager.enable = true;
+    resolvconf.enable = true;
     extraHosts = ''
       10.94.31.11 terminal.fhwn.ac.at
     '';
