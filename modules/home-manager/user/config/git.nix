@@ -26,6 +26,8 @@ in {
         commit.gpgsign = true;
         gpg.format = "ssh";
         user.signingkey = "~/.ssh/GitHub.pub";
+
+        credential.helper = "store";
       };
     };
   };
