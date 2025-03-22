@@ -276,6 +276,10 @@ in {
   "vim.useCtrlKeys" = false;
   "vim.smartRelativeLine" = true;
 
+  # Copilot
+  "github.copilot.editor.enableAutoCompletions" = false;
+  "chat.commandCenter.enabled" = false;
+
   # --------------------------------------------------
   # Language specific
   # --------------------------------------------------
