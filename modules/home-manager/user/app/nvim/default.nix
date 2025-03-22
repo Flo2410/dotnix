@@ -44,7 +44,7 @@ in {
         gitsigns = {
           enable = true;
           settings = {
-            current_line_blame = true;
+            current_line_blame = false;
             signcolumn = true;
           };
         };
@@ -69,6 +69,7 @@ in {
             gitcommit = ["gitlint"];
             nix = ["nix"];
             sh = ["shellcheck"];
+            python = ["ruff"];
           };
         };
         lsp = {
@@ -80,6 +81,7 @@ in {
               installCargo = true;
               installRustc = true;
             };
+            ruff_lsp.enable = true; # Python
           };
         };
         statuscol = {
@@ -96,11 +98,121 @@ in {
               cpp = ["astyle"];
               nix = ["alejandra"];
               sh = ["shfmt"];
+              python = ["isort" "black"];
             };
             format_on_save = {
               lspFallback = true;
               timeoutMs = 2000;
             };
+          };
+        };
+        telescope = {
+          enable = true;
+          keymaps = {
+            "<leader>?" = {
+              action = "oldfiles";
+              options = {
+                desc = "[?] Find recently opened files";
+              };
+            };
+            "<leader><space>" = {
+              action = "buffers";
+              options = {
+                desc = "[ ] Find existing buffers";
+              };
+            };
+            "<leader>b" = {
+              action = "current_buffer_fuzzy_find";
+              options = {
+                desc = "[b] Fuzzily search in current buffer";
+              };
+            };
+            "<leader>sf" = {
+              action = "find_files";
+              options = {
+                desc = "[s]earch [f]iles";
+              };
+            };
+            "<leader>sh" = {
+              action = "help_tags";
+              options = {
+                desc = "[s]earch [h]elp";
+              };
+            };
+            "<leader>sw" = {
+              action = "grep_string";
+              options = {
+                desc = "[s]earch current [w]ord";
+              };
+            };
+            "<leader>sg" = {
+              action = "live_grep";
+              options = {
+                desc = "[s]earch by [g]rep";
+              };
+            };
+            "<leader>sd" = {
+              action = "diagnostics";
+              options = {
+                desc = "[s]earch [d]iagnotics";
+              };
+            };
+            "<leader>sk" = {
+              action = "keymaps";
+              options = {
+                desc = "[s]earch [k]eymaps";
+              };
+            };
+          };
+        };
+        cmp = {
+          enable = true;
+          autoEnableSources = false;
+          settings = {
+            sources = [
+              {name = "nvim_lsp";}
+              {name = "path";}
+              {name = "buffer";}
+            ];
+            mapping = {
+              "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+              "<C-f>" = "cmp.mapping.scroll_docs(4)";
+              "<C-e>" = "cmp.mapping.close()";
+              "<C-space>" = "cmp.mapping.complete()";
+              "<CR>" = "cmp.mapping.confirm({ select = true })";
+            };
+          };
+        };
+        cmp-nvim-lsp.enable = true;
+        cmp-path.enable = true;
+        cmp-buffer.enable = true;
+        autoclose.enable = true;
+        auto-session.enable = true;
+        direnv.enable = true;
+        gitblame = {
+          enable = true;
+          settings = {
+            enable = true;
+            message_template = "<summary> // <author> (<date>)";
+            display_virtual_text = true;
+            highlight_group = "CursorLineBlame";
+          };
+          # https://github.com/f-person/git-blame.nvim/issues/146#issuecomment-2536408614
+          luaConfig.pre = ''
+            hl_cursor_line = vim.api.nvim_get_hl(0, { name = "CursorLine" })
+            hl_comment = vim.api.nvim_get_hl(0, { name = "Comment" })
+            hl_combined = vim.tbl_extend("force", hl_comment, { bg = hl_cursor_line.bg })
+            vim.api.nvim_set_hl(0, "CursorLineBlame", hl_combined)
+          '';
+        };
+        cursorline = {
+          enable = true;
+          settings = {
+            cursorline = {
+              enable = true;
+              timeout = 0;
+            };
+            cursorword.enable = false;
           };
         };
       };
@@ -206,17 +318,29 @@ in {
             desc = "Toggle nvim [t]ree";
           };
         }
+        {
+          key = "<C-s>";
+          action = ":w<CR>";
+          options = {
+            silent = true;
+            noremap = true;
+            desc = "Save file";
+          };
+        }
       ];
 
       extraPackages = with pkgs; [
         # Formatters
         rustfmt
-        alejandra
+        alejandra # nix
+        black # pyhton
+        isort # python
 
         # Linters
         gitlint
         shellcheck
         clang-tools
+        ruff # python
       ];
     };
   };
