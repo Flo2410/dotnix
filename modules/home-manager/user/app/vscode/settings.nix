@@ -10,7 +10,7 @@ in {
   # --------------------------------------------------
 
   # Workbench Settings
-  "workbench.iconTheme" = "material-icon-theme";
+  "workbench.iconTheme" = "catppuccin-mocha";
   "workbench.colorTheme" = "Catppuccin Mocha";
   "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
   "workbench.preferredLightColorTheme" = "Night Owl Light";
