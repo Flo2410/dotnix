@@ -21,6 +21,7 @@ in {
       "editorInlayHint.background" = "#082e4968";
     };
   };
+  "workbench.editor.empty.hint" = "hidden";
 
   # Window Settings
   "window.titleBarStyle" = "custom";
@@ -58,6 +59,7 @@ in {
   "terminal.integrated.cursorStyle" = "line";
   "terminal.integrated.cursorBlinking" = true;
   "terminal.integrated.cursorWidth" = 2;
+  "terminal.integrated.initialHint" = false;
 
   # Explorer
   "explorer.confirmDelete" = false;
@@ -278,7 +280,10 @@ in {
 
   # Copilot
   "github.copilot.editor.enableAutoCompletions" = false;
+  "github.copilot.chat.useProjectTemplates" = false;
+  "github.copilot.chat.welcomeMessage" = "never";
   "chat.commandCenter.enabled" = false;
+  "inlineChat.lineNaturalLanguageHint" = false;
 
   # --------------------------------------------------
   # Language specific
