@@ -54,6 +54,7 @@ in {
       ncdu
       traceroute
       hexyl
+      whois
 
       git-fuzzy # (callPackage ../pkgs/git-fuzzy.nix { })
     ];
