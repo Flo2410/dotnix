@@ -74,8 +74,8 @@ in {
         (createChromiumExtension {
           # LanguageTool
           id = "oldceeleldhonbafppcapldpdifcinji";
-          sha256 = "sha256:083y5mcsk0kvdz8q7f45xnix61irxlnn35lzn9df3jj2l642x05i";
-          version = "8.11.6";
+          sha256 = "sha256:1p57zx5ikxw8mdi9b5w1bw83nf6jnsqc0z11ia7y8pj3b9ygfw9j";
+          version = "8.18.11";
         })
         (mkIf config.user.wm.plasma.enable (createChromiumExtension {
           # plasma integration
