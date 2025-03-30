@@ -75,9 +75,9 @@
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
-    # homeConfigurations = {
-    #   "florian@fwf" = mkHome "x86_64-linux" [ ./profiles/fwf/home.nix ];
-    # };
+    homeConfigurations = {
+      "florian@pc-florian" = mkHome "x86_64-linux" [ ./profiles/pc-florian/home.nix ];
+    };
 
     images = {
       curiosity = mkPiImg "curiosity";
