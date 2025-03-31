@@ -12,6 +12,24 @@ in {
   };
 
   config = mkIf cfg.enable {
+    catppuccin = {
+      enable = mkDefault true;
+      # optionally configure the extension settings, defaults are shown below:
+      vscode = {
+        accent = "sapphire";
+        settings = {
+          boldKeywords = true;
+          italicComments = true;
+          italicKeywords = true;
+          colorOverrides = {};
+          customUIColors = {};
+          workbenchMode = "default";
+          bracketMode = "rainbow";
+          extraBordersEnabled = false;
+        };
+      };
+    };
+
     programs.vscode = {
       enable = true;
       package = pkgs.unstable.vscode.override {
