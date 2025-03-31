@@ -18,7 +18,7 @@
     # inputs.nix-colors.homeManagerModules.default
     inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.stylix.homeManagerModules.stylix
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     inputs.ags.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
 
