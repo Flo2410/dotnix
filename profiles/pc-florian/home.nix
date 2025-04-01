@@ -85,7 +85,6 @@
     shell.enable = true;
 
     config = {
-      xdg.enable = true;
       ssh.enable = true;
       git.enable = true;
       stylix = {
