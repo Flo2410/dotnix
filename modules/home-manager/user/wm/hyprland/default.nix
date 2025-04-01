@@ -35,6 +35,11 @@ in {
       };
     };
 
+    stylix.targets = {
+      kde.enable = mkDefault true;
+      hyprpaper.enable = mkDefault true;
+    };
+
     services.hyprpaper.enable = mkDefault true;
 
     home.packages = with pkgs; [

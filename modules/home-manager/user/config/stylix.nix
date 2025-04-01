@@ -116,7 +116,6 @@ in {
 
       stylix.opacity.terminal = 0.75;
 
-      stylix.targets.kde.enable = true;
       # stylix.targets.kitty.enable = true; # from catppuccin
       stylix.targets.gtk = {
         enable = true;
@@ -126,7 +125,6 @@ in {
         '';
       };
       # stylix.targets.rofi.enable = true; # from catppuccin
-      stylix.targets.hyprpaper.enable = mkForce true;
       # stylix.targets.hyprland.enable = true; # from catppuccin
       # stylix.targets.waybar.enable = true; # from catppuccin
       # stylix.targets.vscode.enable = false;
