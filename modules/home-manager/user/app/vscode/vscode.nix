@@ -14,7 +14,6 @@ in {
   config = mkIf cfg.enable {
     catppuccin = {
       enable = mkDefault true;
-      # optionally configure the extension settings, defaults are shown below:
       vscode = {
         accent = "sapphire";
         settings = {
