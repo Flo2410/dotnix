@@ -76,7 +76,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "florian@pc-florian" = mkHome "x86_64-linux" [ ./profiles/pc-florian/home.nix ];
+      "florian@pc-florian" = mkHome "x86_64-linux" [./profiles/pc-florian/home.nix];
     };
 
     images = {
@@ -202,6 +202,12 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 }

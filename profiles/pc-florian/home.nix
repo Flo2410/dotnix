@@ -65,6 +65,12 @@
 
   programs.home-manager.enable = true;
 
+  nixGL = {
+    packages = pkgs.nixgl;
+    defaultWrapper = "mesa";
+    installScripts = ["mesa"];
+  };
+
   services = {
     gnome-keyring = {
       enable = true;

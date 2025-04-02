@@ -15,6 +15,7 @@
       inputs.nix-vscode-extensions.overlays.default
       inputs.rust-overlay.overlays.default
       inputs.catppuccin-vsc.overlays.default
+      inputs.nixgl.overlay
     ];
 
     config.allowUnfree = true;
