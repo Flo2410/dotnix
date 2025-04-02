@@ -116,9 +116,11 @@
 
   home.packages = with pkgs; [
     # programms
-    libreoffice-qt
+    libreoffice
     obsidian
     seahorse
+    discord
+    (config.lib.nixGL.wrap ente-auth)
 
     # utils
     gh
