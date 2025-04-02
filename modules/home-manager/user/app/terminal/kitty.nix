@@ -9,14 +9,16 @@ with lib; let
 in {
   options.user.app.terminal.kitty = {
     enable = mkEnableOption "Enable kitty";
+    package = mkOption {
+      type = types.package;
+      default = pkgs.kitty;
+    };
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      kitty
-    ];
     programs.kitty = {
       enable = true;
+      package = cfg.package;
       settings = {
         background_opacity = lib.strings.floatToString config.stylix.opacity.terminal;
         background_blur = "1";
