@@ -144,8 +144,13 @@ in {
               sensitivity = -0.2;
             }
             {
-              # Apple magic trackpad
+              # Apple magic trackpad via bluetooth
               name = "apple-inc.-magic-trackpad-2";
+              sensitivity = 0.3;
+            }
+            {
+              # Apple magic trackpad via usb
+              name = "apple-inc.-magic-trackpad";
               sensitivity = 0.3;
             }
           ];
