@@ -145,6 +145,8 @@
     };
   };
 
+  hardware.flipperzero.enable = true;
+
   services = {
     hardware.bolt.enable = true;
     timesyncd.enable = true;
