@@ -81,6 +81,11 @@
 
     app = {
       browser.ungoogled-chromium.enable = true;
+      browser.zen = {
+        enable = true;
+        defaultBrowser = true;
+        package = inputs.zen-browser.packages."${pkgs.system}".default;
+      };
       virtualization.enable = true;
       barrier.enable = true;
       vscode.enable = true;
@@ -182,8 +187,6 @@
     # Custom Packages
     home-assistant-desktop
     elamx2
-
-    inputs.zen-browser.packages."${system}".default
 
     # PWAs
     (pkgs.makeDesktopItem {
