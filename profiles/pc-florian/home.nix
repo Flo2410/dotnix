@@ -38,6 +38,8 @@
 
   home.sessionVariables = {
     SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+    QT_WAYLAND_DECORATION = "adwaita";
   };
 
   home.activation = {
