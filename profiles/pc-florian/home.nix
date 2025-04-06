@@ -67,7 +67,7 @@
     home-manager.enable = true;
     nh = {
       enable = true;
-      flake = "${user.home.homeDirectory}/dotnix";
+      flake = "${user.home.dotfilesDirectory}";
     };
   };
 
@@ -90,7 +90,7 @@
     home = rec {
       enable = true;
       username = "florian";
-      homeDirectory = "/home/${username}";
+      homeDirectory = "/var/home/${username}";
       dotfilesDirectory = "${homeDirectory}/dotnix";
     };
 
