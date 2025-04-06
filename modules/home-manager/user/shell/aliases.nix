@@ -28,4 +28,5 @@
   cat = "bat";
   ls = "eza --icons -g";
   grep = "rg";
+  c = "code .";
 }
