@@ -63,7 +63,13 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    nh = {
+      enable = true;
+      flake = "${user.home.homeDirectory}/dotnix";
+    };
+  };
 
   nixGL = {
     packages = pkgs.nixgl;
