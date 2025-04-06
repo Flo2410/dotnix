@@ -122,44 +122,59 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # programms
-    libreoffice
-    obsidian
-    seahorse
-    discord
-    (config.lib.nixGL.wrap ente-auth)
+  home.packages = with pkgs;
+    [
+      # programms
+      libreoffice
+      obsidian
+      seahorse
+      discord
+      android-tools
 
-    # utils
-    gh
-    ookla-speedtest
-    nixpkgs-fmt
-    pre-commit
-    file
-    sshpass
-    nixd
-    font-manager
-    pavucontrol
-    alejandra # nix fmt
+      kdePackages.okular
 
-    # Media
-    gimp
-    inkscape
-    darktable
-    vlc
-    ffmpeg
-    nomacs
+      gnomeExtensions.smart-home
 
-    # PWAs
-    (pkgs.makeDesktopItem {
-      name = "whatsapp-web";
-      desktopName = "WhatsApp";
-      exec = "chromium --app=https://web.whatsapp.com";
-      terminal = false;
-      type = "Application";
-      icon = "whatsapp";
-    })
-  ];
+      # utils
+      gh
+      ookla-speedtest
+      nixpkgs-fmt
+      pre-commit
+      file
+      sshpass
+      nixd
+      font-manager
+      pavucontrol
+      alejandra # nix fmt
+
+      # Media
+      gimp
+      inkscape
+      darktable
+      vlc
+      ffmpeg
+      nomacs
+
+      # QT Stuff
+      qadwaitadecorations
+      qadwaitadecorations-qt6
+      libsForQt5.qt5.qtwayland # qt5-wayland
+      kdePackages.qtwayland # qt6-wayland
+
+      # PWAs
+      (pkgs.makeDesktopItem {
+        name = "whatsapp-web";
+        desktopName = "WhatsApp";
+        exec = "chromium --app=https://web.whatsapp.com";
+        terminal = false;
+        type = "Application";
+        icon = "whatsapp";
+      })
+    ]
+    ++ (map (pkg: config.lib.nixGL.wrap pkg) [
+      ente-auth
+      remmina
+    ]);
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
