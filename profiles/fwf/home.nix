@@ -123,6 +123,7 @@
     bitwarden-desktop
     freecad-wayland
     blender
+    zotero
 
     # kde utils
     kdePackages.kcalc
