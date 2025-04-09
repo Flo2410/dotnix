@@ -101,10 +101,10 @@ in
     # ms-python.isort
     ms-python.python
     # ms-python.vscode-pylance
-    # ms-toolsai.jupyter
-    # ms-toolsai.jupyter-keymap
-    # ms-toolsai.jupyter-renderers
-    # ms-toolsai.vscode-jupyter-cell-tags
+    pkgs.vscode-extensions.ms-toolsai.jupyter
+    pkgs.vscode-extensions.ms-toolsai.jupyter-keymap
+    pkgs.vscode-extensions.ms-toolsai.jupyter-renderers
+    pkgs.vscode-extensions.ms-toolsai.vscode-jupyter-cell-tags
     # ms-toolsai.vscode-jupyter-slideshow
     # ms-vscode-remote.remote-wsl
     ms-vscode.cmake-tools
