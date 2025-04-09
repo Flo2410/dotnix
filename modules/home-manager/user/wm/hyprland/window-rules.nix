@@ -55,6 +55,6 @@
     "tile, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(STM32CubeMX)(.*)$"
 
     # Special workspaces
-    "workspace special:social, class:^(thunderbird|discord|chrome-web.whatsapp.com.*)$"
+    "workspace special:social, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
   ];
 }
