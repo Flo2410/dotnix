@@ -164,6 +164,7 @@
         openocd #(callPackage ./openocd.nix { })
         udev-xilinx-digilent-usb
         udev-xilinx-digilent-pcusb
+        udev-chipwhisperer
       ];
     };
 

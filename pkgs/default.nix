@@ -8,6 +8,7 @@ with pkgs; {
   udev-ft232h = callPackage ./udev/ft232h.nix {};
   udev-xilinx-digilent-usb = callPackage ./udev/xilinx-digilent-usb.nix {};
   udev-xilinx-digilent-pcusb = callPackage ./udev/xilinx-digilent-pcusb.nix {};
+  udev-chipwhisperer = callPackage ./udev/chipwhisperer.nix {};
 
   git-fuzzy = callPackage ./git-fuzzy.nix {};
 
