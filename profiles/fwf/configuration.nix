@@ -78,6 +78,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Fix for vscode on wayland
 
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = false;
     extraSpecialArgs = {inherit inputs outputs;};
