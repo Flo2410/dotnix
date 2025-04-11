@@ -23,6 +23,9 @@ in {
       xdg-desktop-portal-hyprland
       xwayland
       wayland-protocols
+      unstable.hyprland-qt-support
+      unstable.hyprland-qtutils
+      kdePackages.xwaylandvideobridge
 
       sddm-astronaut
       # (catppuccin-sddm.override {
