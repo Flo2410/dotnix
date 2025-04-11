@@ -56,5 +56,6 @@
 
     # Special workspaces
     "workspace special:social, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
+    "group set, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
   ];
 }
