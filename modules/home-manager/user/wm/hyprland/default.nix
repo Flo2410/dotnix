@@ -159,6 +159,27 @@ in {
             "specialWorkspace, 1, 4, default, slidevert"
           ];
 
+          group = {
+            insert_after_current = false;
+            drag_into_group = 1; # 0 (disabled), 1 (enabled), 2 (only when dragging into the groupbar)
+            "col.border_active" = "$teal";
+            "col.border_inactive" = "0xaa$tealAlpha";
+            "col.border_locked_active" = "$maroon";
+            "col.border_locked_inactive" = "0xaa$maroonAlpha";
+          };
+
+          "group:groupbar" = {
+            enabled = true;
+            "col.active" = "$teal";
+            "col.inactive" = "0xaa$tealAlpha";
+            "col.locked_active" = "$maroon";
+            "col.locked_inactive" = "0xaa$maroonAlpha";
+            font_size = 12;
+            height = 18;
+            # rounding = 10;
+            # keep_upper_gap = false;
+          };
+
           env = [
             # QT
             "QT_QPA_PLATFORM,wayland;xcb"
