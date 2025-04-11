@@ -90,6 +90,10 @@
       "$mod SHIFT, K, layoutmsg, swapprev"
       "$mod SHIFT, J, layoutmsg, swapnext"
 
+      # change window in a group
+      "$mod SHIFT, H, changegroupactive, b"
+      "$mod SHIFT, L, changegroupactive, f"
+
       # Swap current window with main window
       "$mod, M, layoutmsg, swapwithmaster"
 
