@@ -71,9 +71,9 @@
       "$mod, down, movefocus, d"
 
       "$mod, H, movefocus, l"
-      "$mod, J, movefocus, r"
+      "$mod, L, movefocus, r"
       "$mod, K, movefocus, u"
-      "$mod, L, movefocus, d"
+      "$mod, J, movefocus, d"
 
       # --------------------------------
       # workspaces
