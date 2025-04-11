@@ -49,6 +49,8 @@
     # Calendat entry
     "float, class:^(thunderbird), title:^(Edit Item)$"
     "center, class:^(thunderbird), title:^(Edit Item)$"
+    # Empty title
+    "float, class:^(thunderbird), title:^()$"
 
     # STM32CubeMX
     "float, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(win0)$"
@@ -56,7 +58,7 @@
 
     # Special workspaces
     "workspace special:social, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
-    "group set, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
+    "group set lock always invade, floating:0, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
 
     # XWayland Video Bridge
     "opacity 0.0 override, class:^(xwaylandvideobridge)$"
