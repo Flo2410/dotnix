@@ -155,6 +155,7 @@
     pavucontrol
     yubikey-manager
     alejandra # nix fmt
+    distrobox
 
     # unstable packages
     (stm32cubemx.overrideAttrs (old: rec {
