@@ -29,8 +29,12 @@ in {
           identityFile = "~/.ssh/GitHub";
         };
 
+        "gitlab.com" = {
+          identityFile = "~/.ssh/GitLab_ed25519";
+        };
+
         "es.technikum-wien.at" = {
-          identityFile = "~/.ssh/gitlab_embsys_ed25519.pub";
+          identityFile = "~/.ssh/gitlab_embsys_ed25519";
         };
 
         "lro" = entryBefore ["*.hye.network"] {
