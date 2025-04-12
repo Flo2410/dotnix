@@ -412,19 +412,20 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ]
       },
       "locked": {
-        "lastModified": 1744383732,
-        "narHash": "sha256-o832IsiCUAw2iJQCWlb6Xw0WhXPHG5WWWgwA1jBzvgM=",
-        "owner": "doronbehar",
+        "lastModified": 1744457496,
+        "narHash": "sha256-ajqism/4Ky+4C5PT2uqxPMFpDLEPLRq3aS2AUDJi9LY=",
+        "owner": "flo2410",
         "repo": "nix-matlab",
-        "rev": "0f5f721caa5654bd28e61e6a6ebd7555c423e3c9",
+        "rev": "4881a7cbe35a8ca1f24c71d95f965806fc6c1842",
         "type": "gitlab"
       },
       "original": {
-        "owner": "doronbehar",
+        "owner": "flo2410",
+        "ref": "fix-libgbm",
         "repo": "nix-matlab",
         "type": "gitlab"
       }
