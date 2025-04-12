@@ -18,6 +18,7 @@ with pkgs; {
   stm32cubeprog = callPackage ./stm32cubeprog.nix {};
   breezex-cursor = callPackage ./breezex-cursor.nix {};
   bahnschrift-font = callPackage ./bahnschrift-font.nix {};
+  mkshell = callPackage ./mkshell.nix {};
 
   sddm-astronaut = callPackage ./sddm-themes/astronaut.nix {};
 
