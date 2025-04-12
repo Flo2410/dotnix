@@ -25,7 +25,12 @@
     "tile, class:^(MATLAB)(.*), title:^(MATLAB)(.*)$" # Tile main window
     "tile, class:^(MATLAB)(.*), title:^(Figure)(.*)$" # tile figures
     "tile, class:^(MATLAB)(.*), title:^(Scope)(.*)$" # tile Scope
-    "float, class:^(MATLAB)(.*), title:^()$" # float everything else
+    "tile, class:^(MATLAB)(.*), title:^(Help)$" # tile Help
+    "size 500 300, class:^(MATLAB)(.*), title:^(Help on)(.*)$" # set size of Help of *
+    "center, floating:1, class:^(MATLAB)(.*), title:^()$" # center floating windows with no title (e.g. the "Package App" window)
+    "move cursor 0 0, floating:1, class:^(MATLAB)(.*), title:^(.+)$" # move all floating windows to the cursor position
+    "center, class:^(MATLAB)(.*), title:^(Command HistoryWindow)$" # center command history
+    # "float, class:^(MATLAB)(.*), title:^()$" # float everything else
     # "center, class:^(MATLAB)(.*), title:^()$" # center everything else
 
     # pavucontrol
@@ -43,7 +48,8 @@
     "float, class:^(cnext.exe)$"
     "tile, class:^(cnext.exe), title:^(CNEXT)$"
 
-    # Thunderbird Identity Chooser
+    # Thunderbird
+    # Identity Chooser
     "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     # Calendat entry
