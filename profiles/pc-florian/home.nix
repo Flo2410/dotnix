@@ -104,7 +104,10 @@
       stylix = {
         enable = true;
         theme = "catppuccin-mocha";
-        wallpaper = ../../assets/wallpapers/moon.jpg;
+        wallpaper = pkgs.fetchurl {
+          url = "https://live.staticflickr.com/65535/53453268481_e80cfca2d4_o_d.jpg";
+          sha256 = "sha256-LvNCxW00MHDuX6n/RgnyQbXd/cYKxi8h5dSY97ZwLzc=";
+        };
       };
     };
 
