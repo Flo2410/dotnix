@@ -5,5 +5,6 @@
     ./git.nix
     ./autostart.nix
     ./stylix.nix
+    ./docker.nix
   ];
 }

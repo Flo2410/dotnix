@@ -72,6 +72,7 @@
       xdg.enable = true;
       ssh.enable = true;
       git.enable = true;
+      docker.enable = true;
 
       autostart = {
         enable = true;
