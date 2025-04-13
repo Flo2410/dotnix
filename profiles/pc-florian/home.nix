@@ -130,6 +130,7 @@
       seahorse
       discord
       android-tools
+      bottles
 
       kdePackages.okular
 
