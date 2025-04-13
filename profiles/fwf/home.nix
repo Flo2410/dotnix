@@ -124,6 +124,7 @@
     freecad-wayland
     blender
     zotero
+    bottles
 
     # kde utils
     kdePackages.kcalc

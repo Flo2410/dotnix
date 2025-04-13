@@ -20,8 +20,6 @@ in {
       virt-manager
       virt-viewer
 
-      bottles
-
       (pkgs.writeShellScriptBin "windows-11" ''
         virt-viewer --connect qemu:///system --domain-name "win11" --attach --wait &
         virsh --connect qemu:///system start "win11"
