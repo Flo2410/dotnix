@@ -133,8 +133,6 @@
 
       kdePackages.okular
 
-      gnomeExtensions.smart-home
-
       # utils
       gh
       ookla-speedtest
