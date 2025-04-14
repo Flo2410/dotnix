@@ -416,16 +416,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1744457496,
-        "narHash": "sha256-ajqism/4Ky+4C5PT2uqxPMFpDLEPLRq3aS2AUDJi9LY=",
-        "owner": "flo2410",
+        "lastModified": 1744629065,
+        "narHash": "sha256-UvBc8NKKbj8Sg4si++EvDsFkcwqCmRxycgPg8lTcY2U=",
+        "owner": "doronbehar",
         "repo": "nix-matlab",
-        "rev": "4881a7cbe35a8ca1f24c71d95f965806fc6c1842",
+        "rev": "24488e06fccdb412d8869cb88f28e35c393297a1",
         "type": "gitlab"
       },
       "original": {
-        "owner": "flo2410",
-        "ref": "fix-libgbm",
+        "owner": "doronbehar",
         "repo": "nix-matlab",
         "type": "gitlab"
       }
