@@ -196,10 +196,12 @@
     (pkgs.makeDesktopItem {
       name = "whatsapp-web";
       desktopName = "WhatsApp";
-      exec = "chromium --app=https://web.whatsapp.com";
+      exec = "chromium --app=https://web.whatsapp.com --class=whatsapp";
       terminal = false;
       type = "Application";
       icon = "whatsapp";
+      startupWMClass = "whatsapp";
+      categories = ["Network" "InstantMessaging"];
     })
 
     (pkgs.makeDesktopItem {
