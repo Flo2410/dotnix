@@ -125,6 +125,18 @@
     };
   };
 
+  # custom mime type for lightroom
+  xdg.dataFile."mime/packages/lightroom-classic.xml".text = ''
+    <?xml version="1.0" encoding="utf-8"?>
+    <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+      <mime-type type="application/x-lightoom-catalog">
+        <glob pattern="*.lrcat"/>
+        <comment>Lightroom Catalog</comment>
+        <icon name="applications-graphics" />
+      </mime-type>
+    </mime-info>
+  '';
+
   home.packages = with pkgs;
     [
       # programms
@@ -171,6 +183,24 @@
         terminal = false;
         type = "Application";
         icon = "whatsapp";
+      })
+
+      # Bottles
+      (pkgs.makeDesktopItem {
+        name = "Adobe Lightroom Classic";
+        desktopName = "Lightroom Classic";
+        exec = ''bottles-cli run -p "Lightroom Classic" -b "Adobe Lightroom" -- %u'';
+        terminal = false;
+        type = "Application";
+        icon = "/home/florian/.local/share/bottles/bottles/Adobe-Lightroom/icons/Lightroom Classic.png";
+        comment = "Launch Lightroom Classic using Bottles.";
+        startupWMClass = "Lightroom Classic";
+        mimeTypes = ["application/x-lightoom-catalog"];
+        categories = ["Graphics"];
+        actions.configure = {
+          name = "Configure in Bottles";
+          exec = ''bottles -b "Adobe Lightroom"'';
+        };
       })
     ]
     ++ (map (pkg: config.lib.nixGL.wrap pkg) [
