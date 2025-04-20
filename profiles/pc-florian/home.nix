@@ -88,6 +88,25 @@
     ssh-agent.enable = lib.mkForce false; # Disable ssh-agent, I use the one from gnome-keyring
   };
 
+  systemd.user.services = {
+    adb = {
+      Unit = {
+        Description = "ADB Server";
+        After = "graphical-session.target";
+        Requires = "graphical-session.target";
+      };
+
+      Service = {
+        ExecStart = "${pkgs.android-tools}/bin/adb -a -P 5037 server nodaemon";
+        Restart = "on-failure";
+      };
+
+      Install = {
+        WantedBy = ["default.target"];
+      };
+    };
+  };
+
   user = {
     home = rec {
       enable = true;
@@ -132,7 +151,6 @@
       obsidian
       seahorse
       discord
-      android-tools
       bottles
 
       kdePackages.okular
