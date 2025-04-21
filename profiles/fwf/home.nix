@@ -142,6 +142,7 @@
     vlc
     ffmpeg
     nomacs
+    moonlight-qt
 
     # utils
     syncthing
