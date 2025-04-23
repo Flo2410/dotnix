@@ -40,6 +40,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       matlab # from nix-matlab
+      zip # required for packaging apps
     ];
 
     xdg.configFile."nix.sh" = {
