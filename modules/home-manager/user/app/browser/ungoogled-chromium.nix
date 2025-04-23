@@ -43,8 +43,7 @@ in {
         "--enable-zero-copy"
         "--force-dark-mode"
         "--ignore-gpu-blocklist"
-        "--use-vulkan"
-        "--enable-features=ParallelDownloading,UnexpireFlagsM90,VaapiVideoDecoder,Vulkan"
+        "--enable-features=ParallelDownloading,UnexpireFlagsM90,VaapiVideoDecoder"
         "--disable-smooth-scrolling"
       ];
 
