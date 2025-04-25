@@ -30,6 +30,8 @@
     "center, floating:1, class:^(MATLAB)(.*), title:^()$" # center floating windows with no title (e.g. the "Package App" window)
     "move cursor 0 0, floating:1, class:^(MATLAB)(.*), title:^(.+)$" # move all floating windows to the cursor position
     "center, class:^(MATLAB)(.*), title:^(Command HistoryWindow)$" # center command history
+    "float, class:^(MATLABWindow), title:^(Add-On Installer)$" # float Add-On Installer
+    "center, class:^(MATLABWindow), title:^(Add-On Installer)$" # center Add-On Installer
     # "float, class:^(MATLAB)(.*), title:^()$" # float everything else
     # "center, class:^(MATLAB)(.*), title:^()$" # center everything else
 
