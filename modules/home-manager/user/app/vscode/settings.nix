@@ -22,6 +22,9 @@ in {
     };
   };
   "workbench.editor.empty.hint" = "hidden";
+  "workbench.editorAssociations" = {
+    "*.bin" = "hexEditor.hexedit";
+  };
 
   # Window Settings
   "window.titleBarStyle" = "custom";
