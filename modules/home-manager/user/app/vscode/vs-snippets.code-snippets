@@ -89,5 +89,20 @@
     "prefix": ["\\arfig"],
     "body": ["\\autoref{fig:$1}$0"],
     "description": "Autoref a figure"
+  },
+  "online": {
+    "scope": "bibtex",
+    "prefix": ["@online"],
+    "body": [
+      "@online{web:$1,",
+      "author  = {{$2}},",
+      "title   = {{$3}},",
+      "url     = {$4},",
+      "year    = {$5},",
+      "month   = {$6},",
+      "urldate = {$7}",
+      "}$0"
+    ],
+    "description": "Cite a website"
   }
 }
