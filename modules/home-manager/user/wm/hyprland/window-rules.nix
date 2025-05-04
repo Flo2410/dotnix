@@ -75,5 +75,11 @@
     "maxsize 1 1, class:^(xwaylandvideobridge)$"
     "noblur, class:^(xwaylandvideobridge)$"
     "nofocus, class:^(xwaylandvideobridge)$"
+
+    # qFlipper
+    "float, class:^(com.flipperdevices.), title:^(qFlipper)$"
+    "noborder, class:^(com.flipperdevices.), title:^(qFlipper)$"
+    "noblur, class:^(com.flipperdevices.), title:^(qFlipper)$"
+    "noshadow, class:^(com.flipperdevices.), title:^(qFlipper)$"
   ];
 }

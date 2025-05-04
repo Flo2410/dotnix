@@ -214,6 +214,18 @@
       icon = "teams";
     })
 
+    (pkgs.makeDesktopItem {
+      name = "flipper-lab";
+      desktopName = "Flipper Lab";
+      exec = "chromium --app=https://lab.flipper.net/";
+      terminal = false;
+      type = "Application";
+      icon = pkgs.fetchurl {
+        url = "https://lab.flipper.net/icons/icon.svg";
+        sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
+      };
+    })
+
     # Bottles
     (pkgs.makeDesktopItem {
       name = "catia-v5";
