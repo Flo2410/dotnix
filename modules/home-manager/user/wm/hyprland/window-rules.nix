@@ -81,5 +81,9 @@
     "noborder, class:^(com.flipperdevices.), title:^(qFlipper)$"
     "noblur, class:^(com.flipperdevices.), title:^(qFlipper)$"
     "noshadow, class:^(com.flipperdevices.), title:^(qFlipper)$"
+
+    # Discord
+    "noinitialfocus, class:^(discord), title:^(Discord Updater)$"
+    "nofocus, class:^(discord), title:^(Discord Updater)$"
   ];
 }
