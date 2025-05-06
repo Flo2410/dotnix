@@ -54,6 +54,7 @@
     # Identity Chooser
     "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
+    "size 860 620, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     # Calendat entry
     "float, class:^(thunderbird), title:^(Edit Item)$"
     "center, class:^(thunderbird), title:^(Edit Item)$"
