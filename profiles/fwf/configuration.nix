@@ -14,9 +14,7 @@
     outputs.nixosModules.system
 
     # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-    inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.stylix.nixosModules.stylix
     inputs.catppuccin.nixosModules.catppuccin
 
