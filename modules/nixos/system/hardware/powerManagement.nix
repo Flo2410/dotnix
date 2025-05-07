@@ -29,9 +29,11 @@ in {
       # hibernate
       # https://linuxize.com/post/create-a-linux-swap-file/
       # https://www.worldofbs.com/nixos-framework/#setting-up-hibernate
-      boot.resumeDevice = "/dev/disk/by-uuid/70d15a62-5c11-4c28-8d56-2a146ce36a0c";
+      # sudo findmnt -no UUID -T /swap/swapfile
+      boot.resumeDevice = "/dev/disk/by-uuid/62f508d6-bd71-4c41-8e81-13d152f898aa";
+      # sudo btrfs inspect-internal map-swapfile -r /swap/swapfile
       boot.kernelParams = [
-        "resume_offset=44773376" # get the offset with ``sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'`` https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Acquire_swap_file_offset
+        "resume_offset=533760" # get the offset with ``sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'`` https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Acquire_swap_file_offset
       ];
 
       # Suspend-then-hibernate everywhere
