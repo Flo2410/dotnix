@@ -3,15 +3,16 @@
     name = "vscode-ltex-plus";
   in
     pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
-      version = "15.4.0";
+      version = "15.5.1";
 
       mktplcRef = {
         inherit version name;
         publisher = "ltex-plus";
       };
       vsix = builtins.fetchurl {
+        # https://github.com/ltex-plus/vscode-ltex-plus/releases/download/15.5.1/vscode-ltex-plus-15.5.1-offline-linux-x64.vsix
         url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/${version}/${name}-${version}-offline-linux-x64.vsix";
-        sha256 = "sha256:10xmckq6g0gbhjxgkl8788g2dz3sqybcc95h3gkm058dwmxxy8m8";
+        sha256 = "sha256:19mq89qlzzyyih83jsq50szxsg3ghc1h7vrmh3s26nmc3r4lwjfz";
       };
 
       unpackPhase = ''
