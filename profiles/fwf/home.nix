@@ -45,7 +45,7 @@
     };
     gnome-keyring = {
       enable = true;
-      components = ["secrets" "ssh"];
+      components = ["secrets" "ssh" "pkcs11"];
     };
     kdeconnect.enable = true;
 
@@ -94,6 +94,7 @@
       xilinx-vivado.enable = true;
       thunar.enable = true;
       nvim.enable = true;
+      baloo.enable = true;
 
       terminal = {
         kitty.enable = true;
