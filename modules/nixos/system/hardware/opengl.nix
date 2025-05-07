@@ -14,26 +14,25 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       glxinfo
-      intel-gpu-tools
+      clinfo
+      amdgpu_top
     ];
-
-    # OpenGL
-    nixpkgs.config.packageOverrides = pkgs: {
-      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
-    };
 
     hardware.graphics = {
       enable = mkForce true;
+      package = pkgs.unstable.mesa;
+      enable32Bit = true;
       extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        # intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        vaapiVdpau
-        libvdpau-va-gl
+        rocmPackages.clr.icd
+        amdvlk
       ];
     };
 
+    hardware.amdgpu.initrd.enable = true;
+    hardware.enableRedistributableFirmware = true;
+
     environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD"; # Force intel-media-driver
+      LIBVA_DRIVER_NAME = "radeonsi";
     };
   };
 }
