@@ -18,5 +18,17 @@ in {
       credsStore = "secretservice";
       currentContext = "default";
     };
+    home.file.".docker/daemon.json".text = builtins.toJSON {
+      builder = {
+        gc = {
+          defaultKeepStorage = "20GB";
+          enabled = true;
+        };
+      };
+      experimental = false;
+      features = {
+        buildkit = true;
+      };
+    };
   };
 }
