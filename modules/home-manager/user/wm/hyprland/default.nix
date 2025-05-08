@@ -171,13 +171,16 @@ in {
           "group:groupbar" = {
             enabled = true;
             "col.active" = "$teal";
-            "col.inactive" = "0xaa$tealAlpha";
-            "col.locked_active" = "$maroon";
-            "col.locked_inactive" = "0xaa$maroonAlpha";
-            font_size = 12;
-            height = 18;
-            # rounding = 10;
-            # keep_upper_gap = false;
+            "col.inactive" = "0xbf$tealAlpha";
+            "col.locked_active" = "$surface0";
+            "col.locked_inactive" = "0xbf$surface0Alpha";
+            text_color = "$maroon";
+            font_size = 14;
+            height = 20;
+            indicator_height = 0;
+            gradients = true;
+            gradient_rounding = 8;
+            # # keep_upper_gap = false;
           };
 
           env = [
