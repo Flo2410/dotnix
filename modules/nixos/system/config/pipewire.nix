@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
 
     # Pipewire
     security.rtkit.enable = true;

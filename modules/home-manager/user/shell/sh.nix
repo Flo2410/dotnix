@@ -70,7 +70,7 @@ in {
         syntaxHighlighting.enable = true;
         enableCompletion = true;
         shellAliases = import ./aliases.nix;
-        initExtra = ''
+        initContent = ''
           [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh" # alias ssh to when using kitty terminal
 
           zstyle ':completion:*:*:docker:*' option-stacking yes

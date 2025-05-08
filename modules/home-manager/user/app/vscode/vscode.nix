@@ -34,10 +34,12 @@ in {
       package = pkgs.unstable.vscode.override {
         commandLineArgs = "--password-store=\"gnome-libsecret\"";
       };
-      globalSnippets = importJSON ./vs-snippets.code-snippets;
-      extensions = import ./extensions.nix {inherit pkgs;};
-      userSettings = import ./settings.nix {inherit pkgs config;};
-      keybindings = import ./keybindings.nix {};
+      profiles.default = {
+        globalSnippets = importJSON ./vs-snippets.code-snippets;
+        extensions = import ./extensions.nix {inherit pkgs;};
+        userSettings = import ./settings.nix {inherit pkgs config;};
+        keybindings = import ./keybindings.nix {};
+      };
     };
   };
 }
