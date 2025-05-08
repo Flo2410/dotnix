@@ -12,16 +12,25 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usbhid" "uas" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-  boot.kernelParams = ["amdgpu.sg_display=0"];
+  boot = {
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
+    kernelParams = ["amdgpu.sg_display=0"];
+    supportedFilesystems = ["btrfs"];
 
-  boot.supportedFilesystems = ["btrfs"];
-  boot.initrd.luks.devices."crypt" = {
-    device = "/dev/disk/by-uuid/de5260b7-a5c7-4a85-bb82-395e533921d2";
-    preLVM = true;
+    initrd = {
+      availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usbhid" "uas" "sd_mod"];
+      kernelModules = [];
+      luks.devices."crypt" = {
+        device = "/dev/disk/by-uuid/de5260b7-a5c7-4a85-bb82-395e533921d2";
+        preLVM = true;
+      };
+      systemd = {
+        enable = true;
+        tpm2.enable = true;
+        # sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7+12 --wipe-slot=tpm2 <disk>
+      };
+    };
   };
 
   fileSystems."/boot" = {

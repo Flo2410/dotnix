@@ -17,6 +17,7 @@
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.stylix.nixosModules.stylix
     inputs.catppuccin.nixosModules.catppuccin
+    inputs.lanzaboote.nixosModules.lanzaboote
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -41,10 +42,19 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
-      systemd-boot.enable = true;
+      # Lanzaboote currently replaces the systemd-boot module.
+      # This setting is usually set to true in configuration.nix
+      # generated at installation time. So we force it to false
+      # for now.
+      systemd-boot.enable = lib.mkForce false;
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
       timeout = 1;
+    };
+
+    lanzaboote = {
+      enable = lib.mkForce true;
+      pkiBundle = "/var/lib/sbctl";
     };
   };
 
@@ -71,6 +81,7 @@
     home-manager
     kdePackages.plasma-thunderbolt
     gparted
+    sbctl
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Fix for vscode on wayland
