@@ -108,7 +108,6 @@
     discord
     spotify
     prusa-slicer
-    onedrivegui
     libreoffice-qt
     obsidian
     pulseview
