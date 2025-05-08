@@ -20,8 +20,6 @@ in {
 
     hardware.graphics = {
       enable = mkForce true;
-      package = pkgs.unstable.mesa;
-      enable32Bit = true;
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
         amdvlk
