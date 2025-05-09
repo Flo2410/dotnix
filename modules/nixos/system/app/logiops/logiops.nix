@@ -26,8 +26,8 @@ in {
             name = "99-logiops-bluetooth.rules";
 
             text = ''
-              ACTION=="add", SUBSYSTEM=="input", ATTRS{uniq}=="dc:8d:4d:24:a7:47", RUN+="${pkgs.systemd}/bin/systemctl start logiops.service"
-              ACTION=="remove", SUBSYSTEM=="input", ATTRS{uniq}=="dc:8d:4d:24:a7:47", RUN+="${pkgs.systemd}/bin/systemctl stop logiops.service"
+              ACTION=="add", SUBSYSTEM=="input", ATTRS{uniq}=="dc:8d:4d:24:a7:49", RUN+="${pkgs.systemd}/bin/systemctl start logiops.service"
+              ACTION=="remove", SUBSYSTEM=="input", ATTRS{uniq}=="dc:8d:4d:24:a7:49", RUN+="${pkgs.systemd}/bin/systemctl stop logiops.service"
             '';
           };
 
