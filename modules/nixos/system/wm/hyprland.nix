@@ -35,6 +35,8 @@ in {
       #   background = "${../../../../assets/framework/Abstract_1-hue_logo.jpg}";
       #   loginBackground = true;
       # })
+
+      brightnessctl
     ];
 
     xdg.portal = {
@@ -44,8 +46,6 @@ in {
         xdg-desktop-portal-gtk
       ];
     };
-
-    hardware.brillo.enable = mkDefault true;
 
     programs.hyprland = {
       enable = mkForce true;

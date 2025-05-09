@@ -171,14 +171,16 @@
     ",switch:on:Lid Switch, exec, systemctl suspend-then-hibernate"
   ];
 
-  bindle = [
+  bindle = let
+    bctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  in [
     # volume
     ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
     ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
 
     # backlight
-    ", XF86MonBrightnessUp, exec, brillo -p -u 100000 -A 10"
-    ", XF86MonBrightnessDown, exec, brillo -p -u 100000 -U 10"
+    ", XF86MonBrightnessUp, exec, ${bctl} set 5%+"
+    ", XF86MonBrightnessDown, exec, ${bctl} set 5%-"
   ];
 
   # mouse movements

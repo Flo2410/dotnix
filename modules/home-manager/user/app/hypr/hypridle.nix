@@ -25,17 +25,19 @@ in {
           ];
         };
 
-        listener = [
+        listener = let
+          bctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+        in [
           {
             timeout = 150; # 2.5 min
-            on-timeout = "brillo -l -O && brillo -l -S 0 -u 1000000"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-            on-resume = "brillo -l -I -u 1000000"; # monitor backlight restore.
+            on-timeout = "${bctl} --save && ${bctl} set 0"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+            on-resume = "${bctl} --restore"; # monitor backlight restore state.
           }
-          # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
+          # turn off keyboard backlight
           {
             timeout = 150; # 2.5 min
-            on-timeout = "brillo -k -c -S 0 && brillo -k -S 0"; # turn off keyboard backlight.
-            on-resume = "brillo -k -S 50"; # turn on keyboard backlight.
+            on-timeout = "${bctl} --save -d chromeos::kbd_backlight && ${bctl} set 0 -d chromeos::kbd_backlight"; # turn off keyboard backlight.
+            on-resume = "${bctl} --restore -d chromeos::kbd_backlight"; # restore keyboard backlight state.
           }
           {
             timeout = 300; # 5 min
