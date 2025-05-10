@@ -20,6 +20,7 @@ in {
 
     hardware.graphics = {
       enable = mkForce true;
+      enable32Bit = mkDefault true;
       extraPackages = with pkgs; [
         rocmPackages.clr.icd
         amdvlk

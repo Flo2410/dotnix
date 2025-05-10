@@ -26,6 +26,7 @@
     # ./nvim.nix
     # ../../nix/nixpkgs.nix
     ../../nix/lib/functions.nix
+    ../../config/home-manager/gaming.nix
   ];
 
   news.display = "silent"; # disable home-manager news
@@ -159,6 +160,7 @@
     yubikey-manager
     alejandra # nix fmt
     distrobox
+    btrfs-assistant
 
     # unstable packages
     (stm32cubemx.overrideAttrs (old: rec {
@@ -190,8 +192,8 @@
     unstable.ente-auth
 
     # Custom Packages
-    home-assistant-desktop
-    elamx2
+    # home-assistant-desktop
+    # elamx2
 
     # PWAs
     (pkgs.makeDesktopItem {

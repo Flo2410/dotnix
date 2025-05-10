@@ -55,7 +55,7 @@
     "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
     "size 860 620, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
-    # Calendat entry
+    # Calendar entry
     "float, class:^(thunderbird), title:^(Edit Item)$"
     "center, class:^(thunderbird), title:^(Edit Item)$"
     # Empty title
@@ -86,5 +86,15 @@
     # Discord
     "noinitialfocus, class:^(discord), title:^(Discord Updater)$"
     "nofocus, class:^(discord), title:^(Discord Updater)$"
+
+    # Ubisoft
+    "tile, class:^(upc.exe), title:^(Ubisoft Connect)$"
+    # Anno 1800
+    "tile, class:^(anno1800.exe), title:^(Anno 1800)$"
+    "fullscreenstate 2 0, class:^(anno1800.exe), title:^(Anno 1800)$"
+    "suppressevent fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
+    "suppressevent fullscreenoutput, class:^(anno1800.exe), title:^(Anno 1800)$"
+    "suppressevent maximize, class:^(anno1800.exe), title:^(Anno 1800)$"
+    # "fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
   ];
 }

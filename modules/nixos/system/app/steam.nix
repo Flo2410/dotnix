@@ -12,8 +12,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    hardware.graphics.enable32Bit = mkForce true;
+    hardware.graphics.enable32Bit = mkDefault true;
     programs.steam.enable = true;
-    # environment.systemPackages = [ pkgs.steam ];
   };
 }
