@@ -283,10 +283,11 @@ in {
 
   # Copilot
   "github.copilot.editor.enableAutoCompletions" = false;
-  "github.copilot.chat.useProjectTemplates" = false;
-  "github.copilot.chat.welcomeMessage" = "never";
   "chat.commandCenter.enabled" = false;
   "inlineChat.lineNaturalLanguageHint" = false;
+  "github.copilot.enable" = {
+    "*" = false;
+  };
 
   # --------------------------------------------------
   # Language specific
