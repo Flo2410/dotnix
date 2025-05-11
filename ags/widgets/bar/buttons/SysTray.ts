@@ -3,7 +3,10 @@ import { type TrayItem } from "types/service/systemtray";
 import { PanelButton } from "../PanelButton";
 
 const systemtray = await Service.import("systemtray");
-const ignore: String[] = ["spotify-client"]; // SysTray items to igonre
+const ignore: String[] = [
+  "spotify-client",
+  "Xwayland Video Bridge_pipewireToXProxy",
+]; // SysTray items to igonre
 
 const SysTrayItem = (item: TrayItem) =>
   PanelButton({
