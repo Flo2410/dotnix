@@ -31,8 +31,17 @@ in {
     backgroundUrl = builtins.readFile (./. + "../../../../../themes" + ("/" + cfg.theme) + "/backgroundurl.txt");
     backgroundSha256 = builtins.readFile (./. + "../../../../../themes/" + ("/" + cfg.theme) + "/backgroundsha256.txt");
   in
-    mkIf cfg.enable
-    {
+    mkIf cfg.enable {
+      catppuccin = {
+        enable = mkDefault false;
+        flavor = mkDefault "mocha";
+        accent = mkDefault "sapphire";
+        tty = {
+          enable = mkDefault true;
+          flavor = mkDefault "mocha";
+        };
+      };
+
       stylix.enable = true;
       stylix.autoEnable = false;
       stylix.polarity = themePolarity;
