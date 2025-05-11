@@ -68,10 +68,12 @@ in {
               ${pkgs.greetd.tuigreet}/bin/tuigreet \
               --time  \
               --remember \
+              --remember-session \
               --asterisks \
-               --theme "border=magenta;text=cyan;prompt=lightblue;time=red;action=blue;button=darkgray;container=black;input=lightcyan" \
-               --time-format "%d.%m.%Y // %H:%M:%S" \
-               --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+              --window-padding 1 \
+              --theme "border=magenta;text=cyan;prompt=lightblue;time=red;action=blue;button=darkgray;container=black;input=lightcyan" \
+              --time-format "%d.%m.%Y // %H:%M:%S" \
+              --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
             '';
             user = "greeter";
           };
