@@ -61,7 +61,10 @@ in {
     wayland.windowManager.hyprland = {
       enable = mkForce true;
 
-      systemd.variables = ["--all"];
+      systemd = {
+        enable = mkDefault false;
+        variables = ["--all"];
+      };
 
       settings = let
         hypr_binds = import ./binds.nix {inherit pkgs config;};

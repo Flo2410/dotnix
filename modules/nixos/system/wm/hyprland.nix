@@ -23,19 +23,9 @@ in {
       xdg-desktop-portal-hyprland
       xwayland
       wayland-protocols
-      unstable.hyprland-qt-support
-      unstable.hyprland-qtutils
+      hyprland-qt-support
+      hyprland-qtutils
       kdePackages.xwaylandvideobridge
-
-      sddm-astronaut
-      # (catppuccin-sddm.override {
-      #   flavor = "frappe";
-      #   font = "Noto Sans";
-      #   fontSize = "9";
-      #   background = "${../../../../assets/framework/Abstract_1-hue_logo.jpg}";
-      #   loginBackground = true;
-      # })
-
       brightnessctl
     ];
 
@@ -47,10 +37,18 @@ in {
       ];
     };
 
-    programs.hyprland = {
-      enable = mkForce true;
-      withUWSM = mkDefault false;
-      xwayland.enable = mkForce true;
+    programs = {
+      hyprland = {
+        enable = mkForce true;
+        withUWSM = mkDefault true;
+        xwayland.enable = mkForce true;
+      };
+
+      uwsm.waylandCompositors.hyprland = {
+        prettyName = "Hyprland";
+        comment = "Hyprland compositor managed by UWSM";
+        binPath = "/run/current-system/sw/bin/Hyprland";
+      };
     };
 
     services = {
@@ -62,20 +60,21 @@ in {
         };
       };
 
-      displayManager = {
-        defaultSession = "hyprland";
-
-        sddm = {
-          enable = true;
-          theme = "astronaut";
-          wayland.enable = true;
-          package = pkgs.kdePackages.sddm;
-          extraPackages = with pkgs; [
-            # Fix for astronaut theme
-            qt6.qtsvg
-            qt6.qt5compat
-            qt6.qtdeclarative
-          ];
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = ''
+              ${pkgs.greetd.tuigreet}/bin/tuigreet \
+              --time  \
+              --remember \
+              --asterisks \
+               --theme "border=magenta;text=cyan;prompt=lightblue;time=red;action=blue;button=darkgray;container=black;input=lightcyan" \
+               --time-format "%d.%m.%Y // %H:%M:%S" \
+               --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+            '';
+            user = "greeter";
+          };
         };
       };
     };

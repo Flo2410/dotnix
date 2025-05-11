@@ -22,7 +22,8 @@ in {
     };
 
     # https://github.com/NixOS/nixpkgs/issues/239770#issuecomment-1868402338
-    security.pam.services.login.fprintAuth = false; # This disables the fingerprint login in sddm
+    security.pam.services.login.fprintAuth = mkForce false; # This disables the fingerprint login in sddm
+    security.pam.services.greetd.fprintAuth = mkForce false; # This disables the fingerprint login in greetd
 
     # Disbale fingerprint auth via pam for Hyprlock!
     # This will be done via fprintd through Hyprlock directly.
