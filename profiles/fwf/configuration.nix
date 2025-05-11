@@ -182,6 +182,12 @@
       rateLimitBurst = 500;
       rateLimitInterval = "30s";
     };
+
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = ["/"];
+    };
   };
 
   system = {
