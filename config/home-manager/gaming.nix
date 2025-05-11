@@ -10,6 +10,7 @@ with lib; {
     lutris
     protontricks
     protonplus
+    winetricks
 
     mangohud
   ];
