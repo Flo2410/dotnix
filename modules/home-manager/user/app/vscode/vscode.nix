@@ -36,7 +36,10 @@ in {
       };
       profiles.default = {
         globalSnippets = importJSON ./vs-snippets.code-snippets;
-        extensions = import ./extensions.nix {inherit pkgs;};
+        extensions = import ./extensions.nix {
+          inherit pkgs;
+          version = config.programs.vscode.package.version;
+        };
         userSettings = import ./settings.nix {inherit pkgs config;};
         keybindings = import ./keybindings.nix {};
       };

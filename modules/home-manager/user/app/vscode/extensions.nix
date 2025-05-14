@@ -1,4 +1,7 @@
-{pkgs}: let
+{
+  pkgs,
+  version,
+}: let
   ltex-vsxi = let
     name = "vscode-ltex-plus";
   in
@@ -21,7 +24,7 @@
     };
 in
   # pkgs.vscode-marketplace are the pre-release extensions
-  with pkgs.vscode-marketplace; [
+  with (pkgs.nix-vscode-extensions.forVSCodeVersion "${version}").vscode-marketplace; [
     aaron-bond.better-comments
     albert.tabout
     antiantisepticeye.vscode-color-picker
