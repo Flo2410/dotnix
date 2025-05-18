@@ -16,8 +16,6 @@
       dontPatchELF = true;
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [final.pkgs.kdePackages.wrapQtAppsHook];
     });
-
-    stm32cubemx = final.pkgs.callPackage ../pkgs/stm32cubemx.nix {};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

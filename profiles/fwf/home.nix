@@ -125,6 +125,7 @@
     blender
     zotero
     bottles
+    stm32cubemx
 
     # kde utils
     kdePackages.kcalc
@@ -161,29 +162,6 @@
     btrfs-assistant
 
     # unstable packages
-    (stm32cubemx.overrideAttrs (old: rec {
-      desktopItem = makeDesktopItem {
-        name = "STM32CubeMX";
-        exec = "stm32cubemx";
-        desktopName = "STM32CubeMX";
-        categories = ["Development"];
-        icon = ../../assets/icons/STM32CubeMX.png;
-        comment = old.meta.description;
-        terminal = false;
-        startupNotify = false;
-        mimeTypes = [
-          "x-scheme-handler/sgnl"
-          "x-scheme-handler/signalcaptcha"
-        ];
-      };
-
-      buildCommand =
-        old.buildCommand
-        + ''
-          mkdir -p $out/share/applications
-          cp ${desktopItem}/share/applications/*.desktop $out/share/applications
-        '';
-    }))
     unstable.naps2
     unstable.saleae-logic-2
     unstable.parsec-bin

@@ -21,6 +21,4 @@ with pkgs; {
   mkshell = callPackage ./mkshell.nix {};
 
   sddm-astronaut = callPackage ./sddm-themes/astronaut.nix {};
-
-  stm32cubemx = callPackage ./stm32cubemx.nix {};
 }
