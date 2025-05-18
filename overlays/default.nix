@@ -36,19 +36,4 @@
       }
       // import ../pkgs final.pkgs.unstable;
   };
-
-  stable-packages = final: _prev: {
-    stable =
-      import inputs.nixpkgs-stable {
-        system = final.system;
-        config.allowUnfree = true;
-        config.permittedInsecurePackages = [
-          "dotnet-wrapped-combined"
-          "dotnet-combined"
-          "dotnet-sdk-wrapped-6.0.428"
-          "dotnet-sdk-6.0.428"
-        ];
-      }
-      // import ../pkgs final.pkgs.stable;
-  };
 }

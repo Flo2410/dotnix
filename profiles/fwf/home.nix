@@ -4,7 +4,6 @@
   inputs,
   outputs,
   lib,
-  config,
   pkgs,
   ...
 }: rec {
@@ -112,10 +111,10 @@
     libreoffice-qt
     obsidian
     pulseview
-    (stable.signal-desktop.overrideAttrs (old: {
+    (signal-desktop.overrideAttrs (old: {
       postFixup = ''
         # add gnome-keyring to launch args
-        substituteInPlace $out/share/applications/signal-desktop.desktop \
+        substituteInPlace $out/share/applications/signal.desktop \
           --replace "%U" "--password-store=\"gnome-libsecret\" %U"
       '';
     }))
