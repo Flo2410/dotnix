@@ -110,7 +110,7 @@
     libreoffice-qt
     obsidian
     pulseview
-    (signal-desktop.overrideAttrs (old: {
+    (signal-desktop-bin.overrideAttrs (old: {
       postFixup = ''
         # add gnome-keyring to launch args
         substituteInPlace $out/share/applications/signal.desktop \
