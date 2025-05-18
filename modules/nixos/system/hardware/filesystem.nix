@@ -36,7 +36,9 @@ in {
         "noauto"
         "x-systemd.automount"
         "x-systemd.idle-timeout=30"
-        "x-systemd.mount-timeout=10"
+        "x-systemd.mount-timeout=5"
+        "soft"
+        "nofail"
       ];
     };
   };
