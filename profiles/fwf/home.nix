@@ -88,7 +88,6 @@
         package = inputs.zen-browser.packages."${pkgs.system}".default;
       };
       virtualization.enable = true;
-      barrier.enable = true;
       vscode.enable = true;
       matlab.enable = true;
       xilinx-vivado.enable = true;
