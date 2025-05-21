@@ -125,11 +125,14 @@ in {
         enableZshIntegration = mkDefault true;
         enableBashIntegration = mkDefault true;
         settings = {
-          auto_sync = mkDefault false;
+          auto_sync = mkDefault true;
+          sync_address = mkDefault "https://atuin.hye.sh";
+          sync_frequency = mkDefault 0; # If set to 0, Atuin will sync after every command. Some servers may potentially rate limit, which won’t cause any issues.
           update_check = mkDefault false;
           enter_accept = mkDefault true;
           filter_mode = mkDefault "global";
           filter_mode_shell_up_key_binding = mkDefault "host";
+          style = mkDefault "full";
         };
       };
 
