@@ -124,6 +124,7 @@ in {
         enable = mkDefault true;
         enableZshIntegration = mkDefault true;
         enableBashIntegration = mkDefault true;
+        daemon.enable = mkDefault true;
         settings = {
           auto_sync = mkDefault true;
           sync_address = mkDefault "https://atuin.hye.sh";
