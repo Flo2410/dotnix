@@ -181,6 +181,8 @@
       libsForQt5.qt5.qtwayland # qt5-wayland
       kdePackages.qtwayland # qt6-wayland
 
+      mkshell
+
       # PWAs
       (pkgs.makeDesktopItem {
         name = "whatsapp-web";
