@@ -124,6 +124,7 @@
     freecad-wayland
     blender
     zotero
+    jabref
     bottles
     stm32cubemx
 
