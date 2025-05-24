@@ -6,5 +6,6 @@
     ./autostart.nix
     ./stylix.nix
     ./docker.nix
+    ./flatpak.nix
   ];
 }

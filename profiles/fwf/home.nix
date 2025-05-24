@@ -73,6 +73,7 @@
       ssh.enable = true;
       git.enable = true;
       docker.enable = true;
+      flatpak.enable = true;
 
       autostart = {
         enable = true;
