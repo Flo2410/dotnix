@@ -128,6 +128,7 @@
     jabref
     bottles
     stm32cubemx
+    ente-auth
 
     # kde utils
     kdePackages.kcalc
@@ -167,7 +168,6 @@
     unstable.naps2
     unstable.saleae-logic-2
     unstable.parsec-bin
-    unstable.ente-auth
 
     # Custom Packages
     # home-assistant-desktop
