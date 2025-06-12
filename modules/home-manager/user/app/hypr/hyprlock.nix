@@ -18,7 +18,7 @@ in {
   config = mkIf cfg.enable {
     programs.hyprlock = {
       enable = cfg.enable;
-      package = pkgs.unstable.hyprlock;
+      package = pkgs.hyprlock;
 
       settings = {
         source = mkForce "${config.catppuccin.sources.hyprland}/${config.catppuccin.flavor}.conf";
