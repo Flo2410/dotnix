@@ -11,9 +11,11 @@ in {
     enable = mkEnableOption "Enable firewall";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     # Firewall
-    networking.firewall = {
+    networking.firewall = let
+      ip46tables = "${pkgs.reaction}/bin/ip46tables";
+    in {
       enable = cfg.enable;
 
       # Open ports in the firewall.
@@ -38,6 +40,17 @@ in {
       allowedUDPPorts = [
         24800 # barrier
       ];
+
+      # wireguard trips rpfilter up
+      # source: https://wiki.nixos.org/wiki/WireGuard#Setting_up_WireGuard_with_NetworkManager
+      extraCommands = ''
+        ${ip46tables} -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
+        ${ip46tables} -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
+      '';
+      extraStopCommands = ''
+        ${ip46tables} -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
+        ${ip46tables} -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
+      '';
     };
   };
 }
