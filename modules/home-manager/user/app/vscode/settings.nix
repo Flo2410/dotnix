@@ -346,4 +346,8 @@ in {
   "[qml]" = {
     "editor.defaultFormatter" = "AndreOneti.qml-formatter";
   };
+
+  "[toml]" = {
+    "editor.defaultFormatter" = "tamasfe.even-better-toml";
+  };
 }
