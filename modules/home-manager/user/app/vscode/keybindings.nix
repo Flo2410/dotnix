@@ -123,4 +123,12 @@
     command = "-editor.action.commentLine";
     when = "editorTextFocus && !editorReadonly";
   }
+  {
+    key = "ctrl+alt+s";
+    command = "workbench.action.files.saveWithoutFormatting";
+  }
+  {
+    key = "ctrl+k s";
+    command = "-workbench.action.files.saveWithoutFormatting";
+  }
 ]
