@@ -22,7 +22,7 @@
     "center, floating: 1, class:^(org.kde.kwalletd6)$" # move the window to the center of the screen
 
     # MATLAB
-    "tile, class:^(MATLAB)(.*), title:^(MATLAB)(.*)$" # Tile main window
+    "tile, class:^(MATLAB)(.*)(-)(.*), title:^(MATLAB)(.*)$" # Tile main window
     "tile, class:^(MATLAB)(.*), title:^(Figure)(.*)$" # tile figures
     "tile, class:^(MATLAB)(.*), title:^(Scope)(.*)$" # tile Scope
     "tile, class:^(MATLAB)(.*), title:^(Help)$" # tile Help
@@ -32,6 +32,9 @@
     "center, class:^(MATLAB)(.*), title:^(Command HistoryWindow)$" # center command history
     "float, class:^(MATLABWindow), title:^(Add-On Installer)$" # float Add-On Installer
     "center, class:^(MATLABWindow), title:^(Add-On Installer)$" # center Add-On Installer
+    # Loading window
+    "float, class:^(MATLAB)(.*), title:^(MATLAB)$"
+    "center, class:^(MATLAB)(.*), title:^(MATLAB)$"
     # "float, class:^(MATLAB)(.*), title:^()$" # float everything else
     # "center, class:^(MATLAB)(.*), title:^()$" # center everything else
 
