@@ -55,6 +55,13 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  programs = {
+    btop = {
+      enable = true;
+      package = pkgs.btop-rocm;
+    };
+  };
+
   user = {
     home = rec {
       enable = true;
