@@ -136,8 +136,6 @@ in {
           style = mkDefault "full";
         };
       };
-
-      btop.enable = true;
     };
   };
 }
