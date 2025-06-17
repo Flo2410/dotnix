@@ -99,5 +99,8 @@
     "suppressevent fullscreenoutput, class:^(anno1800.exe), title:^(Anno 1800)$"
     "suppressevent maximize, class:^(anno1800.exe), title:^(Anno 1800)$"
     # "fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
+
+    # Thunar
+    "float, class:^(thunar), title:^(Rename)(.*)$"
   ];
 }
