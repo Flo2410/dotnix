@@ -128,7 +128,7 @@ in {
   "cmake.showOptionsMovedNotification" = false;
 
   # ltex
-  # "ltex.ltex-ls.path" = "${pkgs.ltex-ls}";
+  "ltex.ltex-ls.path" = "${pkgs.ltex-ls-plus}";
   "ltex.java.path" = "${pkgs.temurin-bin-21}";
   # "ltex.ltex-ls.logLevel" = "finest";
   # "ltex.trace.server" = "verbose";
