@@ -51,6 +51,7 @@ in {
   "editor.minimap.renderCharacters" = false;
   "editor.minimap.scale" = 2;
   "editor.wordWrap" = "off";
+  "editor.selectionClipboard" = false;
 
   # Diff Editor
   "diffEditor.ignoreTrimWhitespace" = false;
