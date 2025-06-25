@@ -55,6 +55,7 @@ in {
       traceroute
       hexyl
       whois
+      duf
 
       git-fuzzy # (callPackage ../pkgs/git-fuzzy.nix { })
     ];
