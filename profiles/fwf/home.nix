@@ -136,6 +136,7 @@
     bottles
     stm32cubemx
     ente-auth
+    qgis
 
     # kde utils
     kdePackages.kcalc
