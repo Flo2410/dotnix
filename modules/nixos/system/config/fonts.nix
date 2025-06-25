@@ -28,6 +28,7 @@ in {
         material-icons # https://fonts.google.com/icons
         material-design-icons # https://pictogrammers.com/library/mdi/
         bahnschrift-font
+        ubuntu-sans
       ];
     };
   };
