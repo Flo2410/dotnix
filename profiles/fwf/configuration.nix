@@ -76,7 +76,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    zsh
+    nushell
     home-manager
     kdePackages.plasma-thunderbolt
     gparted
@@ -96,7 +96,7 @@
 
   users = {
     groups.plugdev = {};
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.nushell;
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
@@ -105,7 +105,6 @@
   };
 
   programs = {
-    zsh.enable = true;
     partition-manager.enable = true;
     seahorse.enable = true;
     wireshark.enable = true;
@@ -117,8 +116,7 @@
     };
   };
 
-  # I use zsh btw
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [nushell];
 
   xdg.portal = {
     enable = true;

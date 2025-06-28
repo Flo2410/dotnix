@@ -37,7 +37,6 @@ in {
       nix-direnv
 
       # Command Line
-      zsh
       git
       rsync
       unzip
@@ -96,11 +95,36 @@ in {
         shellAliases = import ./aliases.nix;
       };
 
+      nushell = {
+        enable = true;
+        shellAliases = import ./aliases.nix;
+        settings = {
+          show_banner = false;
+          edit_mode = "vi";
+        };
+        extraConfig = let
+          aliases = "${pkgs.nu_scripts}/share/nu_scripts/aliases";
+        in ''
+          def ll [] { ls -l | select name mode user group size modified}
+          def l [] { ls -al | select name mode user group size modified}
+
+          use ${aliases}/git/git-aliases.nu *
+        '';
+
+        environmentVariables = {
+          PROMPT_INDICATOR = "";
+          PROMPT_INDICATOR_VI_INSERT = "➜ ";
+          PROMPT_INDICATOR_VI_NORMAL = ": ";
+          PROMPT_MULTILINE_INDICATOR = "::: ";
+        };
+      };
+
       # better "cd"
       zoxide = {
         enable = true;
         enableZshIntegration = true;
         enableBashIntegration = true;
+        enableNushellIntegration = true;
         options = [
           "--cmd cd"
         ];
@@ -109,6 +133,7 @@ in {
       direnv = {
         enable = true;
         enableZshIntegration = true;
+        enableNushellIntegration = true;
         nix-direnv.enable = true;
       };
 
@@ -125,6 +150,7 @@ in {
         enable = mkDefault true;
         enableZshIntegration = mkDefault true;
         enableBashIntegration = mkDefault true;
+        enableNushellIntegration = mkDefault true;
         daemon.enable = mkDefault true;
         settings = {
           auto_sync = mkDefault true;
@@ -135,6 +161,56 @@ in {
           filter_mode = mkDefault "global";
           filter_mode_shell_up_key_binding = mkDefault "host";
           style = mkDefault "full";
+        };
+      };
+
+      carapace = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
+
+      starship = {
+        enable = true;
+        enableNushellIntegration = true;
+        enableZshIntegration = mkForce false;
+        enableBashIntegration = mkForce false;
+        settings = {
+          add_newline = false;
+          scan_timeout = 10;
+
+          username = {
+            show_always = true;
+            style_user = "bold sapphire";
+            format = "[$user]($style)[@](overlay1)";
+          };
+
+          hostname = {
+            ssh_only = false;
+            style = "bold lavender";
+            format = "[$hostname]($style)[:](overlay1)";
+          };
+
+          format = lib.concatStrings [
+            "$username"
+            "$hostname"
+            "$directory"
+            "$git_branch"
+            "$git_state"
+            "$git_status"
+            "$cmd_duration"
+            "$line_break"
+            "$character"
+          ];
+
+          directory = {
+            style = "blue";
+          };
+
+          character = {
+            success_symbol = "";
+            error_symbol = "[✗](bold red)";
+            vimcmd_symbol = "";
+          };
         };
       };
     };

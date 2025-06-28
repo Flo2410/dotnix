@@ -58,7 +58,7 @@ in {
 
   # Terminal
   "terminal.integrated.fontFamily" = "${config.stylix.fonts.monospace.name}";
-  "terminal.integrated.defaultProfile.linux" = "zsh";
+  "terminal.integrated.defaultProfile.linux" = "nu";
   "terminal.integrated.inheritEnv" = false;
   "terminal.integrated.cursorStyle" = "line";
   "terminal.integrated.cursorBlinking" = true;
