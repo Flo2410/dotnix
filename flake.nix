@@ -138,7 +138,7 @@
 
     # https://gitlab.com/doronbehar/nix-matlab
     nix-matlab = {
-      url = "gitlab:doronbehar/nix-matlab";
+      url = "gitlab:flo2410/nix-matlab/fix-libice";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

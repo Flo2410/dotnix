@@ -516,15 +516,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1749999717,
-        "narHash": "sha256-0e90USJ7piAzjU1u0TRrzCsvI5Sv6H/Kn4Mc1IdMDlo=",
-        "owner": "doronbehar",
+        "lastModified": 1750881179,
+        "narHash": "sha256-09R2DaJK2Anz3poxcuk65Zy69DJO8qUYZBKF47l/+G4=",
+        "owner": "flo2410",
         "repo": "nix-matlab",
-        "rev": "ac8d65aeb173a6b9a2bb6f0a05c490a732259e2f",
+        "rev": "e314b2366a1e70837f221567581c463fd26d0186",
         "type": "gitlab"
       },
       "original": {
-        "owner": "doronbehar",
+        "owner": "flo2410",
+        "ref": "fix-libice",
         "repo": "nix-matlab",
         "type": "gitlab"
       }
