@@ -3,19 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-# NVIDIA-GPU related
-let
-  nvidia_555 = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    version = "555.58";
-
-    sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
-    sha256_aarch64 = lib.fakeSha256;
-    openSha256 = lib.fakeSha256;
-    settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
-    persistencedSha256 = "sha256-lyYxDuGDTMdGxX3CaiWUh1IQuQlkI2hPEs5LI20vEVw=";
-  };
-in {
+}: {
   imports = [
     ../../opengl/opengl.nix
     ../cachix.nix
@@ -38,17 +26,15 @@ in {
 
       # Select the appropriate driver version for your GPU
       # package = config.boot.kernelPackages.nvidiaPackages.production;
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      package = nvidia_555;
+      # package = nvidia_555;
 
       # Uncomment the following lines if you need to use a specific driver version
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
 
-      vaapi = {
-        enable = true;
-      };
+      open = true;
     };
   };
 

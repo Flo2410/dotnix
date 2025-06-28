@@ -17,6 +17,9 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.ags.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -42,7 +45,7 @@
     };
 
     # WM
-    wm.x11-plasma.enable = true;
+    wm.plasma.enable = true;
 
     shell.enable = true;
 
@@ -50,22 +53,14 @@
       xdg.enable = true;
       ssh.enable = true;
       git.enable = true;
-
-      autostart = {
-        enable = true;
-        autostartItems = ["yakuake"];
-      };
     };
 
     app = {
-      browser.floorp.enable = true;
       virtualization.enable = true;
-      barrier.enable = false;
       vscode.enable = true;
 
       terminal = {
         kitty.enable = true;
-        konsole.enable = true;
       };
     };
   };
@@ -76,23 +71,21 @@
     discord
     spotify
     signal-desktop
-    parsec-bin
     prusa-slicer
     libreoffice-qt
     obsidian
 
     # games
-    modrinth-app
+    # modrinth-app
 
     # kde utils
-    kdePackages.yakuake
-    kdePackages.kcalc
-    kdePackages.skanpage
+    # kdePackages.yakuake
+    # kdePackages.kcalc
+    # kdePackages.skanpage
 
     # Media
     gimp
     inkscape
-    darktable
     vlc
     ffmpeg
     nomacs
@@ -110,21 +103,6 @@
     # unstable packages
     #    unstable.kicad
     unstable.naps2
-
-    # Remmina v1.4.30
-    remmina
-
-    # Custom Packages
-    home-assistant-desktop
-
-    (makeDesktopItem {
-      name = "boot-windows-11";
-      desktopName = "Boot Windows 11";
-      exec = "systemctl reboot --boot-loader-entry=auto-windows --boot-loader-menu=1";
-      terminal = false;
-      type = "Application";
-      icon = ../../modules/home-manager/user/app/virtualization/win11.png;
-    })
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

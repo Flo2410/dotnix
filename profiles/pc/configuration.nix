@@ -17,6 +17,9 @@
     inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
     # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.stylix.nixosModules.stylix
+    inputs.catppuccin.nixosModules.catppuccin
+    inputs.lanzaboote.nixosModules.lanzaboote
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -137,7 +140,7 @@
 
   system = {
     # WM
-    wm.x11-plasma.enable = true;
+    wm.plasma.enable = true;
 
     # Config
     config = {
@@ -148,7 +151,7 @@
 
       locale = {
         enable = true;
-        defaultLocale = "en_US.UTF-8";
+        defaultLocale = "en_GB.UTF-8";
         extraLocale = "de_AT.UTF-8";
       };
     };
