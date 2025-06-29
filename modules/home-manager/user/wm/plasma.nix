@@ -13,14 +13,24 @@ in {
   };
 
   config = mkIf cfg.enable {
+    user = {
+      config = {
+        stylix = {
+          enable = mkDefault true;
+          theme = "catppuccin-mocha";
+          wallpaper = ../../../../assets/wallpapers/nixos-wallpaper.png;
+        };
+      };
+    };
+
     programs.plasma = {
       enable = true;
 
       workspace = {
-        lookAndFeel = "org.kde.breezedark.desktop";
-        cursor.theme = "Breeze";
-        iconTheme = "breeze-dark";
-        wallpaper = ../../../../assets/wallpapers/Abstract_1-hue_logo.jpg;
+        # lookAndFeel = "org.kde.breezedark.desktop";
+        # cursor.theme = "Breeze";
+        # iconTheme = "breeze-dark";
+        # wallpaper = ../../../../assets/wallpapers/Abstract_1-hue_logo.jpg;
       };
       shortcuts = {
         kwin = {

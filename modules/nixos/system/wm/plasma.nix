@@ -16,6 +16,11 @@ in {
       kdePackages.plasma-thunderbolt
     ];
 
+    system.config.stylix = {
+      enable = true;
+      theme = "catppuccin-mocha";
+    };
+
     # Configure plasma
     services = {
       xserver = {
