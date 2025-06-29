@@ -25,7 +25,7 @@
   pkgs = "nix-shell --command nu -p";
 
   # open = "xdg-open";
-  # cat = "bat";
+  cat = "bat";
   # ls = "eza --icons -g";
   # grep = "rg";
   c = "code .";
