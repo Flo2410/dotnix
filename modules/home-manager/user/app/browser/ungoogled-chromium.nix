@@ -73,15 +73,9 @@ in {
         (createChromiumExtension {
           # LanguageTool
           id = "oldceeleldhonbafppcapldpdifcinji";
-          version = "8.19.4";
-          sha256 = "sha256:1cnydpgyzhgc1w0nd7i6f3f4hzfz0lrpm5728mnsd7x53wjam5g9";
+          version = "8.21.1";
+          sha256 = "sha256:0n90ps91d08fbh26vbb5njdsv0a3jayshcnvkd2g2qfbxixhz277";
         })
-        (mkIf config.user.wm.plasma.enable (createChromiumExtension {
-          # plasma integration
-          id = "cimiefiiaegbelhefglklhhakcgmhkai";
-          sha256 = "sha256:19v69mif1v5d2s0w50g3jc94r77lcpqn6rx76nv654zw9vazmqk7";
-          version = "1.9";
-        }))
       ];
     };
 
