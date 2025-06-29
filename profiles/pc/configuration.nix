@@ -24,6 +24,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
     ../../nix/nixpkgs.nix
+    ../../nix/lib/functions.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -36,17 +37,12 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
-    # Garbage collection
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
   };
 
   # Bootloader.
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+
     loader = {
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
@@ -73,6 +69,7 @@
   networking = {
     hostName = "PC-Florian"; # Define your hostname.
     networkmanager.enable = true;
+    resolvconf.enable = true;
   };
 
   # Set your time zone.
@@ -84,11 +81,12 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    zsh
+    nushell
     home-manager
   ];
 
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     useUserPackages = false;
     extraSpecialArgs = {inherit inputs outputs;};
@@ -97,7 +95,7 @@
   };
 
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.nushell;
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
@@ -105,11 +103,17 @@
     };
   };
 
-  programs.partition-manager.enable = true;
+  programs = {
+    partition-manager.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/florian/dotnix"; #FIXME: Get path from home.nix or someother global way.
+    };
+  };
 
-  # I use zsh btw
-  environment.shells = with pkgs; [zsh];
-  programs.zsh.enable = true;
+  environment.shells = with pkgs; [nushell];
 
   xdg.portal = {
     enable = true;
@@ -124,12 +128,24 @@
 
     udev = {
       enable = true;
+      packages = with pkgs; [
+        udev-stm32-named-tty #(callPackage ./stm32-named-tty.nix { })
+        udev-saleae-logic #(callPackage ./saleae-logic.nix { })
+        udev-ft232h
+        openocd #(callPackage ./openocd.nix { })
+      ];
     };
 
     journald = {
       extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
       rateLimitBurst = 500;
       rateLimitInterval = "30s";
+    };
+
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = ["/"];
     };
 
     displayManager.autoLogin = {
@@ -164,15 +180,22 @@
       steam.enable = true;
       virtualization.enable = true;
 
+      docker = {
+        enable = true;
+        storageDriver = "overlay2";
+      };
+
       flatpak = {
         enable = true;
         packages = [
           "com.ultimaker.cura"
+          "com.github.tchx84.Flatseal"
         ];
       };
     };
 
     hardware = {
+      bluetooth.enable = true;
       printing.enable = true;
 
       filesystem = {
