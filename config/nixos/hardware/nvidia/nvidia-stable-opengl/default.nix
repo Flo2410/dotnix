@@ -34,7 +34,7 @@
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
 
-      open = true;
+      open = false;
     };
   };
 
