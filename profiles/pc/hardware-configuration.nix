@@ -12,23 +12,59 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot = {
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+    supportedFilesystems = ["btrfs"];
+
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod"];
+      kernelModules = [];
+    };
+  };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/21419549-aff2-46df-bef4-2c2203b1dfeb";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/93df4e15-58a1-45a8-991e-701302f96bad";
+    fsType = "btrfs";
+    options = ["subvol=root" "compress=zstd"];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/93df4e15-58a1-45a8-991e-701302f96bad";
+    fsType = "btrfs";
+    options = ["subvol=home" "compress=zstd"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/93df4e15-58a1-45a8-991e-701302f96bad";
+    fsType = "btrfs";
+    options = ["subvol=nix" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/93df4e15-58a1-45a8-991e-701302f96bad";
+    fsType = "btrfs";
+    options = ["subvol=log" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/93df4e15-58a1-45a8-991e-701302f96bad";
+    fsType = "btrfs";
+    options = ["subvol=swap" "noatime"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/05EA-B39E";
+    device = "/dev/disk/by-uuid/8B6E-569D";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = ["fmask=0022" "dmask=0022"];
   };
 
-  swapDevices = [];
+  fileSystems."/media/game-ssd" = {
+    device = "/dev/disk/by-uuid/acf7715b-99f6-4dad-a729-20fcddb6f88c";
+    fsType = "ext4";
+  };
+
+  swapDevices = [{device = "/swap/swapfile";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
