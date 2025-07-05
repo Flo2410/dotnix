@@ -92,7 +92,7 @@
     spotify
     signal-desktop-bin
     prusa-slicer
-    libreoffice-qt
+    libreoffice
     obsidian
     remmina
     jabref
