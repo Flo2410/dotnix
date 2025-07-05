@@ -15,7 +15,9 @@ in {
     catppuccin = {
       enable = mkDefault true;
       vscode = {
-        accent = "sapphire";
+        profiles.default = {
+          accent = "sapphire";
+        };
         settings = {
           boldKeywords = true;
           italicComments = true;
