@@ -17,16 +17,16 @@ in {
       vscode = {
         profiles.default = {
           accent = "sapphire";
-        };
-        settings = {
-          boldKeywords = true;
-          italicComments = true;
-          italicKeywords = true;
-          colorOverrides = {};
-          customUIColors = {};
-          workbenchMode = "default";
-          bracketMode = "rainbow";
-          extraBordersEnabled = false;
+          settings = {
+            boldKeywords = true;
+            italicComments = true;
+            italicKeywords = true;
+            colorOverrides = {};
+            customUIColors = {};
+            workbenchMode = "default";
+            bracketMode = "rainbow";
+            extraBordersEnabled = false;
+          };
         };
       };
     };
