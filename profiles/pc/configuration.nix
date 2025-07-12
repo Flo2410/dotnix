@@ -207,7 +207,7 @@
         enable = lib.mkForce false;
         enableSuspendThenHibernate = true;
         resumeDevice = config.fileSystems."/".device;
-        resumeOffset = 269568;
+        resumeOffset = 533760;
       };
     };
   };
