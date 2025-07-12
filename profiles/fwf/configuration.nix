@@ -4,6 +4,7 @@
   inputs,
   outputs,
   lib,
+  config,
   pkgs,
   ...
 }: {
@@ -244,6 +245,8 @@
       powerManagement = {
         enable = true;
         enableSuspendThenHibernate = true;
+        resumeDevice = config.fileSystems."/".device;
+        resumeOffset = 533760;
       };
     };
   };
