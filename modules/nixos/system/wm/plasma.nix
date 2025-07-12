@@ -12,9 +12,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      kdePackages.plasma-thunderbolt
-    ];
+    environment = {
+      systemPackages = with pkgs.kdePackages; [
+        plasma-thunderbolt
+      ];
+
+      plasma6.excludePackages = with pkgs.kdePackages; [
+        discover
+      ];
+    };
 
     system.config.stylix = {
       enable = true;
