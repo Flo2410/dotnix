@@ -206,7 +206,7 @@
       powerManagement = {
         enable = lib.mkForce false;
         enableSuspendThenHibernate = true;
-        resumeDevice = config.fileSystems."/".device;
+        resumeDevice = config.fileSystems."/swap".device;
         resumeOffset = 533760;
       };
     };
