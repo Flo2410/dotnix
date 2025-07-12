@@ -203,9 +203,12 @@
         autoMounts = ["/mnt/florian"];
       };
 
-      #     powerManagement = {
-      #       enable = true;
-      #     };
+      powerManagement = {
+        enable = lib.mkForce false;
+        enableSuspendThenHibernate = true;
+        resumeDevice = config.fileSystems."/".device;
+        resumeOffset = 269568;
+      };
     };
   };
 
