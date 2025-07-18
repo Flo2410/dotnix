@@ -137,6 +137,7 @@
     stm32cubemx
     ente-auth
     qgis
+    modrinth-app
 
     # kde utils
     kdePackages.kcalc
