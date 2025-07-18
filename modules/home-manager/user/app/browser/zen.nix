@@ -26,6 +26,7 @@ in {
       nativeMessagingHosts = with pkgs; [
         (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
       ];
+      profiles.default.extensions.force = mkForce true;
       # profiles."default".settings = {
       #   "widget.use-xdg-desktop-portal.file-picker" = 1;
       #   "layout.css.has-selector.enabled" = false;
