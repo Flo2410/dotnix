@@ -77,13 +77,21 @@
 
   console.useXkbConfig = true;
 
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    nushell
-    home-manager
-  ];
+  environment = {
+    # List packages installed in system profile.
+    systemPackages = with pkgs; [
+      wget
+      git
+      nushell
+      home-manager
+    ];
+
+    shells = with pkgs; [nushell];
+
+    variables = {
+      SSH_ASKPASS_REQUIRE = "prefer";
+    };
+  };
 
   home-manager = {
     backupFileExtension = "backup";
@@ -111,9 +119,12 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/florian/dotnix"; #FIXME: Get path from home.nix or someother global way.
     };
-  };
 
-  environment.shells = with pkgs; [nushell];
+    ssh = {
+      startAgent = true;
+      enableAskPassword = true;
+    };
+  };
 
   xdg.portal = {
     enable = true;
