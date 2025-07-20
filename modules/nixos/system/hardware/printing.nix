@@ -34,5 +34,20 @@ in {
       #nssmdns4 = true;
       openFirewall = true;
     };
+
+    hardware.printers = {
+      ensurePrinters = [
+        {
+          name = "Brother_Printer";
+          description = "Brother Printer";
+          deviceUri = "ipp://brother-printer.dsn.hye.network";
+          model = "brother_mfcl3740cdw_printer_en.ppd"; # use "lpinfo -m" to find model
+          ppdOptions = {
+            PageSize = "A4";
+          };
+        }
+      ];
+      ensureDefaultPrinter = "Brother_Printer";
+    };
   };
 }
