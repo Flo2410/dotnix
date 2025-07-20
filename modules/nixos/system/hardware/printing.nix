@@ -19,6 +19,8 @@ in {
       enable = true;
       drivers = with pkgs; [
         ptouch-driver
+        brlaser
+        gutenprint
         mfcl3750cdw.cupswrapper
       ];
       extraFilesConf = ''
