@@ -44,6 +44,7 @@ in {
           model = "brother_mfcl3740cdw_printer_en.ppd"; # use "lpinfo -m" to find model
           ppdOptions = {
             PageSize = "A4";
+            Duplex = "DuplexNoTumble";
           };
         }
       ];
