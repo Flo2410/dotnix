@@ -154,6 +154,8 @@
     };
   };
 
+  security.pam.services.login.kwallet.enable = true;
+
   system = {
     # WM
     wm.plasma.enable = true;
