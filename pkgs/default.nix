@@ -20,5 +20,7 @@ with pkgs; {
   bahnschrift-font = callPackage ./bahnschrift-font.nix {};
   mkshell = callPackage ./mkshell.nix {};
 
+  mfcl3750cdw = callPackage ./brother-mfcl3750cdw.nix {};
+
   sddm-astronaut = callPackage ./sddm-themes/astronaut.nix {};
 }

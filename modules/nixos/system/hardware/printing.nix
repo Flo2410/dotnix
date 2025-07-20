@@ -17,7 +17,10 @@ in {
     # Enable printing
     services.printing = {
       enable = true;
-      drivers = with pkgs; [ptouch-driver];
+      drivers = with pkgs; [
+        ptouch-driver
+        mfcl3750cdw.cupswrapper
+      ];
       extraFilesConf = ''
         FileDevice Yes
       '';
