@@ -201,6 +201,9 @@
         install -Dm644 $desktopItem/share/applications/* -t $out/share/applications
       '';
     })
+
+    # Shell scrips
+    mkshell
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
