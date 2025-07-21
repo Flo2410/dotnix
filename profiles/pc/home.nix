@@ -31,6 +31,15 @@
   news.display = "silent"; # disable home-manager news
 
   services = {
+    syncthing = {
+      enable = true;
+      tray = {
+        enable = true;
+        package = pkgs.syncthingtray-minimal;
+        command = "syncthingtray --wait";
+      };
+    };
+
     kdeconnect.enable = true;
   };
 
