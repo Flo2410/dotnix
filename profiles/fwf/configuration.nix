@@ -135,8 +135,9 @@
       login.enableGnomeKeyring = true;
     };
 
+    sudo.enable = lib.mkForce false;
     sudo-rs = {
-      enable = true;
+      enable = lib.mkForce true;
     };
   };
 
