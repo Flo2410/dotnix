@@ -31,7 +31,7 @@ with (pkgs.nix-vscode-extensions.forVSCodeVersion "${version}").vscode-marketpla
 
   # Themes
   sdras.night-owl
-  catppuccin.catppuccin-vsc-icons
+  # catppuccin.catppuccin-vsc-icons
 
   pkgs.vscode-extensions.ms-vscode-remote.remote-containers
   pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
