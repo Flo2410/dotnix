@@ -165,7 +165,14 @@
     };
   };
 
-  security.pam.services.login.kwallet.enable = true;
+  security = {
+    pam.services.login.kwallet.enable = true;
+
+    sudo.enable = lib.mkForce false;
+    sudo-rs = {
+      enable = lib.mkForce true;
+    };
+  };
 
   system = {
     # WM
