@@ -21,7 +21,7 @@ in {
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = [
             "hyprctl dispatch dpms on"
-            "(kill $(pidof hypridle) || true) && (pidof hypridle || hypridle)"
+            # "(kill $(pidof hypridle) || true) && (pidof hypridle || hypridle)"
           ];
         };
 
