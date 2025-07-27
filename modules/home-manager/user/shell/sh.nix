@@ -104,11 +104,19 @@ in {
         };
         extraConfig = let
           aliases = "${pkgs.nu_scripts}/share/nu_scripts/aliases";
+          completions = "${pkgs.nu_scripts}/share/nu_scripts/custom-completions";
         in ''
           def ll [] { ls -l | select name mode user group size modified}
           def l [] { ls -al | select name mode user group size modified}
 
+          # nu_scrips aliases
           use ${aliases}/git/git-aliases.nu *
+
+          # nu_scrips custom-completions
+          use ${completions}/git/git-completions.nu *
+          use ${completions}/ssh/ssh-completions.nu *
+          source ${completions}/bat/bat-completions.nu
+          source ${completions}/docker/docker-completions.nu
         '';
 
         environmentVariables = {
