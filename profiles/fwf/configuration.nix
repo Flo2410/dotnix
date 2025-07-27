@@ -134,6 +134,10 @@
       sddm.enableGnomeKeyring = true;
       login.enableGnomeKeyring = true;
     };
+
+    sudo-rs = {
+      enable = true;
+    };
   };
 
   systemd = {
