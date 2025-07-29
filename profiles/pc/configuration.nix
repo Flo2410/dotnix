@@ -174,6 +174,8 @@
     };
   };
 
+  hardware.xone.enable = true;
+
   system = {
     # WM
     wm.plasma.enable = true;
