@@ -2,6 +2,8 @@
   imports = [
     ./browser
     ./terminal
+    ./nvim
+    ./waybar
 
     ./fusuma.nix
     ./virtualization/virtualization.nix
@@ -9,7 +11,6 @@
     ./barrier/barrier.nix
     ./vscode/vscode.nix
     ./wlogout.nix
-    ./waybar
     ./rofi.nix
     ./dunst.nix
     ./ags.nix
@@ -17,7 +18,7 @@
     ./baloo.nix
     ./xilinx-vivado.nix
     ./thunar.nix
-    ./nvim
+    ./go-hass-agent.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix
