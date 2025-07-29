@@ -75,18 +75,42 @@
     };
 
     app = {
-      browser.ungoogled-chromium.enable = true;
-      browser.zen = {
+      vscode.enable = true;
+      nvim.enable = true;
+      go-hass-agent = {
         enable = true;
-        defaultBrowser = true;
-        package = inputs.zen-browser.packages."${pkgs.system}".default;
+        customCommands = let
+          kscreen-doctor = "${pkgs.kdePackages.libkscreen}/bin/kscreen-doctor";
+        in {
+          button = [
+            {
+              name = "Display Profile Default";
+              icon = "mdi:monitor-multiple";
+              exec = "${kscreen-doctor} output.DP-1.enable output.DP-1.position.2560,1200 output.DP-1.priority.2 output.DP-2.enable output.DP-2.position.0,1440 output.DP-2.priority.1 output.DP-3.enable output.DP-3.position.0,0 output.DP-3.enable output.HDMI-A-1.disable";
+            }
+            {
+              name = "Display Profile TV";
+              icon = "mdi:television";
+              exec = "${kscreen-doctor} output.DP-1.disable output.DP-2.disable output.DP-3.disable output.HDMI-A-1.enable output.HDMI-A-1.position.0,0 output.HDMI-A-1.priority.1";
+            }
+          ];
+        };
       };
+
+      browser = {
+        ungoogled-chromium.enable = true;
+
+        zen = {
+          enable = true;
+          defaultBrowser = true;
+          package = inputs.zen-browser.packages."${pkgs.system}".default;
+        };
+      };
+
       virtualization = {
         enable = true;
         hasWin11 = lib.mkForce false;
       };
-      vscode.enable = true;
-      nvim.enable = true;
 
       terminal = {
         kitty.enable = true;
