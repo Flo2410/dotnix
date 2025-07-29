@@ -43,6 +43,17 @@ buildGoModule (finalAttrs: {
       libxcb
     ]);
 
+  postInstall = ''
+    mkdir -p $out/share/applications
+    mkdir -p $out/share/icons
+
+    cp $src/assets/go-hass-agent.desktop $out/share/applications/go-hass-agent.desktop
+    cp $src/internal/ui/assets/go-hass-agent.png $out/share/icons/go-hass-agent.png
+
+    substituteInPlace $out/share/applications/go-hass-agent.desktop \
+      --replace-warn "Exec=go-hass-agent" "Exec=$out/bin/go-hass-agent"
+  '';
+
   meta = with lib; {
     description = "Go-based Home Assistant agent";
     homepage = "https://github.com/joshuar/go-hass-agent";
