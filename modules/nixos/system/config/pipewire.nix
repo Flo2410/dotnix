@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.pulseaudio.enable = false;
+    services.pulseaudio.enable = mkForce false;
 
     # Pipewire
     security.rtkit.enable = true;
@@ -25,6 +25,18 @@ in {
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
+
+      wireplumber = {
+        enable = true;
+        extraConfig.bluetoothEnhancements = {
+          "monitor.bluez.properties" = {
+            "bluez5.enable-sbc-xq" = true;
+            "bluez5.enable-msbc" = true;
+            "bluez5.enable-hw-volume" = true;
+            "bluez5.roles" = ["hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag"];
+          };
+        };
+      };
     };
   };
 }
