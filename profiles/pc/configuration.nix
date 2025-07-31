@@ -41,7 +41,7 @@
 
   # Bootloader.
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.unstable.linuxKernel.packages.linux_6_15;
 
     loader = {
       systemd-boot.enable = true;
