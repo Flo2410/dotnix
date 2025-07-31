@@ -47,7 +47,7 @@
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
-      timeout = 5;
+      timeout = 1;
     };
 
     initrd.kernelModules = [
