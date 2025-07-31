@@ -44,6 +44,9 @@ in {
         Description = "go-hass-agent";
         Wants = ["network-online.target"];
         After = ["network-online.target" "nss-lookup.target"];
+        X-Restart-Triggers = [
+          "${config.xdg.configFile."go-hass-agent_commands".source}"
+        ];
       };
 
       Service = {
@@ -54,7 +57,7 @@ in {
       };
 
       Install = {
-        WantedBy = ["multi-user.target"];
+        WantedBy = ["graphical-session.target"];
       };
     };
 
