@@ -229,6 +229,13 @@
 
     # Shell scrips
     mkshell
+
+    (pkgs.writeScriptBin "reset-usb-controller" ''
+      set -eo pipefail
+      DEVICE=$(lspci -Dm | grep "USB controller" | cut -f1 -d' ' | head -n1)
+      echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind
+      echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+    '')
   ];
 
   # specialisation = {
