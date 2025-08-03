@@ -142,7 +142,7 @@ in {
         enable = true;
         iconTheme = {
           name = "Papirus-Dark";
-          package = catppuccin-papirus-folders-custom;
+          package = mkForce catppuccin-papirus-folders-custom;
         };
 
         gtk3 = {
