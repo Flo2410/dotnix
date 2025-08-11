@@ -19,7 +19,7 @@
     inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.catppuccin.homeModules.catppuccin
     inputs.ags.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix

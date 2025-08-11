@@ -19,7 +19,7 @@
     # inputs.stylix.homeManagerModules.stylix # Not needed here as it is bundeled into the nixos module
     inputs.catppuccin.homeModules.catppuccin
     inputs.ags.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
