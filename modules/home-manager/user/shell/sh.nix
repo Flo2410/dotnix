@@ -121,6 +121,10 @@ in {
           source ${completions}/nix/nix-completions.nu
 
           source ${autogen-completions}/nvim.nu
+          source ${autogen-completions}/unzip.nu
+          source ${autogen-completions}/zip.nu
+          source ${autogen-completions}/xz.nu
+          source ${autogen-completions}/wget.nu
         '';
 
         environmentVariables = {
