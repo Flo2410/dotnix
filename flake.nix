@@ -71,6 +71,7 @@
       curiosity = mkSystem [./profiles/curiosity/configuration.nix];
       pc = mkSystem [./profiles/pc/configuration.nix];
       surface = mkSystem [./profiles/surface/configuration.nix];
+      astro-pi = mkSystem [./profiles/astro-pi/configuration.nix];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -81,6 +82,7 @@
 
     images = {
       curiosity = mkPiImg "curiosity";
+      astro-pi = mkPiImg "astro-pi";
     };
 
     devShells = forAllSystems (system: let
