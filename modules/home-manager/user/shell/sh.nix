@@ -125,6 +125,7 @@ in {
           source ${autogen-completions}/zip.nu
           source ${autogen-completions}/xz.nu
           source ${autogen-completions}/wget.nu
+          source ${autogen-completions}/dd.nu
         '';
 
         environmentVariables = {
