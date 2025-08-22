@@ -162,7 +162,6 @@
     obsidian
     remmina
     jabref
-    bottles
     ente-auth
     heroic
 
@@ -195,6 +194,10 @@
     distrobox
     btrfs-assistant
     naps2
+
+    (unstable.bottles.override {
+      removeWarningPopup = true;
+    })
 
     # PWAs
     (pkgs.makeDesktopItem {
