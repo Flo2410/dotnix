@@ -133,7 +133,9 @@
     blender
     zotero
     jabref
-    bottles
+    (bottles.override {
+      removeWarningPopup = true;
+    })
     stm32cubemx
     ente-auth
     qgis
