@@ -164,6 +164,7 @@
     jabref
     ente-auth
     heroic
+    home-assistant-desktop
 
     # games
     # modrinth-app
