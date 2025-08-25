@@ -1,5 +1,4 @@
 {
-  stdenv,
   lib,
   buildNpmPackage,
   makeDesktopItem,
@@ -11,22 +10,23 @@
 in
   buildNpmPackage rec {
     pname = "homeassistant-desktop";
-    version = "1.5.3";
+    version = "1.6.7";
 
     src = fetchFromGitHub {
-      owner = "iprodanovbg";
+      owner = "DustyArmstrong";
       repo = pname;
-      rev = "v${version}";
-      hash = "sha256-Fu54mGYkJn92803QJOOkyL63I1yGi30OFWTEi1Y2IcM=";
+      rev = "${version}";
+      hash = "sha256-nkfqhkDEkZluJ/KTHnTTKubvrngqcgJDRodb71S/EqY=";
     };
 
-    npmDepsHash = "sha256-yrNGWqv13os54k5H7HpOPui/H8qQ1KHEh9oJG23cCW0=";
+    npmDepsHash = "sha256-lqZMw74ozi4jJkyOYPodOHx3zgMsfWCguAHUP960egM=";
 
     nativeBuildInputs = [
       electron
       copyDesktopItems
     ];
 
+    makeCacheWritable = true;
     dontNpmBuild = true;
 
     env = {
@@ -51,11 +51,10 @@ in
     ];
 
     meta = with lib; {
-      homepage = "https://github.com/iprodanovbg/homeassistant-desktop";
+      homepage = "https://github.com/DustyArmstrong/homeassistant-desktop";
       description = description;
       platforms = platforms.linux;
-      maintainers = with maintainers; [flo2410];
-      changelog = "https://github.com/iprodanovbg/homeassistant-desktop/releases/tag/v${version}";
+      changelog = "https://github.com/DustyArmstrong/homeassistant-desktop/releases/tag/${version}";
       license = licenses.asl20;
     };
   }
