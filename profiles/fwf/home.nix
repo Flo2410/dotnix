@@ -217,6 +217,20 @@
       };
     })
 
+    (pkgs.makeDesktopItem {
+      name = "onshape";
+      desktopName = "Onshape";
+      exec = "chromium --app=https://cad.onshape.com --class=onshape";
+      terminal = false;
+      type = "Application";
+      icon = pkgs.fetchurl {
+        url = "https://www.onshape.com/favicon.png";
+        sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
+      };
+      startupWMClass = "chrome-cad.onshape.com__-Default";
+      categories = ["Utility" "Office"];
+    })
+
     # Bottles
     (pkgs.makeDesktopItem {
       name = "catia-v5";

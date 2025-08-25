@@ -212,17 +212,19 @@
       categories = ["Network" "InstantMessaging"];
     })
 
-    # (pkgs.makeDesktopItem {
-    #   name = "flipper-lab";
-    #   desktopName = "Flipper Lab";
-    #   exec = "chromium --app=https://lab.flipper.net/";
-    #   terminal = false;
-    #   type = "Application";
-    #   icon = pkgs.fetchurl {<
-    #     url = "https://lab.flipper.net/icons/icon.svg";
-    #     sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
-    #   };
-    # })
+    (pkgs.makeDesktopItem {
+      name = "onshape";
+      desktopName = "Onshape";
+      exec = "chromium --app=https://cad.onshape.com --class=onshape";
+      terminal = false;
+      type = "Application";
+      icon = pkgs.fetchurl {
+        url = "https://www.onshape.com/favicon.png";
+        sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
+      };
+      startupWMClass = "chrome-cad.onshape.com__-Default";
+      categories = ["Utility" "Office"];
+    })
 
     # Bottles
     (stdenv.mkDerivation {
