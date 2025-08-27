@@ -136,6 +136,7 @@
         zen = {
           enable = true;
           defaultBrowser = true;
+          enableUrlHandler = true;
           package = inputs.zen-browser.packages."${pkgs.system}".default;
         };
       };
