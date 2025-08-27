@@ -76,6 +76,12 @@ in {
           version = "8.21.1";
           sha256 = "sha256:0n90ps91d08fbh26vbb5njdsv0a3jayshcnvkd2g2qfbxixhz277";
         })
+        (createChromiumExtension {
+          # Tampermonkey
+          id = "dhdgffkkebhmkfjojejmpbldmpobfkfo";
+          version = "5.3.3";
+          sha256 = "sha256:1kmfdkivryrcbgvgzzha486z6b9dpclbvls2nkw1a90wd180gw52";
+        })
       ];
     };
 
