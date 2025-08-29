@@ -140,6 +140,7 @@
     ente-auth
     qgis
     modrinth-app
+    rustdesk-flutter
 
     # kde utils
     kdePackages.kcalc
