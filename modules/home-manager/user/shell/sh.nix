@@ -126,6 +126,7 @@ in {
           source ${autogen-completions}/xz.nu
           source ${autogen-completions}/wget.nu
           source ${autogen-completions}/dd.nu
+          source ${autogen-completions}/rsync.nu
         '';
 
         environmentVariables = {
