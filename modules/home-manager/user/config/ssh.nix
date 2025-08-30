@@ -37,6 +37,11 @@ in {
           identityFile = "~/.ssh/gitlab_embsys_ed25519";
         };
 
+        "pc-florian.*" = entryBefore ["*.hye.network"] {
+          user = "florian";
+          identityFile = "~/.ssh/pc-florian_ed25519";
+        };
+
         "lro" = entryBefore ["*.hye.network"] {
           host = "lro lro.hye.network";
           hostname = "10.56.20.4";
