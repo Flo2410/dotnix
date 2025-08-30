@@ -137,6 +137,7 @@
 
   services = {
     timesyncd.enable = true;
+    netbird.enable = true;
 
     openssh = {
       enable = true;
