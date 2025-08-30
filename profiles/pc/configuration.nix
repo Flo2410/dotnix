@@ -138,6 +138,14 @@
   services = {
     timesyncd.enable = true;
 
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
+
     udev = {
       enable = true;
       packages = with pkgs; [
@@ -167,7 +175,13 @@
   };
 
   security = {
-    pam.services.login.kwallet.enable = true;
+    pam = {
+      sshAgentAuth.enable = true;
+      services = {
+        sudo-rs.sshAgentAuth = true;
+        login.kwallet.enable = true;
+      };
+    };
 
     sudo.enable = lib.mkForce false;
     sudo-rs = {
