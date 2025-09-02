@@ -110,6 +110,11 @@ in {
           def ll [] { ls -l | select name mode user group size modified}
           def l [] { ls -al | select name mode user group size modified}
 
+          def --env mkcd [folder: path] {
+            mkdir $folder
+            cd $folder
+          }
+
           # nu_scrips aliases
           use ${aliases}/git/git-aliases.nu *
 
