@@ -15,7 +15,7 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
     # inputs.stylix.homeManagerModules.stylix # Not needed here as it is bundeled into the nixos module
     inputs.catppuccin.homeModules.catppuccin
     inputs.ags.homeManagerModules.default
