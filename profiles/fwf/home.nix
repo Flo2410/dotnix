@@ -98,7 +98,6 @@
       virtualization.enable = true;
       vscode.enable = true;
       matlab.enable = true;
-      xilinx-vivado.enable = true;
       thunar.enable = true;
       nvim.enable = true;
       baloo.enable = true;

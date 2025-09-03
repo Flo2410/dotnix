@@ -16,7 +16,6 @@
     ./ags.nix
     ./matlab.nix
     ./baloo.nix
-    ./xilinx-vivado.nix
     ./thunar.nix
     ./go-hass-agent.nix
 

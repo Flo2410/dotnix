@@ -144,11 +144,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    nix-xilinx = {
-      url = "gitlab:doronbehar/nix-xilinx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # https://github.com/gmodena/nix-flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
 
