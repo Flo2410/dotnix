@@ -108,12 +108,14 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "adbusers"];
     };
   };
 
   programs = {
     partition-manager.enable = true;
+    adb.enable = true;
+
     nh = {
       enable = true;
       clean.enable = true;
