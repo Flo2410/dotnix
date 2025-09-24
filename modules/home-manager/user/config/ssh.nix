@@ -88,48 +88,10 @@ in {
         };
 
         "helios" = {
-          hostname = "helios.hye.dev";
+          hostname = "helios.bird.hye.dev";
           user = "florian";
           identityFile = "~/.ssh/helios_ed25519";
           addressFamily = "inet";
-        };
-
-        "helios_mount" = {
-          hostname = "helios.hye.dev";
-          user = "florian";
-          identityFile = "~/.ssh/helios_ed25519";
-          extraOptions = {
-            SessionType = "none";
-          };
-          localForwards = [
-            # nginx proxy manager
-            {
-              bind.port = 8081;
-              host.address = "localhost";
-              host.port = 81;
-            }
-
-            # minio
-            {
-              bind.port = 9090;
-              host.address = "localhost";
-              host.port = 9090;
-            }
-
-            # mongodb
-            {
-              bind.port = 27017;
-              host.address = "localhost";
-              host.port = 27017;
-            }
-
-            # dockge
-            {
-              bind.port = 5001;
-              host.address = "localhost";
-              host.port = 5001;
-            }
-          ];
         };
       };
     };
