@@ -73,6 +73,7 @@ in {
         "*.hye.network" = {
           user = "florian";
           identityFile = "~/.ssh/milkyway_vms_ed25519";
+          forwardX11 = true;
         };
 
         "curiosity" = {
