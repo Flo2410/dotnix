@@ -47,7 +47,7 @@ in {
   "editor.suggestSelection" = "first";
   "editor.defaultFormatter" = "esbenp.prettier-vscode";
   "editor.wordBasedSuggestions" = "off";
-  "editor.minimap.autohide" = true;
+  "editor.minimap.autohide" = "mouseover";
   "editor.minimap.renderCharacters" = false;
   "editor.minimap.scale" = 2;
   "editor.wordWrap" = "off";
