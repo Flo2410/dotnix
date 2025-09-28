@@ -181,6 +181,7 @@
     vlc
     ffmpeg
     nomacs
+    audacity
 
     # utils
     gh
