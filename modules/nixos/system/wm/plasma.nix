@@ -20,6 +20,7 @@ in {
       plasma6.excludePackages = with pkgs.kdePackages; [
         discover
         plasma-browser-integration
+        elisa
       ];
     };
 
