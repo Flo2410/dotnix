@@ -124,6 +124,9 @@ in {
           source ${completions}/bat/bat-completions.nu
           source ${completions}/docker/docker-completions.nu
           source ${completions}/nix/nix-completions.nu
+          source ${completions}/cargo/cargo-completions.nu
+          source ${completions}/tar/tar-completions.nu
+          source ${completions}/pnpm/pnpm-completions.nu
 
           source ${autogen-completions}/nvim.nu
           source ${autogen-completions}/unzip.nu
