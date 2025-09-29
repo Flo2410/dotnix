@@ -25,6 +25,7 @@ in {
   "workbench.editorAssociations" = {
     "*.bin" = "hexEditor.hexedit";
   };
+  "workbench.secondarySideBar.defaultVisibility" = "hidden";
 
   # Window Settings
   "window.titleBarStyle" = "custom";
