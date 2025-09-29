@@ -140,7 +140,7 @@
     qgis
     modrinth-app
     rustdesk-flutter
-    netbird-ui
+    unstable.netbird-ui
 
     # kde utils
     kdePackages.kcalc

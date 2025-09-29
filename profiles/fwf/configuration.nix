@@ -165,7 +165,11 @@
     upower.enable = true;
     gnome.gnome-keyring.enable = true;
     fwupd.enable = true;
-    netbird.enable = true;
+
+    netbird = {
+      enable = true;
+      package = pkgs.unstable.netbird;
+    };
 
     udev = {
       enable = true;
