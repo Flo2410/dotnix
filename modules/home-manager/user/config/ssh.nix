@@ -88,7 +88,7 @@ in {
         };
 
         "helios" = {
-          hostname = "helios.bird.hye.dev";
+          hostname = "helios.bird.hye.network";
           user = "florian";
           identityFile = "~/.ssh/helios_ed25519";
           addressFamily = "inet";
