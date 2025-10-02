@@ -166,7 +166,7 @@
     ente-auth
     heroic
     home-assistant-desktop
-    netbird-ui
+    unstable.netbird-ui
 
     # games
     # modrinth-app

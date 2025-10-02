@@ -139,7 +139,10 @@
 
   services = {
     timesyncd.enable = true;
-    netbird.enable = true;
+    netbird = {
+      enable = true;
+      package = pkgs.unstable.netbird;
+    };
 
     openssh = {
       enable = true;
