@@ -10,16 +10,16 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "go-hass-agent";
-  version = "13.3.1";
+  version = "13.3.3";
 
   src = fetchFromGitHub {
     owner = "joshuar";
     repo = "go-hass-agent";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-K/3z2lxALy1PZM56QT8CZZPdHfRNfgSpyG5vIdKmO+w=";
+    hash = "sha256-gvb/XuNAnypfgHqMnxFwn+8BXTJm4r1TvC8fwLmO5Bk=";
   };
 
-  vendorHash = "sha256-xgOv+7Z9vYFF7YQn1upbE9n99HyJZHeXQcmgKOUyeAc=";
+  vendorHash = "sha256-m+4kPNlfZBSW3TGsoYjburKdEo10ysV5AJCr5oDy9qU=";
 
   nativeBuildInputs = [
     pkg-config
