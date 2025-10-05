@@ -6,7 +6,7 @@
 with (pkgs.nix-vscode-extensions.forVSCodeVersion "${version}").vscode-marketplace; [
   aaron-bond.better-comments
   albert.tabout
-  antiantisepticeye.vscode-color-picker
+  markosth09.color-picker
   codezombiech.gitignore
   davidanson.vscode-markdownlint
   bierner.markdown-mermaid

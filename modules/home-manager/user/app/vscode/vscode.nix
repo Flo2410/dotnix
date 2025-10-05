@@ -34,7 +34,7 @@ in {
     programs.vscode = {
       enable = true;
       package = pkgs.unstable.vscode.override {
-        commandLineArgs = "--password-store=\"gnome-libsecret\"";
+        commandLineArgs = "--password-store=\"gnome-libsecret\""; # FIXME: This not required when using kde plasma.
       };
       profiles.default = {
         globalSnippets = importJSON ./vs-snippets.code-snippets;
