@@ -13,6 +13,11 @@ in {
 
   config = mkIf cfg.enable {
     hardware.graphics.enable32Bit = mkDefault true;
-    programs.steam.enable = true;
+    programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
   };
 }

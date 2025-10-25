@@ -170,6 +170,7 @@
 
     # games
     # modrinth-app
+    sidequest
 
     # kde utils
     kdePackages.kcalc

@@ -116,6 +116,11 @@
     partition-manager.enable = true;
     adb.enable = true;
 
+    alvr = {
+      enable = true;
+      openFirewall = true;
+    };
+
     nh = {
       enable = true;
       clean.enable = true;
