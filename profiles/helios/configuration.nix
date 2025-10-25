@@ -1,0 +1,181 @@
+# This is your system's configuration file.
+# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  # You can import other NixOS modules here
+  imports = [
+    # If you want to use modules your own flake exports (from modules/nixos):
+    outputs.nixosModules.system
+
+    # Or modules from other flakes (such as nixos-hardware):
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.stylix.nixosModules.stylix
+    inputs.catppuccin.nixosModules.catppuccin
+    inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.disko.nixosModules.disko
+
+    # You can also split up your configuration and import pieces of it here:
+    # ./users.nix
+    ../../nix/nixpkgs.nix
+    ../../nix/lib/functions.nix
+
+    # Import your generated (nixos-generate-config) hardware configuration
+    ./hardware-configuration.nix
+    ./disko-config.nix
+  ];
+
+  nix = {
+    # Ensure nix flakes are enabled
+    package = pkgs.nixVersions.stable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  # Bootloader.
+  boot = {
+    kernelPackages = pkgs.linuxPackages; # stable
+
+    loader = {
+      grub = {
+        enable = true;
+        # no need to set devices, disko will add all devices that have a EF02 partition to the list already
+        # devices = [ ];
+      };
+      timeout = 1;
+    };
+  };
+
+  # Enable networking
+  networking = {
+    hostName = "helios"; # Define your hostname.
+    networkmanager.enable = true;
+    resolvconf.enable = true;
+  };
+
+  # Set your time zone.
+  time.timeZone = "Europe/Vienna";
+
+  console.useXkbConfig = true;
+
+  environment = {
+    # List packages installed in system profile.
+    systemPackages = with pkgs; [
+      wget
+      git
+      nushell
+      home-manager
+    ];
+
+    shells = with pkgs; [nushell];
+  };
+
+  home-manager = {
+    backupFileExtension = "backup";
+    useGlobalPkgs = true;
+    useUserPackages = false;
+    extraSpecialArgs = {inherit inputs outputs;};
+    # sharedModules = builtins.attrValues outputs.homeManagerModules;
+    users."florian" = import ./home.nix;
+  };
+
+  users = {
+    defaultUserShell = pkgs.nushell;
+    users."florian" = {
+      isNormalUser = true;
+      uid = 1000;
+      extraGroups = ["networkmanager" "wheel"];
+      openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/zs5dIYb4GmL/GExMFQHqtg/fkr0rUc2HyXb4ZMY27 florian@fwf"];
+      hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
+    };
+  };
+
+  programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/florian/dotnix"; #FIXME: Get path from home.nix or someother global way.
+    };
+  };
+
+  services = {
+    timesyncd.enable = true;
+    netbird = {
+      enable = true;
+      package = pkgs.unstable.netbird;
+    };
+
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
+    };
+
+    udev.enable = true;
+
+    journald = {
+      extraConfig = "SystemMaxUse=50M\nSystemMaxFiles=5";
+      rateLimitBurst = 500;
+      rateLimitInterval = "30s";
+    };
+
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = ["/"];
+    };
+  };
+
+  security = {
+    pam = {
+      sshAgentAuth.enable = true;
+      services = {
+        sudo-rs.sshAgentAuth = true;
+      };
+    };
+
+    sudo.enable = lib.mkForce false;
+    sudo-rs = {
+      enable = lib.mkForce true;
+    };
+  };
+
+  system = {
+    # Config
+    config = {
+      dbus.enable = true;
+      fonts.enable = true;
+
+      stylix.enable = true; # FIXME: It is not possible to disable stylix
+
+      locale = {
+        enable = true;
+        defaultLocale = "en_GB.UTF-8";
+        extraLocale = "de_AT.UTF-8";
+      };
+    };
+
+    # Security
+    security.firewall.enable = true;
+
+    # Apps
+    app = {
+    };
+
+    hardware = {
+    };
+  };
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.11";
+}

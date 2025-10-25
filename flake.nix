@@ -72,6 +72,7 @@
       pc = mkSystem [./profiles/pc/configuration.nix];
       surface = mkSystem [./profiles/surface/configuration.nix];
       astro-pi = mkSystem [./profiles/astro-pi/configuration.nix];
+      helios = mkSystem [./profiles/helios/configuration.nix];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -206,6 +207,11 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
