@@ -169,6 +169,7 @@
     netbird = {
       enable = true;
       package = pkgs.unstable.netbird;
+      # useRoutingFeatures = "client"; # This will set `networking.firewall.checkReversePath = "loose";`
     };
 
     udev = {

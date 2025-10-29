@@ -41,6 +41,8 @@ in {
         24800 # barrier
       ];
 
+      checkReversePath = "loose"; # FIXME: remove this when `services.netbird.useRoutingFeatures` is available in stable
+
       # wireguard trips rpfilter up
       # source: https://wiki.nixos.org/wiki/WireGuard#Setting_up_WireGuard_with_NetworkManager
       extraCommands = ''
