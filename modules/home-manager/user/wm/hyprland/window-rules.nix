@@ -23,7 +23,7 @@
 
     # MATLAB
     "tile, class:^(MATLAB)(.*), title:^(.+)$" # Tile all MATLAB windows
-    "center, floating:1, class:^(MATLAB)(.*), title:^(.+)$" #center floating windows
+    "float, class:^(MATLAB)(.*), title:^(MATLAB)( .*)$" # Float popups; The " " is so it matches "MATLAB R2025b" but not "MATLAB". "MATLAB" is the initial title of the main window.
 
     # pavucontrol
     "float, class:^(pavucontrol), title:^(Volume Control)$"
