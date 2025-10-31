@@ -118,6 +118,7 @@ in {
 
       # stylix.targets.kitty.enable = true; # from catppuccin
       stylix.targets.gtk = {
+        flatpakSupport.enable = true;
         enable = true;
         extraCss = ''
           @define-color accent_color #74c7ec;
