@@ -6,7 +6,6 @@
 }: {
   imports = [
     ../../opengl/opengl.nix
-    ../cachix.nix
     ./vaapi.nix
   ];
 

@@ -3,6 +3,10 @@
   outputs,
   ...
 }: {
+  imports = [
+    ./cachix.nix
+  ];
+
   nixpkgs = {
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
