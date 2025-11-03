@@ -40,6 +40,22 @@ in {
             <patterns>*</patterns>
             <directories/>
           </action>
+          <action>
+            <icon></icon>
+            <name>Copy path</name>
+            <submenu></submenu>
+            <unique-id>1762190862339607-1</unique-id>
+            <command>echo %f | wl-copy</command>
+            <description>Copy path to clipboard using wl-copy</description>
+            <range>*</range>
+            <patterns>*</patterns>
+            <directories/>
+            <audio-files/>
+            <image-files/>
+            <other-files/>
+            <text-files/>
+            <video-files/>
+          </action>
         </actions>
       '';
     };
