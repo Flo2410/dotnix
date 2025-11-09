@@ -88,12 +88,17 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   # Packages related to NVIDIA graphics
-  environment.systemPackages = with pkgs; [
-    clinfo
-    gwe
-    nvtopPackages.nvidia
-    virtualglLib
-    vulkan-loader
-    vulkan-tools
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      clinfo
+      gwe
+      nvtopPackages.nvidia
+      virtualglLib
+      vulkan-loader
+      vulkan-tools
+    ])
+    ++ (with pkgs.cudaPackages; [
+      cuda_nvcc
+      cudatoolkit
+    ]);
 }
