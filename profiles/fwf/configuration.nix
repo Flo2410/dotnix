@@ -69,7 +69,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Vienna";
+  time.timeZone = lib.mkDefault "Europe/Vienna";
 
   console.useXkbConfig = true;
 
@@ -165,6 +165,8 @@
     upower.enable = true;
     gnome.gnome-keyring.enable = true;
     fwupd.enable = true;
+    automatic-timezoned.enable = true;
+    geoclue2.geoProviderUrl = "https://api.beacondb.net/v1/geolocate";
 
     netbird = {
       enable = true;
