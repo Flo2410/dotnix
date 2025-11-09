@@ -176,6 +176,7 @@
     alejandra # nix fmt
     distrobox
     btrfs-assistant
+    uutils-coreutils-noprefix
 
     # unstable packages
     unstable.naps2

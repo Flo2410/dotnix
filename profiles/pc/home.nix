@@ -200,6 +200,7 @@
     distrobox
     btrfs-assistant
     naps2
+    uutils-coreutils-noprefix
 
     (unstable.bottles.override {
       removeWarningPopup = true;
