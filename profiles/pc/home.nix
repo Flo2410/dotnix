@@ -169,6 +169,14 @@
     home-assistant-desktop
     unstable.netbird-ui
 
+    (kicad.overrideAttrs (oldAttrs: {
+      makeWrapperArgs =
+        oldAttrs.makeWrapperArgs
+        ++ [
+          "--unset __GLX_VENDOR_LIBRARY_NAME"
+        ];
+    }))
+
     # games
     # modrinth-app
     sidequest
