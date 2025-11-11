@@ -261,7 +261,7 @@
 
       icon = pkgs.fetchurl {
         url = "https://www.adobe.com/cc-shared/assets/img/product-icons/svg/lightroom-classic-64.svg";
-        sha256 = "sha256-KsY93/6LbwrrQjA8699s6f5pDJwUMpg3hdpuwEw78WU=";
+        sha256 = "sha256-j1wPsHIfhdpDAjzugoIGQgYuLNk446dZ6z+YXzxspUs=";
       };
 
       desktopItem = pkgs.makeDesktopItem {
