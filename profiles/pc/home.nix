@@ -209,6 +209,7 @@
     btrfs-assistant
     naps2
     uutils-coreutils-noprefix
+    wlx-overlay-s
 
     (unstable.bottles.override {
       removeWarningPopup = true;
