@@ -64,6 +64,10 @@
       "nvidia_drm.fbdev=1" # Enables the use of a framebuffer device for NVIDIA graphics. This can be useful for certain configurations.
       "nvidia_drm.modeset=1" # Enables kernel modesetting for NVIDIA graphics. This is essential for proper graphics support on NVIDIA GPUs.
     ];
+
+    kernel.sysctl = {
+      "vm.swappiness" = 10;
+    };
   };
 
   # Enable networking

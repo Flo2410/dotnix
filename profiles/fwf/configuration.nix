@@ -56,6 +56,10 @@
       enable = lib.mkForce true;
       pkiBundle = "/var/lib/sbctl";
     };
+
+    kernel.sysctl = {
+      "vm.swappiness" = 10;
+    };
   };
 
   # Enable networking
