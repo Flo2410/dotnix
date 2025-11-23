@@ -107,6 +107,9 @@ in {
   # keybard
   "keyboard.dispatch" = "keyCode"; # This is nedded for the vim extension to recognize the remapped caps lock key as escape.
 
+  # Source control
+  "scm.defaultViewMode" = "list";
+
   # --------------------------------------------------
   # Extenstion specific
   # --------------------------------------------------
