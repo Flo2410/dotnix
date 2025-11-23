@@ -33,7 +33,7 @@ in {
 
       userKeymaps = import ./keymap.nix {};
       userSettings = import ./settings.nix {inherit pkgs config;};
-      extensions = [];
+      extensions = import ./extensions.nix {};
     };
   };
 }
