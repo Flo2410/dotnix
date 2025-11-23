@@ -29,4 +29,5 @@
   # ls = "eza --icons -g";
   # grep = "rg";
   c = "code .";
+  z = "zededitor .";
 }
