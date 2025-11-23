@@ -153,8 +153,8 @@
       # --------------------------------
 
       "$mod, RETURN, exec, kitty"
-      "$mod, C, exec, zededitor --new" # open a new vscode window
-      "$mod, D, exec, zededitor ~/dotnix" # open dotnix in vscode
+      "$mod, C, exec, zeditor --new" # open a new vscode window
+      "$mod, D, exec, zeditor ~/dotnix" # open dotnix in vscode
       "$mod, E, exec, thunar"
     ]
     ++ workspaces;
