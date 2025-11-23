@@ -18,6 +18,7 @@
     ./baloo.nix
     ./thunar.nix
     ./go-hass-agent.nix
+    ./zed-editor/zed-editor.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

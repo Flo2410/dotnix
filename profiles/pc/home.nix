@@ -77,6 +77,7 @@
 
     app = {
       vscode.enable = true;
+      zed-editor.enable = true;
       nvim.enable = true;
       go-hass-agent = {
         enable = true;

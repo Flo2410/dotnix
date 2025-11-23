@@ -98,6 +98,7 @@
       };
       virtualization.enable = true;
       vscode.enable = true;
+      zed-editor.enable = true;
       matlab.enable = true;
       thunar.enable = true;
       nvim.enable = true;
