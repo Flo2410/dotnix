@@ -19,6 +19,7 @@
     ./thunar.nix
     ./go-hass-agent.nix
     ./zed-editor/zed-editor.nix
+    ./mangohud.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

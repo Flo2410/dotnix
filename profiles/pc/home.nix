@@ -79,6 +79,7 @@
       vscode.enable = true;
       zed-editor.enable = true;
       nvim.enable = true;
+      mangohud.enable = true;
       go-hass-agent = {
         enable = true;
         customCommands = let
