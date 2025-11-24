@@ -8,6 +8,7 @@
   {
     context = "Editor";
     bindings = {
+      "ctrl-w" = "pane::CloseActiveItem";
     };
   }
   {
