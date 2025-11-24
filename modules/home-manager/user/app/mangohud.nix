@@ -16,7 +16,7 @@ in {
 
     programs.mangohud = {
       enable = true;
-      settings = lib.mkDefault {
+      settings = {
         gpu_stats = true;
         gpu_temp = true;
         gpu_power = true;
@@ -36,6 +36,8 @@ in {
         frame_timing = true;
 
         text_outline = true;
+        alpha = lib.mkForce 0.7;
+        background_alpha = lib.mkForce 0.4;
       };
     };
   };
