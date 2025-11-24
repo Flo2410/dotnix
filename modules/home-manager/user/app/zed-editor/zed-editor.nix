@@ -3,17 +3,16 @@
   pkgs,
   config,
   ...
-}:
-with lib; let
+}: let
   cfg = config.user.app.zed-editor;
 in {
   options.user.app.zed-editor = {
-    enable = mkEnableOption "Enable Zed";
+    enable = lib.mkEnableOption "Enable Zed";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     catppuccin = {
-      enable = mkDefault true;
+      enable = lib.mkDefault true;
 
       zed = {
         enable = true;
@@ -28,6 +27,7 @@ in {
 
     programs.zed-editor = {
       enable = true;
+      package = pkgs.unstable.zed-editor;
       # mutableUserSettings = false;
       # mutableUserKeymaps = false;
 

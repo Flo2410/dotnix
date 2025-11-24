@@ -5,26 +5,15 @@
   dotfilesDirectory = config.user.home.dotfilesDirectory;
   username = config.user.home.username;
 in {
-  minimap = {
-    show = "auto";
-  };
   git = {
     inline_blame = {
       enabled = true;
       show_commit_summary = false;
     };
   };
-  project_panel = {
-    auto_fold_dirs = false;
-  };
   linked_edits = true;
-  show_whitespaces = "all";
   tab_size = 2;
-  terminal = {
-    blinking = "on";
-    cursor_shape = "bar";
-    font_family = "Fira Code";
-  };
+
   base_keymap = "VSCode";
   telemetry = {
     metrics = false;
@@ -36,14 +25,79 @@ in {
   theme = {
     mode = "system";
   };
-  relative_line_numbers = true;
+
+  gutter = {
+    line_numbers = true;
+    runnables = true;
+    breakpoints = true;
+    folds = false;
+  };
+  relative_line_numbers = "enabled";
+  sticky_scroll = {
+    enabled = false;
+  };
+  show_whitespaces = "all";
+  soft_wrap = "none";
+
   format_on_save = "on";
+  auto_update = false;
+
+  # disable AI features
+  disable_ai = true;
+  agent = {
+    enabled = false;
+    button = false;
+  };
+
   collaboration_panel = {
     button = false;
   };
-  auto_update = false;
-  soft_wrap = "none";
-  disable_ai = true;
+
+  project_panel = {
+    button = true;
+    folder_icons = true;
+    file_icons = true;
+    git_status = true;
+    auto_reveal_entries = true;
+    auto_fold_dirs = true;
+    sticky_scroll = true;
+    drag_and_drop = true;
+    hide_root = true;
+    hide_hidden = false;
+  };
+
+  title_bar = {
+    show_branch_icon = true;
+    show_branch_name = true;
+    show_project_items = true;
+    show_onboarding_banner = false;
+    show_user_picture = false;
+    show_sign_in = false;
+    show_menus = false;
+  };
+
+  terminal = {
+    toolbar = {
+      breadcrumbs = false;
+    };
+    blinking = "on";
+    cursor_shape = "bar";
+    font_family = "Fira Code";
+  };
+
+  minimap = {
+    show = "auto";
+    thumb = "always";
+    thumb_border = "none";
+    current_line_highlight = null;
+  };
+
+  # Tell Zed to use direnv and direnv can use a flake.nix environment
+  load_direnv = "direct";
+
+  inlay_hints = {
+    enabled = true;
+  };
 
   vim = {
     use_system_clipboard = "on_yank";
@@ -86,10 +140,14 @@ in {
   # lsp settings
   lsp = {
     texlab = {
-      binary.path = "${pkgs.lib.getExe pkgs.texlab}";
+      binary.path = pkgs.lib.getExe pkgs.texlab;
       build = {
         onSave = true;
       };
+    };
+
+    rust-analyzer = {
+      binary.path = pkgs.lib.getExe pkgs.unstable.rust-analyzer;
     };
   };
 }

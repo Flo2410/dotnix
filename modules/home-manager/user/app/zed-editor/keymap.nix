@@ -2,7 +2,7 @@
   {
     context = "Workspace";
     bindings = {
-      "alt-l" = "terminal_panel::ToggleFocus";
+      "alt-l" = "terminal_panel::Toggle";
     };
   }
   {
