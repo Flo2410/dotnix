@@ -21,6 +21,7 @@ in {
         discover
         plasma-browser-integration
         elisa
+        konsole
       ];
     };
 
