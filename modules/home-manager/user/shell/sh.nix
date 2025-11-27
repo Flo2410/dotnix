@@ -63,6 +63,11 @@ in {
       _ZO_ECHO = 1;
     };
 
+    catppuccin = {
+      yazi.enable = false;
+    };
+    stylix.targets.yazi.enable = true;
+
     programs = {
       zsh = {
         enable = true;
@@ -239,6 +244,58 @@ in {
             vimcmd_symbol = "";
           };
         };
+      };
+
+      yazi = {
+        enable = true;
+        enableNushellIntegration = true;
+        enableZshIntegration = true;
+        enableBashIntegration = true;
+
+        settings = {
+          mgr = {
+            sort_by = "natural";
+            sort_dir_first = true;
+            show_hidden = true;
+
+            prepend_keymap = [
+              {
+                on = ["c" "m"];
+                run = "plugin chmod";
+                desc = "Chmod on selected files";
+              }
+            ];
+          };
+
+          plugin = {
+            prepend_fetchers = [
+              {
+                id = "git";
+                name = "*";
+                run = "git";
+              }
+              {
+                id = "git";
+                name = "*/";
+                run = "git";
+              }
+            ];
+          };
+        };
+
+        plugins = {
+          starship = pkgs.yaziPlugins.starship;
+          git = pkgs.yaziPlugins.git;
+          chmod = pkgs.yaziPlugins.chmod;
+          full-border = pkgs.yaziPlugins.full-border;
+        };
+
+        initLua = ''
+          require("zoxide"):setup()
+          require("git"):setup()
+          require("starship"):setup()
+          require("full-border"):setup()
+        '';
       };
     };
   };
