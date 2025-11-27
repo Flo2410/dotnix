@@ -55,7 +55,6 @@
       # compositor commands
       # --------------------------------
 
-      "$mod SHIFT, E, exec, pkill Hyprland"
       "$mod, Q, killactive,"
       "$mod, F, togglefloating,"
       "$mod ALT, ,resizeactive,"
@@ -156,6 +155,7 @@
       "$mod, C, exec, zeditor --new" # open a new vscode window
       "$mod, D, exec, zeditor ~/dotnix" # open dotnix in vscode
       "$mod, E, exec, thunar"
+      "$mod SHIFT, E, exec, kitty -e yazi"
     ]
     ++ workspaces;
 
