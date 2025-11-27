@@ -105,24 +105,6 @@ in {
   };
 
   # Extension Settings
-  ltex = {
-    ltex-ls.path = "${pkgs.ltex-ls-plus}";
-    java.path = "${pkgs.temurin-bin-21}";
-    # ltex-ls.logLevel" = "finest";
-    # trace.server" = "verbose";
-    language = "de-AT";
-    additionalRules.motherTongue = "de-AT";
-    additionalRules.enablePickyRules = true;
-    configurationTarget = {
-      dictionary = "workspaceFolder";
-      disabledRules = "workspaceFolder";
-      hiddenFalsePositives = "workspaceFolder";
-    };
-    completionEnabled = true;
-    disabledRules = {
-      "de-AT" = ["WHITESPACE_RULE"];
-    };
-  };
 
   # Language Settings
   languages = {
@@ -148,6 +130,30 @@ in {
 
     rust-analyzer = {
       binary.path = pkgs.lib.getExe pkgs.unstable.rust-analyzer;
+    };
+
+    ltex = {
+      binary.path = pkgs.lib.getExe pkgs.ltex-ls-plus;
+      settings = {
+        ltex = {
+          ltex-ls.path = "${pkgs.ltex-ls-plus}";
+          java.path = "${pkgs.temurin-bin-21}";
+          # ltex-ls.logLevel" = "finest";
+          # trace.server" = "verbose";
+          language = "de-AT";
+          additionalRules.motherTongue = "de-AT";
+          additionalRules.enablePickyRules = true;
+          configurationTarget = {
+            dictionary = "workspaceFolder";
+            disabledRules = "workspaceFolder";
+            hiddenFalsePositives = "workspaceFolder";
+          };
+          completionEnabled = true;
+          disabledRules = {
+            "de-AT" = ["WHITESPACE_RULE"];
+          };
+        };
+      };
     };
   };
 }
