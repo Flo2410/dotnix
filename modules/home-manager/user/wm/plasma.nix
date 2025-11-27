@@ -39,6 +39,7 @@ in {
           "Switch One Desktop to the Right" = "Meta+Ctrl+Right";
           "Overview" = "Meta+W";
           "Window On All Desktops" = "Meta+Ctrl+A";
+          "Close Window" = "Meta+Q";
         };
       };
 
