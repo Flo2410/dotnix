@@ -43,7 +43,7 @@ in {
       fastfetch
       htop
       dig
-      dnsutils
+      # dnsutils
       minicom
       usbutils
       pciutils

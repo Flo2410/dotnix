@@ -19,7 +19,8 @@ in {
       packages = with pkgs; [
         # Fonts
         noto-fonts
-        noto-fonts-emoji
+        noto-fonts-color-emoji
+        noto-fonts-monochrome-emoji
         font-awesome
         fira-code
         fira-code-symbols

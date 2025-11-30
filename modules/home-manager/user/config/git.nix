@@ -16,10 +16,13 @@ in {
 
     programs.git = {
       enable = true;
-      userName = "Flo2410";
-      userEmail = "florian@hye.dev";
 
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Flo2410";
+          email = "florian@hye.dev";
+        };
+
         init.defaultBranch = "main";
 
         # Sign all commits using ssh key

@@ -18,13 +18,20 @@ in {
 
     programs.ssh = {
       enable = true;
-      hashKnownHosts = false;
-      forwardAgent = true;
-      addKeysToAgent = "yes";
-      extraConfig = ''
-        IdentitiesOnly yes
-      '';
+      enableDefaultConfig = false;
       matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+          hashKnownHosts = false;
+          forwardAgent = false;
+          identitiesOnly = true;
+          compression = true;
+          controlMaster = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
+          userKnownHostsFile = "~/.ssh/known_hosts";
+        };
+
         "github.com" = {
           identityFile = "~/.ssh/GitHub";
         };
@@ -40,6 +47,7 @@ in {
         "pc-florian.*" = entryBefore ["*.hye.network"] {
           user = "florian";
           identityFile = "~/.ssh/pc-florian_ed25519";
+          forwardAgent = true;
         };
 
         "lro" = entryBefore ["*.hye.network"] {
@@ -47,39 +55,46 @@ in {
           hostname = "10.56.20.4";
           user = "florian";
           identityFile = "~/.ssh/lro_ed25519";
+          forwardAgent = true;
         };
 
         "milkyway.hye.network" = entryBefore ["*.hye.network"] {
           user = "root";
           identityFile = "~/.ssh/milkyway_ed25519";
+          forwardAgent = true;
         };
 
         "haos.hye.network" = entryBefore ["*.hye.network"] {
           user = "root";
           port = 22222;
           identityFile = "~/.ssh/haos_22222_ed25519";
+          forwardAgent = true;
         };
 
         "ups-pi.hye.network" = entryBefore ["*.hye.network"] {
           user = "florian";
           identityFile = "~/.ssh/ups-pi_ed25519";
+          forwardAgent = true;
         };
 
         "sagittarius-a.hye.network" = entryBefore ["*.hye.network"] {
           user = "florian";
           identityFile = "~/.ssh/sagittarius-a_ed25519";
+          forwardAgent = true;
         };
 
         "*.hye.network" = {
           user = "florian";
           identityFile = "~/.ssh/milkyway_vms_ed25519";
           forwardX11 = true;
+          forwardAgent = true;
         };
 
         "curiosity" = {
           hostname = "curiosity.dsn.hye.network";
           user = "florian";
           identityFile = "~/.ssh/curiosity_ed25519";
+          forwardAgent = true;
         };
 
         "kfj-router" = {
@@ -92,6 +107,7 @@ in {
           user = "florian";
           identityFile = "~/.ssh/helios_ed25519";
           addressFamily = "inet";
+          forwardAgent = true;
         };
       };
     };

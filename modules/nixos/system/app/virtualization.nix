@@ -25,7 +25,6 @@ in {
         ];
         enable = true;
         qemu.runAsRoot = true;
-        qemu.ovmf.enable = true;
       };
 
       spiceUSBRedirection.enable = mkDefault true;

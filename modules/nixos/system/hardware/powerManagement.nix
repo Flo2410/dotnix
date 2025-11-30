@@ -44,9 +44,14 @@ in {
 
       # Suspend-then-hibernate everywhere
       services.logind = {
-        lidSwitch = "suspend-then-hibernate";
-        powerKey = "suspend-then-hibernate";
+        settings = {
+          Login = {
+            HandleLidSwitch = "suspend-then-hibernate";
+            HandlePowerKey = "suspend-then-hibernate";
+          };
+        };
       };
+
       systemd.sleep.extraConfig = "HibernateDelaySec=2h";
     })
   ];

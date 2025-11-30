@@ -49,10 +49,9 @@ in {
     mkIf cfg.enable
     {
       home.packages = with pkgs; [
-        noto-fonts-monochrome-emoji
         kdePackages.qtstyleplugin-kvantum
         kdePackages.qtsvg # dolphin needs this to show icons
-        qt6ct
+        qt6Packages.qt6ct
 
         (catppuccin-kvantum.override {
           accent = "sapphire";

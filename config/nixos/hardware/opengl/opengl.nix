@@ -23,8 +23,8 @@ with lib; {
         # nvidia-thrust-cuda
         # nvidia-thrust-intel
         cudaPackages.cuda_cccl #nvidia-thrust
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        vaapiVdpau
+        #intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        libva-vdpau-driver
         vulkan-validation-layers
       ];
     };

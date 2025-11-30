@@ -165,7 +165,6 @@
     libreoffice
     obsidian
     remmina
-    jabref
     ente-auth
     heroic
     home-assistant-desktop

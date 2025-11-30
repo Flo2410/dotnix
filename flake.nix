@@ -119,7 +119,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
@@ -127,7 +127,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -165,7 +165,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
+      url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -175,7 +175,7 @@
     };
 
     stylix = {
-      url = "github:nix-community/stylix/release-25.05";
+      url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -185,7 +185,7 @@
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix/release-25.05";
+      url = "github:catppuccin/nix"; #/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -206,7 +206,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -216,7 +216,7 @@
     };
 
     simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
     };
   };
 }
