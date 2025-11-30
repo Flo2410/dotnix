@@ -14,10 +14,10 @@ in {
   config = mkIf cfg.enable {
     programs.rofi = {
       enable = cfg.enable;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi;
       plugins = with pkgs; [
         (rofi-calc.override {
-          rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
+          rofi-unwrapped = pkgs.rofi-unwrapped;
         })
       ];
       extraConfig = {

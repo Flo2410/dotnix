@@ -140,7 +140,7 @@
           enable = true;
           defaultBrowser = true;
           enableUrlHandler = true;
-          package = inputs.zen-browser.packages."${pkgs.system}".default;
+          package = inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default;
         };
       };
 

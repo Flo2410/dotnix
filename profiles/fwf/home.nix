@@ -94,7 +94,7 @@
       browser.zen = {
         enable = true;
         defaultBrowser = true;
-        package = inputs.zen-browser.packages."${pkgs.system}".default;
+        package = inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default;
       };
       virtualization.enable = true;
       vscode.enable = true;
@@ -133,14 +133,13 @@
     freecad-wayland
     blender
     zotero
-    jabref
     (bottles.override {
       removeWarningPopup = true;
     })
     stm32cubemx
     ente-auth
     qgis
-    modrinth-app
+    #modrinth-app # Does not build at the moment https://github.com/NixOS/nixpkgs/issues/460140
     rustdesk-flutter
     unstable.netbird-ui
 
