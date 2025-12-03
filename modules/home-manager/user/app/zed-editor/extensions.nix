@@ -4,4 +4,5 @@
   "latex"
   "git-firefly"
   "toml"
+  "proto"
 ]
