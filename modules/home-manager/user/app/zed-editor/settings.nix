@@ -156,8 +156,8 @@ in {
       };
     };
 
-    proto = {
-      binary.path = pkgs.lib.getExe pkgs.protobuf-language-server;
+    protobuf-language-server = {
+      binary.path = pkgs.lib.getExe pkgs.protols;
     };
   };
 }

@@ -34,6 +34,10 @@ in {
       userKeymaps = import ./keymap.nix {};
       userSettings = import ./settings.nix {inherit pkgs config;};
       extensions = import ./extensions.nix {};
+
+      extraPackages = with pkgs; [
+        clang-tools # clang-format required by protols for formating used as a protobuf lsp server
+      ];
     };
   };
 }
