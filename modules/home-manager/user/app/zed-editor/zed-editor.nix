@@ -28,8 +28,8 @@ in {
     programs.zed-editor = {
       enable = true;
       package = pkgs.unstable.zed-editor;
-      # mutableUserSettings = false;
-      # mutableUserKeymaps = false;
+      mutableUserSettings = false;
+      mutableUserKeymaps = false;
 
       userKeymaps = import ./keymap.nix {};
       userSettings = import ./settings.nix {inherit pkgs config;};
