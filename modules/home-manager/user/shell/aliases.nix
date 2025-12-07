@@ -30,4 +30,5 @@
   # grep = "rg";
   c = "code .";
   z = "zeditor .";
+  nb = "netbird";
 }
