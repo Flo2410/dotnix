@@ -31,7 +31,9 @@ in {
         rofi.enable = mkDefault true;
         hypridle.enable = mkDefault true;
         dunst.enable = mkDefault true;
-        ags.enable = mkDefault true;
+        waybar.enable = mkDefault true;
+
+        ags.enable = mkDefault false;
       };
     };
 

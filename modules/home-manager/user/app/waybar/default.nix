@@ -16,6 +16,7 @@ in {
       waybar_modules = import ./modules.nix {};
     in {
       enable = cfg.enable;
+      systemd.enable = mkDefault true;
 
       style = builtins.readFile ./style.css;
 
