@@ -32,7 +32,7 @@
   news.display = "silent"; # disable home-manager news
 
   home.sessionVariables = {
-    SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
   };
 
   services = {
@@ -43,10 +43,6 @@
         package = pkgs.syncthingtray-minimal;
         command = "syncthingtray --wait";
       };
-    };
-    gnome-keyring = {
-      enable = true;
-      components = ["secrets" "ssh" "pkcs11"];
     };
     kdeconnect.enable = true;
 
