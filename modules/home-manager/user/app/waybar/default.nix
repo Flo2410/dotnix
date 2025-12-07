@@ -31,7 +31,7 @@ in {
 
           modules-left = ["hyprland/workspaces"];
           modules-center = ["clock"];
-          modules-right = ["backlight" "battery" "tray"];
+          modules-right = ["tray" "backlight" "battery"];
         }
         // waybar_modules;
     };
