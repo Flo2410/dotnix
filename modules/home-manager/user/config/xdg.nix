@@ -49,11 +49,11 @@ in {
 
         # Note: the .desktop entries need to match the file name in pkg/share/applications
         defaultApplications = {
-          "text/plain" = "code.desktop";
-          "text/markdown" = "code.desktop";
-          "text/xml" = "code.desktop";
-          "application/xml" = "code.desktop";
-          "application/x-text" = "code.desktop";
+          "text/plain" = "dev.zed.Zed.desktop";
+          "text/markdown" = "dev.zed.Zed.desktop";
+          "text/xml" = "dev.zed.Zed.desktop";
+          "application/xml" = "dev.zed.Zed.desktop";
+          "application/x-text" = "dev.zed.Zed.desktop";
           "inode/directory" = "thunar.desktop";
           "image/png" = "org.nomacs.ImageLounge.desktop";
           "image/jpeg" = "org.nomacs.ImageLounge.desktop";
@@ -62,7 +62,7 @@ in {
           "text/calendar" = "thunderbird.desktop";
           "x-scheme-handler/mailto" = "thunderbird.desktop";
 
-          "application/json" = "code.desktop";
+          "application/json" = "dev.zed.Zed.desktop";
         };
       };
     };
