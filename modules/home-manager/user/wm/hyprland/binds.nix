@@ -1,7 +1,9 @@
 {
   pkgs,
   config,
-}: {
+}: let
+  get_monitor = "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')";
+in {
   "$mod" = "SUPER";
   bind = let
     # Sources:
@@ -161,27 +163,25 @@
 
   bindl = [
     # media controls
-    ", XF86AudioPlay, exec, playerctl play-pause"
-    ", XF86AudioPrev, exec, playerctl previous"
-    ", XF86AudioNext, exec, playerctl next"
+    ", XF86AudioPlay, exec, swayosd-client --monitor ${get_monitor} --playerctl play-pause"
+    ", XF86AudioPrev, exec, swayosd-client --monitor ${get_monitor} --playerctl previous"
+    ", XF86AudioNext, exec, swayosd-client --monitor ${get_monitor} --playerctl next"
 
     # volume
-    ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    ", XF86AudioMute, exec, swayosd-client --monitor ${get_monitor} --output-volume mute-toggle"
 
     # lid
     ",switch:on:Lid Switch, exec, systemctl suspend-then-hibernate"
   ];
 
-  bindle = let
-    bctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  in [
+  bindle = [
     # volume
-    ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-    ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+    ", XF86AudioRaiseVolume, exec, swayosd-client --monitor ${get_monitor} --output-volume raise"
+    ", XF86AudioLowerVolume, exec, swayosd-client --monitor ${get_monitor} --output-volume lower"
 
     # backlight
-    ", XF86MonBrightnessUp, exec, ${bctl} set 5%+"
-    ", XF86MonBrightnessDown, exec, ${bctl} set 5%-"
+    ", XF86MonBrightnessUp, exec, swayosd-client --monitor ${get_monitor} --brightness raise --device amdgpu_bl1"
+    ", XF86MonBrightnessDown, exec, swayosd-client --monitor ${get_monitor} --brightness lower --device amdgpu_bl1"
   ];
 
   # mouse movements

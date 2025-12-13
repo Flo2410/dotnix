@@ -42,7 +42,13 @@ in {
       hyprpaper.enable = mkDefault true;
     };
 
-    services.hyprpaper.enable = mkDefault true;
+    services = {
+      hyprpaper.enable = mkDefault true;
+
+      swayosd = {
+        enable = mkDefault true;
+      };
+    };
 
     home.packages = with pkgs; [
       # meson
