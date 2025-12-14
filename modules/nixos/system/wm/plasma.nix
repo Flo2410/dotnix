@@ -22,6 +22,10 @@ in {
         plasma-browser-integration
         elisa
         konsole
+        krunner
+        baloo
+        baloo-widgets
+        kate
       ];
     };
 

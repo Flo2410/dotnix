@@ -21,6 +21,10 @@ in {
           wallpaper = ../../../../assets/wallpapers/nixos-wallpaper.png;
         };
       };
+
+      app = {
+        rofi.enable = mkDefault true;
+      };
     };
 
     programs.plasma = {
@@ -32,6 +36,13 @@ in {
         # iconTheme = "breeze-dark";
         # wallpaper = ../../../../assets/wallpapers/Abstract_1-hue_logo.jpg;
       };
+
+      hotkeys.commands."launch-rofi" = {
+        name = "Launch Rofi";
+        key = "Alt+Space";
+        command = "rofi -show drun -modes drun,calc,window -replace";
+      };
+
       shortcuts = {
         kwin = {
           "Expose" = "Meta+,";
@@ -52,7 +63,7 @@ in {
         };
 
         baloofilerc = {
-          "Basic Settings"."Indexing-Enabled" = true;
+          "Basic Settings"."Indexing-Enabled" = false;
           "General"."folders[$e]" = "$HOME/syncthing/";
           "General"."only basic indexing" = false;
         };
