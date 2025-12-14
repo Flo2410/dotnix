@@ -52,6 +52,19 @@
       enable = true;
       package = pkgs.btop-cuda;
     };
+
+    obs-studio = {
+      enable = true;
+      package = pkgs.obs-studio.override {
+        config.cudaSupport = true;
+      };
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    };
   };
 
   user = {
