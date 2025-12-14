@@ -173,7 +173,7 @@
     thunderbird
     discord
     spotify
-    signal-desktop-bin
+    signal-desktop
     prusa-slicer
     libreoffice
     obsidian
