@@ -43,6 +43,8 @@ in {
           variant = "nodeadkeys";
           options = "caps:escape";
         };
+
+        excludePackages = [pkgs.xterm];
       };
 
       desktopManager.plasma6.enable = true;
