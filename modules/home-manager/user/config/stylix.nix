@@ -129,7 +129,7 @@ in {
       # stylix.targets.waybar.enable = true; # from catppuccin
       # stylix.targets.vscode.enable = false;
       # stylix.targets.btop.enable = true; # from catppuccin
-      stylix.targets.gnome.enable = config.user.wm.hyprland.enable;
+      stylix.targets.gnome.enable = config.user.wm.hyprland.enable || config.user.wm.gnome.enable;
       stylix.targets.kde.enable = config.user.wm.plasma.enable;
 
       qt = {

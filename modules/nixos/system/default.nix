@@ -2,6 +2,7 @@
   imports = [
     ./wm/plasma.nix
     ./wm/hyprland.nix
+    ./wm/gnome.nix
 
     ./config
 

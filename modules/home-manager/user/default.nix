@@ -8,5 +8,6 @@
 
     ./wm/plasma.nix
     ./wm/hyprland
+    ./wm/gnome.nix
   ];
 }
