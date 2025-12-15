@@ -286,6 +286,24 @@
     };
   };
 
+  specialisation.gnome.configuration = {
+    system = {
+      wm.plasma.enable = lib.mkForce false;
+      wm.gnome.enable = true;
+    };
+
+    home-manager = {
+      users."florian".user = {
+        wm.plasma.enable = lib.mkForce false;
+        wm.gnome.enable = true;
+      };
+    };
+
+    programs = {
+      ssh.startAgent = lib.mkForce false;
+    };
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
