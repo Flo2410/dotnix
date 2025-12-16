@@ -65,6 +65,10 @@ in {
             gtk-enable-primary-paste = false;
           };
 
+          "org/gnome/desktop/session" = {
+            idle-delay = lib.hm.gvariant.mkUint32 0;
+          };
+
           "org/gnome/mutter" = {
             experimental-features = [
               "scale-monitor-framebuffer" # Enables fractional scaling (125% 150% 175%)
@@ -76,6 +80,21 @@ in {
 
           "org/gnome/desktop/wm/preferences" = {
             mouse-button-modifier = "<Super>";
+          };
+
+          "org/gnome/settings-daemon/plugins/power" = {
+            sleep-inactive-ac-type = "suspend";
+            sleep-inactive-ac-timeout = 3600;
+          };
+
+          "org/gnome/desktop/peripherals/mouse" = {
+            accel-profile = "flat";
+            speed = 0.0;
+          };
+
+          "org/freedesktop/tracker/miner/files" = {
+            index-recursive-directories = [];
+            index-single-directories = [];
           };
 
           # Keybinds
@@ -98,11 +117,11 @@ in {
           };
 
           "org/gnome/shell/keybindings" = {
-            toggle-application-view = ["<Super>a"];
+            toggle-application-view = ["<Alt>space"];
           };
 
           "org/gnome/settings-daemon/plugins/media-keys" = {
-            search = ["<Alt>space"];
+            search = [];
           };
 
           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
