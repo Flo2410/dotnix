@@ -198,6 +198,12 @@ in {
             mouse-action-right = "PLAY_PAUSE";
           };
 
+          "org/gnome/shell/extensions/tilingshell" = {
+            inner-gaps = lib.hm.gvariant.mkUint32 0;
+            outer-gaps = lib.hm.gvariant.mkUint32 0;
+            selected-layouts = ["183046" "Layout 2" "Layout 4"];
+          };
+
           # application settings
           "org/gnome/nautilus/preferences" = {
             default-folder-viewer = "list-view";
@@ -214,6 +220,7 @@ in {
       just-perfection
       user-themes
       media-controls
+      tiling-shell
     ]))
   ]);
 }
