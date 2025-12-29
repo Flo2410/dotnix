@@ -206,6 +206,8 @@
     ffmpeg
     nomacs
     audacity
+    darktable
+    rawtherapee
 
     # utils
     gh
