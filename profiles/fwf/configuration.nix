@@ -123,15 +123,6 @@
 
   environment.shells = with pkgs; [nushell];
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-  };
-
   security = {
     polkit.enable = true;
 
