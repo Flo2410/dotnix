@@ -286,21 +286,69 @@
     };
   };
 
-  specialisation.gnome.configuration = {
-    system = {
-      wm.plasma.enable = lib.mkForce false;
-      wm.gnome.enable = true;
-    };
-
-    home-manager = {
-      users."florian".user = {
+  specialisation = {
+    gnome.configuration = {
+      system = {
         wm.plasma.enable = lib.mkForce false;
         wm.gnome.enable = true;
       };
+
+      home-manager = {
+        users."florian".user = {
+          wm.plasma.enable = lib.mkForce false;
+          wm.gnome.enable = true;
+        };
+      };
+
+      programs = {
+        ssh.startAgent = lib.mkForce false;
+      };
     };
 
-    programs = {
-      ssh.startAgent = lib.mkForce false;
+    hyprland.configuration = {
+      system = {
+        wm.plasma.enable = lib.mkForce false;
+        wm.hyprland.enable = lib.mkDefault true;
+      };
+
+      home-manager = {
+        users."florian".user = {
+          wm.plasma.enable = lib.mkForce false;
+          wm.hyprland.enable = lib.mkForce true;
+        };
+      };
+
+      security = {
+        pam.services = {
+          login.enableGnomeKeyring = true;
+          login.kwallet.enable = lib.mkForce false;
+        };
+      };
+
+      programs = {
+        ssh.startAgent = lib.mkForce false;
+      };
+
+      services = {
+        gnome.gnome-keyring.enable = true;
+        gnome.gcr-ssh-agent.enable = true;
+      };
+
+      systemd = {
+        user.services.polkit-gnome-authentication-agent-1 = {
+          description = "polkit-gnome-authentication-agent-1";
+          wantedBy = ["graphical-session.target"];
+          wants = ["graphical-session.target"];
+          after = ["graphical-session.target"];
+          serviceConfig = {
+            Type = "simple";
+            ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+        };
+      };
     };
   };
 
