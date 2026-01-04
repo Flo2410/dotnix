@@ -13,12 +13,12 @@
   ];
 
   boot = {
-    kernelModules = ["kvm-intel"];
+    kernelModules = ["kvm-amd"];
     extraModulePackages = [];
     supportedFilesystems = ["btrfs"];
 
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod"];
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod" "thunderbolt"];
       kernelModules = [];
     };
   };
@@ -74,5 +74,5 @@
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
