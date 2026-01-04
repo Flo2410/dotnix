@@ -52,7 +52,10 @@ in {
         };
       };
 
-      systemd.sleep.extraConfig = "HibernateDelaySec=2h";
+      systemd.sleep.extraConfig = ''
+        HibernateDelaySec=2h
+        SuspendState=mem
+      '';
     })
   ];
 }
