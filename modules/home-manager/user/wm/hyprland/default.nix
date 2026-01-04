@@ -56,6 +56,7 @@ in {
       wl-clipboard
       wlroots
       networkmanagerapplet # GUI for networkmanager
+      networkmanager-openvpn
       playerctl
       gnome-control-center
       overskride
