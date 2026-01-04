@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     boot.kernelParams = [
       "quiet"
-      "splash"
+      # "splash"
     ];
 
     boot.extraModulePackages = with config.boot.kernelPackages; [
