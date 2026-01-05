@@ -87,6 +87,8 @@
   # Specify the Nvidia video driver for Xorg
   services.xserver.videoDrivers = ["nvidia"];
 
+  boot.kernelParams = ["module_blacklist=amdgpu"];
+
   # Packages related to NVIDIA graphics
   environment.systemPackages =
     (with pkgs; [
