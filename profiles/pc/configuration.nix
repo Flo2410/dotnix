@@ -59,7 +59,10 @@
       # "nvidia_drm"
     ];
 
-    kernelModules = ["nvidia"];
+    kernelModules = [
+      "nvidia"
+      "zenergy" # For reading AMD CPU power
+    ];
 
     kernelParams = [
       "nvidia_drm.fbdev=1" # Enables the use of a framebuffer device for NVIDIA graphics. This can be useful for certain configurations.
@@ -68,6 +71,7 @@
 
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback
+      zenergy
     ];
 
     extraModprobeConfig = ''
