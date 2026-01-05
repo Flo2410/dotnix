@@ -11,6 +11,7 @@ in {
     enable = mkEnableOption "Enable zen";
     enableUrlHandler = mkEnableOption "Enable URL Handler";
     defaultBrowser = mkEnableOption "Is default browser";
+    nvidiaSupport = mkEnableOption "Enable NVIDIA support";
     package = mkOption {
       type = types.package;
     };
@@ -40,11 +41,18 @@ in {
       nativeMessagingHosts = with pkgs; [
         (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
       ];
-      profiles.default.extensions.force = mkForce true;
-      # profiles."default".settings = {
-      #   "widget.use-xdg-desktop-portal.file-picker" = 1;
-      #   "layout.css.has-selector.enabled" = false;
-      # };
+      profiles.default = {
+        extensions.force = mkForce true;
+        settings = lib.optionalAttrs cfg.nvidiaSupport {
+          "media.hardware-video-decoding.force-enabled" = true;
+          "media.rdd-ffmpeg.enabled" = true;
+          "media.av1.enabled" = true;
+          "gfx.x11-egl.force-enabled" = true;
+
+          #   "widget.use-xdg-desktop-portal.file-picker" = 1;
+          #   "layout.css.has-selector.enabled" = false;
+        };
+      };
     };
 
     xdg.mimeApps.defaultApplications = mkIf cfg.defaultBrowser {
@@ -55,8 +63,14 @@ in {
       "x-scheme-handler/unknown" = "zen-beta.desktop";
     };
 
-    home.sessionVariables = mkIf cfg.defaultBrowser {
-      DEFAULT_BROWSER = "${cfg.package}/bin/zen-beta";
-    };
+    home.sessionVariables =
+      mkIf cfg.defaultBrowser {
+        DEFAULT_BROWSER = "${cfg.package}/bin/zen-beta";
+      }
+      // lib.optionalAttrs cfg.nvidiaSupport {
+        MOZ_DISABLE_RDD_SANDBOX = "1";
+        LIBVA_DRIVER_NAME = "nvidia";
+        CUDA_DISABLE_PERF_BOOST = "1";
+      };
   };
 }
