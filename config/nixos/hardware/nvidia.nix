@@ -5,11 +5,8 @@
   ...
 }: {
   imports = [
-    ../../opengl/opengl.nix
-    ./vaapi.nix
+    ./opengl/opengl.nix
   ];
-
-  # ++ (myLib.filesIn ./included);
 
   hardware = {
     enableAllFirmware = true;
@@ -28,10 +25,6 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
       # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-
-      # Uncomment the following lines if you need to use a specific driver version
-      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
-      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
 
       open = true;
     };
@@ -55,20 +48,6 @@
       # settings
     ];
 
-  # Replace a glFlush() with a glFinish() - this prevents stuttering
-  # and glitching in all kinds of circumstances for the moment.
-  #
-  # Apparently I'm waiting for "explicit sync" support, which needs to
-  # land as a wayland thing. I've seen this work reasonably with VRR
-  # before, but emacs continued to stutter, so for now this is
-  # staying.
-  # nixpkgs.overlays = [
-  #  (_: final: {
-  #    wlroots_0_16 = final.wlroots_0_16.overrideAttrs
-  #      (_: { patches = [ ./wlroots-nvidia.patch ]; });
-  #  })
-  #];
-
   # Set environment variables related to NVIDIA graphics
   environment.variables = {
     # Required to run the correct GBM backend for nvidia GPUs on wayland
@@ -82,6 +61,9 @@
     NIXOS_OZONE_WL = "1";
     __GL_THREADED_OPTIMIZATION = "1";
     __GL_SHADER_CACHE = "1";
+
+    NVD_BACKEND = "direct";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
   # Specify the Nvidia video driver for Xorg

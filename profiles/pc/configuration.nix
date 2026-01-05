@@ -29,7 +29,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ../../config/nixos/hardware/nvidia/nvidia-stable-opengl
+    ../../config/nixos/hardware/nvidia.nix
   ];
 
   nix = {
