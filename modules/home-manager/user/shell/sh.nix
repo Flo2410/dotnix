@@ -192,7 +192,8 @@ in {
           enter_accept = mkDefault true;
           filter_mode = mkDefault "global";
           filter_mode_shell_up_key_binding = mkDefault "host";
-          style = mkDefault "full";
+          style = mkDefault "auto";
+          inline_height = 0;
         };
       };
 
