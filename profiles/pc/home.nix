@@ -182,6 +182,7 @@
     ente-auth
     heroic
     home-assistant-desktop
+    anydesk
     unstable.netbird-ui
 
     (kicad.overrideAttrs (oldAttrs: {
