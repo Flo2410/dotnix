@@ -177,6 +177,10 @@
         udev-ft232h
         openocd #(callPackage ./openocd.nix { })
       ];
+
+      extraRules = ''
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022", ATTR{power/wakeup}="disabled"
+      '';
     };
 
     journald = {
