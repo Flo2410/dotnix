@@ -121,11 +121,12 @@
   };
 
   users = {
+    groups.plugdev = {};
     defaultUserShell = pkgs.nushell;
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "adbusers"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "adbusers" "plugdev"];
     };
   };
 
