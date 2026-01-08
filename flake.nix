@@ -69,7 +69,7 @@
       fwf = mkSystem [./profiles/fwf/configuration.nix];
       wsl = mkSystem [./profiles/wsl/configuration.nix];
       curiosity = mkSystem [./profiles/curiosity/configuration.nix];
-      pc = mkSystem [./profiles/pc/configuration.nix];
+      pc-florian = mkSystem [./profiles/pc-florian/configuration.nix];
       surface = mkSystem [./profiles/surface/configuration.nix];
       astro-pi = mkSystem [./profiles/astro-pi/configuration.nix];
       helios = mkSystem [./profiles/helios/configuration.nix];
