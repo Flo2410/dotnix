@@ -57,6 +57,7 @@ in {
           "inode/directory" = "thunar.desktop";
           "image/png" = "org.nomacs.ImageLounge.desktop";
           "image/jpeg" = "org.nomacs.ImageLounge.desktop";
+          "image/svg+xml" = "org.nomacs.ImageLounge.desktop";
           "application/pdf" = "okularApplication_pdf.desktop";
 
           "text/calendar" = "thunderbird.desktop";
