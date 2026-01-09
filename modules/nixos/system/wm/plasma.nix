@@ -26,6 +26,7 @@ in {
         baloo
         baloo-widgets
         kate
+        gwenview
       ];
     };
 
