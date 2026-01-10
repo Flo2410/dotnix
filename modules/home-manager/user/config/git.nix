@@ -31,6 +31,12 @@ in {
         user.signingkey = "~/.ssh/GitHub.pub";
 
         credential.helper = "store";
+
+        core.quotepath = false;
+        i18n = {
+          commitencoding = "utf-8";
+          logoutputencoding = "utf-8";
+        };
       };
     };
   };
