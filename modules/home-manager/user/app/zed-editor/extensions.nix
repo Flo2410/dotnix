@@ -5,4 +5,6 @@
   "git-firefly"
   "toml"
   "proto"
+  "cargo-tom"
+  "probe-rs"
 ]
