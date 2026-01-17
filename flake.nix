@@ -68,11 +68,14 @@
     nixosConfigurations = {
       fwf = mkSystem [./profiles/fwf/configuration.nix];
       wsl = mkSystem [./profiles/wsl/configuration.nix];
-      curiosity = mkSystem [./profiles/curiosity/configuration.nix];
       pc-florian = mkSystem [./profiles/pc-florian/configuration.nix];
       surface = mkSystem [./profiles/surface/configuration.nix];
-      astro-pi = mkSystem [./profiles/astro-pi/configuration.nix];
       helios = mkSystem [./profiles/helios/configuration.nix];
+
+      # Raspberry PIs
+      curiosity = mkSystem [./profiles/curiosity/configuration.nix];
+      astro-pi = mkSystem [./profiles/astro-pi/configuration.nix];
+      ups-pi = mkSystem [./profiles/ups-pi/configuration.nix];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -82,6 +85,7 @@
     images = {
       curiosity = mkPiImg "curiosity";
       astro-pi = mkPiImg "astro-pi";
+      ups-pi = mkPiImg "ups-pi";
     };
 
     devShells = forAllSystems (system: let
