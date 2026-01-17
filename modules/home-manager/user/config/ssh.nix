@@ -90,6 +90,11 @@ in {
           forwardAgent = true;
         };
 
+        "rust-pi.*" = {
+          user = "rust";
+          identityFile = "~/.ssh/rust-pi_ed25519";
+        };
+
         "curiosity" = {
           hostname = "curiosity.dsn.hye.network";
           user = "florian";
