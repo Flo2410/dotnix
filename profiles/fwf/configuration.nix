@@ -260,15 +260,6 @@
     };
   };
 
-  # specialisation = {
-  #   plasma.configuration = {
-  #     stylix.enable = lib.mkForce false;
-  #     stylix.image = ../../assets/framework/Abstract_1-hue_logo.jpg;
-  #     system.wm.hyprland.enable = lib.mkForce false;
-  #     system.wm.plasma.enable = lib.mkForce true;
-  #   };
-  # };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
