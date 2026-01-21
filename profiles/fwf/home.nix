@@ -144,7 +144,9 @@
           "--unset __GLX_VENDOR_LIBRARY_NAME"
         ];
     }))
-    unstable.netbird-ui
+    netbird-ui
+    naps2
+    saleae-logic-2
 
     # kde utils
     kdePackages.kcalc
@@ -180,11 +182,6 @@
     distrobox
     btrfs-assistant
     uutils-coreutils-noprefix
-
-    # unstable packages
-    unstable.naps2
-    unstable.saleae-logic-2
-    unstable.parsec-bin
 
     # Custom Packages
     # home-assistant-desktop
