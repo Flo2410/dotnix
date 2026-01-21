@@ -137,6 +137,13 @@
     qgis
     #modrinth-app # Does not build at the moment https://github.com/NixOS/nixpkgs/issues/460140
     rustdesk-flutter
+    (kicad.overrideAttrs (oldAttrs: {
+      makeWrapperArgs =
+        oldAttrs.makeWrapperArgs
+        ++ [
+          "--unset __GLX_VENDOR_LIBRARY_NAME"
+        ];
+    }))
     unstable.netbird-ui
 
     # kde utils
