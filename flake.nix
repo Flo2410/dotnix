@@ -68,7 +68,7 @@
     nixosConfigurations = {
       fwf = mkSystem [./profiles/fwf/configuration.nix];
       wsl = mkSystem [./profiles/wsl/configuration.nix];
-      pc-florian = mkSystem [./profiles/pc-florian/configuration.nix];
+      PC-Florian = mkSystem [./profiles/pc-florian/configuration.nix];
       surface = mkSystem [./profiles/surface/configuration.nix];
       helios = mkSystem [./profiles/helios/configuration.nix];
 
