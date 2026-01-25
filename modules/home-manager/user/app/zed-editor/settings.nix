@@ -133,7 +133,10 @@ in {
     };
 
     ltex = {
-      binary.path = pkgs.lib.getExe pkgs.ltex-ls-plus;
+      binary = {
+        path = pkgs.lib.getExe' pkgs.ltex-ls-plus "ltex-ls-plus";
+        args = ["--standard-stream"];
+      };
       settings = {
         ltex = {
           ltex-ls.path = "${pkgs.ltex-ls-plus}";
