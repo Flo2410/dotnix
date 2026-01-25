@@ -128,7 +128,6 @@
     bitwarden-desktop
     freecad-wayland
     blender
-    jabref
     (bottles.override {
       removeWarningPopup = true;
     })
@@ -147,6 +146,7 @@
     netbird-ui
     naps2
     saleae-logic-2
+    unstable.jabref
 
     # kde utils
     kdePackages.kcalc
