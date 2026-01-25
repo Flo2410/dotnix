@@ -31,4 +31,5 @@
   c = "code .";
   z = "zeditor .";
   nb = "netbird";
+  ssh = "kitty +kitten ssh";
 }
