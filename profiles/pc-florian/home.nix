@@ -183,6 +183,7 @@
     heroic
     home-assistant-desktop
     anydesk
+    jabref
     unstable.netbird-ui
 
     (kicad.overrideAttrs (oldAttrs: {
