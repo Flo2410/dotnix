@@ -83,5 +83,8 @@
 
     # Thunar
     "float, class:^(thunar), title:^(Rename)(.*)$"
+
+    #JabRef
+    "noinitialfocus, nofocus, noshadow, nofollowmouse, noblur, floating:1, class:^(org.jabref.gui.JabRefGUI), title:^()$"
   ];
 }

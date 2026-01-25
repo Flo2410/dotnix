@@ -128,7 +128,7 @@
     bitwarden-desktop
     freecad-wayland
     blender
-    zotero
+    jabref
     (bottles.override {
       removeWarningPopup = true;
     })
