@@ -7,4 +7,5 @@
   "proto"
   "cargo-tom"
   "probe-rs"
+  "typst"
 ]
