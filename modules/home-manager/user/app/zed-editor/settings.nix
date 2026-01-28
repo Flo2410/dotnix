@@ -123,6 +123,7 @@ in {
   lsp = {
     texlab = {
       binary.path = pkgs.lib.getExe pkgs.texlab;
+      latexFormatter = "tex-fmt";
       build = {
         onSave = true;
       };

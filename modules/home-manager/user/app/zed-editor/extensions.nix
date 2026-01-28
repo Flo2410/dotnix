@@ -8,4 +8,6 @@
   "cargo-tom"
   "probe-rs"
   "typst"
+  "make"
+  "mermaid"
 ]
