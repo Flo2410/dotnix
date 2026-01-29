@@ -188,51 +188,65 @@
     # elamx2
 
     # PWAs
-    (pkgs.makeDesktopItem {
-      name = "whatsapp-web";
-      desktopName = "WhatsApp";
-      exec = "chromium --app=https://web.whatsapp.com --class=whatsapp";
-      terminal = false;
-      type = "Application";
-      icon = "whatsapp";
-      startupWMClass = "whatsapp";
-      categories = ["Network" "InstantMessaging"];
-    })
+    (let
+      chrome-name = "chrome-web.whatsapp.com__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "WhatsApp";
+        exec = "chromium --app=https://web.whatsapp.com";
+        terminal = false;
+        type = "Application";
+        icon = "whatsapp";
+        startupWMClass = chrome-name;
+        categories = ["Network" "InstantMessaging"];
+      })
 
-    (pkgs.makeDesktopItem {
-      name = "microsoft-teams";
-      desktopName = "Microsoft Teams";
-      exec = "chromium --app=https://teams.microsoft.com/go";
-      terminal = false;
-      type = "Application";
-      icon = "teams";
-    })
+    (let
+      chrome-name = "chrome-teams.microsoft.com__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "Microsoft Teams";
+        exec = "chromium --app=https://teams.microsoft.com/go";
+        terminal = false;
+        type = "Application";
+        icon = "teams";
+        startupWMClass = chrome-name;
+      })
 
-    (pkgs.makeDesktopItem {
-      name = "flipper-lab";
-      desktopName = "Flipper Lab";
-      exec = "chromium --app=https://lab.flipper.net/";
-      terminal = false;
-      type = "Application";
-      icon = pkgs.fetchurl {
-        url = "https://lab.flipper.net/icons/icon.svg";
-        sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
-      };
-    })
+    (let
+      chrome-name = "chrome-lab.flipper.net__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "Flipper Lab";
+        exec = "chromium --app=https://lab.flipper.net/";
+        terminal = false;
+        type = "Application";
+        icon = pkgs.fetchurl {
+          url = "https://lab.flipper.net/icons/icon.svg";
+          sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
+        };
+        startupWMClass = chrome-name;
+      })
 
-    (pkgs.makeDesktopItem {
-      name = "onshape";
-      desktopName = "Onshape";
-      exec = "chromium --app=https://cad.onshape.com --class=onshape";
-      terminal = false;
-      type = "Application";
-      icon = pkgs.fetchurl {
-        url = "https://www.onshape.com/favicon.png";
-        sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
-      };
-      startupWMClass = "chrome-cad.onshape.com__-Default";
-      categories = ["Utility" "Office"];
-    })
+    (let
+      chrome-name = "chrome-cad.onshape.com__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "Onshape";
+        exec = "chromium --app=https://cad.onshape.com";
+        terminal = false;
+        type = "Application";
+        icon = pkgs.fetchurl {
+          url = "https://www.onshape.com/favicon.png";
+          sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
+        };
+        startupWMClass = chrome-name;
+        categories = ["Utility" "Office"];
+      })
 
     # Bottles
     (pkgs.makeDesktopItem {

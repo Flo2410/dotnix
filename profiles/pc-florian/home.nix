@@ -235,30 +235,36 @@
     })
 
     # PWAs
-    (pkgs.makeDesktopItem {
-      name = "whatsapp-web";
-      desktopName = "WhatsApp";
-      exec = "chromium --app=https://web.whatsapp.com --class=whatsapp";
-      terminal = false;
-      type = "Application";
-      icon = "whatsapp";
-      startupWMClass = "chrome-web.whatsapp.com__-Default";
-      categories = ["Network" "InstantMessaging"];
-    })
+    (let
+      chrome-name = "chrome-web.whatsapp.com__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "WhatsApp";
+        exec = "chromium --app=https://web.whatsapp.com";
+        terminal = false;
+        type = "Application";
+        icon = "whatsapp";
+        startupWMClass = chrome-name;
+        categories = ["Network" "InstantMessaging"];
+      })
 
-    (pkgs.makeDesktopItem {
-      name = "onshape";
-      desktopName = "Onshape";
-      exec = "chromium --app=https://cad.onshape.com --class=onshape";
-      terminal = false;
-      type = "Application";
-      icon = pkgs.fetchurl {
-        url = "https://www.onshape.com/favicon.png";
-        sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
-      };
-      startupWMClass = "chrome-cad.onshape.com__-Default";
-      categories = ["Utility" "Office"];
-    })
+    (let
+      chrome-name = "chrome-cad.onshape.com__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "Onshape";
+        exec = "chromium --app=https://cad.onshape.com";
+        terminal = false;
+        type = "Application";
+        icon = pkgs.fetchurl {
+          url = "https://www.onshape.com/favicon.png";
+          sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
+        };
+        startupWMClass = chrome-name;
+        categories = ["Utility" "Office"];
+      })
 
     (let
       chrome-name = "chrome-usevia.app__-Default";
