@@ -176,6 +176,7 @@
         udev-stm32-named-tty #(callPackage ./stm32-named-tty.nix { })
         udev-saleae-logic #(callPackage ./saleae-logic.nix { })
         udev-ft232h
+        udev-iqunix-magi75
         openocd #(callPackage ./openocd.nix { })
       ];
 

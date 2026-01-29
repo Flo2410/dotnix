@@ -260,6 +260,23 @@
       categories = ["Utility" "Office"];
     })
 
+    (let
+      chrome-name = "chrome-usevia.app__-Default";
+    in
+      pkgs.makeDesktopItem {
+        name = chrome-name;
+        desktopName = "VIA App";
+        exec = "chromium --app=https://usevia.app";
+        terminal = false;
+        type = "Application";
+        icon = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/the-via/website/c816784b7788a2122ebcbc0046fbe0ffa0a07878/static/img/icon.png";
+          sha256 = "sha256-4kBtqyIjFEW05KBGNJdGbYCcwdkOg0dMmCfWUyLn4mM=";
+        };
+        startupWMClass = chrome-name;
+        categories = ["Utility" "System"];
+      })
+
     # Bottles
     (stdenv.mkDerivation {
       name = "lightroom-classic";
