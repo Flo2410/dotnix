@@ -271,7 +271,7 @@
     in
       pkgs.makeDesktopItem {
         name = chrome-name;
-        desktopName = "VIA App";
+        desktopName = "VIA";
         exec = "chromium --app=https://usevia.app";
         terminal = false;
         type = "Application";
