@@ -6,5 +6,6 @@
     ./plymouth.nix
     ./locale.nix
     ./stylix.nix
+    ./keyboard
   ];
 }

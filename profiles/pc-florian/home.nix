@@ -47,6 +47,8 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  home.keyboard = null;
+
   programs = {
     btop = {
       enable = true;

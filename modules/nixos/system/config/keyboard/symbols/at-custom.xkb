@@ -1,0 +1,10 @@
+partial alphanumeric_keys
+xkb_symbols "at-custom" {
+  include "de(nodeadkeys)"
+  name[Group1] = "German (Austria, Custom, no dead keys)";
+
+  key <AE07> { [ 7, slash,     bracketleft ] };
+  key <AE08> { [ 8, parenleft, bracketright ] };
+  key <AE09> { [ 9, parenright, braceleft ] };
+  key <AE10> { [ 0, equal,     braceright ] };
+};

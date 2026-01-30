@@ -30,21 +30,19 @@ in {
       ];
     };
 
-    system.config.stylix = {
-      enable = true;
-      theme = "catppuccin-mocha";
+    system.config = {
+      stylix = {
+        enable = true;
+        theme = "catppuccin-mocha";
+      };
+
+      keyboard.enable = true;
     };
 
     # Configure plasma
     services = {
       xserver = {
         enable = true;
-        xkb = {
-          layout = "at";
-          variant = "nodeadkeys";
-          options = "caps:escape";
-        };
-
         excludePackages = [pkgs.xterm];
       };
 
@@ -62,6 +60,10 @@ in {
       };
 
       libinput = {
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "0";
+        };
         touchpad.disableWhileTyping = true;
       };
     };

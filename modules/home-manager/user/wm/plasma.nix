@@ -37,11 +37,6 @@ in {
         # wallpaper = ../../../../assets/wallpapers/Abstract_1-hue_logo.jpg;
       };
 
-      input.keyboard = {
-        numlockOnStartup = "on";
-        options = ["caps:escape"];
-      };
-
       hotkeys.commands."launch-rofi" = {
         name = "Launch Rofi";
         key = "Alt+Space";

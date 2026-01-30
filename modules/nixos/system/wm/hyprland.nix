@@ -12,9 +12,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    system.config.stylix = {
-      enable = true;
-      theme = "catppuccin-mocha";
+    system.config = {
+      stylix = {
+        enable = true;
+        theme = "catppuccin-mocha";
+      };
+
+      keyboard.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -52,14 +56,6 @@ in {
     };
 
     services = {
-      xserver = {
-        xkb = {
-          layout = "at";
-          variant = "nodeadkeys";
-          options = "caps:escape";
-        };
-      };
-
       greetd = {
         enable = true;
         settings = {
