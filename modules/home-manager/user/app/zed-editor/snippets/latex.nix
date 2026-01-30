@@ -52,6 +52,6 @@ builtins.toJSON {
   declare_acronym = {
     prefix = "\\da";
     description = "Declare an acronym";
-    body = ["\\DeclareAcronym{$1}{short = $2; long = $3}$0"];
+    body = ["\\DeclareAcronym{$1}{short = $2, long = $3}$0"];
   };
 }
