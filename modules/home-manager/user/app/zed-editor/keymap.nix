@@ -33,4 +33,12 @@
       "ctrl-b" = "workspace::ToggleLeftDock"; # vim default: down
     };
   }
+
+  {
+    context = "(ProjectPanel && not_editing)";
+    bindings = {
+      "n" = "project_panel::NewFile";
+      "shift-n" = "project_panel::NewDirectory";
+    };
+  }
 ]
