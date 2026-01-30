@@ -5,6 +5,14 @@
   ...
 }: let
   cfg = config.user.app.zed-editor;
+
+  mkSnippetFile = name: {
+    "zed_snippets_${name}" = {
+      target = "zed/snippets/${name}.json";
+      executable = false;
+      text = import ./snippets/${name}.nix {};
+    };
+  };
 in {
   options.user.app.zed-editor = {
     enable = lib.mkEnableOption "Enable Zed";
@@ -39,5 +47,7 @@ in {
         clang-tools # clang-format required by protols for formating used as a protobuf lsp server
       ];
     };
+
+    xdg.configFile = mkSnippetFile "bibtex" // mkSnippetFile "latex";
   };
 }
