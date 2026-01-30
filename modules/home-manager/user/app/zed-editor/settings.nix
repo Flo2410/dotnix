@@ -92,6 +92,12 @@ in {
     current_line_highlight = null;
   };
 
+  diagnostics = {
+    inline = {
+      enabled = true;
+    };
+  };
+
   # Tell Zed to use direnv and direnv can use a flake.nix environment
   load_direnv = "direct";
 
