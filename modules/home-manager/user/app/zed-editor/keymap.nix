@@ -38,8 +38,8 @@
   {
     context = "vim_mode == normal";
     bindings = {
-      "d l" = "editor::GoToDiagnostic";
-      "d h" = "editor::GoToPreviousDiagnostic";
+      "f l" = "editor::GoToDiagnostic";
+      "f h" = "editor::GoToPreviousDiagnostic";
     };
   }
   {
