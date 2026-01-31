@@ -106,170 +106,144 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # programms
-    thunderbird
-    discord
-    spotify
-    prusa-slicer
-    libreoffice-qt
-    obsidian
-    pulseview
-    (signal-desktop.overrideAttrs (old: {
-      postFixup = ''
-        # add gnome-keyring to launch args
-        substituteInPlace $out/share/applications/signal.desktop \
-          --replace "%U" "--password-store=\"gnome-libsecret\" %U"
-      '';
-    }))
-    remmina
-    insomnia
-    wireshark
-    bitwarden-desktop
-    freecad-wayland
-    blender
-    (bottles.override {
-      removeWarningPopup = true;
-    })
-    stm32cubemx
-    ente-auth
-    qgis
-    #modrinth-app # Does not build at the moment https://github.com/NixOS/nixpkgs/issues/460140
-    rustdesk-flutter
-    (kicad.overrideAttrs (oldAttrs: {
-      makeWrapperArgs =
-        oldAttrs.makeWrapperArgs
-        ++ [
-          "--unset __GLX_VENDOR_LIBRARY_NAME"
-        ];
-    }))
-    netbird-ui
-    naps2
-    saleae-logic-2
-    unstable.jabref
+  home.packages = with pkgs;
+    [
+      # programms
+      thunderbird
+      discord
+      spotify
+      prusa-slicer
+      libreoffice-qt
+      obsidian
+      pulseview
+      (signal-desktop.overrideAttrs (old: {
+        postFixup = ''
+          # add gnome-keyring to launch args
+          substituteInPlace $out/share/applications/signal.desktop \
+            --replace "%U" "--password-store=\"gnome-libsecret\" %U"
+        '';
+      }))
+      remmina
+      insomnia
+      wireshark
+      bitwarden-desktop
+      freecad-wayland
+      blender
+      (bottles.override {
+        removeWarningPopup = true;
+      })
+      stm32cubemx
+      ente-auth
+      qgis
+      #modrinth-app # Does not build at the moment https://github.com/NixOS/nixpkgs/issues/460140
+      rustdesk-flutter
+      (kicad.overrideAttrs (oldAttrs: {
+        makeWrapperArgs =
+          oldAttrs.makeWrapperArgs
+          ++ [
+            "--unset __GLX_VENDOR_LIBRARY_NAME"
+          ];
+      }))
+      netbird-ui
+      naps2
+      saleae-logic-2
+      unstable.jabref
 
-    # kde utils
-    kdePackages.kcalc
-    kdePackages.skanpage
-    kdePackages.systemsettings
-    kdePackages.print-manager
-    kdePackages.ark
-    kdePackages.okular
+      # kde utils
+      kdePackages.kcalc
+      kdePackages.skanpage
+      kdePackages.systemsettings
+      kdePackages.print-manager
+      kdePackages.ark
+      kdePackages.okular
 
-    # Media
-    gimp
-    inkscape
-    darktable
-    vlc
-    ffmpeg
-    nomacs
-    moonlight-qt
+      # Media
+      gimp
+      inkscape
+      darktable
+      vlc
+      ffmpeg
+      nomacs
+      moonlight-qt
 
-    # utils
-    syncthing
-    gh
-    ookla-speedtest
-    xorg.xhost
-    nixpkgs-fmt
-    pre-commit
-    file
-    sshpass
-    nixd
-    font-manager
-    pavucontrol
-    yubikey-manager
-    alejandra # nix fmt
-    distrobox
-    btrfs-assistant
-    uutils-coreutils-noprefix
+      # utils
+      syncthing
+      gh
+      ookla-speedtest
+      xorg.xhost
+      nixpkgs-fmt
+      pre-commit
+      file
+      sshpass
+      nixd
+      font-manager
+      pavucontrol
+      yubikey-manager
+      alejandra # nix fmt
+      distrobox
+      btrfs-assistant
+      uutils-coreutils-noprefix
 
-    # Custom Packages
-    # home-assistant-desktop
-    # elamx2
+      # Custom Packages
+      # home-assistant-desktop
+      # elamx2
 
-    # PWAs
-    (let
-      chrome-name = "chrome-web.whatsapp.com__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "WhatsApp";
-        exec = "chromium --app=https://web.whatsapp.com";
+      # Bottles
+      (pkgs.makeDesktopItem {
+        name = "catia-v5";
+        desktopName = "CATIA V5";
+        exec = ''bottles-cli run -p "CATIA V5" -b "CATIA" -- %u'';
         terminal = false;
         type = "Application";
-        icon = "whatsapp";
-        startupWMClass = chrome-name;
-        categories = ["Network" "InstantMessaging"];
+        icon = ../../assets/icons/catia_icon.png;
+        comment = "Launch CATIA V5 using Bottles.";
+        startupWMClass = "CATIA V5";
       })
 
-    (let
-      chrome-name = "chrome-teams.microsoft.com__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "Microsoft Teams";
-        exec = "chromium --app=https://teams.microsoft.com/go";
-        terminal = false;
-        type = "Application";
-        icon = "teams";
-        startupWMClass = chrome-name;
-      })
+      # Shell scrips
+      mkshell
 
-    (let
-      chrome-name = "chrome-lab.flipper.net__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "Flipper Lab";
-        exec = "chromium --app=https://lab.flipper.net/";
-        terminal = false;
-        type = "Application";
-        icon = pkgs.fetchurl {
-          url = "https://lab.flipper.net/icons/icon.svg";
-          sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
-        };
-        startupWMClass = chrome-name;
-      })
-
-    (let
-      chrome-name = "chrome-cad.onshape.com__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "Onshape";
-        exec = "chromium --app=https://cad.onshape.com";
-        terminal = false;
-        type = "Application";
+      (pkgs.writeScriptBin "reset-usb-controller" ''
+        set -eo pipefail
+        DEVICE=$(lspci -Dm | grep "USB controller" | cut -f1 -d' ' | head -n1)
+        echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind
+        echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+      '')
+    ]
+    ++ (let
+      mkChromePWA = config.lib.meta.mkChromePWA;
+    in [
+      # PWAs
+      (mkChromePWA {
+        domain = "cad.onshape.com";
+        version = "1.0";
         icon = pkgs.fetchurl {
           url = "https://www.onshape.com/favicon.png";
           sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
         };
-        startupWMClass = chrome-name;
+        desktopName = "Onshape";
         categories = ["Utility" "Office"];
       })
 
-    # Bottles
-    (pkgs.makeDesktopItem {
-      name = "catia-v5";
-      desktopName = "CATIA V5";
-      exec = ''bottles-cli run -p "CATIA V5" -b "CATIA" -- %u'';
-      terminal = false;
-      type = "Application";
-      icon = ../../assets/icons/catia_icon.png;
-      comment = "Launch CATIA V5 using Bottles.";
-      startupWMClass = "CATIA V5";
-    })
+      (mkChromePWA {
+        domain = "web.whatsapp.com";
+        version = "1.0";
+        icon = "whatsapp";
+        desktopName = "WhatsApp";
+        categories = ["Network" "InstantMessaging"];
+      })
 
-    # Shell scrips
-    mkshell
-
-    (pkgs.writeScriptBin "reset-usb-controller" ''
-      set -eo pipefail
-      DEVICE=$(lspci -Dm | grep "USB controller" | cut -f1 -d' ' | head -n1)
-      echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind
-      echo $DEVICE | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
-    '')
-  ];
+      (mkChromePWA {
+        domain = "lab.flipper.net";
+        version = "1.0";
+        icon = pkgs.fetchurl {
+          url = "https://lab.flipper.net/icons/icon.svg";
+          sha256 = "sha256-2SG0NJbOQHFuomJe5ANRbCSSNmkHOk2ZuZPtpVhsEfM=";
+        };
+        desktopName = "Flipper Lab";
+        categories = ["Development"];
+      })
+    ]);
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
