@@ -40,6 +40,7 @@ in {
       package = cfg.package;
       nativeMessagingHosts = with pkgs; [
         (mkIf config.user.wm.plasma.enable kdePackages.plasma-browser-integration)
+        unstable.jabref
       ];
       profiles.default = {
         extensions.force = mkForce true;
