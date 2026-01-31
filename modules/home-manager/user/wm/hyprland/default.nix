@@ -108,8 +108,7 @@ in {
           };
 
           input = {
-            kb_layout = "at";
-            kb_variant = "nodeadkeys";
+            kb_layout = "at-custom";
             kb_options = "caps:escape";
             accel_profile = "flat";
             follow_mouse = 2; # Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
