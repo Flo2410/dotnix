@@ -171,171 +171,157 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # programms
-    thunderbird
-    discord
-    spotify
-    signal-desktop
-    prusa-slicer
-    libreoffice
-    obsidian
-    remmina
-    ente-auth
-    heroic
-    home-assistant-desktop
-    anydesk
-    unstable.jabref
-    unstable.netbird-ui
+  home.packages = with pkgs;
+    [
+      # programms
+      thunderbird
+      discord
+      spotify
+      signal-desktop
+      prusa-slicer
+      libreoffice
+      obsidian
+      remmina
+      ente-auth
+      heroic
+      home-assistant-desktop
+      anydesk
+      unstable.jabref
+      unstable.netbird-ui
 
-    (kicad.overrideAttrs (oldAttrs: {
-      makeWrapperArgs =
-        oldAttrs.makeWrapperArgs
-        ++ [
-          "--unset __GLX_VENDOR_LIBRARY_NAME"
-        ];
-    }))
+      (kicad.overrideAttrs (oldAttrs: {
+        makeWrapperArgs =
+          oldAttrs.makeWrapperArgs
+          ++ [
+            "--unset __GLX_VENDOR_LIBRARY_NAME"
+          ];
+      }))
 
-    # games
-    # modrinth-app
-    sidequest
+      # games
+      # modrinth-app
+      sidequest
 
-    # kde utils
-    kdePackages.kcalc
-    kdePackages.skanpage
+      # kde utils
+      kdePackages.kcalc
+      kdePackages.skanpage
 
-    # Media
-    gimp
-    inkscape
-    vlc
-    ffmpeg
-    nomacs
-    audacity
-    darktable
-    rawtherapee
+      # Media
+      gimp
+      inkscape
+      vlc
+      ffmpeg
+      nomacs
+      audacity
+      darktable
+      rawtherapee
 
-    # utils
-    gh
-    ookla-speedtest
-    xorg.xhost
-    nixpkgs-fmt
-    pre-commit
-    file
-    sshpass
-    nixd
-    font-manager
-    pavucontrol
-    alejandra # nix fmt
-    distrobox
-    btrfs-assistant
-    naps2
-    uutils-coreutils-noprefix
-    wlx-overlay-s
+      # utils
+      gh
+      ookla-speedtest
+      xorg.xhost
+      nixpkgs-fmt
+      pre-commit
+      file
+      sshpass
+      nixd
+      font-manager
+      pavucontrol
+      alejandra # nix fmt
+      distrobox
+      btrfs-assistant
+      naps2
+      uutils-coreutils-noprefix
+      wlx-overlay-s
 
-    (unstable.bottles.override {
-      removeWarningPopup = true;
-    })
-
-    # PWAs
-    (let
-      chrome-name = "chrome-web.whatsapp.com__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "WhatsApp";
-        exec = "chromium --app=https://web.whatsapp.com";
-        terminal = false;
-        type = "Application";
-        icon = "whatsapp";
-        startupWMClass = chrome-name;
-        categories = ["Network" "InstantMessaging"];
+      (unstable.bottles.override {
+        removeWarningPopup = true;
       })
 
-    (let
-      chrome-name = "chrome-cad.onshape.com__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "Onshape";
-        exec = "chromium --app=https://cad.onshape.com";
-        terminal = false;
-        type = "Application";
+      # Bottles
+      (stdenv.mkDerivation {
+        name = "lightroom-classic";
+        dontUnpack = true;
+
+        mimeConfig = pkgs.writeTextFile {
+          name = "lightroom-classic.xml";
+          text = ''
+            <?xml version="1.0" encoding="utf-8"?>
+            <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+              <mime-type type="application/x-lightoom-catalog">
+                <glob pattern="*.lrcat"/>
+                <comment>Lightroom Catalog</comment>
+                <icon name="lightroom-classic" />
+              </mime-type>
+            </mime-info>
+          '';
+        };
+
+        icon = pkgs.fetchurl {
+          url = "https://www.adobe.com/cc-shared/assets/img/product-icons/svg/lightroom-classic-64.svg";
+          sha256 = "sha256-j1wPsHIfhdpDAjzugoIGQgYuLNk446dZ6z+YXzxspUs=";
+        };
+
+        desktopItem = pkgs.makeDesktopItem {
+          name = "lightroom-classic";
+          desktopName = "Lightroom Classic";
+          exec = ''bottles-cli run -p "Lightroom Classic" -b "Adobe Lightroom" -- %u'';
+          terminal = false;
+          type = "Application";
+          icon = "lightroom-classic";
+          comment = "Launch Lightroom Classic using Bottles.";
+          startupWMClass = "Lightroom Classic";
+          mimeTypes = ["application/x-lightoom-catalog"];
+          categories = ["Graphics"];
+          actions.configure = {
+            name = "Configure in Bottles";
+            exec = ''bottles -b "Adobe Lightroom"'';
+          };
+        };
+
+        installPhase = ''
+          install -Dm644 $icon $out/share/icons/hicolor/scalable/apps/lightroom-classic.svg
+          install -Dm644 $mimeConfig $out/share/mime/packages/lightroom-classic.xml
+          install -Dm644 $desktopItem/share/applications/* -t $out/share/applications
+        '';
+      })
+
+      # Shell scrips
+      mkshell
+    ]
+    ++ (let
+      mkChromePWA = config.lib.meta.mkChromePWA;
+    in [
+      # PWAs
+      (mkChromePWA {
+        domain = "cad.onshape.com";
+        version = "1.0";
         icon = pkgs.fetchurl {
           url = "https://www.onshape.com/favicon.png";
           sha256 = "sha256-nMzyckYEemjYGGe2pd87zBOSWUseBW5s1plL0+3ZbV0=";
         };
-        startupWMClass = chrome-name;
+        desktopName = "Onshape";
         categories = ["Utility" "Office"];
       })
 
-    (let
-      chrome-name = "chrome-usevia.app__-Default";
-    in
-      pkgs.makeDesktopItem {
-        name = chrome-name;
-        desktopName = "VIA";
-        exec = "chromium --app=https://usevia.app";
-        terminal = false;
-        type = "Application";
+      (mkChromePWA {
+        domain = "usevia.app";
+        version = "1.0";
         icon = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/the-via/website/c816784b7788a2122ebcbc0046fbe0ffa0a07878/static/img/icon.png";
           sha256 = "sha256-4kBtqyIjFEW05KBGNJdGbYCcwdkOg0dMmCfWUyLn4mM=";
         };
-        startupWMClass = chrome-name;
+        desktopName = "VIA";
         categories = ["Utility" "System"];
       })
 
-    # Bottles
-    (stdenv.mkDerivation {
-      name = "lightroom-classic";
-      dontUnpack = true;
-
-      mimeConfig = pkgs.writeTextFile {
-        name = "lightroom-classic.xml";
-        text = ''
-          <?xml version="1.0" encoding="utf-8"?>
-          <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-            <mime-type type="application/x-lightoom-catalog">
-              <glob pattern="*.lrcat"/>
-              <comment>Lightroom Catalog</comment>
-              <icon name="lightroom-classic" />
-            </mime-type>
-          </mime-info>
-        '';
-      };
-
-      icon = pkgs.fetchurl {
-        url = "https://www.adobe.com/cc-shared/assets/img/product-icons/svg/lightroom-classic-64.svg";
-        sha256 = "sha256-j1wPsHIfhdpDAjzugoIGQgYuLNk446dZ6z+YXzxspUs=";
-      };
-
-      desktopItem = pkgs.makeDesktopItem {
-        name = "lightroom-classic";
-        desktopName = "Lightroom Classic";
-        exec = ''bottles-cli run -p "Lightroom Classic" -b "Adobe Lightroom" -- %u'';
-        terminal = false;
-        type = "Application";
-        icon = "lightroom-classic";
-        comment = "Launch Lightroom Classic using Bottles.";
-        startupWMClass = "Lightroom Classic";
-        mimeTypes = ["application/x-lightoom-catalog"];
-        categories = ["Graphics"];
-        actions.configure = {
-          name = "Configure in Bottles";
-          exec = ''bottles -b "Adobe Lightroom"'';
-        };
-      };
-
-      installPhase = ''
-        install -Dm644 $icon $out/share/icons/hicolor/scalable/apps/lightroom-classic.svg
-        install -Dm644 $mimeConfig $out/share/mime/packages/lightroom-classic.xml
-        install -Dm644 $desktopItem/share/applications/* -t $out/share/applications
-      '';
-    })
-
-    # Shell scrips
-    mkshell
-  ];
+      (mkChromePWA {
+        domain = "web.whatsapp.com";
+        version = "1.0";
+        icon = "whatsapp";
+        desktopName = "WhatsApp";
+        categories = ["Network" "InstantMessaging"];
+      })
+    ]);
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.11";
