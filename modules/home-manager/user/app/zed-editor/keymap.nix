@@ -18,6 +18,13 @@
     };
   }
   {
+    context = "vim_mode == normal";
+    bindings = {
+      "d l" = "editor::GoToDiagnostic";
+      "d h" = "editor::GoToPreviousDiagnostic";
+    };
+  }
+  {
     context = "vim_mode == insert";
     bindings = {
       escape = null;
