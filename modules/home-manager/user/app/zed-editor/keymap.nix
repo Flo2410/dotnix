@@ -18,19 +18,19 @@
     };
   }
   {
-    context = "((Editor && in_snippet) && has_next_tabstop)";
+    context = "(Editor && in_snippet) && has_next_tabstop";
     bindings = {
       tab = "editor::NextSnippetTabstop";
     };
   }
   {
-    context = "((Editor && in_snippet) && has_previous_tabstop)";
+    context = "(Editor && in_snippet) && has_previous_tabstop";
     bindings = {
       "shift-tab" = "editor::PreviousSnippetTabstop";
     };
   }
   {
-    context = "((Editor && edit_prediction) && !showing_completions)";
+    context = "(Editor && edit_prediction) && !showing_completions";
     bindings = {
       tab = "editor::AcceptEditPrediction";
     };
@@ -62,7 +62,7 @@
   }
   # Retore some keybinds in vim mode https=//zed.dev/docs/vim#restoring-common-text-editing-and-zed-keybindings
   {
-    context = "Editor && !menu";
+    context = "(Editor && !menu) || (Editor && menu && showing_completions)";
     bindings = {
       "ctrl-c" = "editor::Copy"; # vim default: return to normal mode
       "ctrl-x" = "editor::Cut"; # vim default: decrement
