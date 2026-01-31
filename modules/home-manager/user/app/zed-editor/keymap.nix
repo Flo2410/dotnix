@@ -18,6 +18,24 @@
     };
   }
   {
+    context = "((Editor && in_snippet) && has_next_tabstop)";
+    bindings = {
+      tab = "editor::NextSnippetTabstop";
+    };
+  }
+  {
+    context = "((Editor && in_snippet) && has_previous_tabstop)";
+    bindings = {
+      "shift-tab" = "editor::PreviousSnippetTabstop";
+    };
+  }
+  {
+    context = "((Editor && edit_prediction) && !showing_completions)";
+    bindings = {
+      tab = "editor::AcceptEditPrediction";
+    };
+  }
+  {
     context = "vim_mode == normal";
     bindings = {
       "d l" = "editor::GoToDiagnostic";
@@ -60,7 +78,7 @@
   {
     context = "(ProjectPanel && not_editing)";
     bindings = {
-      "n" = "project_panel::NewFile";
+      n = "project_panel::NewFile";
       "shift-n" = "project_panel::NewDirectory";
     };
   }
