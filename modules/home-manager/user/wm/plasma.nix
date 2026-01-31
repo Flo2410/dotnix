@@ -37,10 +37,18 @@ in {
         # wallpaper = ../../../../assets/wallpapers/Abstract_1-hue_logo.jpg;
       };
 
-      hotkeys.commands."launch-rofi" = {
-        name = "Launch Rofi";
-        key = "Alt+Space";
-        command = "rofi -show drun -modes drun,calc,window -replace";
+      hotkeys.commands = {
+        "launch-rofi" = {
+          name = "Launch Rofi";
+          key = "Alt+Space";
+          command = "rofi -show drun -modes drun,calc,window -replace";
+        };
+
+        "open-dotnix" = {
+          name = "Open dotnix";
+          key = "Meta+D";
+          command = "zeditor ${config.user.home.dotfilesDirectory}";
+        };
       };
 
       shortcuts = {
