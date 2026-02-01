@@ -3,9 +3,9 @@ builtins.toJSON {
   online = {
     prefix = "@online";
     body = [
-      "@online{web=$1,"
-      "  author  = {{$2}},"
-      "  title   = {{$3}},"
+      "@online{web:$1,"
+      "  title   = {{$2}},"
+      "  author  = {{$3}},"
       "  url     = {$4},"
       "  year    = {$5},"
       "  month   = {$6},"
