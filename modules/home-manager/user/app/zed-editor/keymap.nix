@@ -12,6 +12,13 @@
     };
   }
   {
+    context = "Pane";
+    bindings = {
+      "ctrl-tab" = "pane::ActivateNextItem";
+      "ctrl-shift-tab" = "pane::ActivatePreviousItem";
+    };
+  }
+  {
     context = "Editor";
     bindings = {
       "ctrl-w" = "pane::CloseActiveItem";
