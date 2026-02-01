@@ -113,7 +113,10 @@ in {
               keycode = "backtab";
               mode = ["emacs" "vi_insert" "vi_normal"];
               event = {
-                send = "HistoryHintComplete";
+                until = [
+                  {send = "MenuPrevious";} # Try to go back in the completion menu
+                  {send = "HistoryHintComplete";} # If no menu, accept the ghost text
+                ];
               };
             }
           ];
