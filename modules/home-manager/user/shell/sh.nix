@@ -106,6 +106,17 @@ in {
         settings = {
           show_banner = false;
           edit_mode = "vi";
+          keybindings = [
+            {
+              name = "accept_history_hint";
+              modifier = "shift";
+              keycode = "backtab";
+              mode = ["emacs" "vi_insert" "vi_normal"];
+              event = {
+                send = "HistoryHintComplete";
+              };
+            }
+          ];
         };
         extraConfig = let
           aliases = "${pkgs.nu_scripts}/share/nu_scripts/aliases";
