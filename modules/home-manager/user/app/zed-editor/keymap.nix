@@ -1,5 +1,11 @@
 {}: [
   {
+    # global context
+    bindings = {
+      "ctrl-," = null; # remove keybind for opening settings.
+    };
+  }
+  {
     context = "Workspace";
     bindings = {
       "alt-l" = "terminal_panel::Toggle";
