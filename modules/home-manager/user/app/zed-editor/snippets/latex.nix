@@ -54,4 +54,10 @@ builtins.toJSON {
     description = "Declare an acronym";
     body = ["\\DeclareAcronym{$1}{short = $2, long = $3}$0"];
   };
+
+  cite = {
+    prefix = "\\c";
+    description = "Cite a source";
+    body = ["\\cite{$1}$0"];
+  };
 }
