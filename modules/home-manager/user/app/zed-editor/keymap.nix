@@ -22,6 +22,7 @@
     context = "Editor";
     bindings = {
       "ctrl-w" = "pane::CloseActiveItem";
+      escape = null;
     };
   }
   {
@@ -56,9 +57,16 @@
     };
   }
   {
-    context = "vim_mode == insert";
+    context = "Editor && vim_mode == insert && showing_completions";
     bindings = {
-      escape = null;
+      escape = "vim::SwitchToNormalMode";
+    };
+  }
+  {
+    context = "Editor && vim_mode == normal && showing_completions";
+    bindings = {
+      j = "editor::ContextMenuNext";
+      k = "editor::ContextMenuPrev";
     };
   }
   {
@@ -67,12 +75,12 @@
       escape = "vim::NormalBefore";
     };
   }
-  {
-    context = "vim_mode == insert && showing_completions";
-    bindings = {
-      escape = "editor::Cancel";
-    };
-  }
+  # {
+  #   context = "vim_mode == insert && showing_completions";
+  #   bindings = {
+  #     escape = "editor::Cancel";
+  #   };
+  # }
   # Retore some keybinds in vim mode https=//zed.dev/docs/vim#restoring-common-text-editing-and-zed-keybindings
   {
     context = "(Editor && !menu) || (Editor && menu && showing_completions)";
