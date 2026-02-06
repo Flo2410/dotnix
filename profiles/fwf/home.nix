@@ -148,6 +148,7 @@
       netbird-ui
       naps2
       saleae-logic-2
+      anydesk
       unstable.jabref
 
       # kde utils
