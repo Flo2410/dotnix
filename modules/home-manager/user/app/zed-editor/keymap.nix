@@ -22,7 +22,6 @@
     context = "Editor";
     bindings = {
       "ctrl-w" = "pane::CloseActiveItem";
-      escape = null;
     };
   }
   {
@@ -63,7 +62,7 @@
     };
   }
   {
-    context = "Editor && vim_mode == normal && showing_completions";
+    context = "Editor && vim_mode == normal && (showing_completions || showing_code_actions)";
     bindings = {
       j = "editor::ContextMenuNext";
       k = "editor::ContextMenuPrev";
