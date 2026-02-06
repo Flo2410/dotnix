@@ -74,12 +74,6 @@
       escape = "vim::NormalBefore";
     };
   }
-  # {
-  #   context = "vim_mode == insert && showing_completions";
-  #   bindings = {
-  #     escape = "editor::Cancel";
-  #   };
-  # }
   # Retore some keybinds in vim mode https=//zed.dev/docs/vim#restoring-common-text-editing-and-zed-keybindings
   {
     context = "(Editor && !menu) || (Editor && menu && showing_completions)";
@@ -96,7 +90,7 @@
     };
   }
   {
-    context = "(ProjectPanel && not_editing)";
+    context = "ProjectPanel && not_editing";
     bindings = {
       n = "project_panel::NewFile";
       "shift-n" = "project_panel::NewDirectory";
