@@ -30,9 +30,9 @@ builtins.toJSON {
     body = [
       "\\begin{figure}[H]"
       "  \\centering"
-      "  \\includegraphics[width=\\linewidth]{\${1=sections}}"
+      "  \\includegraphics[width=\\linewidth]{\${1:sections}}"
       "  \\caption{$2}"
-      "  \\label{fig=$3}"
+      "  \\label{fig:$3}"
       "\\end{figure}$0"
     ];
   };
