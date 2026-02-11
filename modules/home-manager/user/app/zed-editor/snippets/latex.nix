@@ -60,4 +60,14 @@ builtins.toJSON {
     description = "Cite a source";
     body = ["\\cite{$1}$0"];
   };
+
+  itemize = {
+    prefix = "\\itemize";
+    description = "Create a itemize list";
+    body = [
+      "\\begin{itemize}"
+      "  \\item $0"
+      "\\end{itemize}"
+    ];
+  };
 }
