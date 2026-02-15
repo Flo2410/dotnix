@@ -30,8 +30,8 @@ in {
           margin-right = 8;
 
           modules-left = ["hyprland/workspaces"];
-          modules-center = ["clock"];
-          modules-right = ["tray" "backlight" "battery"];
+          modules-center = ["clock" "mpris"];
+          modules-right = ["tray" "wireplumber" "backlight" "battery"];
         }
         // waybar_modules;
     };

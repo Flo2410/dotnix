@@ -29,7 +29,11 @@ From catppuccin mocha.css
 */
 
 * {
-  font-family: "Noto Sans, Material Icons, Material Design Icons";
+  font-family: "Noto Sans, Font Awesome, Material Icons, Material Design Icons";
+}
+
+#mpris {
+  margin-left: 1rem;
 }
 
 window#waybar {

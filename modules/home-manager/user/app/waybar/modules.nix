@@ -20,6 +20,19 @@
     };
   };
 
+  mpris = {
+    format = "{player_icon} {artist} // {title}";
+    format-paused = "{status_icon} {artist} // {title}";
+    player-icons = {
+      default = "";
+      spotify = "";
+    };
+    status-icons.paused = "";
+    # ignored-players = [
+    #   "firefox"
+    # ];
+  };
+
   # --------------------------------
   # right
   # --------------------------------
@@ -38,17 +51,30 @@
   };
 
   battery = {
-    interval = 3;
+    interval = 5;
     states = {
       warning = 30;
       critical = 15;
     };
     format = "{capacity}% {icon}";
-    format-charging = "{capacity}% 󱐋";
-    format-plugged = "{capacity}% 󱐋";
-    # format-alt = "{time} {icon}";
-    format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-    # format-icons = [ "" "" "" "" "" ]; # Font Awesome
-    on-click = "ags -b hypr -t powerctrl";
+    format-charging = "{capacity}% {icon}󱐋";
+    format-plugged = "{capacity}% {icon}󱐋";
+    format-alt = "{time} {icon}";
+    # format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+    format-icons = ["" "" "" "" ""]; # Font Awesome
+    # on-click = "ags -b hypr -t powerctrl";
+  };
+
+  wireplumber = {
+    format = "{icon}";
+    format-bluetooth = "󰂰";
+    nospacing = 1;
+    tooltip-format = "Volume : {volume}%";
+    format-muted = "󰝟";
+    format-icons = {
+      eadphone = "";
+      default = ["󰖀" "󰕾"];
+    };
+    scroll-step = 1;
   };
 }
