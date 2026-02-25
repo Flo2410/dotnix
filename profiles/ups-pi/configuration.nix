@@ -96,7 +96,7 @@
       isNormalUser = true;
       uid = 1000;
       extraGroups = ["networkmanager" "wheel" "input" "dialout"];
-      openssh.authorizedKeys.keys = [];
+      openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFE6xZALwlkERURQ7V0HV0fjZM5m0nA051K7r27Y2RzR florian@PC-Florian"];
       hashedPassword = "$y$j9T$rtJSZcD91hnqnEKWagFDi/$vBeAzDioMpqdnGKZngkirJBI3jFrITdKNHqyvjsFUQB";
     };
   };
