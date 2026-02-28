@@ -50,6 +50,8 @@
   home.keyboard = null;
 
   programs = {
+    onlyoffice.enable = true;
+
     btop = {
       enable = true;
       package = pkgs.btop-cuda;
