@@ -57,7 +57,7 @@ in {
       };
 
       Install = {
-        WantedBy = ["graphical-session.target"];
+        WantedBy = ["multi-user.target"];
       };
     };
 
