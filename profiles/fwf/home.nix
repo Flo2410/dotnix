@@ -145,10 +145,10 @@
             "--unset __GLX_VENDOR_LIBRARY_NAME"
           ];
       }))
-      netbird-ui
       naps2
       saleae-logic-2
       anydesk
+      qalculate-gtk
       unstable.jabref
 
       # kde utils
