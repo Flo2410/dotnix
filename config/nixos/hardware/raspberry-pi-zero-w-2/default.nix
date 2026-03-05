@@ -25,10 +25,11 @@
     algorithm = "zstd";
   };
 
+  image.baseName = "zero2";
+
   sdImage = {
     # bzip2 compression takes loads of time with emulation, skip it. Enable this if you're low on space.
     compressImage = false;
-    imageName = "zero2.img";
 
     extraFirmwareConfig = {
       # Give up VRAM for more Free System Memory
