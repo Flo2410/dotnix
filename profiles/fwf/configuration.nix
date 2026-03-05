@@ -168,6 +168,7 @@
     netbird = {
       enable = true;
       package = pkgs.unstable.netbird;
+      ui.enable = true;
       # useRoutingFeatures = "client"; # This will set `networking.firewall.checkReversePath = "loose";`
     };
 
