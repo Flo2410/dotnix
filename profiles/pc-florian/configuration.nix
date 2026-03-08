@@ -285,7 +285,10 @@
 
       filesystem = {
         enable = true;
-        autoMounts = ["/mnt/florian"];
+        autoMounts = [
+          "/mnt/florian"
+          "/mnt/paperless_consumption"
+        ];
       };
 
       powerManagement = {
