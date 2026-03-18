@@ -18,11 +18,14 @@ with pkgs; {
   elamx2 = callPackage ./elamx2.nix {};
   stm32cubeprog = callPackage ./stm32cubeprog.nix {};
   breezex-cursor = callPackage ./breezex-cursor.nix {};
-  bahnschrift-font = callPackage ./bahnschrift-font.nix {};
   go-hass-agent = callPackage ./go-hass-agent.nix {};
   mkshell = callPackage ./mkshell.nix {};
 
   mfcl3750cdw = callPackage ./brother-mfcl3750cdw.nix {};
 
   sddm-astronaut = callPackage ./sddm-themes/astronaut.nix {};
+
+  # fonts
+  bahnschrift-font = callPackage ./fonts/bahnschrift-font.nix {};
+  righteous-font = callPackage ./fonts/righteous-font.nix {};
 }

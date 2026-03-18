@@ -5,7 +5,7 @@
 stdenvNoCC.mkDerivation {
   pname = "bahnschrift-font";
   version = "2";
-  src = ../assets/fonts/Bahnschrift.ttf;
+  src = ../../assets/fonts/Bahnschrift.ttf;
 
   dontUnpack = true;
 

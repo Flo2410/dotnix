@@ -28,8 +28,11 @@ in {
         roboto
         material-icons # https://fonts.google.com/icons
         material-design-icons # https://pictogrammers.com/library/mdi/
-        bahnschrift-font
         ubuntu-sans
+
+        # custom font pkgs
+        bahnschrift-font
+        righteous-font
       ];
     };
   };
