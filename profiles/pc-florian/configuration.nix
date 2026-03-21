@@ -126,7 +126,7 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "adbusers" "plugdev"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "adbusers" "plugdev"];
     };
   };
 
@@ -265,10 +265,7 @@
       steam.enable = true;
       virtualization.enable = true;
 
-      docker = {
-        enable = true;
-        storageDriver = "overlay2";
-      };
+      podman.enable = true;
 
       flatpak = {
         enable = true;

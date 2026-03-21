@@ -10,6 +10,7 @@
 
     ./app/logiops/logiops.nix
     ./app/docker.nix
+    ./app/podman.nix
     ./app/flatpak.nix
     ./app/steam.nix
     ./app/virtualization.nix
