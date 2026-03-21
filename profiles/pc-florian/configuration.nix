@@ -21,6 +21,7 @@
     inputs.stylix.nixosModules.stylix
     inputs.catppuccin.nixosModules.catppuccin
     inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.nix-index-database.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix

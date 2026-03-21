@@ -115,6 +115,12 @@
     nixpkgs.url = "nixpkgs/nixos-25.11";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     flake-utils.url = "github:numtide/flake-utils";
