@@ -215,6 +215,7 @@
       audacity
       darktable
       rawtherapee
+      deepskystacker-bin
 
       # utils
       gh
