@@ -43,6 +43,12 @@
     #   interfaces = [ "wlan0" ];
     #   enable = true;
     # };
+
+    firewall = {
+      allowedTCPPorts = [
+        8080 # zigbee2mqtt
+      ];
+    };
   };
 
   # Set your time zone.
@@ -115,6 +121,69 @@
     openssh = {
       enable = true;
       settings.PermitRootLogin = "no";
+    };
+
+    zigbee2mqtt = {
+      enable = true;
+      package = pkgs.unstable.zigbee2mqtt;
+      dataDir = "/var/lib/zigbee2mqtt";
+      settings = {
+        homeassistant.enabled = true;
+        frontend = {
+          enabled = true;
+          port = 8080;
+        };
+        serial = {
+          port = "/dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20221129153156-if00";
+          adapter = "ember";
+          baudrate = 115200;
+        };
+        mqtt = {
+          server = "mqtt://haos.hye.network:1883";
+          base_topic = "zigbee2mqtt_ups-pi";
+          user = "z2m";
+          password = "Aviator5-Disown-Achiness";
+        };
+        advanced = {
+          last_seen = "ISO_8601";
+        };
+        availability = {
+          enabled = true;
+        };
+      };
+    };
+    promtail = {
+      enable = true;
+      configuration = {
+        server = {
+          http_listen_port = 3031;
+          grpc_listen_port = 0;
+        };
+        positions = {
+          filename = "/tmp/positions.yaml";
+        };
+        clients = [
+          {url = "https://loki:loki1234@loki.lro.hye.network/loki/api/v1/push";}
+        ];
+        scrape_configs = [
+          {
+            job_name = "journal";
+            journal = {
+              max_age = "12h";
+              labels = {
+                job = "systemd-journal";
+                host = "ups-pi";
+              };
+            };
+            relabel_configs = [
+              {
+                source_labels = ["__journal__systemd_unit"];
+                target_label = "unit";
+              }
+            ];
+          }
+        ];
+      };
     };
   };
 
