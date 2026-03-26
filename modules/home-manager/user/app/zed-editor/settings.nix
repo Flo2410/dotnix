@@ -169,5 +169,9 @@ in {
     protobuf-language-server = {
       binary.path = pkgs.lib.getExe pkgs.protols;
     };
+
+    just = {
+      binary.path = pkgs.lib.getExe pkgs.just-just-lsp;
+    };
   };
 }
