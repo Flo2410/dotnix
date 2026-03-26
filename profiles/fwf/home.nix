@@ -54,6 +54,8 @@
   systemd.user.startServices = "sd-switch";
 
   programs = {
+    onlyoffice.enable = true;
+
     btop = {
       enable = true;
       package = pkgs.btop-rocm;
