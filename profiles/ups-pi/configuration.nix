@@ -75,11 +75,13 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    zsh
+    nushell
 
     libraspberrypi
     raspberrypi-eeprom
   ];
+
+  environment.shells = [pkgs.nushell];
 
   home-manager = {
     backupFileExtension = "backup";
@@ -91,7 +93,7 @@
   };
 
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.nushell;
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
@@ -101,17 +103,12 @@
     };
   };
 
-  # I use zsh btw
-  environment.shells = with pkgs; [zsh];
-  programs.zsh.enable = true;
-
   services = {
     timesyncd.enable = true;
 
     udev = {
       enable = true;
-      packages = with pkgs; [
-      ];
+      packages = [];
     };
 
     # Enable SSH
