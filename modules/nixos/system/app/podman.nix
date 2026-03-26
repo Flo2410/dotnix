@@ -19,6 +19,7 @@ in {
 
         # Create a `docker` alias for podman, to use it as a drop-in replacement
         dockerCompat = lib.mkDefault false;
+        dockerSocket.enable = lib.mkDefault false;
 
         # Required for containers under podman-compose to be able to talk to each other.
         defaultNetwork.settings.dns_enabled = lib.mkDefault true;
