@@ -34,6 +34,10 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  programs = {
+    atuin.enable = false;
+  };
+
   user = {
     home = rec {
       enable = true;
