@@ -127,7 +127,7 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "adbusers" "plugdev"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "adbusers" "plugdev" "podman"];
     };
   };
 
