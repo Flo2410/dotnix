@@ -171,7 +171,7 @@ in {
     };
 
     just = {
-      binary.path = pkgs.lib.getExe pkgs.just-just-lsp;
+      binary.path = pkgs.lib.getExe pkgs.just-lsp;
     };
   };
 }
