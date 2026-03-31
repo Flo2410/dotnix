@@ -1,87 +1,91 @@
 {}: [
   # make PiP window floating and sticky
-  "float, title:^(Picture-in-Picture)$"
-  "pin, title:^(Picture-in-Picture)$"
-  "keepaspectratio, title:^(Picture-in-Picture)$"
-  "suppressevent fullscreen, title:^(Picture-in-Picture)$"
-  "suppressevent maximize, title:^(Picture-in-Picture)$"
+  "match:title ^(Picture-in-Picture)$, float on"
+  "match:title ^(Picture-in-Picture)$, pin on"
+  "match:title ^(Picture-in-Picture)$, keep_aspect_ratio on"
+  "match:title ^(Picture-in-Picture)$, suppress_event fullscreen"
+  "match:title ^(Picture-in-Picture)$, suppress_event maximize"
 
   # Syncthing tray
-  "float, title:^(Syncthing Tray)$"
-  "size 640 320, title:^(Syncthing Tray)$"
-  "move 100%-w-20 60, title:^(Syncthing Tray)$"
-  "pin, title:^(Syncthing Tray)$"
+  "match:title ^(Syncthing Tray)$, float on"
+  "match:title ^(Syncthing Tray)$, size 640 320"
+  "match:title ^(Syncthing Tray)$, move 100%-w-20 60"
+  "match:title ^(Syncthing Tray)$, pin on"
 
   # elamx2
-  "float, class:^(java-lang-Thread), title:^(Starting eLamX)(.*)$"
-  "tile, class:^(java-lang-Thread), title:^(eLamX)(.*)$"
+  "match:class ^(java-lang-Thread), match:title ^(Starting eLamX)(.*)$, float on"
+  "match:class ^(java-lang-Thread), match:title ^(eLamX)(.*)$, tile on"
 
   # kwallet dialog
-  "move onscreen cursor -50% -50%, floating: 1, class:^(org.kde.kwalletd6)$" # move window to cursor positon -> hack to get the window to the current display
-  "center, floating: 1, class:^(org.kde.kwalletd6)$" # move the window to the center of the screen
+  "match:float true, match:class ^(org.kde.kwalletd6)$, move onscreen cursor -50% -50%"
+  "match:float true, match:class ^(org.kde.kwalletd6)$, center on"
 
   # MATLAB
-  "tile, class:^(MATLAB)(.*), title:^(.+)$" # Tile all MATLAB windows
-  "float, class:^(MATLAB)(.*), title:^(MATLAB)( .*)$" # Float popups; The " " is so it matches "MATLAB R2025b" but not "MATLAB". "MATLAB" is the initial title of the main window.
-  "float, class:^(MATLAB)(.*), title:^(MathWorks Update Installer)$" # Float Update Installer
-  "center, class:^(MATLAB)(.*), title:^(MathWorks Update Installer)$" # center Update Installer
+  "match:class ^(MATLAB)(.*), match:title ^(.+)$, tile on"
+  "match:class ^(MATLAB)(.*), match:title ^(MATLAB)( .*)$, float on"
+  "match:class ^(MATLAB)(.*), match:title ^(MathWorks Update Installer)$, float on"
+  "match:class ^(MATLAB)(.*), match:title ^(MathWorks Update Installer)$, center on"
 
   # pavucontrol
-  "float, class:^(.*)(pavucontrol), title:^(Volume Control)$"
-  "move onscreen cursor -50% -50%, class:^(.*)(pavucontrol), title:^(Volume Control)$"
-  "center, class:^(.*)(pavucontrol), title:^(Volume Control)$"
+  "match:class ^(.*)(pavucontrol), match:title ^(Volume Control)$, float on"
+  "match:class ^(.*)(pavucontrol), match:title ^(Volume Control)$, move onscreen cursor -50% -50%"
+  "match:class ^(.*)(pavucontrol), match:title ^(Volume Control)$, center on"
 
-  # HomeAssistent desktop
-  "float, class:^(Electron), title:^(.*)(Home Assistant)$"
-  "move 100%-w-20 60, class:^(Electron), title:^(.*)(Home Assistant)$"
-  "size 500 740, class:^(Electron), title:^(.*)(Home Assistant)$"
-  "pin, class:^(Electron), title:^(.*)(Home Assistant)$"
+  # Home Assistant desktop
+  "match:class ^(Electron), match:title ^(.*)(Home Assistant)$, float on"
+  "match:class ^(Electron), match:title ^(.*)(Home Assistant)$, move 100%-w-20 60"
+  "match:class ^(Electron), match:title ^(.*)(Home Assistant)$, size 500 740"
+  "match:class ^(Electron), match:title ^(.*)(Home Assistant)$, pin on"
 
   # Catia via bottles
-  "float, class:^(cnext.exe)$"
-  "tile, class:^(cnext.exe), title:^(CNEXT)$"
+  "match:class ^(cnext.exe)$, float on"
+  "match:class ^(cnext.exe), match:title ^(CNEXT)$, tile on"
 
   # Thunderbird
   # Identity Chooser
-  "float, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
-  "center, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
-  "size 860 620, class:^(thunderbird), title:^(Identity Chooser)(.*)$"
+  "match:class ^(thunderbird), match:title ^(Identity Chooser)(.*)$, float on"
+  "match:class ^(thunderbird), match:title ^(Identity Chooser)(.*)$, center on"
+  "match:class ^(thunderbird), match:title ^(Identity Chooser)(.*)$, size 860 620"
   # Calendar entry
-  "float, class:^(thunderbird), title:^(Edit Item)$"
-  "center, class:^(thunderbird), title:^(Edit Item)$"
+  "match:class ^(thunderbird), match:title ^(Edit Item)$, float on"
+  "match:class ^(thunderbird), match:title ^(Edit Item)$, center on"
   # Empty title
-  "float, class:^(thunderbird), title:^()$"
+  "match:class ^(thunderbird), match:title ^$, float on"
 
   # STM32CubeMX
-  "float, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(win0)$"
-  "tile, class:^(com-st-microxplorer-maingui-STM32CubeMX), title:^(STM32CubeMX)(.*)$"
+  "match:class ^(com-st-microxplorer-maingui-STM32CubeMX), match:title ^(win0)$, float on"
+  "match:class ^(com-st-microxplorer-maingui-STM32CubeMX), match:title ^(STM32CubeMX)(.*)$, tile on"
 
   # qFlipper
-  "float, class:^(com.flipperdevices.), title:^(qFlipper)$"
-  "noborder, class:^(com.flipperdevices.), title:^(qFlipper)$"
-  "noblur, class:^(com.flipperdevices.), title:^(qFlipper)$"
-  "noshadow, class:^(com.flipperdevices.), title:^(qFlipper)$"
+  "match:class ^(com.flipperdevices.), match:title ^(qFlipper)$, float on"
+  "match:class ^(com.flipperdevices.), match:title ^(qFlipper)$, border_size 0"
+  "match:class ^(com.flipperdevices.), match:title ^(qFlipper)$, no_blur on"
+  "match:class ^(com.flipperdevices.), match:title ^(qFlipper)$, no_shadow on"
 
   # Discord
-  "noinitialfocus, class:^(discord), title:^(Discord Updater)$"
-  "nofocus, class:^(discord), title:^(Discord Updater)$"
+  "match:class ^(discord), match:title ^(Discord Updater)$, no_initial_focus on"
+  "match:class ^(discord), match:title ^(Discord Updater)$, no_focus on"
 
   # Ubisoft
-  "tile, class:^(upc.exe|steam_app_default), title:^(Ubisoft Connect)$"
+  "match:class ^(upc.exe|steam_app_default), match:title ^(Ubisoft Connect)$, tile on"
   # Anno 1800
-  "tile, class:^(anno1800.exe), title:^(Anno 1800)$"
-  "fullscreenstate 2 0, class:^(anno1800.exe), title:^(Anno 1800)$"
-  "suppressevent fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
-  "suppressevent fullscreenoutput, class:^(anno1800.exe), title:^(Anno 1800)$"
-  "suppressevent maximize, class:^(anno1800.exe), title:^(Anno 1800)$"
-  # "fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
+  "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, tile on"
+  "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, fullscreen_state 2 0"
+  "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, suppress_event fullscreen"
+  "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, suppress_event fullscreen_output"
+  "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, suppress_event maximize"
+  # "match:class ^(anno1800.exe), match:title ^(Anno 1800)$, fullscreen on"
 
   # Steam
-  "tile, class:^(steam), title:^(Steam)$"
+  "match:class ^(steam), match:title ^(Steam)$, tile on"
 
   # Thunar
-  "float, class:^(thunar), title:^(Rename)(.*)$"
+  "match:class ^(thunar), match:title ^(Rename)(.*)$, float on"
 
-  #JabRef
-  "noinitialfocus, nofocus, noshadow, nofollowmouse, noblur, floating:1, class:^(org.jabref.gui.JabRefGUI), title:^()$"
+  # JabRef
+  "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_initial_focus on"
+  "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_focus on"
+  "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_shadow on"
+  "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_follow_mouse on"
+  "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_blur on"
 ]

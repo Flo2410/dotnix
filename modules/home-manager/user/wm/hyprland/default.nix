@@ -56,6 +56,9 @@ in {
       };
     };
 
+    # https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/#nixos-uwsm
+    xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
+
     home.packages = with pkgs; [
       # meson
       wayland-utils
@@ -75,6 +78,8 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = lib.mkForce true;
+      package = null;
+      portalPackage = null;
 
       systemd = {
         enable = lib.mkDefault false;

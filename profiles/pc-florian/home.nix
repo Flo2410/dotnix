@@ -94,8 +94,8 @@
       extraSettings = {
         windowrule = [
           # Special workspaces
-          "workspace special:social, class:^(thunderbird|signal)$"
-          "group set lock always invade, floating:0, class:^(thunderbird|signal)$"
+          "match:class ^(thunderbird|signal)$, workspace special:social"
+          "match:class ^(thunderbird|signal)$, match:float false, group set lock always invade"
         ];
       };
     };

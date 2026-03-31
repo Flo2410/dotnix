@@ -212,7 +212,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${lib.getExe pkgs.uwsm} start hyprland-uwsm.desktop";
+          command = "${lib.getExe pkgs.uwsm} start hyprland-uwsm-fixed.desktop";
           user = "florian";
         };
       };

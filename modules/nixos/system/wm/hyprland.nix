@@ -22,9 +22,9 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      hyprland
+      unstable.hyprland
+      unstable.xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
       xwayland
       wayland-protocols
       hyprland-qt-support
@@ -36,7 +36,6 @@ in {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal
-        xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
       ];
     };
@@ -44,14 +43,10 @@ in {
     programs = {
       hyprland = {
         enable = mkForce true;
+        package = pkgs.unstable.hyprland;
+        portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
         withUWSM = mkDefault true;
         xwayland.enable = mkForce true;
-      };
-
-      uwsm.waylandCompositors.hyprland = {
-        prettyName = "Hyprland";
-        comment = "Hyprland compositor managed by UWSM";
-        binPath = "/run/current-system/sw/bin/Hyprland";
       };
     };
 
@@ -69,12 +64,31 @@ in {
               --window-padding 1 \
               --theme "border=magenta;text=cyan;prompt=lightblue;time=red;action=blue;button=darkgray;container=black;input=lightcyan" \
               --time-format "%d.%m.%Y // %H:%M:%S" \
-              --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+              --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm-fixed.desktop";
             '';
             user = "greeter";
           };
         };
       };
+
+      displayManager.sessionPackages = [
+        (pkgs.writeTextFile {
+          name = "hyprland-uwsm-fixed";
+          text = ''
+            [Desktop Entry]
+            Name=Hyprland (UWSM)
+            Comment=Hyprland compositor managed by UWSM
+            Exec=${lib.getExe config.programs.uwsm.package} start -F -- /run/current-system/sw/bin/start-hyprland
+            Type=Application
+            DesktopNames=Hyprland
+            Keywords=tiling;wayland;compositor;
+          '';
+          destination = "/share/wayland-sessions/hyprland-uwsm-fixed.desktop";
+          derivationArgs = {
+            passthru.providedSessions = ["hyprland-uwsm-fixed"];
+          };
+        })
+      ];
     };
   };
 }

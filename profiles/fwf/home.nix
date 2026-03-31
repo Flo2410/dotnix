@@ -77,8 +77,8 @@
       extraSettings = {
         windowrule = [
           # Special workspaces
-          "workspace special:social, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
-          "group set lock always invade, floating:0, class:^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$"
+          "match:class ^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$, workspace special:social"
+          "match:class ^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$, match:float false, group set lock always invade"
         ];
       };
     };
