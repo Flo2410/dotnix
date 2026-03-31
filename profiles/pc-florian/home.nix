@@ -92,10 +92,22 @@
     wm.hyprland = {
       enable = lib.mkDefault true;
       extraSettings = {
+        plugin = [
+          "${pkgs.unstable.hyprlandPlugins.hy3}/lib/libhy3.so"
+        ];
+
         windowrule = [
           # Special workspaces
           "match:class ^(thunderbird|signal)$, workspace special:social"
           "match:class ^(thunderbird|signal)$, match:float false, group set lock always invade"
+
+          # Media Workspace
+          "match:class ^(spotify|discord|chrome-web.whatsapp.com.*)$, workspace name:media"
+        ];
+
+        workspace = [
+          "name:media, monitor:desc:BNQ BenQ BL2780 ET49L04844SL0, default:true"
+          "m[desc:BNQ BenQ BL2780 ET49L04844SL0], layout:hy3"
         ];
       };
     };
