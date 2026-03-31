@@ -197,7 +197,6 @@
       thunderbird
       discord
       spotify
-      signal-desktop
       prusa-slicer
       libreoffice
       obsidian
@@ -209,6 +208,13 @@
       unstable.jabref
       unstable.netbird-ui
 
+      (signal-desktop.overrideAttrs (old: {
+        postFixup = ''
+          # add gnome-keyring to launch args
+          substituteInPlace $out/share/applications/signal.desktop \
+            --replace "%U" "--password-store=\"gnome-libsecret\" %U"
+        '';
+      }))
       (kicad.overrideAttrs (oldAttrs: {
         makeWrapperArgs =
           oldAttrs.makeWrapperArgs
