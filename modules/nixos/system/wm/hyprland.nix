@@ -59,7 +59,7 @@ in {
       greetd = {
         enable = true;
         settings = {
-          default_session = {
+          default_session = lib.mkDefault {
             command = ''
               ${pkgs.tuigreet}/bin/tuigreet \
               --time  \
