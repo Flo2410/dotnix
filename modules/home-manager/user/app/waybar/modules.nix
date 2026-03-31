@@ -5,6 +5,7 @@
 
   "hyprland/workspaces" = {
     disable-scroll = true;
+    sort-by = "id";
   };
 
   # --------------------------------
