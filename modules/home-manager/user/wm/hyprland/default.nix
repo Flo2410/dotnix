@@ -3,50 +3,54 @@
   pkgs,
   config,
   ...
-}:
-with lib; let
+}: let
   cfg = config.user.wm.hyprland;
 in {
   options.user.wm.hyprland = {
-    enable = mkEnableOption "Hyprland Desktop";
+    enable = lib.mkEnableOption "Hyprland Desktop";
+
+    extraWindowRules = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+    };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     user = {
       config = {
         stylix = {
-          enable = mkDefault true;
+          enable = lib.mkDefault true;
           theme = "catppuccin-mocha";
-          wallpaper = ../../../../../assets/wallpapers/moon.jpg;
+          wallpaper = lib.mkDefault ../../../../../assets/wallpapers/moon.jpg;
         };
       };
 
       app = {
         hyprlock = {
           wallpaper = config.stylix.image;
-          enable = mkDefault true;
+          enable = lib.mkDefault true;
         };
 
-        wlogout.enable = mkDefault true;
-        rofi.enable = mkDefault true;
-        hypridle.enable = mkDefault true;
-        dunst.enable = mkDefault true;
-        waybar.enable = mkDefault true;
+        wlogout.enable = lib.mkDefault true;
+        rofi.enable = lib.mkDefault true;
+        hypridle.enable = lib.mkDefault true;
+        dunst.enable = lib.mkDefault true;
+        waybar.enable = lib.mkDefault true;
 
-        ags.enable = mkDefault false;
+        ags.enable = lib.mkDefault false;
       };
     };
 
     stylix.targets = {
-      kde.enable = mkDefault true;
-      hyprpaper.enable = mkDefault true;
+      kde.enable = lib.mkDefault true;
+      hyprpaper.enable = lib.mkDefault true;
     };
 
     services = {
-      hyprpaper.enable = mkDefault true;
+      hyprpaper.enable = lib.mkDefault true;
 
       swayosd = {
-        enable = mkDefault true;
+        enable = lib.mkDefault true;
       };
     };
 
@@ -68,16 +72,15 @@ in {
     ];
 
     wayland.windowManager.hyprland = {
-      enable = mkForce true;
+      enable = lib.mkForce true;
 
       systemd = {
-        enable = mkDefault false;
+        enable = lib.mkDefault false;
         variables = ["--all"];
       };
 
       settings = let
-        hypr_binds = import ./binds.nix {inherit pkgs config;};
-        hypr_window_rules = import ./window-rules.nix {};
+        hypr_binds = import ./binds.nix {inherit pkgs config;} // cfg.extraBinds;
       in
         {
           source = [
@@ -216,9 +219,10 @@ in {
             # Hyprshot
             "HYPRSHOT_DIR,${config.xdg.userDirs.pictures}/hyprshot"
           ];
+
+          windowrule = import ./window-rules.nix {} ++ cfg.extraWindowRules;
         }
-        // hypr_binds
-        // hypr_window_rules;
+        // hypr_binds;
     };
   };
 }
