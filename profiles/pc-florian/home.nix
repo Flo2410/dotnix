@@ -47,7 +47,13 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  home.keyboard = null;
+  home = {
+    keyboard = null;
+
+    sessionVariables = {
+      SSH_AUTH_SOCK = "/run/user/1000/gcr/ssh";
+    };
+  };
 
   programs = {
     onlyoffice.enable = true;
@@ -80,7 +86,7 @@
     };
 
     # WM
-    wm.plasma.enable = true;
+    wm.hyprland.enable = true;
 
     shell.enable = true;
 
@@ -92,10 +98,11 @@
     };
 
     app = {
-      vscode.enable = true;
       zed-editor.enable = true;
       nvim.enable = true;
       mangohud.enable = true;
+      thunar.enable = true;
+
       go-hass-agent = {
         enable = true;
         customCommands = let
