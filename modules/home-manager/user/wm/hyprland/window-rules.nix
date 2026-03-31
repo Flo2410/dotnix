@@ -67,7 +67,7 @@
   "nofocus, class:^(discord), title:^(Discord Updater)$"
 
   # Ubisoft
-  "tile, class:^(upc.exe), title:^(Ubisoft Connect)$"
+  "tile, class:^(upc.exe|steam_app_default), title:^(Ubisoft Connect)$"
   # Anno 1800
   "tile, class:^(anno1800.exe), title:^(Anno 1800)$"
   "fullscreenstate 2 0, class:^(anno1800.exe), title:^(Anno 1800)$"
@@ -75,6 +75,9 @@
   "suppressevent fullscreenoutput, class:^(anno1800.exe), title:^(Anno 1800)$"
   "suppressevent maximize, class:^(anno1800.exe), title:^(Anno 1800)$"
   # "fullscreen, class:^(anno1800.exe), title:^(Anno 1800)$"
+
+  # Steam
+  "tile, class:^(steam), title:^(Steam)$"
 
   # Thunar
   "float, class:^(thunar), title:^(Rename)(.*)$"
