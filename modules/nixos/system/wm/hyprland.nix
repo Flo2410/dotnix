@@ -54,8 +54,8 @@ in {
       greetd = {
         enable = true;
         settings = {
-          default_session = lib.mkDefault {
-            command = ''
+          default_session = {
+            command = lib.mkDefault ''
               ${pkgs.tuigreet}/bin/tuigreet \
               --time  \
               --remember \
@@ -64,9 +64,9 @@ in {
               --window-padding 1 \
               --theme "border=magenta;text=cyan;prompt=lightblue;time=red;action=blue;button=darkgray;container=black;input=lightcyan" \
               --time-format "%d.%m.%Y // %H:%M:%S" \
-              --cmd "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm-fixed.desktop";
+              --cmd "/share/wayland-sessions/hyprland-uwsm-fixed.desktop";
             '';
-            user = "greeter";
+            user = lib.mkDefault "greeter";
           };
         };
       };
