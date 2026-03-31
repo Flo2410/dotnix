@@ -22,6 +22,7 @@
     inputs.ags.homeManagerModules.default
     inputs.nixvim.homeModules.nixvim
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    inputs.zen-browser.homeModules.beta
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
