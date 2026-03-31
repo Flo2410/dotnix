@@ -64,6 +64,8 @@
 
     NVD_BACKEND = "direct";
     MOZ_DISABLE_RDD_SANDBOX = "1";
+
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   # Specify the Nvidia video driver for Xorg
