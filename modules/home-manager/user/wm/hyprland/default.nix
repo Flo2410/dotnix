@@ -193,8 +193,8 @@ in {
 
             "group:groupbar" = {
               enabled = true;
-              "col.active" = "$teal";
-              "col.inactive" = "0xbf$tealAlpha";
+              "col.active" = "$surface0";
+              "col.inactive" = "0xbf$surface0Alpha";
               "col.locked_active" = "$surface0";
               "col.locked_inactive" = "0xbf$surface0Alpha";
               text_color = "$maroon";
