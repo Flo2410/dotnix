@@ -269,6 +269,7 @@
     app = {
       steam.enable = true;
       virtualization.enable = true;
+      thunar.enable = true;
 
       podman.enable = true;
 
