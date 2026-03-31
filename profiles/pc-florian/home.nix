@@ -43,6 +43,8 @@
     };
 
     kdeconnect.enable = true;
+
+    ssh-agent.enable = lib.mkForce false; # Disable ssh-agent, I use the one from gnome-keyring
   };
 
   # Nicely reload system units when changing configs
