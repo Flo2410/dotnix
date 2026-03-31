@@ -314,22 +314,6 @@
     };
   };
 
-  specialisation = {
-    plasma.configuration = {
-      system = {
-        wm.hyprland.enable = lib.mkForce false;
-        wm.plasma.enable = lib.mkForce true;
-      };
-
-      home-manager = {
-        users."florian".user = {
-          wm.plasma.enable = lib.mkForce true;
-          wm.hyprland.enable = lib.mkForce false;
-        };
-      };
-    };
-  };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }
