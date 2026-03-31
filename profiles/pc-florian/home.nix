@@ -88,11 +88,13 @@
     # WM
     wm.hyprland = {
       enable = lib.mkDefault true;
-      extraWindowRules = [
-        # Special workspaces
-        "workspace special:social, class:^(thunderbird|signal)$"
-        "group set lock always invade, floating:0, class:^(thunderbird|signal)$"
-      ];
+      extraSettings = {
+        windowrule = [
+          # Special workspaces
+          "workspace special:social, class:^(thunderbird|signal)$"
+          "group set lock always invade, floating:0, class:^(thunderbird|signal)$"
+        ];
+      };
     };
 
     shell.enable = true;
