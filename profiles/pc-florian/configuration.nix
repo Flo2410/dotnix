@@ -134,6 +134,7 @@
   programs = {
     partition-manager.enable = true;
     adb.enable = true;
+    seahorse.enable = true;
 
     nh = {
       enable = true;
