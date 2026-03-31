@@ -35,7 +35,7 @@ in {
       }))
     ];
 
-    programs.firefox = {
+    programs.zen-browser = {
       enable = true;
       package = cfg.package;
       nativeMessagingHosts = with pkgs; [
@@ -43,6 +43,7 @@ in {
         unstable.jabref
       ];
       profiles.default = {
+        isDefault = true;
         extensions.force = mkForce true;
         settings = lib.optionalAttrs cfg.nvidiaSupport {
           "media.hardware-video-decoding.force-enabled" = true;
@@ -53,6 +54,15 @@ in {
           #   "widget.use-xdg-desktop-portal.file-picker" = 1;
           #   "layout.css.has-selector.enabled" = false;
         };
+        userChrome = ''
+          *|*:root .titlebar-buttonbox {
+            display: none !important;
+          }
+
+          #zen-workspaces-button {
+            display: none !important;
+          }
+        '';
       };
     };
 
