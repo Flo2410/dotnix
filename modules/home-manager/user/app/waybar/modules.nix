@@ -23,6 +23,7 @@
   mpris = {
     format = "{player_icon} {artist} // {title}";
     format-paused = "{status_icon} {artist} // {title}";
+    title-len = 10;
     player-icons = {
       default = "";
       spotify = "";
@@ -65,7 +66,7 @@
     # on-click = "ags -b hypr -t powerctrl";
   };
 
-  wireplumber = {
+  pulseaudio = {
     format = "{icon}";
     format-bluetooth = "󰂰";
     nospacing = 1;
@@ -76,5 +77,6 @@
       default = ["󰖀" "󰕾"];
     };
     scroll-step = 1;
+    on-click = "pavucontrol";
   };
 }

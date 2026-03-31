@@ -22,7 +22,7 @@ in {
 
       settings.mainBar =
         {
-          layer = "bottom";
+          layer = "top";
           position = "top";
           height = 30;
           margin-top = 8;
@@ -31,7 +31,7 @@ in {
 
           modules-left = ["hyprland/workspaces"];
           modules-center = ["clock" "mpris"];
-          modules-right = ["tray" "wireplumber" "backlight" "battery"];
+          modules-right = ["tray" "pulseaudio" "backlight" "battery"];
         }
         // waybar_modules;
     };
