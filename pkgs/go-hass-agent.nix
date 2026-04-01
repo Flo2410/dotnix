@@ -5,9 +5,16 @@
   buildNpmPackage,
   fetchFromGitHub,
   pkg-config,
-  xorg,
   mesa,
   glfw,
+  libx11,
+  libxcb,
+  libxcursor,
+  libxext,
+  libxi,
+  libxinerama,
+  libxrandr,
+  libxxf86vm,
 }: let
   pname = "go-hass-agent";
   version = "14.10.3";
@@ -48,21 +55,18 @@ in
 
     subPackages = ["."];
 
-    buildInputs =
-      [
-        mesa
-        glfw
-      ]
-      ++ (with xorg; [
-        libX11
-        libXrandr
-        libXxf86vm
-        libXi
-        libXcursor
-        libXinerama
-        libXext
-        libxcb
-      ]);
+    buildInputs = [
+      mesa
+      glfw
+      libx11
+      libxcursor
+      libxxf86vm
+      libxrandr
+      libxext
+      libxcb
+      libxi
+      libxinerama
+    ];
 
     ldflags = [
       "-w -s -X github.com/joshuar/go-hass-agent/config.AppVersion=${version}"

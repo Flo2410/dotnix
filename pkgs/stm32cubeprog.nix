@@ -49,8 +49,8 @@ in
       openssl
       pcsclite.lib
 
-      xorg.libX11
-      xorg.libxcb
+      libx11
+      libxcb
     ];
 
     unpackPhase = ''

@@ -287,7 +287,7 @@
       # utils
       gh
       ookla-speedtest
-      xorg.xhost
+      xhost
       nixpkgs-fmt
       pre-commit
       file
