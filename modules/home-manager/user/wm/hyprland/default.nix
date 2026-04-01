@@ -59,22 +59,46 @@ in {
     # https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/#nixos-uwsm
     xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 
-    home.packages = with pkgs; [
-      # meson
-      wayland-utils
-      wl-clipboard
-      wlroots
-      networkmanagerapplet # GUI for networkmanager
-      networkmanager-openvpn
-      playerctl
-      gnome-control-center
-      overskride
-      libsForQt5.qt5.qtwayland # qt5-wayland
-      kdePackages.qtwayland # qt6-wayland
-      cliphist # clipboard history
-      nwg-displays # display management
-      hyprshot
-    ];
+    home = {
+      packages = with pkgs; [
+        # meson
+        wayland-utils
+        wl-clipboard
+        wlroots
+        networkmanagerapplet # GUI for networkmanager
+        networkmanager-openvpn
+        playerctl
+        gnome-control-center
+        overskride
+        libsForQt5.qt5.qtwayland # qt5-wayland
+        kdePackages.qtwayland # qt6-wayland
+        cliphist # clipboard history
+        nwg-displays # display management
+        hyprshot
+      ];
+
+      sessionVariables = {
+        # QT
+        QT_QPA_PLATFORM = "wayland;xcb";
+        QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+        QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+        QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+        QT_STYLE_OVERRIDE = "kvantum";
+
+        # Toolkit Backend Variables
+        GDK_BACKEND = "wayland,x11,*";
+        SDL_VIDEODRIVER = "wayland";
+        CLUTTER_BACKEND = "wayland";
+
+        # XDG Specifications
+        XDG_CURRENT_DESKTOP = "Hyprland";
+        XDG_SESSION_TYPE = "wayland";
+        XDG_SESSION_DESKTOP = "Hyprland";
+
+        # Hyprshot
+        HYPRSHOT_DIR = "${config.xdg.userDirs.pictures}/hyprshot";
+      };
+    };
 
     wayland.windowManager.hyprland = {
       enable = lib.mkForce true;
@@ -82,7 +106,7 @@ in {
       portalPackage = null;
 
       systemd = {
-        enable = lib.mkDefault false;
+        enable = lib.mkForce false;
         variables = ["--all"];
       };
 
@@ -110,6 +134,9 @@ in {
 
               # ags
               (lib.mkIf config.user.app.ags.enable "start-ags")
+
+              # https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
+              "dbus-update-activation-environment --systemd --all"
             ];
 
             xwayland = {
@@ -203,28 +230,6 @@ in {
               gradient_rounding = 8;
               # # keep_upper_gap = false;
             };
-
-            env = [
-              # QT
-              "QT_QPA_PLATFORM,wayland;xcb"
-              "QT_QPA_PLATFORMTHEME,qt6ct"
-              "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-              "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-              "QT_STYLE_OVERRIDE,kvantum"
-
-              # Toolkit Backend Variables
-              "GDK_BACKEND,wayland,x11,*"
-              "SDL_VIDEODRIVER,wayland"
-              "CLUTTER_BACKEND,wayland"
-
-              # XDG Specifications
-              "XDG_CURRENT_DESKTOP,Hyprland"
-              "XDG_SESSION_TYPE,wayland"
-              "XDG_SESSION_DESKTOP,Hyprland"
-
-              # Hyprshot
-              "HYPRSHOT_DIR,${config.xdg.userDirs.pictures}/hyprshot"
-            ];
 
             windowrule = import ./window-rules.nix {};
           }
