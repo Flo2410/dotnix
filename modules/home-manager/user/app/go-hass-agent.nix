@@ -31,6 +31,11 @@ in {
         Docs can be found at: <https://github.com/joshuar/go-hass-agent?tab=readme-ov-file#other-custom-commands>
       '';
     };
+
+    settings = mkOption {
+      type = tomlFormat.type;
+      default = {};
+    };
   };
 
   config = mkIf cfg.enable {
@@ -43,14 +48,22 @@ in {
       Unit = {
         Description = "go-hass-agent";
         Wants = ["network-online.target"];
-        After = ["network-online.target" "nss-lookup.target"];
+        After = ["network-online.target"];
         X-Restart-Triggers = [
           "${config.xdg.configFile."go-hass-agent_commands".source}"
         ];
       };
 
       Service = {
-        ExecStart = "${pkgs.go-hass-agent}/bin/go-hass-agent --terminal run";
+        ExecStart = "${pkgs.go-hass-agent}/bin/go-hass-agent run";
+        Environment = [
+          "PATH=${lib.makeBinPath (with pkgs; [
+            unstable.xdg-desktop-portal-hyprland
+            chrony
+            pipewire
+            wireplumber
+          ])}"
+        ];
         Type = "simple";
         Restart = "always";
         RestartSec = 30;
@@ -61,10 +74,18 @@ in {
       };
     };
 
-    xdg.configFile."go-hass-agent_commands" = mkIf (cfg.customCommands != {}) {
-      target = "go-hass-agent/commands.toml";
-      executable = false;
-      source = tomlFormat.generate "commands.toml" cfg.customCommands;
+    xdg.configFile = {
+      "go-hass-agent_commands" = mkIf (cfg.customCommands != {}) {
+        target = "go-hass-agent/commands.toml";
+        executable = false;
+        source = tomlFormat.generate "commands.toml" cfg.customCommands;
+      };
+
+      "go-hass-agent_preferences" = mkIf (cfg.settings != {}) {
+        target = "go-hass-agent/preferences.toml";
+        executable = false;
+        source = tomlFormat.generate "preferences.toml" cfg.settings;
+      };
     };
   };
 }
