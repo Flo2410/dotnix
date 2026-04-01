@@ -78,7 +78,7 @@ in {
             [Desktop Entry]
             Name=Hyprland (UWSM)
             Comment=Hyprland compositor managed by UWSM
-            Exec=${lib.getExe config.programs.uwsm.package} start -F -- /run/current-system/sw/bin/start-hyprland
+            Exec=${lib.getExe config.programs.uwsm.package} start -eD Hyprland -F -- /run/current-system/sw/bin/start-hyprland
             Type=Application
             DesktopNames=Hyprland
             Keywords=tiling;wayland;compositor;
