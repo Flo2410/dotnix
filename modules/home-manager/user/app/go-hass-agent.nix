@@ -47,8 +47,8 @@ in {
       # Source: https://github.com/joshuar/go-hass-agent/blob/5269b0c9fb1957c6efaf477c843c0b9e47e312b9/init/go-hass-agent.service
       Unit = {
         Description = "go-hass-agent";
-        Wants = ["network-online.target"];
-        After = ["network-online.target"];
+        Wants = ["graphical-session.target"];
+        After = ["graphical-session.target"];
         X-Restart-Triggers = [
           "${config.xdg.configFile."go-hass-agent_commands".source}"
         ];
@@ -56,21 +56,21 @@ in {
 
       Service = {
         ExecStart = "${pkgs.go-hass-agent}/bin/go-hass-agent run";
-        Environment = [
-          "PATH=${lib.makeBinPath (with pkgs; [
-            unstable.xdg-desktop-portal-hyprland
-            chrony
-            pipewire
-            wireplumber
-          ])}"
-        ];
+        # Environment = [
+        #   "PATH=${lib.makeBinPath (with pkgs; [
+        #     unstable.xdg-desktop-portal-hyprland
+        #     chrony
+        #     pipewire
+        #     wireplumber
+        #   ])}"
+        # ];
         Type = "simple";
         Restart = "always";
         RestartSec = 30;
       };
 
       Install = {
-        WantedBy = ["multi-user.target"];
+        WantedBy = ["graphical-session.target"];
       };
     };
 
