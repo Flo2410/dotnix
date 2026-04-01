@@ -24,7 +24,7 @@
   mpris = {
     format = "{player_icon} {artist} // {title}";
     format-paused = "{status_icon} {artist} // {title}";
-    title-len = 10;
+    title-len = 20;
     player-icons = {
       default = "";
       spotify = "";
