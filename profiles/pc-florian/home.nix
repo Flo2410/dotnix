@@ -141,6 +141,7 @@
       nvim.enable = true;
       mangohud.enable = true;
       thunar.enable = true;
+      hypridle.enable = false;
 
       go-hass-agent = {
         enable = true;
