@@ -75,6 +75,8 @@
     wm.hyprland = {
       enable = lib.mkDefault true;
       extraSettings = {
+        monitor = "eDP-1, preferred, 0x0, 1.175";
+
         windowrule = [
           # Special workspaces
           "match:class ^(thunderbird|discord|signal|chrome-web.whatsapp.com.*)$, workspace special:social"

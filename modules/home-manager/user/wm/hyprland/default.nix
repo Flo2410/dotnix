@@ -112,8 +112,6 @@ in {
               (lib.mkIf config.user.app.ags.enable "start-ags")
             ];
 
-            monitor = "eDP-1, preferred, 0x0, 1.175";
-
             xwayland = {
               force_zero_scaling = true;
             };
