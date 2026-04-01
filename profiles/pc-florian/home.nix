@@ -80,7 +80,12 @@
     };
   };
 
-  user = {
+  user = let
+    monitorHDMI = "HDMI-A-1,3840x2160@119.88,0x0,1.0,bitdepth,10";
+    monitorDP1 = "DP-1,1920x1080@60.0,2560x1253,1.0,transform,3";
+    monitorDP2 = "DP-2,2560x1440@165.0,0x1441,1.0,bitdepth,10,vrr,2";
+    monitorDP3 = "DP-3,2560x1440@59.95,0x0,1.0,bitdepth,10";
+  in {
     home = rec {
       enable = true;
       username = "florian";
@@ -94,6 +99,14 @@
       extraSettings = {
         plugin = [
           "${pkgs.unstable.hyprlandPlugins.hy3}/lib/libhy3.so"
+        ];
+
+        monitor = [
+          monitorHDMI
+          "HDMI-A-1,disable"
+          monitorDP1
+          monitorDP2
+          monitorDP3
         ];
 
         windowrule = [
@@ -132,25 +145,40 @@
       go-hass-agent = {
         enable = true;
         customCommands = let
-          kscreen-doctor = lib.getExe pkgs.kdePackages.libkscreen;
           steam = lib.getExe pkgs.steam;
           pactl = lib.getExe' pkgs.pulseaudio "pactl";
+          hyprMonitor = "${lib.getExe' pkgs.unstable.hyprland "hyprctl"} keyword monitor";
         in {
           button = [
             {
               name = "Display Profile Default";
               icon = "mdi:monitor-multiple";
-              exec = "${kscreen-doctor} output.DP-1.enable output.DP-1.position.2560,1200 output.DP-1.priority.2 output.DP-2.enable output.DP-2.position.0,1440 output.DP-2.priority.1 output.DP-3.enable output.DP-3.position.0,0 output.DP-3.priority.3 output.HDMI-A-1.disable";
+              exec = pkgs.writeShellScript "go-hass-agent-cmd-display-profile-default" ''
+                ${hyprMonitor} HDMI-A-1,disable
+                ${hyprMonitor} ${monitorDP1}
+                ${hyprMonitor} ${monitorDP2}
+                ${hyprMonitor} ${monitorDP3}
+              '';
             }
             {
               name = "Display Profile Without Main";
               icon = "mdi:monitor-multiple";
-              exec = "${kscreen-doctor} output.DP-1.enable output.DP-1.position.2560,1200 output.DP-1.priority.2 output.DP-3.enable output.DP-3.position.0,0 output.DP-3.priority.1 output.DP-2.disable output.HDMI-A-1.disable";
+              exec = pkgs.writeShellScript "go-hass-agent-cmd-display-profile-without-main" ''
+                ${hyprMonitor} HDMI-A-1,disable
+                ${hyprMonitor} ${monitorDP1}
+                ${hyprMonitor} DP-2,disable
+                ${hyprMonitor} ${monitorDP3}
+              '';
             }
             {
               name = "Display Profile TV";
               icon = "mdi:television";
-              exec = "${kscreen-doctor} output.DP-1.disable output.DP-2.disable output.DP-3.disable output.HDMI-A-1.enable output.HDMI-A-1.position.0,0 output.HDMI-A-1.priority.1 output.HDMI-A-1.mode.3840x2160@120";
+              exec = pkgs.writeShellScript "go-hass-agent-cmd-display-profile-tv" ''
+                ${hyprMonitor} ${monitorHDMI}
+                ${hyprMonitor} DP-1,disable
+                ${hyprMonitor} DP-2,disable
+                ${hyprMonitor} DP-3,disable
+              '';
             }
             {
               name = "Open Steam Big Picture";
@@ -170,7 +198,7 @@
             {
               name = "Set Audio Output Speaker";
               icon = "mdi:television";
-              exec = "${pactl} set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo";
+              exec = "${pactl} set-default-sink alsa_output.pci-0000_78_00.6.analog-stereo";
             }
             # FIXME: This does not work... but it should?
             # {
