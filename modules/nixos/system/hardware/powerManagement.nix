@@ -46,8 +46,8 @@ in {
       services.logind = {
         settings = {
           Login = {
-            HandleLidSwitch = "suspend-then-hibernate";
-            HandlePowerKey = "suspend-then-hibernate";
+            HandleLidSwitch = lib.mkDefault "suspend-then-hibernate";
+            HandlePowerKey = lib.mkDefault "suspend-then-hibernate";
           };
         };
       };
