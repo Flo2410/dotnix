@@ -22,6 +22,8 @@ in {
   vim_mode = true;
   ui_font_size = 16;
   buffer_font_size = 13.0;
+  buffer_font_family = "Fira Code";
+  buffer_font_fallbacks = ["Font Awesome 7 Free" "Font Awesome 7 Brands"];
   theme = {
     mode = "system";
   };
