@@ -119,8 +119,8 @@
         ];
 
         workspace = [
-          "name:media, monitor:desc:BNQ BenQ BL2780 ET49L04844SL0, default:true"
-          "m[desc:BNQ BenQ BL2780 ET49L04844SL0], layout:hy3"
+          "name:media, monitor:DP-1, default:true"
+          "m[DP-1], layout:hy3"
         ];
       };
     };
