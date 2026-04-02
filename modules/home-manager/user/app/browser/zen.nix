@@ -45,15 +45,19 @@ in {
       profiles.default = {
         isDefault = true;
         extensions.force = mkForce true;
-        settings = lib.optionalAttrs cfg.nvidiaSupport {
-          "media.hardware-video-decoding.force-enabled" = true;
-          "media.rdd-ffmpeg.enabled" = true;
-          "media.av1.enabled" = true;
-          "gfx.x11-egl.force-enabled" = true;
+        settings =
+          {
+            "full-screen-api.ignore-widgets" = true;
 
-          #   "widget.use-xdg-desktop-portal.file-picker" = 1;
-          #   "layout.css.has-selector.enabled" = false;
-        };
+            #   "widget.use-xdg-desktop-portal.file-picker" = 1;
+            #   "layout.css.has-selector.enabled" = false;
+          }
+          // lib.optionalAttrs cfg.nvidiaSupport {
+            "media.hardware-video-decoding.force-enabled" = true;
+            "media.rdd-ffmpeg.enabled" = true;
+            "media.av1.enabled" = true;
+            "gfx.x11-egl.force-enabled" = true;
+          };
         userChrome = ''
           *|*:root .titlebar-buttonbox {
             display: none !important;
