@@ -31,7 +31,7 @@ in {
 
           modules-left = ["hyprland/workspaces"];
           modules-center = ["clock" "mpris"];
-          modules-right = ["tray" "pulseaudio" "backlight" "battery"];
+          modules-right = ["tray" "pulseaudio" "backlight" "battery" "custom/power"];
         }
         // waybar_modules;
     };

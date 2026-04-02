@@ -71,7 +71,7 @@
     format = "{icon}";
     format-bluetooth = "󰂰";
     nospacing = 1;
-    tooltip-format = "Volume : {volume}%";
+    tooltip-format = "Volume: {volume}%";
     format-muted = "󰝟";
     format-icons = {
       eadphone = "";
@@ -79,5 +79,11 @@
     };
     scroll-step = 1;
     on-click = "pavucontrol";
+  };
+
+  "custom/power" = {
+    format = "";
+    tooltip-format = "Power";
+    on-click = "wlogout -p layer-shell -b 6";
   };
 }

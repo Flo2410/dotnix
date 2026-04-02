@@ -1,5 +1,5 @@
 * {
-  font-family: "Noto Sans, Font Awesome, Material Icons, Material Design Icons";
+  font-family: "Noto Sans, Font Awesome 7 Free, Font Awesome 7 Brands, Material Icons, Material Design Icons";
   font-size: 16px;
   min-height: 0;
 }
@@ -58,6 +58,16 @@
   border-radius: 1rem;
 }
 
+#tray {
+  margin-right: 1rem;
+}
+
+#battery,
+#backlight,
+#custom-power {
+  margin-left: 0.5rem;
+}
+
 #battery {
   color: @green;
 }
@@ -74,15 +84,10 @@
   color: @yellow;
 }
 
-#backlight,
-#battery {
-  border-radius: 0;
-}
-
 #pulseaudio {
   color: @maroon;
 }
 
-#tray {
-  margin-right: 1rem;
+#custom-power {
+  color: @lavender;
 }
