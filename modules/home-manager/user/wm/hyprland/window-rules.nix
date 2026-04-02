@@ -89,4 +89,7 @@
   "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_shadow on"
   "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_follow_mouse on"
   "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_blur on"
+
+  # xdg-desktop-portal-gtk
+  "match:class ^(xdg-desktop-portal-gtk), float true center on"
 ]
