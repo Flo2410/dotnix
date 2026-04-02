@@ -2,7 +2,7 @@
   pkgs,
   config,
 }: let
-  get_monitor = "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')";
+  get_monitor = "$(hyprctl monitors -j | ${pkgs.lib.getExe pkgs.jq} -r '.[] | select(.focused == true).name')";
 in {
   "$mod" = "SUPER";
   bind = let
@@ -131,6 +131,11 @@ in {
 
       # Open special workspaces
       "$mod, S, togglespecialworkspace, social" # Social special workspace (Thunderbird, Discord, Teams, etc.)
+
+      # Move Workspace to Monitor
+      "$mod SHIFT ALT, 1, movecurrentworkspacetomonitor, DP-1"
+      "$mod SHIFT ALT, 2, movecurrentworkspacetomonitor, DP-2"
+      "$mod SHIFT ALT, 3, movecurrentworkspacetomonitor, DP-3"
 
       # --------------------------------
       # utility
