@@ -17,10 +17,6 @@
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
     # inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-    ../../nix/nixpkgs.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -52,8 +48,6 @@
     };
   };
 
-  microsoft-surface.kernelVersion = "6.9.3";
-
   # Enable networking
   networking = {
     hostName = "SurfacePro4"; # Define your hostname.
@@ -78,48 +72,45 @@
     zsh
     home-manager
 
-    glxinfo
+    mesa-demos
     intel-gpu-tools
 
     surface-control
-    gnome.gnome-tweaks
+    gnome-tweaks
 
     (gnomeExtensions.gjs-osk.overrideAttrs (finalAttrs: previousAttrs: {
       src = fetchzip {
-        url = "https://github.com/Vishram1123/gjs-osk/releases/download/bf3d64f/gjsosk@vishram1123_main.zip";
-        hash = "sha256-Cd8OiPhXyWRAukrdu9pte2VvTDEdqrVabk/1axitht4=";
+        url = "https://github.com/Vishram1123/gjs-osk/releases/download/29ec63e/gjsosk@vishram1123_main.zip";
+        hash = "sha256-CEYkRIRdHlma/DuZUUaL6FzKBNerr5xFGMAcotvahV4=";
         stripRoot = false;
       };
     }))
   ];
 
-  environment.gnome.excludePackages =
-    (with pkgs; [
-      gnome-photos
-      gnome-tour
-      gnome-connections
-      baobab
-    ])
-    ++ (with pkgs.gnome; [
-      cheese # webcam tool
-      gnome-music
-      epiphany # web browser
-      geary # email reader
-      gnome-characters
-      yelp # Help view
-      totem # Videos
-      evince # document viewer
-      gnome-contacts
-      gnome-initial-setup
-      gnome-maps
-      gnome-weather
-      gnome-calendar
-      simple-scan
-      gnome-font-viewer
-      gnome-disk-utility
-      gnome-logs
-      gnome-calculator
-    ]);
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome-connections
+    baobab
+    cheese # webcam tool
+    gnome-music
+    epiphany # web browser
+    geary # email reader
+    gnome-characters
+    yelp # Help view
+    totem # Videos
+    evince # document viewer
+    gnome-contacts
+    gnome-initial-setup
+    gnome-maps
+    gnome-weather
+    gnome-calendar
+    simple-scan
+    gnome-font-viewer
+    gnome-disk-utility
+    gnome-logs
+    gnome-calculator
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -140,7 +131,7 @@
         uid = 1000;
         extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker"];
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNiV0gsC8OqVMB60Tt06jrHtWZ0Ose/cT+Rqlemiojn florian@nixos"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQ9WvSMMooOnU1C++CpGVHsrM13vOYyl2zbTokBVP49 florian@PC-Florian"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhpcNpe6K0Elbaf29mo1SLRUY+EQHKDv2xT9fslW6so florian@fwf"
         ];
       };
@@ -196,13 +187,13 @@
       enable = true;
       excludePackages = [pkgs.xterm];
 
-      # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
       xkb.layout = "at";
       xkb.variant = "nodeadkeys";
     };
+
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
     gnome.games.enable = false;
   };
@@ -211,8 +202,9 @@
     pkgs.iptsd
   ];
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    microsoft-surface.kernelVersion = "stable";
+  };
 
   system = {
     # Config

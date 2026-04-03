@@ -21,7 +21,13 @@ in {
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.ags.homeManagerModules.default
+    inputs.nixvim.homeModules.nixvim
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+    inputs.zen-browser.homeModules.beta
+    inputs.stylix.homeModules.stylix
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
