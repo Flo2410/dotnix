@@ -285,9 +285,9 @@
       ffmpeg
       nomacs
       audacity
-      darktable
       rawtherapee
       deepskystacker-bin
+      rapidraw
 
       # utils
       gh
@@ -296,7 +296,6 @@
       nixpkgs-fmt
       pre-commit
       file
-      sshpass
       nixd
       font-manager
       pavucontrol
