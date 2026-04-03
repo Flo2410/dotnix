@@ -11,17 +11,10 @@
     outputs.nixosModules.system
 
     # Or modules from other flakes (such as nixos-hardware):
-    inputs.stylix.nixosModules.stylix
-    inputs.catppuccin.nixosModules.catppuccin
 
     ../../config/nixos/hardware/raspberry-pi-zero-w-2
     "${inputs.nixpkgs}/nixos/modules/profiles/minimal.nix"
     "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-    ../../nix/nixpkgs.nix
-    ../../nix/lib/functions.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     # ./hardware-configuration.nix
@@ -230,7 +223,7 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/florian/dotnix"; #FIXME: Get path from home.nix or someother global way.
+      flake = config.home-manager.users.florian.user.home.dotfilesDirectory;
     };
   };
 
