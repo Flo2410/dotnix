@@ -47,7 +47,7 @@ in {
         extensions.force = mkForce true;
         settings =
           {
-            "full-screen-api.ignore-widgets" = true;
+            "full-screen-api.ignore-widgets" = false;
 
             #   "widget.use-xdg-desktop-portal.file-picker" = 1;
             #   "layout.css.has-selector.enabled" = false;
