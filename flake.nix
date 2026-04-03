@@ -21,7 +21,16 @@
 
     mkSystem = modules:
       nixpkgs.lib.nixosSystem {
-        modules = modules ++ [home-manager.nixosModules.default];
+        modules =
+          modules
+          ++ [
+            home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+            inputs.catppuccin.nixosModules.catppuccin
+
+            ./nix/nixpkgs.nix
+            ./nix/lib/functions.nix
+          ];
         specialArgs = {inherit inputs outputs;};
       };
 

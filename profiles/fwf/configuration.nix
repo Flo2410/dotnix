@@ -15,14 +15,7 @@
 
     # Or modules from other flakes (such as nixos-hardware):
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
-    inputs.stylix.nixosModules.stylix
-    inputs.catppuccin.nixosModules.catppuccin
     inputs.lanzaboote.nixosModules.lanzaboote
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-    ../../nix/nixpkgs.nix
-    ../../nix/lib/functions.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
