@@ -135,6 +135,7 @@
     partition-manager.enable = true;
     adb.enable = true;
     seahorse.enable = true;
+    ssh.enableAskPassword = true;
 
     nh = {
       enable = true;
