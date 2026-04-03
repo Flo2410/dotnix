@@ -273,6 +273,10 @@
       # kde utils
       kdePackages.kcalc
       kdePackages.skanpage
+      kdePackages.systemsettings
+      kdePackages.print-manager
+      kdePackages.ark
+      kdePackages.okular
 
       # Media
       gimp
