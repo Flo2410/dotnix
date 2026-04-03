@@ -62,42 +62,40 @@ in
     ];
 
     buildPhase = ''
-      export tmp=$(mktemp -d)
-
-      cp $src $tmp/dss.run
-      chmod 755 $tmp/dss.run
+      cp $src ./dss.run
+      chmod 755 ./dss.run
       patchelf \
         --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-        $tmp/dss.run
+        ./dss.run
 
-      fakeroot $tmp/dss.run --unattendedmodeui none --mode unattended --prefix $tmp/DeepSkyStacker || true
+      fakeroot ./dss.run --unattendedmodeui none --mode unattended --prefix ./DeepSkyStacker || true
     '';
 
     installPhase = ''
       mkdir -p $out/bin $out/opt $out/lib/plugins $out/share/icons/ $out/share/mime/packages/
 
-      install -m 555 -D $tmp/DeepSkyStacker/DeepSkyStacker $out/opt/DeepSkyStacker-unwrapped
-      install -m 555 -D $tmp/DeepSkyStacker/DeepSkyStackerLive $out/opt/DeepSkyStackerLive-unwrapped
-      install -m 555 -D $tmp/DeepSkyStacker/DeepSkyStackerCL $out/bin/DeepSkyStackerCL
+      install -m 555 -D ./DeepSkyStacker/DeepSkyStacker $out/opt/DeepSkyStacker-unwrapped
+      install -m 555 -D ./DeepSkyStacker/DeepSkyStackerLive $out/opt/DeepSkyStackerLive-unwrapped
+      install -m 555 -D ./DeepSkyStacker/DeepSkyStackerCL $out/bin/DeepSkyStackerCL
 
-      cp -r $tmp/DeepSkyStacker/plugins/*  $out/lib/plugins/
+      cp -r ./DeepSkyStacker/plugins/*  $out/lib/plugins/
 
-      install -m 444 -D $tmp/DeepSkyStacker/*.png $out/share/icons/
-      install -m 444 -D $tmp/DeepSkyStacker/com.github.deepskystacker-x-text-dssfilelist.xml $out/share/mime/packages/
+      install -m 444 -D ./DeepSkyStacker/*.png $out/share/icons/
+      install -m 444 -D ./DeepSkyStacker/com.github.deepskystacker-x-text-dssfilelist.xml $out/share/mime/packages/
       install -m 444 -D $desktopItemDSS/share/applications/* -t $out/share/applications
       install -m 444 -D $desktopItemDSSLive/share/applications/* -t $out/share/applications
 
-      mkdir -p $tmp/icons
-      icns2png -x -o $tmp/icons $tmp/DeepSkyStacker/DeepSkyStacker.icns
-      icns2png -x -o $tmp/icons $tmp/DeepSkyStacker/DSSLive.icns
+      mkdir -p ./icons
+      icns2png -x -o ./icons ./DeepSkyStacker/DeepSkyStacker.icns
+      icns2png -x -o ./icons ./DeepSkyStacker/DSSLive.icns
 
       mkdir -p $out/share/icons/hicolor/{1024x1024,512x512,256x256,128x128,64x64,32x32}/apps/
-      cp $tmp/icons/*1024x1024*.png $out/share/icons/hicolor/1024x1024/apps/
-      cp $tmp/icons/*512x512*.png $out/share/icons/hicolor/512x512/apps/
-      cp $tmp/icons/*256x256*.png $out/share/icons/hicolor/256x256/apps/
-      cp $tmp/icons/*128x128*.png $out/share/icons/hicolor/128x128/apps/
-      cp $tmp/icons/*64x64*.png $out/share/icons/hicolor/64x64/apps/
-      cp $tmp/icons/*32x32*.png $out/share/icons/hicolor/32x32/apps/
+      cp ./icons/*1024x1024*.png $out/share/icons/hicolor/1024x1024/apps/
+      cp ./icons/*512x512*.png $out/share/icons/hicolor/512x512/apps/
+      cp ./icons/*256x256*.png $out/share/icons/hicolor/256x256/apps/
+      cp ./icons/*128x128*.png $out/share/icons/hicolor/128x128/apps/
+      cp ./icons/*64x64*.png $out/share/icons/hicolor/64x64/apps/
+      cp ./icons/*32x32*.png $out/share/icons/hicolor/32x32/apps/
 
       find $out/share/icons/hicolor -name "*.png" | while read f; do mv "$f" "$(echo "$f" | sed 's/_[0-9]\+x[0-9]\+\(x[0-9]\+\)\?\.png/.png/')"; done
 
