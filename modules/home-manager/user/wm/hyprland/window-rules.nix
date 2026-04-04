@@ -91,5 +91,7 @@
   "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_blur on"
 
   # xdg-desktop-portal-gtk
-  "match:class ^(xdg-desktop-portal-gtk), float true center on"
+  "match:class xdg-desktop-portal-gtk, float true"
+  "match:class xdg-desktop-portal-gtk, center on "
+  "match:class xdg-desktop-portal-gtk, size (monitor_w*0.7) (monitor_h*0.6)"
 ]
