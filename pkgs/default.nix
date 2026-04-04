@@ -21,6 +21,7 @@ with pkgs; {
   go-hass-agent = callPackage ./go-hass-agent.nix {};
   mkshell = callPackage ./mkshell.nix {};
   deepskystacker-bin = callPackage ./deepskystacker-bin.nix {};
+  paperless-cli = callPackage ./paperless-cli.nix {};
 
   mfcl3750cdw = callPackage ./brother-mfcl3750cdw.nix {};
 
