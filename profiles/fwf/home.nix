@@ -203,6 +203,7 @@
       # Custom Packages
       # home-assistant-desktop
       # elamx2
+      paperless-cli
 
       # Bottles
       (pkgs.makeDesktopItem {
