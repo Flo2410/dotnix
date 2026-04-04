@@ -44,6 +44,18 @@
     spacing = 10;
   };
 
+  bluetooth = {
+    format-on = "󰂯";
+    format-off = "󰂲";
+    format-connected = "󰂱 {device_alias}";
+    format-connected-battery = " {device_alias} {device_battery_percentage}%";
+    tooltip-format = "{controller_alias}	{controller_address}  {num_connections} connected";
+    tooltip-format-connected = "{controller_alias}	{controller_address}  {num_connections} connected  {device_enumerate}";
+    tooltip-format-enumerate-connected = "{device_alias}	{device_address}";
+    tooltip-format-enumerate-connected-battery = "{device_alias}	{device_address}	{device_battery_percentage}%";
+    on-click = "overskride";
+  };
+
   backlight = {
     device = "intel_backlight";
     format = "{percent}% 󰃟";

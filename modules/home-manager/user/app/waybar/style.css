@@ -64,7 +64,8 @@
 
 #battery,
 #backlight,
-#custom-power {
+#custom-power,
+#bluetooth {
   margin-left: 0.5rem;
 }
 
@@ -90,4 +91,8 @@
 
 #custom-power {
   color: @lavender;
+}
+
+#bluetooth {
+  color: @blue;
 }
