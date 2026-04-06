@@ -78,6 +78,7 @@
 
   # Steam
   "match:class ^(steam), match:title ^(Steam)$, tile on"
+  "match:class ^(steam), match:title ^(Steam)$, fullscreen_state 0"
   "match:class ^(steam), match:title ^(Sign in to Steam)$, center on"
 
   # Thunar
