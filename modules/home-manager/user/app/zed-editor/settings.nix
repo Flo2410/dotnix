@@ -177,4 +177,16 @@ in {
       binary.path = pkgs.lib.getExe pkgs.just-lsp;
     };
   };
+
+  profiles = {
+    "Writing Latex" = {
+      settings = {
+        disable_ai = false;
+        agent = {
+          enabled = true;
+          button = true;
+        };
+      };
+    };
+  };
 }
