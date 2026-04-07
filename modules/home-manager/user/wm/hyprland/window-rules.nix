@@ -7,10 +7,10 @@
   "match:title ^(Picture-in-Picture)$, suppress_event maximize"
 
   # Syncthing tray
-  "match:title ^(Syncthing Tray)$, float on"
-  "match:title ^(Syncthing Tray)$, size 640 320"
-  "match:title ^(Syncthing Tray)$, move 100%-w-20 60"
-  "match:title ^(Syncthing Tray)$, pin on"
+  "match:title (Syncthing Tray), float on"
+  "match:title (Syncthing Tray), size 640 320"
+  "match:title (Syncthing Tray), move (monitor_w-window_w-20) (60)"
+  "match:title (Syncthing Tray), pin on"
 
   # elamx2
   "match:class ^(java-lang-Thread), match:title ^(Starting eLamX)(.*)$, float on"
