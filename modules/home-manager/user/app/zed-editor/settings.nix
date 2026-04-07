@@ -25,6 +25,7 @@ in {
   buffer_font_family = "Fira Code";
   buffer_font_fallbacks = ["Font Awesome 7 Free" "Font Awesome 7 Brands"];
   theme = {
+    light = pkgs.lib.mkForce "Catppuccin Latte";
     mode = "system";
   };
 
