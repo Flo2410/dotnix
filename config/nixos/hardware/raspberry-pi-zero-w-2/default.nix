@@ -75,6 +75,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi02w;
 
+    kernelParams = [
+      "usbcore.autosuspend=-1"
+    ];
+
     initrd.availableKernelModules = [
       "xhci_pci"
       "usbhid"
