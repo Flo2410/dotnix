@@ -101,6 +101,10 @@
           "${pkgs.unstable.hyprlandPlugins.hy3}/lib/libhy3.so"
         ];
 
+        bind = [
+          "$mod, M, workspace, name:media"
+        ];
+
         monitor = [
           monitorHDMI
           "HDMI-A-1,disable"
@@ -121,6 +125,7 @@
         workspace = [
           "name:media, monitor:DP-1, default:true"
           "m[DP-1], layout:hy3"
+          "10, monitor:DP-3, default:true"
         ];
       };
     };
