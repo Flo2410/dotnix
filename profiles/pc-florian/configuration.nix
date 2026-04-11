@@ -142,6 +142,7 @@
     timesyncd.enable = true;
     gnome.gnome-keyring.enable = true;
     gnome.gcr-ssh-agent.enable = true;
+    upower.enable = true;
 
     netbird = {
       enable = true;
