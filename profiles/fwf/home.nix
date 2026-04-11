@@ -94,6 +94,11 @@
       docker.enable = true;
       flatpak.enable = true;
 
+      stylix.wallpaper = pkgs.fetchurl {
+        url = "https://www.nasa.gov/wp-content/uploads/2026/04/art002e009288orig.jpg";
+        sha256 = "sha256-GhcshaW3Fyz/+344EQVvIghrfc/vVsNp1eamb7ijY7o=";
+      };
+
       autostart = {
         enable = true;
         autostartItems = [];
