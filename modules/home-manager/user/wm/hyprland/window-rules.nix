@@ -82,7 +82,8 @@
   "match:class ^(steam), match:title ^(Sign in to Steam)$, center on"
 
   # Thunar
-  "match:class ^(thunar), match:title ^(Rename)(.*)$, float on"
+  "match:class thunar, match:title ^(Rename)(.*)$, float on"
+  "match:class thunar, match:title ^(Rename)(.*)$, stay_focused on"
 
   # JabRef
   "match:float true, match:class ^(org.jabref.gui.JabRefGUI), match:title ^$, no_initial_focus on"
