@@ -30,12 +30,12 @@ in {
             <directories/>
           </action>
           <action>
-            <icon>vscode</icon>
-            <name>Open Code Here</name>
+            <icon>zed</icon>
+            <name>Open Zed Here</name>
             <submenu></submenu>
             <unique-id>1740573750720834-1</unique-id>
-            <command>code %f</command>
-            <description>Open Code Here</description>
+            <command>zeditor %f</command>
+            <description>Open Zed Here</description>
             <range>*</range>
             <patterns>*</patterns>
             <directories/>
