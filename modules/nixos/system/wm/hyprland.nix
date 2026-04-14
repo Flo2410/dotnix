@@ -76,7 +76,7 @@ in {
           name = "hyprland-uwsm-fixed";
           text = ''
             [Desktop Entry]
-            Name=Hyprland (UWSM)
+            Name=Hyprland (UWSM) (Fixed)
             Comment=Hyprland compositor managed by UWSM
             Exec=${lib.getExe config.programs.uwsm.package} start -eD Hyprland -F -- /run/current-system/sw/bin/start-hyprland
             Type=Application
