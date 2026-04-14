@@ -45,11 +45,18 @@ in {
   format_on_save = "on";
   auto_update = false;
 
-  # disable AI features
-  disable_ai = true;
+  # AI features
+  disable_ai = false;
   agent = {
-    enabled = false;
-    button = false;
+    enabled = true;
+    button = true;
+    default_model = {
+      provider = "copilot_chat";
+      model = "gpt-5.2";
+    };
+  };
+  edit_predictions = {
+    provider = "copilot";
   };
 
   collaboration_panel = {
