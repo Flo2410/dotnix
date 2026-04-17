@@ -58,7 +58,12 @@
   # Enable networking
   networking = {
     hostName = "fwf"; # Define your hostname.
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
     resolvconf.enable = true;
     extraHosts = ''
       10.94.31.11 terminal.fhwn.ac.at

@@ -80,7 +80,12 @@
   # Enable networking
   networking = {
     hostName = "PC-Florian"; # Define your hostname.
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
     resolvconf.enable = true;
   };
 
