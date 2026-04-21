@@ -116,6 +116,7 @@
       lemonade = {
         enable = true;
         enableZedIntegration = true;
+        zedProfile = "AI ON";
       };
 
       terminal = {
