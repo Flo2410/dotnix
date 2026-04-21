@@ -27,6 +27,8 @@
             home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
             inputs.catppuccin.nixosModules.catppuccin
+            inputs.nix-amd-ai.nixosModules.default
+            inputs.nix-xdna.nixosModules.default
 
             ./nix/nixpkgs.nix
             ./nix/lib/functions.nix

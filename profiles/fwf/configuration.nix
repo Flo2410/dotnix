@@ -17,8 +17,6 @@
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nix-index-database.nixosModules.default
-    inputs.nix-amd-ai.nixosModules.default
-    inputs.nix-xdna.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix

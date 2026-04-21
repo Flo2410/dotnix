@@ -58,6 +58,14 @@ in {
   edit_predictions = {
     provider = "copilot";
   };
+  agent_servers = {
+    "Claude Code" = {
+      type = "custom";
+      command = pkgs.lib.getExe pkgs.unstable.claude-agent-acp;
+      args = [];
+      env = {};
+    };
+  };
 
   collaboration_panel = {
     button = false;
