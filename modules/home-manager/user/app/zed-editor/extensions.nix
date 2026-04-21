@@ -11,4 +11,5 @@
   "make"
   "mermaid"
   "just"
+  "astro"
 ]
