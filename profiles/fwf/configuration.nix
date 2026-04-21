@@ -16,6 +16,7 @@
     # Or modules from other flakes (such as nixos-hardware):
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.nix-index-database.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
