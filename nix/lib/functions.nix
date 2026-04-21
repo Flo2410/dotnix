@@ -24,7 +24,8 @@ with lib; {
       version,
       desktopName,
       icon,
-      categories,
+      categories ? [],
+      https ? true,
     }:
       pkgs.stdenvNoCC.mkDerivation {
         inherit version;
@@ -32,11 +33,15 @@ with lib; {
         dontUnpack = true;
         desktopItem = let
           chrome-name = "chrome-${domain}__-Default";
+          url =
+            if https
+            then "https://${domain}"
+            else "http://${domain}";
         in
           pkgs.makeDesktopItem {
             inherit desktopName icon categories;
             name = chrome-name;
-            exec = "chromium --app=https://${domain}";
+            exec = "chromium --app=${url}";
             terminal = false;
             type = "Application";
             startupWMClass = chrome-name;
