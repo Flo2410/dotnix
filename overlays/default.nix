@@ -16,6 +16,8 @@
       dontPatchELF = true;
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [final.pkgs.kdePackages.wrapQtAppsHook];
     });
+
+    lemonade = inputs.nix-amd-ai.packages.${final.pkgs.stdenv.hostPlatform.system}.lemonade;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

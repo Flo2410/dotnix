@@ -15,6 +15,7 @@
     ./app/steam.nix
     ./app/virtualization.nix
     ./app/thunar.nix
+    ./app/lemonade.nix
 
     ./hardware
   ];

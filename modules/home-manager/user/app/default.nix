@@ -20,6 +20,7 @@
     ./go-hass-agent.nix
     ./zed-editor/zed-editor.nix
     ./mangohud.nix
+    ./lemonade.nix
 
     ./hypr/hyprlock.nix
     ./hypr/hypridle.nix

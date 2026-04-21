@@ -17,6 +17,8 @@
     inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.nix-index-database.nixosModules.default
+    inputs.nix-amd-ai.nixosModules.default
+    inputs.nix-xdna.nixosModules.default
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -104,7 +106,7 @@
     users."florian" = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev" "wireshark"];
+      extraGroups = ["networkmanager" "wheel" "input" "dialout" "video" "libvirtd" "docker" "plugdev" "wireshark" "render"];
     };
   };
 
@@ -224,6 +226,7 @@
       steam.enable = true;
       virtualization.enable = true;
       thunar.enable = true;
+      lemonade.enable = true;
 
       docker = {
         enable = true;

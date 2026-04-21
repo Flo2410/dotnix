@@ -108,12 +108,15 @@
         package = inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default;
       };
       virtualization.enable = true;
-      vscode.enable = true;
       zed-editor.enable = true;
       matlab.enable = true;
       thunar.enable = true;
       nvim.enable = true;
       baloo.enable = true;
+      lemonade = {
+        enable = true;
+        enableZedIntegration = true;
+      };
 
       terminal = {
         kitty.enable = true;

@@ -229,5 +229,15 @@
     simple-nixos-mailserver = {
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
     };
+
+    nix-amd-ai = {
+      url = "github:noamsto/nix-amd-ai";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    nix-xdna = {
+      url = "github:skitzo2000/nix-xdna";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
