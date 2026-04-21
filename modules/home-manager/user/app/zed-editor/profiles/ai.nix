@@ -1,8 +1,8 @@
 {pkgs}: {
   disable_ai = false;
   agent = {
-    enabled = false;
-    button = false;
+    enabled = true;
+    button = true;
 
     default_model = {
       provider = "copilot_chat";
