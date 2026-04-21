@@ -33,7 +33,7 @@
   # Bootloader.
   boot = {
     binfmt.emulatedSystems = ["aarch64-linux"]; # This is needed to build Raspberry Pi imgs
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_6_19;
 
     loader = {
       # Lanzaboote currently replaces the systemd-boot module.
