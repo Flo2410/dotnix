@@ -19,6 +19,7 @@
       inputs.rust-overlay.overlays.default
       inputs.catppuccin-vsc.overlays.default
       inputs.nixgl.overlay
+      inputs.claude-code.overlays.default
     ];
 
     config.allowUnfree = true;

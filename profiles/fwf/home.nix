@@ -167,6 +167,7 @@
       saleae-logic-2
       anydesk
       qalculate-gtk
+      claude-code
       unstable.jabref
 
       # kde utils
