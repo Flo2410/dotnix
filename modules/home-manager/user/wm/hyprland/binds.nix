@@ -117,6 +117,7 @@ in {
 
       # Change workspace orientation
       "$mod, PLUS, layoutmsg, orientationcycle left top"
+      "$mod SHIFT, PLUS, layoutmsg, orientationcycle right bottom"
 
       # Set Master window size
       # 33% of screen
