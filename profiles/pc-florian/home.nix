@@ -253,6 +253,8 @@
       heroic
       home-assistant-desktop
       anydesk
+      claude-code
+      stm32cubemx
       unstable.jabref
       unstable.netbird-ui
 
