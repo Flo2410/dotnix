@@ -313,7 +313,7 @@
       uutils-coreutils-noprefix
       wlx-overlay-s
 
-      (unstable.bottles.override {
+      (bottles.override {
         removeWarningPopup = true;
       })
 
