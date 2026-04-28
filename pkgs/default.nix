@@ -10,6 +10,7 @@ with pkgs; {
   udev-xilinx-digilent-pcusb = callPackage ./udev/xilinx-digilent-pcusb.nix {};
   udev-chipwhisperer = callPackage ./udev/chipwhisperer.nix {};
   udev-iqunix-magi75 = callPackage ./udev/iqunix-magi75.nix {};
+  udev-u18 = callPackage ./udev/u-18.nix {};
 
   git-fuzzy = callPackage ./git-fuzzy.nix {};
 

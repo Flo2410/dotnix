@@ -170,6 +170,7 @@
         udev-ft232h
         udev-iqunix-magi75
         openocd #(callPackage ./openocd.nix { })
+        udev-u18
       ];
 
       extraRules = ''
