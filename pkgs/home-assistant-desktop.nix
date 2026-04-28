@@ -10,16 +10,16 @@
 in
   buildNpmPackage rec {
     pname = "homeassistant-desktop";
-    version = "1.6.7";
+    version = "1.6.10";
 
     src = fetchFromGitHub {
       owner = "DustyArmstrong";
       repo = pname;
       rev = "${version}";
-      hash = "sha256-nkfqhkDEkZluJ/KTHnTTKubvrngqcgJDRodb71S/EqY=";
+      hash = "sha256-tyBDmc7rymuzWLj4upyGipqkNN/iuk2y/BfQgRrW7vg=";
     };
 
-    npmDepsHash = "sha256-lqZMw74ozi4jJkyOYPodOHx3zgMsfWCguAHUP960egM=";
+    npmDepsHash = "sha256-8hRNGTJNbNoOIg8sbnGM1DNBipT7/AWpfeqnb7eLxjY=";
 
     nativeBuildInputs = [
       electron
