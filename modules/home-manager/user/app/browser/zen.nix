@@ -59,12 +59,34 @@ in {
             "gfx.x11-egl.force-enabled" = true;
           };
         userChrome = ''
+          /* Remove window control buttons */
           *|*:root .titlebar-buttonbox {
             display: none !important;
           }
 
+          /* Remove workspace buttons */
           #zen-workspaces-button {
             display: none !important;
+          }
+
+          /* Hide titlebar and sidebar in fullscreen mode */
+          :root[inFullscreen=true] tabpanels#tabbrowser-tabpanels, :root[inFullscreen=true] #zen-tabbox-wrapper {
+              position: fixed !important;
+              top: 0 !important;
+              left: 0 !important;
+              right: 0 !important;
+              bottom: 0 !important;
+              margin: 0 !important;
+          }
+
+          :root[inFullscreen=true] .browserSidebarContainer.deck-selected {
+              border-radius: 0px !important;
+          }
+
+          :root[inFullscreen=true] toolbox#navigator-toolbox, :root[inFullscreen=true] div#zen-appcontent-navbar-wrapper {
+              display: none !important;
+              width: 0 !important;
+              height: 0 !important;
           }
         '';
       };
